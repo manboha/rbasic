@@ -2,9 +2,10 @@
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
-  cache = TRUE, 
+  cache = TRUE,
   fig.align="center",
-  fig.pos="t"
+  fig.pos="t",
+  echo = TRUE
 )
 set.seed(2016)
 options(digits = 3)

@@ -14,7 +14,7 @@ description: "This is a R Basic Manual."
 
 # 머리말 {-}
 
-This is a _sample_ book written in **Markdown**. 
+이 책은 R을 공부하기 위한 기초 매뉴얼입니다.
 
 
 ```{r include=FALSE}

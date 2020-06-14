@@ -1,6 +1,3 @@
-book_filename: "bookdown-demo"
-language:
-  ui:
-    chapter_name: "Chapter "
+book_filename: "rbasic"
+before_chapter_script: ["code/before_script.R"]
 delete_merged_file: true
-output_dir: "docs"

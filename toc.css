@@ -35,7 +35,7 @@
 #TOC > ul > li {
   display: inline-block;
   float: left;
-  margin: 0;
+  margin: 3;
 }
 #TOC > ul > li > a {
   color: #ffffff;

@@ -1,3 +1,4 @@
 book_filename: "rbasic"
 before_chapter_script: ["code/before_script.R"]
 delete_merged_file: true
+output_dir: "docs"

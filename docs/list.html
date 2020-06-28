@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Basic Manual</title>
+  <title>3.6 R 리스트 List | R Basic Manual</title>
   <meta name="description" content="This is a R Basic Manual." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Basic Manual" />
+  <meta property="og:title" content="3.6 R 리스트 List | R Basic Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="manboha/rbasic" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Basic Manual" />
+  <meta name="twitter:title" content="3.6 R 리스트 List | R Basic Manual" />
   
   <meta name="twitter:description" content="This is a R Basic Manual." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="설치.html"/>
+<link rel="prev" href="dataframe.html"/>
+<link rel="next" href="r-제어문.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -329,23 +329,264 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Basic Manual</h1>
-<p class="author"><em>Manboha</em></p>
-<p class="date"><em>2020-06-28</em></p>
+<div id="list" class="section level2">
+<h2><span class="header-section-number">3.6</span> R 리스트 List</h2>
+<p>리스트(List)는 벡터, 행렬, 배열, 데이터 프레임 등과 같은 서로 다른 구조의 객체들을 하나로 묶은 것입니다. 기차처럼 이어서 묶어 놓은 것을 상상하면 될 것입니다.</p>
+<div id="리스트-만들기" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> 리스트 만들기</h3>
+<p>숫자 벡터, 문자벡터, 행렬, 데이터 프레임을 하나로 묶어서 mylist라는 변수에 할당하겠습니다.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="list.html#cb110-1"></a><span class="co"># 숫자 벡터</span></span>
+<span id="cb110-2"><a href="list.html#cb110-2"></a>numvec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
+<span id="cb110-3"><a href="list.html#cb110-3"></a><span class="co"># 문자 벡터</span></span>
+<span id="cb110-4"><a href="list.html#cb110-4"></a>strvec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;대한&quot;</span>, <span class="st">&quot;민국&quot;</span>, <span class="st">&quot;행정&quot;</span>)</span>
+<span id="cb110-5"><a href="list.html#cb110-5"></a><span class="co"># 행렬</span></span>
+<span id="cb110-6"><a href="list.html#cb110-6"></a>mtx &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb110-7"><a href="list.html#cb110-7"></a></span>
+<span id="cb110-8"><a href="list.html#cb110-8"></a><span class="co"># 데이터 프레임</span></span>
+<span id="cb110-9"><a href="list.html#cb110-9"></a>name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;유재석&quot;</span>, <span class="st">&quot;홍진영&quot;</span>, <span class="st">&quot;송가인&quot;</span>, <span class="st">&quot;강호동&quot;</span>, <span class="st">&quot;이영자&quot;</span>, <span class="st">&quot;김종민&quot;</span>, <span class="st">&quot;김연아&quot;</span>)</span>
+<span id="cb110-10"><a href="list.html#cb110-10"></a>age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">24</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">25</span>, <span class="dv">27</span>, <span class="dv">22</span>, <span class="dv">29</span>)</span>
+<span id="cb110-11"><a href="list.html#cb110-11"></a>sex &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;남&quot;</span>, <span class="st">&quot;여&quot;</span>, <span class="st">&quot;여&quot;</span>, <span class="st">&quot;남&quot;</span>, <span class="st">&quot;여&quot;</span>, <span class="st">&quot;남&quot;</span>, <span class="st">&quot;여&quot;</span>)</span>
+<span id="cb110-12"><a href="list.html#cb110-12"></a>score &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">75</span>, <span class="dv">95</span>, <span class="dv">80</span>, <span class="dv">70</span>)</span>
+<span id="cb110-13"><a href="list.html#cb110-13"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(name, age, sex, score, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb110-14"><a href="list.html#cb110-14"></a></span>
+<span id="cb110-15"><a href="list.html#cb110-15"></a><span class="co"># 리스트 만들기 : 리스트 요소에 이름이 지정되지 않음</span></span>
+<span id="cb110-16"><a href="list.html#cb110-16"></a>mylist &lt;-<span class="st"> </span><span class="kw">list</span>(numvec, strvec, mtx, df)</span>
+<span id="cb110-17"><a href="list.html#cb110-17"></a>mylist</span>
+<span id="cb110-18"><a href="list.html#cb110-18"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb110-19"><a href="list.html#cb110-19"></a><span class="co">#&gt; [1] 1 3 5 7 9</span></span>
+<span id="cb110-20"><a href="list.html#cb110-20"></a><span class="co">#&gt; </span></span>
+<span id="cb110-21"><a href="list.html#cb110-21"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb110-22"><a href="list.html#cb110-22"></a><span class="co">#&gt; [1] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;</span></span>
+<span id="cb110-23"><a href="list.html#cb110-23"></a><span class="co">#&gt; </span></span>
+<span id="cb110-24"><a href="list.html#cb110-24"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb110-25"><a href="list.html#cb110-25"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb110-26"><a href="list.html#cb110-26"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb110-27"><a href="list.html#cb110-27"></a><span class="co">#&gt; [2,]    2    6   10</span></span>
+<span id="cb110-28"><a href="list.html#cb110-28"></a><span class="co">#&gt; [3,]    3    7   11</span></span>
+<span id="cb110-29"><a href="list.html#cb110-29"></a><span class="co">#&gt; [4,]    4    8   12</span></span>
+<span id="cb110-30"><a href="list.html#cb110-30"></a><span class="co">#&gt; </span></span>
+<span id="cb110-31"><a href="list.html#cb110-31"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb110-32"><a href="list.html#cb110-32"></a><span class="co">#&gt;     name age sex score</span></span>
+<span id="cb110-33"><a href="list.html#cb110-33"></a><span class="co">#&gt; 1 유재석  24  남    90</span></span>
+<span id="cb110-34"><a href="list.html#cb110-34"></a><span class="co">#&gt; 2 홍진영  28  여    80</span></span>
+<span id="cb110-35"><a href="list.html#cb110-35"></a><span class="co">#&gt; 3 송가인  31  여    85</span></span>
+<span id="cb110-36"><a href="list.html#cb110-36"></a><span class="co">#&gt; 4 강호동  25  남    75</span></span>
+<span id="cb110-37"><a href="list.html#cb110-37"></a><span class="co">#&gt; 5 이영자  27  여    95</span></span>
+<span id="cb110-38"><a href="list.html#cb110-38"></a><span class="co">#&gt; 6 김종민  22  남    80</span></span>
+<span id="cb110-39"><a href="list.html#cb110-39"></a><span class="co">#&gt; 7 김연아  29  여    70</span></span>
+<span id="cb110-40"><a href="list.html#cb110-40"></a></span>
+<span id="cb110-41"><a href="list.html#cb110-41"></a><span class="co"># 리스트 요소에 이름을 지정하여 리스트 만들기</span></span>
+<span id="cb110-42"><a href="list.html#cb110-42"></a>mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">numvec =</span> numvec, </span>
+<span id="cb110-43"><a href="list.html#cb110-43"></a>               <span class="dt">strvec =</span> strvec, </span>
+<span id="cb110-44"><a href="list.html#cb110-44"></a>               <span class="dt">mtx =</span> mtx, </span>
+<span id="cb110-45"><a href="list.html#cb110-45"></a>               <span class="dt">df =</span> df)</span>
+<span id="cb110-46"><a href="list.html#cb110-46"></a>mylist</span>
+<span id="cb110-47"><a href="list.html#cb110-47"></a><span class="co">#&gt; $numvec</span></span>
+<span id="cb110-48"><a href="list.html#cb110-48"></a><span class="co">#&gt; [1] 1 3 5 7 9</span></span>
+<span id="cb110-49"><a href="list.html#cb110-49"></a><span class="co">#&gt; </span></span>
+<span id="cb110-50"><a href="list.html#cb110-50"></a><span class="co">#&gt; $strvec</span></span>
+<span id="cb110-51"><a href="list.html#cb110-51"></a><span class="co">#&gt; [1] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;</span></span>
+<span id="cb110-52"><a href="list.html#cb110-52"></a><span class="co">#&gt; </span></span>
+<span id="cb110-53"><a href="list.html#cb110-53"></a><span class="co">#&gt; $mtx</span></span>
+<span id="cb110-54"><a href="list.html#cb110-54"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb110-55"><a href="list.html#cb110-55"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb110-56"><a href="list.html#cb110-56"></a><span class="co">#&gt; [2,]    2    6   10</span></span>
+<span id="cb110-57"><a href="list.html#cb110-57"></a><span class="co">#&gt; [3,]    3    7   11</span></span>
+<span id="cb110-58"><a href="list.html#cb110-58"></a><span class="co">#&gt; [4,]    4    8   12</span></span>
+<span id="cb110-59"><a href="list.html#cb110-59"></a><span class="co">#&gt; </span></span>
+<span id="cb110-60"><a href="list.html#cb110-60"></a><span class="co">#&gt; $df</span></span>
+<span id="cb110-61"><a href="list.html#cb110-61"></a><span class="co">#&gt;     name age sex score</span></span>
+<span id="cb110-62"><a href="list.html#cb110-62"></a><span class="co">#&gt; 1 유재석  24  남    90</span></span>
+<span id="cb110-63"><a href="list.html#cb110-63"></a><span class="co">#&gt; 2 홍진영  28  여    80</span></span>
+<span id="cb110-64"><a href="list.html#cb110-64"></a><span class="co">#&gt; 3 송가인  31  여    85</span></span>
+<span id="cb110-65"><a href="list.html#cb110-65"></a><span class="co">#&gt; 4 강호동  25  남    75</span></span>
+<span id="cb110-66"><a href="list.html#cb110-66"></a><span class="co">#&gt; 5 이영자  27  여    95</span></span>
+<span id="cb110-67"><a href="list.html#cb110-67"></a><span class="co">#&gt; 6 김종민  22  남    80</span></span>
+<span id="cb110-68"><a href="list.html#cb110-68"></a><span class="co">#&gt; 7 김연아  29  여    70</span></span></code></pre></div>
+<div id="리스트-요소-이름-지정-또는-변경하기" class="section level4">
+<h4><span class="header-section-number">3.6.1.1</span> 리스트 요소 이름 지정 또는 변경하기</h4>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="list.html#cb111-1"></a><span class="kw">names</span>(mylist) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;numbers&quot;</span>, <span class="st">&quot;strings&quot;</span>, <span class="st">&quot;matrix_num&quot;</span>, <span class="st">&quot;df_score&quot;</span>)</span>
+<span id="cb111-2"><a href="list.html#cb111-2"></a>mylist</span>
+<span id="cb111-3"><a href="list.html#cb111-3"></a><span class="co">#&gt; $numbers</span></span>
+<span id="cb111-4"><a href="list.html#cb111-4"></a><span class="co">#&gt; [1] 1 3 5 7 9</span></span>
+<span id="cb111-5"><a href="list.html#cb111-5"></a><span class="co">#&gt; </span></span>
+<span id="cb111-6"><a href="list.html#cb111-6"></a><span class="co">#&gt; $strings</span></span>
+<span id="cb111-7"><a href="list.html#cb111-7"></a><span class="co">#&gt; [1] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;</span></span>
+<span id="cb111-8"><a href="list.html#cb111-8"></a><span class="co">#&gt; </span></span>
+<span id="cb111-9"><a href="list.html#cb111-9"></a><span class="co">#&gt; $matrix_num</span></span>
+<span id="cb111-10"><a href="list.html#cb111-10"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb111-11"><a href="list.html#cb111-11"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb111-12"><a href="list.html#cb111-12"></a><span class="co">#&gt; [2,]    2    6   10</span></span>
+<span id="cb111-13"><a href="list.html#cb111-13"></a><span class="co">#&gt; [3,]    3    7   11</span></span>
+<span id="cb111-14"><a href="list.html#cb111-14"></a><span class="co">#&gt; [4,]    4    8   12</span></span>
+<span id="cb111-15"><a href="list.html#cb111-15"></a><span class="co">#&gt; </span></span>
+<span id="cb111-16"><a href="list.html#cb111-16"></a><span class="co">#&gt; $df_score</span></span>
+<span id="cb111-17"><a href="list.html#cb111-17"></a><span class="co">#&gt;     name age sex score</span></span>
+<span id="cb111-18"><a href="list.html#cb111-18"></a><span class="co">#&gt; 1 유재석  24  남    90</span></span>
+<span id="cb111-19"><a href="list.html#cb111-19"></a><span class="co">#&gt; 2 홍진영  28  여    80</span></span>
+<span id="cb111-20"><a href="list.html#cb111-20"></a><span class="co">#&gt; 3 송가인  31  여    85</span></span>
+<span id="cb111-21"><a href="list.html#cb111-21"></a><span class="co">#&gt; 4 강호동  25  남    75</span></span>
+<span id="cb111-22"><a href="list.html#cb111-22"></a><span class="co">#&gt; 5 이영자  27  여    95</span></span>
+<span id="cb111-23"><a href="list.html#cb111-23"></a><span class="co">#&gt; 6 김종민  22  남    80</span></span>
+<span id="cb111-24"><a href="list.html#cb111-24"></a><span class="co">#&gt; 7 김연아  29  여    70</span></span></code></pre></div>
 </div>
-<div id="머리말" class="section level1 unnumbered">
-<h1>머리말</h1>
-<p>이 책은 R을 공부하기 위한 기초 매뉴얼입니다.</p>
+</div>
+<div id="리스트-구조-보기" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> 리스트 구조 보기</h3>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="list.html#cb112-1"></a><span class="co"># 리스트 구조 보기</span></span>
+<span id="cb112-2"><a href="list.html#cb112-2"></a><span class="kw">str</span>(mylist)</span>
+<span id="cb112-3"><a href="list.html#cb112-3"></a><span class="co">#&gt; List of 4</span></span>
+<span id="cb112-4"><a href="list.html#cb112-4"></a><span class="co">#&gt;  $ numbers   : num [1:5] 1 3 5 7 9</span></span>
+<span id="cb112-5"><a href="list.html#cb112-5"></a><span class="co">#&gt;  $ strings   : chr [1:3] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;</span></span>
+<span id="cb112-6"><a href="list.html#cb112-6"></a><span class="co">#&gt;  $ matrix_num: int [1:4, 1:3] 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb112-7"><a href="list.html#cb112-7"></a><span class="co">#&gt;  $ df_score  :&#39;data.frame&#39;:  7 obs. of  4 variables:</span></span>
+<span id="cb112-8"><a href="list.html#cb112-8"></a><span class="co">#&gt;   ..$ name : chr [1:7] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; ...</span></span>
+<span id="cb112-9"><a href="list.html#cb112-9"></a><span class="co">#&gt;   ..$ age  : num [1:7] 24 28 31 25 27 22 29</span></span>
+<span id="cb112-10"><a href="list.html#cb112-10"></a><span class="co">#&gt;   ..$ sex  : chr [1:7] &quot;남&quot; &quot;여&quot; &quot;여&quot; &quot;남&quot; ...</span></span>
+<span id="cb112-11"><a href="list.html#cb112-11"></a><span class="co">#&gt;   ..$ score: num [1:7] 90 80 85 75 95 80 70</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="list.html#cb113-1"></a><span class="co"># 리스트에 있는 객체(요소)의 개수</span></span>
+<span id="cb113-2"><a href="list.html#cb113-2"></a><span class="kw">length</span>(mylist)</span>
+<span id="cb113-3"><a href="list.html#cb113-3"></a><span class="co">#&gt; [1] 4</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="list.html#cb114-1"></a><span class="co"># 리스트 요소의 이름 추출</span></span>
+<span id="cb114-2"><a href="list.html#cb114-2"></a><span class="kw">names</span>(mylist)</span>
+<span id="cb114-3"><a href="list.html#cb114-3"></a><span class="co">#&gt; [1] &quot;numbers&quot;    &quot;strings&quot;    &quot;matrix_num&quot; &quot;df_score&quot;</span></span></code></pre></div>
+</div>
+<div id="리스트에서-데이터-추출" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> 리스트에서 데이터 추출</h3>
+<div id="특정-위치에-있는-데이터-추출하기" class="section level4">
+<h4><span class="header-section-number">3.6.3.1</span> 특정 위치에 있는 데이터 추출하기</h4>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="list.html#cb115-1"></a><span class="co"># 행렬(matrix_num) 요소 데이터 추출</span></span>
+<span id="cb115-2"><a href="list.html#cb115-2"></a><span class="co"># 리스트와 요소사이에 $기호가 사용됨</span></span>
+<span id="cb115-3"><a href="list.html#cb115-3"></a>mylist<span class="op">$</span>matrix_num</span>
+<span id="cb115-4"><a href="list.html#cb115-4"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb115-5"><a href="list.html#cb115-5"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb115-6"><a href="list.html#cb115-6"></a><span class="co">#&gt; [2,]    2    6   10</span></span>
+<span id="cb115-7"><a href="list.html#cb115-7"></a><span class="co">#&gt; [3,]    3    7   11</span></span>
+<span id="cb115-8"><a href="list.html#cb115-8"></a><span class="co">#&gt; [4,]    4    8   12</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="list.html#cb116-1"></a><span class="co"># 위치 번호 대신 요소 이름을 사용하여 추출</span></span>
+<span id="cb116-2"><a href="list.html#cb116-2"></a><span class="co"># []는 리스트의 하위 요소를 보여주는 것임. 타입은 list </span></span>
+<span id="cb116-3"><a href="list.html#cb116-3"></a>mylist[<span class="st">&quot;matrix_num&quot;</span>]; <span class="kw">typeof</span>(mylist[<span class="st">&quot;matrix_num&quot;</span>])</span>
+<span id="cb116-4"><a href="list.html#cb116-4"></a><span class="co">#&gt; $matrix_num</span></span>
+<span id="cb116-5"><a href="list.html#cb116-5"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb116-6"><a href="list.html#cb116-6"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb116-7"><a href="list.html#cb116-7"></a><span class="co">#&gt; [2,]    2    6   10</span></span>
+<span id="cb116-8"><a href="list.html#cb116-8"></a><span class="co">#&gt; [3,]    3    7   11</span></span>
+<span id="cb116-9"><a href="list.html#cb116-9"></a><span class="co">#&gt; [4,]    4    8   12</span></span>
+<span id="cb116-10"><a href="list.html#cb116-10"></a><span class="co">#&gt; [1] &quot;list&quot;</span></span>
+<span id="cb116-11"><a href="list.html#cb116-11"></a></span>
+<span id="cb116-12"><a href="list.html#cb116-12"></a><span class="co"># [[]]는 리스트 하위 요소의 데이터를 보여줌. 타입은 integer</span></span>
+<span id="cb116-13"><a href="list.html#cb116-13"></a>mylist[[<span class="st">&quot;matrix_num&quot;</span>]]; <span class="kw">typeof</span>(mylist[[<span class="st">&quot;matrix_num&quot;</span>]])</span>
+<span id="cb116-14"><a href="list.html#cb116-14"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb116-15"><a href="list.html#cb116-15"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb116-16"><a href="list.html#cb116-16"></a><span class="co">#&gt; [2,]    2    6   10</span></span>
+<span id="cb116-17"><a href="list.html#cb116-17"></a><span class="co">#&gt; [3,]    3    7   11</span></span>
+<span id="cb116-18"><a href="list.html#cb116-18"></a><span class="co">#&gt; [4,]    4    8   12</span></span>
+<span id="cb116-19"><a href="list.html#cb116-19"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="list.html#cb117-1"></a><span class="co"># df$matrix_num 대신 아래처럼 사용 가능 - 3번째 요소</span></span>
+<span id="cb117-2"><a href="list.html#cb117-2"></a><span class="co"># mylist$numbers == mylist[[&quot;numbers&quot;]] == mylist[[1]]</span></span>
+<span id="cb117-3"><a href="list.html#cb117-3"></a>mylist<span class="op">$</span>numbers; mylist[[<span class="st">&quot;numbers&quot;</span>]]; mylist[[<span class="dv">1</span>]]</span>
+<span id="cb117-4"><a href="list.html#cb117-4"></a><span class="co">#&gt; [1] 1 3 5 7 9</span></span>
+<span id="cb117-5"><a href="list.html#cb117-5"></a><span class="co">#&gt; [1] 1 3 5 7 9</span></span>
+<span id="cb117-6"><a href="list.html#cb117-6"></a><span class="co">#&gt; [1] 1 3 5 7 9</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="list.html#cb118-1"></a><span class="co"># 리스트의 strings 요소의 3번째 데이터 추출</span></span>
+<span id="cb118-2"><a href="list.html#cb118-2"></a><span class="co"># 아래 3가지 방식이 동일함</span></span>
+<span id="cb118-3"><a href="list.html#cb118-3"></a>s1 &lt;-<span class="st"> </span>mylist<span class="op">$</span>strings[<span class="dv">3</span>]</span>
+<span id="cb118-4"><a href="list.html#cb118-4"></a>s2 &lt;-<span class="st"> </span>mylist[[<span class="st">&quot;strings&quot;</span>]][<span class="dv">3</span>]</span>
+<span id="cb118-5"><a href="list.html#cb118-5"></a>s3 &lt;-<span class="st"> </span>mylist[[<span class="dv">2</span>]][<span class="dv">3</span>]</span>
+<span id="cb118-6"><a href="list.html#cb118-6"></a>s1; s2; s3</span>
+<span id="cb118-7"><a href="list.html#cb118-7"></a><span class="co">#&gt; [1] &quot;행정&quot;</span></span>
+<span id="cb118-8"><a href="list.html#cb118-8"></a><span class="co">#&gt; [1] &quot;행정&quot;</span></span>
+<span id="cb118-9"><a href="list.html#cb118-9"></a><span class="co">#&gt; [1] &quot;행정&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="list.html#cb119-1"></a><span class="co"># 리스트의 요소인 df_score 데이터 프레임의 name 변수 데이터 추출</span></span>
+<span id="cb119-2"><a href="list.html#cb119-2"></a>mylist<span class="op">$</span>df_score<span class="op">$</span>name</span>
+<span id="cb119-3"><a href="list.html#cb119-3"></a><span class="co">#&gt; [1] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; &quot;이영자&quot; &quot;김종민&quot; &quot;김연아&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="리스트의-데이터-수정" class="section level3">
+<h3><span class="header-section-number">3.6.4</span> 리스트의 데이터 수정</h3>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="list.html#cb120-1"></a><span class="co"># 리스트의 strings 요소의 3번째 데이터를 &quot;정부&quot;로 수정</span></span>
+<span id="cb120-2"><a href="list.html#cb120-2"></a>mylist<span class="op">$</span>strings[<span class="dv">3</span>] &lt;-<span class="st"> &quot;정부&quot;</span></span>
+<span id="cb120-3"><a href="list.html#cb120-3"></a>mylist<span class="op">$</span>strings</span>
+<span id="cb120-4"><a href="list.html#cb120-4"></a><span class="co">#&gt; [1] &quot;대한&quot; &quot;민국&quot; &quot;정부&quot;</span></span></code></pre></div>
+</div>
+<div id="리스트-구조-수정" class="section level3">
+<h3><span class="header-section-number">3.6.5</span> 리스트 구조 수정</h3>
+<div id="리스트-요소-추가" class="section level4">
+<h4><span class="header-section-number">3.6.5.1</span> 리스트 요소 추가</h4>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="list.html#cb121-1"></a>mylist<span class="op">$</span>new_list &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb121-2"><a href="list.html#cb121-2"></a><span class="kw">str</span>(mylist)</span>
+<span id="cb121-3"><a href="list.html#cb121-3"></a><span class="co">#&gt; List of 5</span></span>
+<span id="cb121-4"><a href="list.html#cb121-4"></a><span class="co">#&gt;  $ numbers   : num [1:5] 1 3 5 7 9</span></span>
+<span id="cb121-5"><a href="list.html#cb121-5"></a><span class="co">#&gt;  $ strings   : chr [1:3] &quot;대한&quot; &quot;민국&quot; &quot;정부&quot;</span></span>
+<span id="cb121-6"><a href="list.html#cb121-6"></a><span class="co">#&gt;  $ matrix_num: int [1:4, 1:3] 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb121-7"><a href="list.html#cb121-7"></a><span class="co">#&gt;  $ df_score  :&#39;data.frame&#39;:  7 obs. of  4 variables:</span></span>
+<span id="cb121-8"><a href="list.html#cb121-8"></a><span class="co">#&gt;   ..$ name : chr [1:7] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; ...</span></span>
+<span id="cb121-9"><a href="list.html#cb121-9"></a><span class="co">#&gt;   ..$ age  : num [1:7] 24 28 31 25 27 22 29</span></span>
+<span id="cb121-10"><a href="list.html#cb121-10"></a><span class="co">#&gt;   ..$ sex  : chr [1:7] &quot;남&quot; &quot;여&quot; &quot;여&quot; &quot;남&quot; ...</span></span>
+<span id="cb121-11"><a href="list.html#cb121-11"></a><span class="co">#&gt;   ..$ score: num [1:7] 90 80 85 75 95 80 70</span></span>
+<span id="cb121-12"><a href="list.html#cb121-12"></a><span class="co">#&gt;  $ new_list  : int [1:5] 1 2 3 4 5</span></span></code></pre></div>
+</div>
+<div id="리스트-요소-제거" class="section level4">
+<h4><span class="header-section-number">3.6.5.2</span> 리스트 요소 제거</h4>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="list.html#cb122-1"></a>mylist<span class="op">$</span>new_list &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb122-2"><a href="list.html#cb122-2"></a><span class="kw">str</span>(mylist)</span>
+<span id="cb122-3"><a href="list.html#cb122-3"></a><span class="co">#&gt; List of 4</span></span>
+<span id="cb122-4"><a href="list.html#cb122-4"></a><span class="co">#&gt;  $ numbers   : num [1:5] 1 3 5 7 9</span></span>
+<span id="cb122-5"><a href="list.html#cb122-5"></a><span class="co">#&gt;  $ strings   : chr [1:3] &quot;대한&quot; &quot;민국&quot; &quot;정부&quot;</span></span>
+<span id="cb122-6"><a href="list.html#cb122-6"></a><span class="co">#&gt;  $ matrix_num: int [1:4, 1:3] 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb122-7"><a href="list.html#cb122-7"></a><span class="co">#&gt;  $ df_score  :&#39;data.frame&#39;:  7 obs. of  4 variables:</span></span>
+<span id="cb122-8"><a href="list.html#cb122-8"></a><span class="co">#&gt;   ..$ name : chr [1:7] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; ...</span></span>
+<span id="cb122-9"><a href="list.html#cb122-9"></a><span class="co">#&gt;   ..$ age  : num [1:7] 24 28 31 25 27 22 29</span></span>
+<span id="cb122-10"><a href="list.html#cb122-10"></a><span class="co">#&gt;   ..$ sex  : chr [1:7] &quot;남&quot; &quot;여&quot; &quot;여&quot; &quot;남&quot; ...</span></span>
+<span id="cb122-11"><a href="list.html#cb122-11"></a><span class="co">#&gt;   ..$ score: num [1:7] 90 80 85 75 95 80 70</span></span></code></pre></div>
+</div>
+<div id="리스트-병합" class="section level4">
+<h4><span class="header-section-number">3.6.5.3</span> 리스트 병합</h4>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="list.html#cb123-1"></a>list1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,</span>
+<span id="cb123-2"><a href="list.html#cb123-2"></a>              <span class="dt">x2 =</span> LETTERS)</span>
+<span id="cb123-3"><a href="list.html#cb123-3"></a>list2 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">y1 =</span> <span class="dv">11</span><span class="op">:</span><span class="dv">17</span>,</span>
+<span id="cb123-4"><a href="list.html#cb123-4"></a>              <span class="dt">y2 =</span> letters)</span>
+<span id="cb123-5"><a href="list.html#cb123-5"></a></span>
+<span id="cb123-6"><a href="list.html#cb123-6"></a><span class="co"># 2개 리스트 병합</span></span>
+<span id="cb123-7"><a href="list.html#cb123-7"></a>mlist &lt;-<span class="st"> </span><span class="kw">c</span>(list1, list2)</span>
+<span id="cb123-8"><a href="list.html#cb123-8"></a>mlist</span>
+<span id="cb123-9"><a href="list.html#cb123-9"></a><span class="co">#&gt; $x1</span></span>
+<span id="cb123-10"><a href="list.html#cb123-10"></a><span class="co">#&gt; [1] 1 2 3 4 5</span></span>
+<span id="cb123-11"><a href="list.html#cb123-11"></a><span class="co">#&gt; </span></span>
+<span id="cb123-12"><a href="list.html#cb123-12"></a><span class="co">#&gt; $x2</span></span>
+<span id="cb123-13"><a href="list.html#cb123-13"></a><span class="co">#&gt;  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;</span></span>
+<span id="cb123-14"><a href="list.html#cb123-14"></a><span class="co">#&gt; [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</span></span>
+<span id="cb123-15"><a href="list.html#cb123-15"></a><span class="co">#&gt; </span></span>
+<span id="cb123-16"><a href="list.html#cb123-16"></a><span class="co">#&gt; $y1</span></span>
+<span id="cb123-17"><a href="list.html#cb123-17"></a><span class="co">#&gt; [1] 11 12 13 14 15 16 17</span></span>
+<span id="cb123-18"><a href="list.html#cb123-18"></a><span class="co">#&gt; </span></span>
+<span id="cb123-19"><a href="list.html#cb123-19"></a><span class="co">#&gt; $y2</span></span>
+<span id="cb123-20"><a href="list.html#cb123-20"></a><span class="co">#&gt;  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;</span></span>
+<span id="cb123-21"><a href="list.html#cb123-21"></a><span class="co">#&gt; [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="리스트를-벡터로-변환" class="section level3">
+<h3><span class="header-section-number">3.6.6</span> 리스트를 벡터로 변환</h3>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="list.html#cb124-1"></a><span class="co"># 리스트를 벡터로 변환</span></span>
+<span id="cb124-2"><a href="list.html#cb124-2"></a><span class="kw">unlist</span>(list1)</span>
+<span id="cb124-3"><a href="list.html#cb124-3"></a><span class="co">#&gt;  x11  x12  x13  x14  x15  x21  x22  x23  x24  x25  x26  x27  x28  x29 x210 x211 </span></span>
+<span id="cb124-4"><a href="list.html#cb124-4"></a><span class="co">#&gt;  &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;A&quot;  &quot;B&quot;  &quot;C&quot;  &quot;D&quot;  &quot;E&quot;  &quot;F&quot;  &quot;G&quot;  &quot;H&quot;  &quot;I&quot;  &quot;J&quot;  &quot;K&quot; </span></span>
+<span id="cb124-5"><a href="list.html#cb124-5"></a><span class="co">#&gt; x212 x213 x214 x215 x216 x217 x218 x219 x220 x221 x222 x223 x224 x225 x226 </span></span>
+<span id="cb124-6"><a href="list.html#cb124-6"></a><span class="co">#&gt;  &quot;L&quot;  &quot;M&quot;  &quot;N&quot;  &quot;O&quot;  &quot;P&quot;  &quot;Q&quot;  &quot;R&quot;  &quot;S&quot;  &quot;T&quot;  &quot;U&quot;  &quot;V&quot;  &quot;W&quot;  &quot;X&quot;  &quot;Y&quot;  &quot;Z&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="list.html#cb125-1"></a><span class="co"># 리스트 요소를 벡터로 변환</span></span>
+<span id="cb125-2"><a href="list.html#cb125-2"></a><span class="kw">unlist</span>(mylist<span class="op">$</span>numbers)</span>
+<span id="cb125-3"><a href="list.html#cb125-3"></a><span class="co">#&gt; [1] 1 3 5 7 9</span></span></code></pre></div>
 
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="설치.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="dataframe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-제어문.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -376,7 +617,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/manboha/rbasic/edit/master/index.Rmd",
+"link": "https://github.com/manboha/rbasic/edit/master/03-R데이터구조.Rmd",
 "text": "Edit"
 },
 "history": {

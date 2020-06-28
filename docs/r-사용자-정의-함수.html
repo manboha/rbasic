@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | R Basic Manual</title>
+  <title>5.12 R 사용자 정의 함수 | R Basic Manual</title>
   <meta name="description" content="This is a R Basic Manual." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | R Basic Manual" />
+  <meta property="og:title" content="5.12 R 사용자 정의 함수 | R Basic Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="manboha/rbasic" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | R Basic Manual" />
+  <meta name="twitter:title" content="5.12 R 사용자 정의 함수 | R Basic Manual" />
   
   <meta name="twitter:description" content="This is a R Basic Manual." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Manboha" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-06-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="r-inheritance.html"/>
-
+<link rel="prev" href="r-시스템-함수.html"/>
+<link rel="next" href="r-입출력-read-write.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -223,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.6" data-path="list.html"><a href="list.html#리스트를-벡터로-변환"><i class="fa fa-check"></i><b>3.6.6</b> 리스트를 벡터로 변환</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-제어문-flow-control.html"><a href="r-제어문-flow-control.html"><i class="fa fa-check"></i><b>4</b> R 제어문 Flow Control</a><ul>
+<li class="chapter" data-level="4" data-path="r-제어문.html"><a href="r-제어문.html"><i class="fa fa-check"></i><b>4</b> R 제어문</a><ul>
 <li class="chapter" data-level="4.1" data-path="if.html"><a href="if.html"><i class="fa fa-check"></i><b>4.1</b> if()</a></li>
 <li class="chapter" data-level="4.2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>4.2</b> ifelse()</a></li>
 <li class="chapter" data-level="4.3" data-path="switch.html"><a href="switch.html"><i class="fa fa-check"></i><b>4.3</b> switch()</a></li>
@@ -231,20 +231,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="while.html"><a href="while.html"><i class="fa fa-check"></i><b>4.5</b> while()</a></li>
 <li class="chapter" data-level="4.6" data-path="repeat.html"><a href="repeat.html"><i class="fa fa-check"></i><b>4.6</b> repeat()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="r-함수-fuctions.html"><a href="r-함수-fuctions.html"><i class="fa fa-check"></i><b>5</b> R 함수 Fuctions</a><ul>
-<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a></li>
-<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a></li>
-<li class="chapter" data-level="5.3" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 통계 함수</a></li>
-<li class="chapter" data-level="5.4" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 날짜와 시간 함수</a></li>
-<li class="chapter" data-level="5.5" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 문자열 함수</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.5.1</b> 정규표현식</a></li>
+<li class="chapter" data-level="5" data-path="r-기본-함수.html"><a href="r-기본-함수.html"><i class="fa fa-check"></i><b>5</b> R 기본 함수</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html#abs"><i class="fa fa-check"></i><b>5.1.1</b> abs()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-수학-함수.html"><a href="r-수학-함수.html#ceiling"><i class="fa fa-check"></i><b>5.1.2</b> ceiling()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-수학-함수.html"><a href="r-수학-함수.html#floor"><i class="fa fa-check"></i><b>5.1.3</b> floor()</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-수학-함수.html"><a href="r-수학-함수.html#trunc"><i class="fa fa-check"></i><b>5.1.4</b> trunc()</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-수학-함수.html"><a href="r-수학-함수.html#round"><i class="fa fa-check"></i><b>5.1.5</b> round()</a></li>
+<li class="chapter" data-level="5.1.6" data-path="r-수학-함수.html"><a href="r-수학-함수.html#signif"><i class="fa fa-check"></i><b>5.1.6</b> signif()</a></li>
+<li class="chapter" data-level="5.1.7" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sqrt"><i class="fa fa-check"></i><b>5.1.7</b> sqrt()</a></li>
+<li class="chapter" data-level="5.1.8" data-path="r-수학-함수.html"><a href="r-수학-함수.html#로그함수"><i class="fa fa-check"></i><b>5.1.8</b> 로그함수</a></li>
+<li class="chapter" data-level="5.1.9" data-path="r-수학-함수.html"><a href="r-수학-함수.html#exp"><i class="fa fa-check"></i><b>5.1.9</b> exp()</a></li>
+<li class="chapter" data-level="5.1.10" data-path="r-수학-함수.html"><a href="r-수학-함수.html#삼각함수"><i class="fa fa-check"></i><b>5.1.10</b> 삼각함수</a></li>
+<li class="chapter" data-level="5.1.11" data-path="r-수학-함수.html"><a href="r-수학-함수.html#누적함수"><i class="fa fa-check"></i><b>5.1.11</b> 누적함수</a></li>
+<li class="chapter" data-level="5.1.12" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sum"><i class="fa fa-check"></i><b>5.1.12</b> sum()</a></li>
+<li class="chapter" data-level="5.1.13" data-path="r-수학-함수.html"><a href="r-수학-함수.html#diff"><i class="fa fa-check"></i><b>5.1.13</b> diff()</a></li>
+<li class="chapter" data-level="5.1.14" data-path="r-수학-함수.html"><a href="r-수학-함수.html#prod"><i class="fa fa-check"></i><b>5.1.14</b> prod()</a></li>
+<li class="chapter" data-level="5.1.15" data-path="r-수학-함수.html"><a href="r-수학-함수.html#gamma-factorial"><i class="fa fa-check"></i><b>5.1.15</b> gamma(), factorial()</a></li>
+<li class="chapter" data-level="5.1.16" data-path="r-수학-함수.html"><a href="r-수학-함수.html#beta"><i class="fa fa-check"></i><b>5.1.16</b> beta()</a></li>
+<li class="chapter" data-level="5.1.17" data-path="r-수학-함수.html"><a href="r-수학-함수.html#choose"><i class="fa fa-check"></i><b>5.1.17</b> choose()</a></li>
+<li class="chapter" data-level="5.1.18" data-path="r-수학-함수.html"><a href="r-수학-함수.html#복소수-함수"><i class="fa fa-check"></i><b>5.1.18</b> 복소수 함수</a></li>
+<li class="chapter" data-level="5.1.19" data-path="r-수학-함수.html"><a href="r-수학-함수.html#집합-함수"><i class="fa fa-check"></i><b>5.1.19</b> 집합 함수</a></li>
+<li class="chapter" data-level="5.1.20" data-path="r-수학-함수.html"><a href="r-수학-함수.html#푸리에-함수"><i class="fa fa-check"></i><b>5.1.20</b> 푸리에 함수</a></li>
+<li class="chapter" data-level="5.1.21" data-path="r-수학-함수.html"><a href="r-수학-함수.html#수치해석-함수"><i class="fa fa-check"></i><b>5.1.21</b> 수치해석 함수</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="r-벡터-연산-함수.html"><a href="r-벡터-연산-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 벡터 연산 함수</a></li>
-<li class="chapter" data-level="5.7" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 반복 함수</a></li>
-<li class="chapter" data-level="5.8" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 데이터 관리 함수</a></li>
-<li class="chapter" data-level="5.9" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 입출력 함수</a></li>
-<li class="chapter" data-level="5.10" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 시스템 함수</a></li>
-<li class="chapter" data-level="5.11" data-path="변수-관리-함수.html"><a href="변수-관리-함수.html"><i class="fa fa-check"></i><b>5.11</b> 변수 관리 함수</a></li>
+<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#t"><i class="fa fa-check"></i><b>5.2.1</b> t()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#diag"><i class="fa fa-check"></i><b>5.2.2</b> diag()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#section"><i class="fa fa-check"></i><b>5.2.3</b> %*%</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#outer"><i class="fa fa-check"></i><b>5.2.4</b> outer()</a></li>
+<li class="chapter" data-level="5.2.5" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#solve"><i class="fa fa-check"></i><b>5.2.5</b> solve()</a></li>
+<li class="chapter" data-level="5.2.6" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowsums"><i class="fa fa-check"></i><b>5.2.6</b> rowSums()</a></li>
+<li class="chapter" data-level="5.2.7" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colsums"><i class="fa fa-check"></i><b>5.2.7</b> colSums()</a></li>
+<li class="chapter" data-level="5.2.8" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowmeans"><i class="fa fa-check"></i><b>5.2.8</b> rowMeans()</a></li>
+<li class="chapter" data-level="5.2.9" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colmeans"><i class="fa fa-check"></i><b>5.2.9</b> colMeans()</a></li>
+<li class="chapter" data-level="5.2.10" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#nrow-ncol"><i class="fa fa-check"></i><b>5.2.10</b> nrow(), ncol()</a></li>
+<li class="chapter" data-level="5.2.11" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#det"><i class="fa fa-check"></i><b>5.2.11</b> det()</a></li>
+<li class="chapter" data-level="5.2.12" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#eigen"><i class="fa fa-check"></i><b>5.2.12</b> eigen()</a></li>
+<li class="chapter" data-level="5.2.13" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#svd"><i class="fa fa-check"></i><b>5.2.13</b> svd()</a></li>
+<li class="chapter" data-level="5.2.14" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#qr"><i class="fa fa-check"></i><b>5.2.14</b> qr()</a></li>
+<li class="chapter" data-level="5.2.15" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#scale"><i class="fa fa-check"></i><b>5.2.15</b> scale()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-논리-함수.html"><a href="r-논리-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 논리 함수</a></li>
+<li class="chapter" data-level="5.4" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 반복 함수</a></li>
+<li class="chapter" data-level="5.5" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 통계 함수</a></li>
+<li class="chapter" data-level="5.6" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 날짜와 시간 함수</a></li>
+<li class="chapter" data-level="5.7" data-path="r-객체-함수.html"><a href="r-객체-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 객체 함수</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체-클라스와-타입-조사"><i class="fa fa-check"></i><b>5.7.1</b> 객체 클라스와 타입 조사</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-객체-함수.html"><a href="r-객체-함수.html#데이터-차원-조사"><i class="fa fa-check"></i><b>5.7.2</b> 데이터 차원 조사</a></li>
+<li class="chapter" data-level="5.7.3" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체정보-함수"><i class="fa fa-check"></i><b>5.7.3</b> 객체정보 함수</a></li>
+<li class="chapter" data-level="5.7.4" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체변환-함수"><i class="fa fa-check"></i><b>5.7.4</b> 객체변환 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 문자열 함수</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.8.1</b> 정규표현식</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 데이터 관리 함수</a></li>
+<li class="chapter" data-level="5.10" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 입출력 함수</a></li>
+<li class="chapter" data-level="5.11" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.11</b> R 시스템 함수</a></li>
 <li class="chapter" data-level="5.12" data-path="r-사용자-정의-함수.html"><a href="r-사용자-정의-함수.html"><i class="fa fa-check"></i><b>5.12</b> R 사용자 정의 함수</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="r-입출력-read-write.html"><a href="r-입출력-read-write.html"><i class="fa fa-check"></i><b>6</b> R 입출력 Read &amp; Write</a><ul>
@@ -266,7 +309,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="r-reference-class.html"><a href="r-reference-class.html"><i class="fa fa-check"></i><b>8.4</b> R Reference Class</a></li>
 <li class="chapter" data-level="8.5" data-path="r-inheritance.html"><a href="r-inheritance.html"><i class="fa fa-check"></i><b>8.5</b> R Inheritance</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/manboha">Eidted by Manboha </a></li>
 
@@ -287,17 +329,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="r-사용자-정의-함수" class="section level2">
+<h2><span class="header-section-number">5.12</span> R 사용자 정의 함수</h2>
 
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="r-inheritance.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="r-시스템-함수.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-입출력-read-write.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -328,7 +371,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/manboha/rbasic/edit/master/15-references.Rmd",
+"link": "https://github.com/manboha/rbasic/edit/master/05-R함수.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -347,6 +390,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

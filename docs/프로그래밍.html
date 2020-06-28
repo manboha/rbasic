@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 R 프로그래밍 기초 | A R Basic Manual</title>
+  <title>2 R 프로그래밍 기초 | R Basic Manual</title>
   <meta name="description" content="This is a R Basic Manual." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 R 프로그래밍 기초 | A R Basic Manual" />
+  <meta property="og:title" content="2 R 프로그래밍 기초 | R Basic Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="manboha/rbasic" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 R 프로그래밍 기초 | A R Basic Manual" />
+  <meta name="twitter:title" content="2 R 프로그래밍 기초 | R Basic Manual" />
   
   <meta name="twitter:description" content="This is a R Basic Manual." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Manboha" />
 
 
-<meta name="date" content="2020-06-14" />
+<meta name="date" content="2020-06-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="설치.html"/>
-<link rel="next" href="r-데이터-구조.html"/>
+<link rel="prev" href="r-package-관리.html"/>
+<link rel="next" href="기초-산술-연산자.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,95 +135,180 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
 <li class="chapter" data-level="1" data-path="설치.html"><a href="설치.html"><i class="fa fa-check"></i><b>1</b> R 설치</a><ul>
-<li class="chapter" data-level="1.1" data-path="설치.html"><a href="설치.html#r이란"><i class="fa fa-check"></i><b>1.1</b> R이란?</a></li>
-<li class="chapter" data-level="1.2" data-path="설치.html"><a href="설치.html#r-설치"><i class="fa fa-check"></i><b>1.2</b> R 설치</a></li>
-<li class="chapter" data-level="1.3" data-path="설치.html"><a href="설치.html#r의-특징"><i class="fa fa-check"></i><b>1.3</b> R의 특징</a></li>
-<li class="chapter" data-level="1.4" data-path="설치.html"><a href="설치.html#rstudio-설치"><i class="fa fa-check"></i><b>1.4</b> RStudio 설치</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="설치.html"><a href="설치.html#rstudio에서-프로젝트-만들기"><i class="fa fa-check"></i><b>1.4.1</b> RStudio에서 프로젝트 만들기</a></li>
+<li class="chapter" data-level="1.1" data-path="r이란.html"><a href="r이란.html"><i class="fa fa-check"></i><b>1.1</b> R이란?</a></li>
+<li class="chapter" data-level="1.2" data-path="r-설치.html"><a href="r-설치.html"><i class="fa fa-check"></i><b>1.2</b> R 설치</a></li>
+<li class="chapter" data-level="1.3" data-path="r의-특징.html"><a href="r의-특징.html"><i class="fa fa-check"></i><b>1.3</b> R의 특징</a></li>
+<li class="chapter" data-level="1.4" data-path="rstudio-설치.html"><a href="rstudio-설치.html"><i class="fa fa-check"></i><b>1.4</b> RStudio 설치</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="rstudio-설치.html"><a href="rstudio-설치.html#rstudio에서-프로젝트-만들기"><i class="fa fa-check"></i><b>1.4.1</b> RStudio에서 프로젝트 만들기</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="설치.html"><a href="설치.html#r-package-설치-및-사용"><i class="fa fa-check"></i><b>1.5</b> R package 설치 및 사용</a></li>
-<li class="chapter" data-level="1.6" data-path="설치.html"><a href="설치.html#r-package-관리"><i class="fa fa-check"></i><b>1.6</b> R package 관리</a><ul>
-<li class="chapter" data-level="1.6.1" data-path="설치.html"><a href="설치.html#설치된-패키지-보기"><i class="fa fa-check"></i><b>1.6.1</b> 설치된 패키지 보기</a></li>
-<li class="chapter" data-level="1.6.2" data-path="설치.html"><a href="설치.html#패키지가-설치된-폴더-보기"><i class="fa fa-check"></i><b>1.6.2</b> 패키지가 설치된 폴더 보기</a></li>
-<li class="chapter" data-level="1.6.3" data-path="설치.html"><a href="설치.html#로드된-패키지-보기"><i class="fa fa-check"></i><b>1.6.3</b> 로드된 패키지 보기</a></li>
-<li class="chapter" data-level="1.6.4" data-path="설치.html"><a href="설치.html#패키지-언로드-하기-메모리에서-내리기"><i class="fa fa-check"></i><b>1.6.4</b> 패키지 언로드 하기 (메모리에서 내리기)</a></li>
-<li class="chapter" data-level="1.6.5" data-path="설치.html"><a href="설치.html#설치된-패키지-제거하기"><i class="fa fa-check"></i><b>1.6.5</b> 설치된 패키지 제거하기</a></li>
-<li class="chapter" data-level="1.6.6" data-path="설치.html"><a href="설치.html#패키지-업데이트하기"><i class="fa fa-check"></i><b>1.6.6</b> 패키지 업데이트하기</a></li>
+<li class="chapter" data-level="1.5" data-path="r-package-설치-및-사용.html"><a href="r-package-설치-및-사용.html"><i class="fa fa-check"></i><b>1.5</b> R package 설치 및 사용</a></li>
+<li class="chapter" data-level="1.6" data-path="r-package-관리.html"><a href="r-package-관리.html"><i class="fa fa-check"></i><b>1.6</b> R package 관리</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="r-package-관리.html"><a href="r-package-관리.html#설치된-패키지-보기"><i class="fa fa-check"></i><b>1.6.1</b> 설치된 패키지 보기</a></li>
+<li class="chapter" data-level="1.6.2" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지가-설치된-폴더-보기"><i class="fa fa-check"></i><b>1.6.2</b> 패키지가 설치된 폴더 보기</a></li>
+<li class="chapter" data-level="1.6.3" data-path="r-package-관리.html"><a href="r-package-관리.html#로드된-패키지-보기"><i class="fa fa-check"></i><b>1.6.3</b> 로드된 패키지 보기</a></li>
+<li class="chapter" data-level="1.6.4" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지-언로드-하기-메모리에서-내리기"><i class="fa fa-check"></i><b>1.6.4</b> 패키지 언로드 하기 (메모리에서 내리기)</a></li>
+<li class="chapter" data-level="1.6.5" data-path="r-package-관리.html"><a href="r-package-관리.html#설치된-패키지-제거하기"><i class="fa fa-check"></i><b>1.6.5</b> 설치된 패키지 제거하기</a></li>
+<li class="chapter" data-level="1.6.6" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지-업데이트하기"><i class="fa fa-check"></i><b>1.6.6</b> 패키지 업데이트하기</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="프로그래밍.html"><a href="프로그래밍.html"><i class="fa fa-check"></i><b>2</b> R 프로그래밍 기초</a><ul>
-<li class="chapter" data-level="2.1" data-path="프로그래밍.html"><a href="프로그래밍.html#기초-산술-연산자"><i class="fa fa-check"></i><b>2.1</b> 기초 산술 연산자</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="프로그래밍.html"><a href="프로그래밍.html#계산용-연산자"><i class="fa fa-check"></i><b>2.1.1</b> 계산용 연산자</a></li>
-<li class="chapter" data-level="2.1.2" data-path="프로그래밍.html"><a href="프로그래밍.html#화씨온도가-100도라면-섭씨온도는"><i class="fa fa-check"></i><b>2.1.2</b> 화씨온도가 100도라면 섭씨온도는?</a></li>
+<li class="chapter" data-level="2.1" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html"><i class="fa fa-check"></i><b>2.1</b> 기초 산술 연산자</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html#계산용-연산자"><i class="fa fa-check"></i><b>2.1.1</b> 계산용 연산자</a></li>
+<li class="chapter" data-level="2.1.2" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html#화씨온도가-100도라면-섭씨온도는"><i class="fa fa-check"></i><b>2.1.2</b> 화씨온도가 100도라면 섭씨온도는?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="프로그래밍.html"><a href="프로그래밍.html#논리-연산자"><i class="fa fa-check"></i><b>2.2</b> 논리 연산자</a></li>
-<li class="chapter" data-level="2.3" data-path="프로그래밍.html"><a href="프로그래밍.html#기초-산술-함수"><i class="fa fa-check"></i><b>2.3</b> 기초 산술 함수</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="프로그래밍.html"><a href="프로그래밍.html#통계-함수"><i class="fa fa-check"></i><b>2.3.1</b> 통계 함수</a></li>
-<li class="chapter" data-level="2.3.2" data-path="프로그래밍.html"><a href="프로그래밍.html#로그-및-지수-함수-logarithms-and-exponentials"><i class="fa fa-check"></i><b>2.3.2</b> 로그 및 지수 함수 (Logarithms and Exponentials)</a></li>
-<li class="chapter" data-level="2.3.3" data-path="프로그래밍.html"><a href="프로그래밍.html#삼각-함수"><i class="fa fa-check"></i><b>2.3.3</b> 삼각 함수</a></li>
-<li class="chapter" data-level="2.3.4" data-path="프로그래밍.html"><a href="프로그래밍.html#기타-수학-함수"><i class="fa fa-check"></i><b>2.3.4</b> 기타 수학 함수</a></li>
+<li class="chapter" data-level="2.2" data-path="논리-연산자.html"><a href="논리-연산자.html"><i class="fa fa-check"></i><b>2.2</b> 논리 연산자</a></li>
+<li class="chapter" data-level="2.3" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html"><i class="fa fa-check"></i><b>2.3</b> 기초 산술 함수</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#통계-함수"><i class="fa fa-check"></i><b>2.3.1</b> 통계 함수</a></li>
+<li class="chapter" data-level="2.3.2" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#로그-및-지수-함수-logarithms-and-exponentials"><i class="fa fa-check"></i><b>2.3.2</b> 로그 및 지수 함수 (Logarithms and Exponentials)</a></li>
+<li class="chapter" data-level="2.3.3" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#삼각-함수"><i class="fa fa-check"></i><b>2.3.3</b> 삼각 함수</a></li>
+<li class="chapter" data-level="2.3.4" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#기타-수학-함수"><i class="fa fa-check"></i><b>2.3.4</b> 기타 수학 함수</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="프로그래밍.html"><a href="프로그래밍.html#객체변수의-할당과-삭제"><i class="fa fa-check"></i><b>2.4</b> 객체(변수)의 할당과 삭제</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="프로그래밍.html"><a href="프로그래밍.html#객체변수-만들기"><i class="fa fa-check"></i><b>2.4.1</b> 객체(변수) 만들기</a></li>
-<li class="chapter" data-level="2.4.2" data-path="프로그래밍.html"><a href="프로그래밍.html#객체변수-리스트-보기"><i class="fa fa-check"></i><b>2.4.2</b> 객체(변수) 리스트 보기</a></li>
-<li class="chapter" data-level="2.4.3" data-path="프로그래밍.html"><a href="프로그래밍.html#객체변수-지우기"><i class="fa fa-check"></i><b>2.4.3</b> 객체(변수) 지우기</a></li>
+<li class="chapter" data-level="2.4" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html"><i class="fa fa-check"></i><b>2.4</b> 객체(변수)의 할당과 삭제</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-만들기"><i class="fa fa-check"></i><b>2.4.1</b> 객체(변수) 만들기</a></li>
+<li class="chapter" data-level="2.4.2" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-리스트-보기"><i class="fa fa-check"></i><b>2.4.2</b> 객체(변수) 리스트 보기</a></li>
+<li class="chapter" data-level="2.4.3" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-지우기"><i class="fa fa-check"></i><b>2.4.3</b> 객체(변수) 지우기</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="프로그래밍.html"><a href="프로그래밍.html#기본-데이터-타입-basic-data-types"><i class="fa fa-check"></i><b>2.5</b> 기본 데이터 타입 (Basic data types)</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="프로그래밍.html"><a href="프로그래밍.html#숫자-데이터---실수와-정수"><i class="fa fa-check"></i><b>2.5.1</b> 숫자 데이터 - 실수와 정수</a></li>
-<li class="chapter" data-level="2.5.2" data-path="프로그래밍.html"><a href="프로그래밍.html#논리-데이터---true-1-false-0"><i class="fa fa-check"></i><b>2.5.2</b> 논리 데이터 - TRUE == 1, FALSE == 0</a></li>
-<li class="chapter" data-level="2.5.3" data-path="프로그래밍.html"><a href="프로그래밍.html#null-객체"><i class="fa fa-check"></i><b>2.5.3</b> NULL 객체</a></li>
+<li class="chapter" data-level="2.5" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html"><i class="fa fa-check"></i><b>2.5</b> 기본 데이터 타입 (Basic data types)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#숫자-데이터---실수와-정수"><i class="fa fa-check"></i><b>2.5.1</b> 숫자 데이터 - 실수와 정수</a></li>
+<li class="chapter" data-level="2.5.2" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#논리-데이터---true-1-false-0"><i class="fa fa-check"></i><b>2.5.2</b> 논리 데이터 - TRUE == 1, FALSE == 0</a></li>
+<li class="chapter" data-level="2.5.3" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#null-객체"><i class="fa fa-check"></i><b>2.5.3</b> NULL 객체</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="프로그래밍.html"><a href="프로그래밍.html#내장형-상수-built-in-constants"><i class="fa fa-check"></i><b>2.6</b> 내장형 상수 Built-in Constants</a></li>
-<li class="chapter" data-level="2.7" data-path="프로그래밍.html"><a href="프로그래밍.html#예약어-reserved-words"><i class="fa fa-check"></i><b>2.7</b> 예약어 Reserved Words</a></li>
+<li class="chapter" data-level="2.6" data-path="내장형-상수-built-in-constants.html"><a href="내장형-상수-built-in-constants.html"><i class="fa fa-check"></i><b>2.6</b> 내장형 상수 Built-in Constants</a></li>
+<li class="chapter" data-level="2.7" data-path="예약어-reserved-words.html"><a href="예약어-reserved-words.html"><i class="fa fa-check"></i><b>2.7</b> 예약어 Reserved Words</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html"><i class="fa fa-check"></i><b>3</b> R 데이터 구조</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-벡터-vector"><i class="fa fa-check"></i><b>3.1</b> R 벡터 Vector</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> 벡터 만들기</a></li>
-<li class="chapter" data-level="3.1.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#벡터-요소-추출"><i class="fa fa-check"></i><b>3.1.2</b> 벡터 요소 추출</a></li>
-<li class="chapter" data-level="3.1.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#벡터-연산"><i class="fa fa-check"></i><b>3.1.3</b> 벡터 연산</a></li>
-<li class="chapter" data-level="3.1.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#기타"><i class="fa fa-check"></i><b>3.1.4</b> 기타</a></li>
+<li class="chapter" data-level="3.1" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>3.1</b> R 벡터 Vector</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="vector.html"><a href="vector.html#벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="vector.html"><a href="vector.html#벡터-요소-추출"><i class="fa fa-check"></i><b>3.1.2</b> 벡터 요소 추출</a></li>
+<li class="chapter" data-level="3.1.3" data-path="vector.html"><a href="vector.html#벡터-연산"><i class="fa fa-check"></i><b>3.1.3</b> 벡터 연산</a></li>
+<li class="chapter" data-level="3.1.4" data-path="vector.html"><a href="vector.html#기타"><i class="fa fa-check"></i><b>3.1.4</b> 기타</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-행렬-matrix"><i class="fa fa-check"></i><b>3.2</b> R 행렬 Matrix</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬-생성"><i class="fa fa-check"></i><b>3.2.1</b> 행렬 생성</a></li>
-<li class="chapter" data-level="3.2.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬-이름-붙이기"><i class="fa fa-check"></i><b>3.2.2</b> 행렬 이름 붙이기</a></li>
-<li class="chapter" data-level="3.2.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행열-바꾸기"><i class="fa fa-check"></i><b>3.2.3</b> 행열 바꾸기</a></li>
-<li class="chapter" data-level="3.2.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬의-차원"><i class="fa fa-check"></i><b>3.2.4</b> 행렬의 차원</a></li>
-<li class="chapter" data-level="3.2.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬의-요소-추출"><i class="fa fa-check"></i><b>3.2.5</b> 행렬의 요소 추출</a></li>
-<li class="chapter" data-level="3.2.6" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬-요소-수정"><i class="fa fa-check"></i><b>3.2.6</b> 행렬 요소 수정</a></li>
-<li class="chapter" data-level="3.2.7" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬-연산"><i class="fa fa-check"></i><b>3.2.7</b> 행렬 연산</a></li>
+<li class="chapter" data-level="3.2" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>3.2</b> R 행렬 Matrix</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="matrix.html"><a href="matrix.html#행렬-생성"><i class="fa fa-check"></i><b>3.2.1</b> 행렬 생성</a></li>
+<li class="chapter" data-level="3.2.2" data-path="matrix.html"><a href="matrix.html#행렬-이름-붙이기"><i class="fa fa-check"></i><b>3.2.2</b> 행렬 이름 붙이기</a></li>
+<li class="chapter" data-level="3.2.3" data-path="matrix.html"><a href="matrix.html#행열-바꾸기"><i class="fa fa-check"></i><b>3.2.3</b> 행열 바꾸기</a></li>
+<li class="chapter" data-level="3.2.4" data-path="matrix.html"><a href="matrix.html#행렬의-차원"><i class="fa fa-check"></i><b>3.2.4</b> 행렬의 차원</a></li>
+<li class="chapter" data-level="3.2.5" data-path="matrix.html"><a href="matrix.html#행렬의-요소-추출"><i class="fa fa-check"></i><b>3.2.5</b> 행렬의 요소 추출</a></li>
+<li class="chapter" data-level="3.2.6" data-path="matrix.html"><a href="matrix.html#행렬-요소-수정"><i class="fa fa-check"></i><b>3.2.6</b> 행렬 요소 수정</a></li>
+<li class="chapter" data-level="3.2.7" data-path="matrix.html"><a href="matrix.html#행렬-연산"><i class="fa fa-check"></i><b>3.2.7</b> 행렬 연산</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-팩터-factor"><i class="fa fa-check"></i><b>3.3</b> R 팩터 Factor</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#팩터-변수-만들기"><i class="fa fa-check"></i><b>3.3.1</b> 팩터 변수 만들기</a></li>
-<li class="chapter" data-level="3.3.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#팩터-요소-추출"><i class="fa fa-check"></i><b>3.3.2</b> 팩터 요소 추출</a></li>
-<li class="chapter" data-level="3.3.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#팩터-요소-수정"><i class="fa fa-check"></i><b>3.3.3</b> 팩터 요소 수정</a></li>
-<li class="chapter" data-level="3.3.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#기타-1"><i class="fa fa-check"></i><b>3.3.4</b> 기타</a></li>
+<li class="chapter" data-level="3.3" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>3.3</b> R 팩터 Factor</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="factor.html"><a href="factor.html#팩터-변수-만들기"><i class="fa fa-check"></i><b>3.3.1</b> 팩터 변수 만들기</a></li>
+<li class="chapter" data-level="3.3.2" data-path="factor.html"><a href="factor.html#팩터-요소-추출"><i class="fa fa-check"></i><b>3.3.2</b> 팩터 요소 추출</a></li>
+<li class="chapter" data-level="3.3.3" data-path="factor.html"><a href="factor.html#팩터-요소-수정"><i class="fa fa-check"></i><b>3.3.3</b> 팩터 요소 수정</a></li>
+<li class="chapter" data-level="3.3.4" data-path="factor.html"><a href="factor.html#기타-1"><i class="fa fa-check"></i><b>3.3.4</b> 기타</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-배열-array"><i class="fa fa-check"></i><b>3.4</b> R 배열 Array</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열-생성"><i class="fa fa-check"></i><b>3.4.1</b> 배열 생성</a></li>
-<li class="chapter" data-level="3.4.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열-이름-붙이기"><i class="fa fa-check"></i><b>3.4.2</b> 배열 이름 붙이기</a></li>
-<li class="chapter" data-level="3.4.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열의-요소-추출"><i class="fa fa-check"></i><b>3.4.3</b> 배열의 요소 추출</a></li>
-<li class="chapter" data-level="3.4.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열-요소-수정"><i class="fa fa-check"></i><b>3.4.4</b> 배열 요소 수정</a></li>
-<li class="chapter" data-level="3.4.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열-연산"><i class="fa fa-check"></i><b>3.4.5</b> 배열 연산</a></li>
+<li class="chapter" data-level="3.4" data-path="array.html"><a href="array.html"><i class="fa fa-check"></i><b>3.4</b> R 배열 Array</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="array.html"><a href="array.html#배열-생성"><i class="fa fa-check"></i><b>3.4.1</b> 배열 생성</a></li>
+<li class="chapter" data-level="3.4.2" data-path="array.html"><a href="array.html#배열-이름-붙이기"><i class="fa fa-check"></i><b>3.4.2</b> 배열 이름 붙이기</a></li>
+<li class="chapter" data-level="3.4.3" data-path="array.html"><a href="array.html#배열의-요소-추출"><i class="fa fa-check"></i><b>3.4.3</b> 배열의 요소 추출</a></li>
+<li class="chapter" data-level="3.4.4" data-path="array.html"><a href="array.html#배열-요소-수정"><i class="fa fa-check"></i><b>3.4.4</b> 배열 요소 수정</a></li>
+<li class="chapter" data-level="3.4.5" data-path="array.html"><a href="array.html#배열-연산"><i class="fa fa-check"></i><b>3.4.5</b> 배열 연산</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-데이터-프레임-data-frame"><i class="fa fa-check"></i><b>3.5</b> R 데이터 프레임 Data frame</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>3.5.1</b> 데이터 프레임 만들기</a></li>
-<li class="chapter" data-level="3.5.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임-구조-보기"><i class="fa fa-check"></i><b>3.5.2</b> 데이터 프레임 구조 보기</a></li>
-<li class="chapter" data-level="3.5.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임-요약-보기"><i class="fa fa-check"></i><b>3.5.3</b> 데이터 프레임 요약 보기</a></li>
-<li class="chapter" data-level="3.5.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임에서-데이터-추출"><i class="fa fa-check"></i><b>3.5.4</b> 데이터 프레임에서 데이터 추출</a></li>
-<li class="chapter" data-level="3.5.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임의-데이터-수정"><i class="fa fa-check"></i><b>3.5.5</b> 데이터 프레임의 데이터 수정</a></li>
-<li class="chapter" data-level="3.5.6" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임-구조-수정"><i class="fa fa-check"></i><b>3.5.6</b> 데이터 프레임 구조 수정</a></li>
-<li class="chapter" data-level="3.5.7" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#기타-2"><i class="fa fa-check"></i><b>3.5.7</b> 기타</a></li>
+<li class="chapter" data-level="3.5" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>3.5</b> R 데이터 프레임 Data frame</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>3.5.1</b> 데이터 프레임 만들기</a></li>
+<li class="chapter" data-level="3.5.2" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-구조-보기"><i class="fa fa-check"></i><b>3.5.2</b> 데이터 프레임 구조 보기</a></li>
+<li class="chapter" data-level="3.5.3" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-요약-보기"><i class="fa fa-check"></i><b>3.5.3</b> 데이터 프레임 요약 보기</a></li>
+<li class="chapter" data-level="3.5.4" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임에서-데이터-추출"><i class="fa fa-check"></i><b>3.5.4</b> 데이터 프레임에서 데이터 추출</a></li>
+<li class="chapter" data-level="3.5.5" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임의-데이터-수정"><i class="fa fa-check"></i><b>3.5.5</b> 데이터 프레임의 데이터 수정</a></li>
+<li class="chapter" data-level="3.5.6" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-구조-수정"><i class="fa fa-check"></i><b>3.5.6</b> 데이터 프레임 구조 수정</a></li>
+<li class="chapter" data-level="3.5.7" data-path="dataframe.html"><a href="dataframe.html#기타-2"><i class="fa fa-check"></i><b>3.5.7</b> 기타</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-리스트-list"><i class="fa fa-check"></i><b>3.6</b> R 리스트 List</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트-만들기"><i class="fa fa-check"></i><b>3.6.1</b> 리스트 만들기</a></li>
-<li class="chapter" data-level="3.6.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트-구조-보기"><i class="fa fa-check"></i><b>3.6.2</b> 리스트 구조 보기</a></li>
-<li class="chapter" data-level="3.6.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트에서-데이터-추출"><i class="fa fa-check"></i><b>3.6.3</b> 리스트에서 데이터 추출</a></li>
-<li class="chapter" data-level="3.6.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트의-데이터-수정"><i class="fa fa-check"></i><b>3.6.4</b> 리스트의 데이터 수정</a></li>
-<li class="chapter" data-level="3.6.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트-구조-수정"><i class="fa fa-check"></i><b>3.6.5</b> 리스트 구조 수정</a></li>
-<li class="chapter" data-level="3.6.6" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트를-벡터로-변환"><i class="fa fa-check"></i><b>3.6.6</b> 리스트를 벡터로 변환</a></li>
+<li class="chapter" data-level="3.6" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>3.6</b> R 리스트 List</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="list.html"><a href="list.html#리스트-만들기"><i class="fa fa-check"></i><b>3.6.1</b> 리스트 만들기</a></li>
+<li class="chapter" data-level="3.6.2" data-path="list.html"><a href="list.html#리스트-구조-보기"><i class="fa fa-check"></i><b>3.6.2</b> 리스트 구조 보기</a></li>
+<li class="chapter" data-level="3.6.3" data-path="list.html"><a href="list.html#리스트에서-데이터-추출"><i class="fa fa-check"></i><b>3.6.3</b> 리스트에서 데이터 추출</a></li>
+<li class="chapter" data-level="3.6.4" data-path="list.html"><a href="list.html#리스트의-데이터-수정"><i class="fa fa-check"></i><b>3.6.4</b> 리스트의 데이터 수정</a></li>
+<li class="chapter" data-level="3.6.5" data-path="list.html"><a href="list.html#리스트-구조-수정"><i class="fa fa-check"></i><b>3.6.5</b> 리스트 구조 수정</a></li>
+<li class="chapter" data-level="3.6.6" data-path="list.html"><a href="list.html#리스트를-벡터로-변환"><i class="fa fa-check"></i><b>3.6.6</b> 리스트를 벡터로 변환</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4" data-path="r-제어문.html"><a href="r-제어문.html"><i class="fa fa-check"></i><b>4</b> R 제어문</a><ul>
+<li class="chapter" data-level="4.1" data-path="if.html"><a href="if.html"><i class="fa fa-check"></i><b>4.1</b> if()</a></li>
+<li class="chapter" data-level="4.2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>4.2</b> ifelse()</a></li>
+<li class="chapter" data-level="4.3" data-path="switch.html"><a href="switch.html"><i class="fa fa-check"></i><b>4.3</b> switch()</a></li>
+<li class="chapter" data-level="4.4" data-path="for.html"><a href="for.html"><i class="fa fa-check"></i><b>4.4</b> for()</a></li>
+<li class="chapter" data-level="4.5" data-path="while.html"><a href="while.html"><i class="fa fa-check"></i><b>4.5</b> while()</a></li>
+<li class="chapter" data-level="4.6" data-path="repeat.html"><a href="repeat.html"><i class="fa fa-check"></i><b>4.6</b> repeat()</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-기본-함수.html"><a href="r-기본-함수.html"><i class="fa fa-check"></i><b>5</b> R 기본 함수</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html#abs"><i class="fa fa-check"></i><b>5.1.1</b> abs()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-수학-함수.html"><a href="r-수학-함수.html#ceiling"><i class="fa fa-check"></i><b>5.1.2</b> ceiling()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-수학-함수.html"><a href="r-수학-함수.html#floor"><i class="fa fa-check"></i><b>5.1.3</b> floor()</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-수학-함수.html"><a href="r-수학-함수.html#trunc"><i class="fa fa-check"></i><b>5.1.4</b> trunc()</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-수학-함수.html"><a href="r-수학-함수.html#round"><i class="fa fa-check"></i><b>5.1.5</b> round()</a></li>
+<li class="chapter" data-level="5.1.6" data-path="r-수학-함수.html"><a href="r-수학-함수.html#signif"><i class="fa fa-check"></i><b>5.1.6</b> signif()</a></li>
+<li class="chapter" data-level="5.1.7" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sqrt"><i class="fa fa-check"></i><b>5.1.7</b> sqrt()</a></li>
+<li class="chapter" data-level="5.1.8" data-path="r-수학-함수.html"><a href="r-수학-함수.html#로그함수"><i class="fa fa-check"></i><b>5.1.8</b> 로그함수</a></li>
+<li class="chapter" data-level="5.1.9" data-path="r-수학-함수.html"><a href="r-수학-함수.html#exp"><i class="fa fa-check"></i><b>5.1.9</b> exp()</a></li>
+<li class="chapter" data-level="5.1.10" data-path="r-수학-함수.html"><a href="r-수학-함수.html#삼각함수"><i class="fa fa-check"></i><b>5.1.10</b> 삼각함수</a></li>
+<li class="chapter" data-level="5.1.11" data-path="r-수학-함수.html"><a href="r-수학-함수.html#누적함수"><i class="fa fa-check"></i><b>5.1.11</b> 누적함수</a></li>
+<li class="chapter" data-level="5.1.12" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sum"><i class="fa fa-check"></i><b>5.1.12</b> sum()</a></li>
+<li class="chapter" data-level="5.1.13" data-path="r-수학-함수.html"><a href="r-수학-함수.html#diff"><i class="fa fa-check"></i><b>5.1.13</b> diff()</a></li>
+<li class="chapter" data-level="5.1.14" data-path="r-수학-함수.html"><a href="r-수학-함수.html#prod"><i class="fa fa-check"></i><b>5.1.14</b> prod()</a></li>
+<li class="chapter" data-level="5.1.15" data-path="r-수학-함수.html"><a href="r-수학-함수.html#gamma-factorial"><i class="fa fa-check"></i><b>5.1.15</b> gamma(), factorial()</a></li>
+<li class="chapter" data-level="5.1.16" data-path="r-수학-함수.html"><a href="r-수학-함수.html#beta"><i class="fa fa-check"></i><b>5.1.16</b> beta()</a></li>
+<li class="chapter" data-level="5.1.17" data-path="r-수학-함수.html"><a href="r-수학-함수.html#choose"><i class="fa fa-check"></i><b>5.1.17</b> choose()</a></li>
+<li class="chapter" data-level="5.1.18" data-path="r-수학-함수.html"><a href="r-수학-함수.html#복소수-함수"><i class="fa fa-check"></i><b>5.1.18</b> 복소수 함수</a></li>
+<li class="chapter" data-level="5.1.19" data-path="r-수학-함수.html"><a href="r-수학-함수.html#집합-함수"><i class="fa fa-check"></i><b>5.1.19</b> 집합 함수</a></li>
+<li class="chapter" data-level="5.1.20" data-path="r-수학-함수.html"><a href="r-수학-함수.html#푸리에-함수"><i class="fa fa-check"></i><b>5.1.20</b> 푸리에 함수</a></li>
+<li class="chapter" data-level="5.1.21" data-path="r-수학-함수.html"><a href="r-수학-함수.html#수치해석-함수"><i class="fa fa-check"></i><b>5.1.21</b> 수치해석 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#t"><i class="fa fa-check"></i><b>5.2.1</b> t()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#diag"><i class="fa fa-check"></i><b>5.2.2</b> diag()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#section"><i class="fa fa-check"></i><b>5.2.3</b> %*%</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#outer"><i class="fa fa-check"></i><b>5.2.4</b> outer()</a></li>
+<li class="chapter" data-level="5.2.5" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#solve"><i class="fa fa-check"></i><b>5.2.5</b> solve()</a></li>
+<li class="chapter" data-level="5.2.6" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowsums"><i class="fa fa-check"></i><b>5.2.6</b> rowSums()</a></li>
+<li class="chapter" data-level="5.2.7" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colsums"><i class="fa fa-check"></i><b>5.2.7</b> colSums()</a></li>
+<li class="chapter" data-level="5.2.8" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowmeans"><i class="fa fa-check"></i><b>5.2.8</b> rowMeans()</a></li>
+<li class="chapter" data-level="5.2.9" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colmeans"><i class="fa fa-check"></i><b>5.2.9</b> colMeans()</a></li>
+<li class="chapter" data-level="5.2.10" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#nrow-ncol"><i class="fa fa-check"></i><b>5.2.10</b> nrow(), ncol()</a></li>
+<li class="chapter" data-level="5.2.11" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#det"><i class="fa fa-check"></i><b>5.2.11</b> det()</a></li>
+<li class="chapter" data-level="5.2.12" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#eigen"><i class="fa fa-check"></i><b>5.2.12</b> eigen()</a></li>
+<li class="chapter" data-level="5.2.13" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#svd"><i class="fa fa-check"></i><b>5.2.13</b> svd()</a></li>
+<li class="chapter" data-level="5.2.14" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#qr"><i class="fa fa-check"></i><b>5.2.14</b> qr()</a></li>
+<li class="chapter" data-level="5.2.15" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#scale"><i class="fa fa-check"></i><b>5.2.15</b> scale()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-논리-함수.html"><a href="r-논리-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 논리 함수</a></li>
+<li class="chapter" data-level="5.4" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 반복 함수</a></li>
+<li class="chapter" data-level="5.5" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 통계 함수</a></li>
+<li class="chapter" data-level="5.6" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 날짜와 시간 함수</a></li>
+<li class="chapter" data-level="5.7" data-path="r-객체-함수.html"><a href="r-객체-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 객체 함수</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체-클라스와-타입-조사"><i class="fa fa-check"></i><b>5.7.1</b> 객체 클라스와 타입 조사</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-객체-함수.html"><a href="r-객체-함수.html#데이터-차원-조사"><i class="fa fa-check"></i><b>5.7.2</b> 데이터 차원 조사</a></li>
+<li class="chapter" data-level="5.7.3" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체정보-함수"><i class="fa fa-check"></i><b>5.7.3</b> 객체정보 함수</a></li>
+<li class="chapter" data-level="5.7.4" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체변환-함수"><i class="fa fa-check"></i><b>5.7.4</b> 객체변환 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 문자열 함수</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.8.1</b> 정규표현식</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 데이터 관리 함수</a></li>
+<li class="chapter" data-level="5.10" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 입출력 함수</a></li>
+<li class="chapter" data-level="5.11" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.11</b> R 시스템 함수</a></li>
+<li class="chapter" data-level="5.12" data-path="r-사용자-정의-함수.html"><a href="r-사용자-정의-함수.html"><i class="fa fa-check"></i><b>5.12</b> R 사용자 정의 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-입출력-read-write.html"><a href="r-입출력-read-write.html"><i class="fa fa-check"></i><b>6</b> R 입출력 Read &amp; Write</a><ul>
+<li class="chapter" data-level="6.1" data-path="데이터-불러오기.html"><a href="데이터-불러오기.html"><i class="fa fa-check"></i><b>6.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="6.2" data-path="데이터-저장하기.html"><a href="데이터-저장하기.html"><i class="fa fa-check"></i><b>6.2</b> 데이터 저장하기</a></li>
+<li class="chapter" data-level="6.3" data-path="백업-및-복원.html"><a href="백업-및-복원.html"><i class="fa fa-check"></i><b>6.3</b> 백업 및 복원</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-그래프-graphs-charts.html"><a href="r-그래프-graphs-charts.html"><i class="fa fa-check"></i><b>7</b> R 그래프 Graphs &amp; Charts</a><ul>
+<li class="chapter" data-level="7.1" data-path="bar-plot.html"><a href="bar-plot.html"><i class="fa fa-check"></i><b>7.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="7.2" data-path="histogram.html"><a href="histogram.html"><i class="fa fa-check"></i><b>7.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.3" data-path="pie-chart.html"><a href="pie-chart.html"><i class="fa fa-check"></i><b>7.3</b> Pie Chart</a></li>
+<li class="chapter" data-level="7.4" data-path="box-plot.html"><a href="box-plot.html"><i class="fa fa-check"></i><b>7.4</b> Box Plot</a></li>
+<li class="chapter" data-level="7.5" data-path="strip-chart.html"><a href="strip-chart.html"><i class="fa fa-check"></i><b>7.5</b> Strip Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-객체와-클래스-objects-class.html"><a href="r-객체와-클래스-objects-class.html"><i class="fa fa-check"></i><b>8</b> R 객체와 클래스 Objects &amp; Class</a><ul>
+<li class="chapter" data-level="8.1" data-path="object-and-class.html"><a href="object-and-class.html"><i class="fa fa-check"></i><b>8.1</b> Object and Class</a></li>
+<li class="chapter" data-level="8.2" data-path="r-s3-class.html"><a href="r-s3-class.html"><i class="fa fa-check"></i><b>8.2</b> R S3 Class</a></li>
+<li class="chapter" data-level="8.3" data-path="r-s4-class.html"><a href="r-s4-class.html"><i class="fa fa-check"></i><b>8.3</b> R S4 Class</a></li>
+<li class="chapter" data-level="8.4" data-path="r-reference-class.html"><a href="r-reference-class.html"><i class="fa fa-check"></i><b>8.4</b> R Reference Class</a></li>
+<li class="chapter" data-level="8.5" data-path="r-inheritance.html"><a href="r-inheritance.html"><i class="fa fa-check"></i><b>8.5</b> R Inheritance</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/manboha">Eidted by Manboha </a></li>
 
@@ -236,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A R Basic Manual</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Basic Manual</a>
           </h1>
         </div>
 
@@ -246,303 +331,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="프로그래밍" class="section level1">
 <h1><span class="header-section-number">2</span> R 프로그래밍 기초</h1>
-<div id="기초-산술-연산자" class="section level2">
-<h2><span class="header-section-number">2.1</span> 기초 산술 연산자</h2>
-<div id="계산용-연산자" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> 계산용 연산자</h3>
-<ul>
-<li>+(더하기), -(빼기), *(곱하기), /(나누기), ^(자승), %%(나머지), %/%(몫)</li>
-</ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="프로그래밍.html#cb12-1"></a><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">7</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span>)</span>
-<span id="cb12-2"><a href="프로그래밍.html#cb12-2"></a><span class="co">#&gt; [1] 7</span></span>
-<span id="cb12-3"><a href="프로그래밍.html#cb12-3"></a><span class="dv">6</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">7</span>)</span>
-<span id="cb12-4"><a href="프로그래밍.html#cb12-4"></a><span class="co">#&gt; [1] 24</span></span>
-<span id="cb12-5"><a href="프로그래밍.html#cb12-5"></a><span class="dv">5</span><span class="op">^</span><span class="dv">2</span></span>
-<span id="cb12-6"><a href="프로그래밍.html#cb12-6"></a><span class="co">#&gt; [1] 25</span></span>
-<span id="cb12-7"><a href="프로그래밍.html#cb12-7"></a><span class="dv">5</span> <span class="op">%%</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb12-8"><a href="프로그래밍.html#cb12-8"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb12-9"><a href="프로그래밍.html#cb12-9"></a><span class="dv">5</span> <span class="op">%/%</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb12-10"><a href="프로그래밍.html#cb12-10"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div>
-</div>
-<div id="화씨온도가-100도라면-섭씨온도는" class="section level3">
-<h3><span class="header-section-number">2.1.2</span> 화씨온도가 100도라면 섭씨온도는?</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="프로그래밍.html#cb13-1"></a><span class="co"># 섭씨온도 = (5/9) * (화씨온도-32)</span></span>
-<span id="cb13-2"><a href="프로그래밍.html#cb13-2"></a>(<span class="dv">5</span> <span class="op">/</span><span class="st"> </span><span class="dv">9</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">100</span> <span class="op">-</span><span class="st"> </span><span class="dv">32</span>)</span>
-<span id="cb13-3"><a href="프로그래밍.html#cb13-3"></a><span class="co">#&gt; [1] 37.8</span></span></code></pre></div>
-</div>
-</div>
-<div id="논리-연산자" class="section level2">
-<h2><span class="header-section-number">2.2</span> 논리 연산자</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="프로그래밍.html#cb14-1"></a><span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="dv">5</span> </span>
-<span id="cb14-2"><a href="프로그래밍.html#cb14-2"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb14-3"><a href="프로그래밍.html#cb14-3"></a><span class="dv">5</span> <span class="op">!=</span><span class="st"> </span><span class="dv">5</span> </span>
-<span id="cb14-4"><a href="프로그래밍.html#cb14-4"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb14-5"><a href="프로그래밍.html#cb14-5"></a><span class="dv">5</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span></span>
-<span id="cb14-6"><a href="프로그래밍.html#cb14-6"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb14-7"><a href="프로그래밍.html#cb14-7"></a><span class="dv">5</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">5</span></span>
-<span id="cb14-8"><a href="프로그래밍.html#cb14-8"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb14-9"><a href="프로그래밍.html#cb14-9"></a><span class="dv">3</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span> </span>
-<span id="cb14-10"><a href="프로그래밍.html#cb14-10"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb14-11"><a href="프로그래밍.html#cb14-11"></a><span class="dv">6</span> <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span></span>
-<span id="cb14-12"><a href="프로그래밍.html#cb14-12"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb14-13"><a href="프로그래밍.html#cb14-13"></a><span class="op">!</span><span class="ot">TRUE</span>  <span class="co"># Not x  </span></span>
-<span id="cb14-14"><a href="프로그래밍.html#cb14-14"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb14-15"><a href="프로그래밍.html#cb14-15"></a><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">FALSE</span>  <span class="co"># x OR y  </span></span>
-<span id="cb14-16"><a href="프로그래밍.html#cb14-16"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb14-17"><a href="프로그래밍.html#cb14-17"></a><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">FALSE</span>  <span class="co"># x AND y  </span></span>
-<span id="cb14-18"><a href="프로그래밍.html#cb14-18"></a><span class="co">#&gt; [1] FALSE</span></span>
-<span id="cb14-19"><a href="프로그래밍.html#cb14-19"></a><span class="kw">isTRUE</span>(<span class="ot">TRUE</span>)  <span class="co"># if x is TRUE</span></span>
-<span id="cb14-20"><a href="프로그래밍.html#cb14-20"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
-</div>
-<div id="기초-산술-함수" class="section level2">
-<h2><span class="header-section-number">2.3</span> 기초 산술 함수</h2>
-<div id="통계-함수" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> 통계 함수</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="프로그래밍.html#cb15-1"></a><span class="kw">sum</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>))     <span class="co"># 합계</span></span>
-<span id="cb15-2"><a href="프로그래밍.html#cb15-2"></a><span class="co">#&gt; [1] 13</span></span>
-<span id="cb15-3"><a href="프로그래밍.html#cb15-3"></a><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>))    <span class="co"># 평균</span></span>
-<span id="cb15-4"><a href="프로그래밍.html#cb15-4"></a><span class="co">#&gt; [1] 4.33</span></span>
-<span id="cb15-5"><a href="프로그래밍.html#cb15-5"></a><span class="kw">sd</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>))      <span class="co"># 표준편차</span></span>
-<span id="cb15-6"><a href="프로그래밍.html#cb15-6"></a><span class="co">#&gt; [1] 2.08</span></span>
-<span id="cb15-7"><a href="프로그래밍.html#cb15-7"></a><span class="kw">var</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>))     <span class="co"># 분산</span></span>
-<span id="cb15-8"><a href="프로그래밍.html#cb15-8"></a><span class="co">#&gt; [1] 4.33</span></span>
-<span id="cb15-9"><a href="프로그래밍.html#cb15-9"></a><span class="kw">median</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>))  <span class="co"># 중위수</span></span>
-<span id="cb15-10"><a href="프로그래밍.html#cb15-10"></a><span class="co">#&gt; [1] 5</span></span>
-<span id="cb15-11"><a href="프로그래밍.html#cb15-11"></a><span class="kw">max</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>))  <span class="co"># 최대값</span></span>
-<span id="cb15-12"><a href="프로그래밍.html#cb15-12"></a><span class="co">#&gt; [1] 7</span></span>
-<span id="cb15-13"><a href="프로그래밍.html#cb15-13"></a><span class="kw">min</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>))  <span class="co"># 최소값</span></span>
-<span id="cb15-14"><a href="프로그래밍.html#cb15-14"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb15-15"><a href="프로그래밍.html#cb15-15"></a><span class="kw">IQR</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>))  <span class="co"># 사분위 범위</span></span>
-<span id="cb15-16"><a href="프로그래밍.html#cb15-16"></a><span class="co">#&gt; [1] 3</span></span>
-<span id="cb15-17"><a href="프로그래밍.html#cb15-17"></a><span class="kw">quantile</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>), <span class="fl">0.25</span>)  <span class="co"># 백분위 수</span></span>
-<span id="cb15-18"><a href="프로그래밍.html#cb15-18"></a><span class="co">#&gt; 25% </span></span>
-<span id="cb15-19"><a href="프로그래밍.html#cb15-19"></a><span class="co">#&gt; 2.5</span></span>
-<span id="cb15-20"><a href="프로그래밍.html#cb15-20"></a><span class="kw">range</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)) <span class="co"># 최대값과 최소값</span></span>
-<span id="cb15-21"><a href="프로그래밍.html#cb15-21"></a><span class="co">#&gt; [1] 1 7</span></span></code></pre></div>
-</div>
-<div id="로그-및-지수-함수-logarithms-and-exponentials" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> 로그 및 지수 함수 (Logarithms and Exponentials)</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="프로그래밍.html#cb16-1"></a><span class="kw">log</span>(<span class="dv">10</span>)    <span class="co"># 자연로그 logarithms base e of x, e=2.7182818284⋯</span></span>
-<span id="cb16-2"><a href="프로그래밍.html#cb16-2"></a><span class="co">#&gt; [1] 2.3</span></span>
-<span id="cb16-3"><a href="프로그래밍.html#cb16-3"></a><span class="kw">log2</span>(<span class="dv">10</span>)   <span class="co"># 이진로그 logarithms base 2 of x</span></span>
-<span id="cb16-4"><a href="프로그래밍.html#cb16-4"></a><span class="co">#&gt; [1] 3.32</span></span>
-<span id="cb16-5"><a href="프로그래밍.html#cb16-5"></a><span class="kw">log10</span>(<span class="dv">10</span>)  <span class="co"># 상용로그 logaritms base 10 of x</span></span>
-<span id="cb16-6"><a href="프로그래밍.html#cb16-6"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb16-7"><a href="프로그래밍.html#cb16-7"></a><span class="kw">exp</span>(<span class="dv">10</span>)    <span class="co"># 지수 Exponential of x</span></span>
-<span id="cb16-8"><a href="프로그래밍.html#cb16-8"></a><span class="co">#&gt; [1] 22026</span></span></code></pre></div>
-</div>
-<div id="삼각-함수" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> 삼각 함수</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="프로그래밍.html#cb17-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb17-2"><a href="프로그래밍.html#cb17-2"></a><span class="kw">cos</span>(x) <span class="co"># Cosine of x</span></span>
-<span id="cb17-3"><a href="프로그래밍.html#cb17-3"></a><span class="co">#&gt; [1] 0.54</span></span>
-<span id="cb17-4"><a href="프로그래밍.html#cb17-4"></a><span class="kw">sin</span>(x) <span class="co"># Sine of x</span></span>
-<span id="cb17-5"><a href="프로그래밍.html#cb17-5"></a><span class="co">#&gt; [1] 0.841</span></span>
-<span id="cb17-6"><a href="프로그래밍.html#cb17-6"></a><span class="kw">tan</span>(x) <span class="co">#Tangent of x</span></span>
-<span id="cb17-7"><a href="프로그래밍.html#cb17-7"></a><span class="co">#&gt; [1] 1.56</span></span>
-<span id="cb17-8"><a href="프로그래밍.html#cb17-8"></a><span class="kw">acos</span>(x) <span class="co"># arc-cosine of x</span></span>
-<span id="cb17-9"><a href="프로그래밍.html#cb17-9"></a><span class="co">#&gt; [1] 0</span></span>
-<span id="cb17-10"><a href="프로그래밍.html#cb17-10"></a><span class="kw">asin</span>(x) <span class="co"># arc-sine of x</span></span>
-<span id="cb17-11"><a href="프로그래밍.html#cb17-11"></a><span class="co">#&gt; [1] 1.57</span></span>
-<span id="cb17-12"><a href="프로그래밍.html#cb17-12"></a><span class="kw">atan</span>(x) <span class="co">#arc-tangent of x</span></span>
-<span id="cb17-13"><a href="프로그래밍.html#cb17-13"></a><span class="co">#&gt; [1] 0.785</span></span></code></pre></div>
-</div>
-<div id="기타-수학-함수" class="section level3">
-<h3><span class="header-section-number">2.3.4</span> 기타 수학 함수</h3>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="프로그래밍.html#cb18-1"></a>pi        <span class="co"># 파이 값</span></span>
-<span id="cb18-2"><a href="프로그래밍.html#cb18-2"></a><span class="co">#&gt; [1] 3.14</span></span>
-<span id="cb18-3"><a href="프로그래밍.html#cb18-3"></a><span class="kw">abs</span>(<span class="op">-</span><span class="dv">3</span>)   <span class="co"># 절대 값 absolute value of x</span></span>
-<span id="cb18-4"><a href="프로그래밍.html#cb18-4"></a><span class="co">#&gt; [1] 3</span></span>
-<span id="cb18-5"><a href="프로그래밍.html#cb18-5"></a><span class="kw">sqrt</span>(<span class="dv">3</span>)   <span class="co"># 제곱근 square root of x</span></span>
-<span id="cb18-6"><a href="프로그래밍.html#cb18-6"></a><span class="co">#&gt; [1] 1.73</span></span>
-<span id="cb18-7"><a href="프로그래밍.html#cb18-7"></a><span class="kw">round</span>(<span class="fl">2.345</span>, <span class="dv">2</span>)   <span class="co"># 반올림</span></span>
-<span id="cb18-8"><a href="프로그래밍.html#cb18-8"></a><span class="co">#&gt; [1] 2.35</span></span>
-<span id="cb18-9"><a href="프로그래밍.html#cb18-9"></a><span class="kw">ceiling</span>(<span class="fl">2.345</span>)    <span class="co"># 정수로 올림</span></span>
-<span id="cb18-10"><a href="프로그래밍.html#cb18-10"></a><span class="co">#&gt; [1] 3</span></span>
-<span id="cb18-11"><a href="프로그래밍.html#cb18-11"></a><span class="kw">floor</span>(<span class="fl">2.345</span>)      <span class="co"># 정수로 내림</span></span>
-<span id="cb18-12"><a href="프로그래밍.html#cb18-12"></a><span class="co">#&gt; [1] 2</span></span>
-<span id="cb18-13"><a href="프로그래밍.html#cb18-13"></a><span class="kw">trunc</span>(<span class="fl">2.345</span>)      <span class="co"># 소수점 아래 버리기, 0에 더 가까운 값 반환</span></span>
-<span id="cb18-14"><a href="프로그래밍.html#cb18-14"></a><span class="co">#&gt; [1] 2</span></span>
-<span id="cb18-15"><a href="프로그래밍.html#cb18-15"></a><span class="kw">signif</span>(<span class="fl">2.345</span>, <span class="dv">3</span>)  <span class="co"># 전체 자릿수에 맞게 반올림</span></span>
-<span id="cb18-16"><a href="프로그래밍.html#cb18-16"></a><span class="co">#&gt; [1] 2.35</span></span></code></pre></div>
-<blockquote>
-<p>프로젝트 전체에서 자리수를 지정하고 싶다면 options() 함수를 사용합니다. 자리수 디폴트는 7이지만 __options(digits = 5)__와 같이 지정하면 5자리로 설정됩니다.</p>
-</blockquote>
-</div>
-</div>
-<div id="객체변수의-할당과-삭제" class="section level2">
-<h2><span class="header-section-number">2.4</span> 객체(변수)의 할당과 삭제</h2>
-<div id="객체변수-만들기" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> 객체(변수) 만들기</h3>
-<p>변수는 일종의 데이터를 담고 있는 상자입니다. 이 상자에는 숫자나 문자 등을 넣어 보관하거나 필요할 때 빼서 사용할 수 있습니다. 또 상자 안의 내용물을 바꿀 수도 있습니다.</p>
-<p>변수명은 항상 왼쪽에 쓰며, ‘&lt;-’ 기호를 사용하여 변수라는 상자 안에 데이터를 넣을 수 있습니다. (예, a &lt;- 2) 또한 ‘&lt;-’ 기호 대신 ’=’를 사용하여도 됩니다.</p>
-<p>변수명은 영어와 숫자 모두 사용할 수 있으나 시작 글자는 반드시 문자여야 합니다.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="프로그래밍.html#cb19-1"></a><span class="co"># 3이라는 숫자를 변수 x에 담기</span></span>
-<span id="cb19-2"><a href="프로그래밍.html#cb19-2"></a>x &lt;-<span class="st"> </span><span class="dv">3</span>   </span>
-<span id="cb19-3"><a href="프로그래밍.html#cb19-3"></a><span class="co"># 5라는 숫자를 변수 y에 담기</span></span>
-<span id="cb19-4"><a href="프로그래밍.html#cb19-4"></a>y &lt;-<span class="st"> </span><span class="dv">5</span>   </span>
-<span id="cb19-5"><a href="프로그래밍.html#cb19-5"></a><span class="co"># 변수 x에 담긴 값을 출력</span></span>
-<span id="cb19-6"><a href="프로그래밍.html#cb19-6"></a>x</span>
-<span id="cb19-7"><a href="프로그래밍.html#cb19-7"></a><span class="co">#&gt; [1] 3</span></span>
-<span id="cb19-8"><a href="프로그래밍.html#cb19-8"></a><span class="co"># print() 함수를 사용하여 출력 가능</span></span>
-<span id="cb19-9"><a href="프로그래밍.html#cb19-9"></a><span class="kw">print</span>(y)</span>
-<span id="cb19-10"><a href="프로그래밍.html#cb19-10"></a><span class="co">#&gt; [1] 5</span></span>
-<span id="cb19-11"><a href="프로그래밍.html#cb19-11"></a></span>
-<span id="cb19-12"><a href="프로그래밍.html#cb19-12"></a><span class="co"># 변수 x에 담긴 값과 변수 y에 담긴 값 계산</span></span>
-<span id="cb19-13"><a href="프로그래밍.html#cb19-13"></a>x <span class="op">*</span><span class="st"> </span>y   <span class="co"># 3 * 5</span></span>
-<span id="cb19-14"><a href="프로그래밍.html#cb19-14"></a><span class="co">#&gt; [1] 15</span></span>
-<span id="cb19-15"><a href="프로그래밍.html#cb19-15"></a>x <span class="op">+</span><span class="st"> </span>y   <span class="co"># 3 + 5</span></span>
-<span id="cb19-16"><a href="프로그래밍.html#cb19-16"></a><span class="co">#&gt; [1] 8</span></span>
-<span id="cb19-17"><a href="프로그래밍.html#cb19-17"></a></span>
-<span id="cb19-18"><a href="프로그래밍.html#cb19-18"></a><span class="co"># x/y의 결과 값을 변수 z에 담기</span></span>
-<span id="cb19-19"><a href="프로그래밍.html#cb19-19"></a>z &lt;-<span class="st"> </span>x <span class="op">/</span><span class="st"> </span>y</span>
-<span id="cb19-20"><a href="프로그래밍.html#cb19-20"></a>z</span>
-<span id="cb19-21"><a href="프로그래밍.html#cb19-21"></a><span class="co">#&gt; [1] 0.6</span></span></code></pre></div>
-</div>
-<div id="객체변수-리스트-보기" class="section level3">
-<h3><span class="header-section-number">2.4.2</span> 객체(변수) 리스트 보기</h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="프로그래밍.html#cb20-1"></a><span class="kw">ls</span>()</span>
-<span id="cb20-2"><a href="프로그래밍.html#cb20-2"></a><span class="co">#&gt; [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></span></code></pre></div>
-</div>
-<div id="객체변수-지우기" class="section level3">
-<h3><span class="header-section-number">2.4.3</span> 객체(변수) 지우기</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="프로그래밍.html#cb21-1"></a><span class="co"># 객체 x와 y 삭제</span></span>
-<span id="cb21-2"><a href="프로그래밍.html#cb21-2"></a><span class="kw">rm</span>(x, y)</span>
-<span id="cb21-3"><a href="프로그래밍.html#cb21-3"></a><span class="co"># 남아 있는 객체 리스트 출력</span></span>
-<span id="cb21-4"><a href="프로그래밍.html#cb21-4"></a><span class="kw">ls</span>()</span>
-<span id="cb21-5"><a href="프로그래밍.html#cb21-5"></a><span class="co">#&gt; [1] &quot;z&quot;</span></span></code></pre></div>
-</div>
-</div>
-<div id="기본-데이터-타입-basic-data-types" class="section level2">
-<h2><span class="header-section-number">2.5</span> 기본 데이터 타입 (Basic data types)</h2>
-<p>기본 데이터 타입으로 숫자(numeric), 문자(character), 논리(logical), 날짜(date), 결측치(missing) 등이 있습니다.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="프로그래밍.html#cb22-1"></a><span class="co"># 숫자 데이터</span></span>
-<span id="cb22-2"><a href="프로그래밍.html#cb22-2"></a>my_age &lt;-<span class="st"> </span><span class="dv">21</span></span>
-<span id="cb22-3"><a href="프로그래밍.html#cb22-3"></a></span>
-<span id="cb22-4"><a href="프로그래밍.html#cb22-4"></a><span class="co"># 문자 데이터 - 문자는 따옴표(&quot; 또는 &#39;)로 둘러쌉니다.</span></span>
-<span id="cb22-5"><a href="프로그래밍.html#cb22-5"></a>my_name &lt;-<span class="st"> &quot;영희&quot;</span></span>
-<span id="cb22-6"><a href="프로그래밍.html#cb22-6"></a></span>
-<span id="cb22-7"><a href="프로그래밍.html#cb22-7"></a><span class="co"># 논리 데이터 - TRUE, FALSE</span></span>
-<span id="cb22-8"><a href="프로그래밍.html#cb22-8"></a>is_student &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
-<span id="cb22-9"><a href="프로그래밍.html#cb22-9"></a></span>
-<span id="cb22-10"><a href="프로그래밍.html#cb22-10"></a><span class="co"># 날짜 데이터</span></span>
-<span id="cb22-11"><a href="프로그래밍.html#cb22-11"></a>my_birthday &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2007-08-02&quot;</span>)</span>
-<span id="cb22-12"><a href="프로그래밍.html#cb22-12"></a></span>
-<span id="cb22-13"><a href="프로그래밍.html#cb22-13"></a><span class="co"># 결측치(missing data) - 논리 데이터의 일종</span></span>
-<span id="cb22-14"><a href="프로그래밍.html#cb22-14"></a>my_missing &lt;-<span class="st"> </span><span class="ot">NA</span></span></code></pre></div>
-<p>문자는 따옴표로 둘러싸는데, 만일 문자들 중에 따옴표가 있으면 ""을 추가합니다.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="프로그래밍.html#cb23-1"></a>my_say &lt;-<span class="st"> &quot;나의 이름은 </span><span class="ch">\&quot;</span><span class="st">영희</span><span class="ch">\&quot;</span><span class="st">입니다.&quot;</span></span>
-<span id="cb23-2"><a href="프로그래밍.html#cb23-2"></a>my_say</span>
-<span id="cb23-3"><a href="프로그래밍.html#cb23-3"></a><span class="co">#&gt; [1] &quot;나의 이름은 \&quot;영희\&quot;입니다.&quot;</span></span></code></pre></div>
-<p>데이터 타입을 확인하는 함수는 class()입니다.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="프로그래밍.html#cb24-1"></a><span class="kw">class</span>(my_age)</span>
-<span id="cb24-2"><a href="프로그래밍.html#cb24-2"></a><span class="co">#&gt; [1] &quot;numeric&quot;</span></span>
-<span id="cb24-3"><a href="프로그래밍.html#cb24-3"></a><span class="kw">class</span>(my_name)</span>
-<span id="cb24-4"><a href="프로그래밍.html#cb24-4"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span></code></pre></div>
-<p>객체의 데이터 타입이 숫자인지, 문자인지를 확인하는 함수도 있습니다. 맞으면 TRUE를 출력하고 틀리면 FALSE를 출력합니다.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="프로그래밍.html#cb25-1"></a><span class="kw">is.numeric</span>(my_age)</span>
-<span id="cb25-2"><a href="프로그래밍.html#cb25-2"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb25-3"><a href="프로그래밍.html#cb25-3"></a><span class="kw">is.character</span>(my_name)</span>
-<span id="cb25-4"><a href="프로그래밍.html#cb25-4"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb25-5"><a href="프로그래밍.html#cb25-5"></a><span class="kw">is.logical</span>(is_student)</span>
-<span id="cb25-6"><a href="프로그래밍.html#cb25-6"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb25-7"><a href="프로그래밍.html#cb25-7"></a><span class="kw">is.na</span>(my_missing)</span>
-<span id="cb25-8"><a href="프로그래밍.html#cb25-8"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
-<p>만일 숫자가 따옴표로 둘려싸여 있어 문자로 인식될 경우 변환 함수를 이용하여 숫자 형식으로 변경할 수 있습니다.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="프로그래밍.html#cb26-1"></a><span class="kw">as.numeric</span>(<span class="st">&quot;21&quot;</span>)</span>
-<span id="cb26-2"><a href="프로그래밍.html#cb26-2"></a><span class="co">#&gt; [1] 21</span></span></code></pre></div>
-<div id="숫자-데이터---실수와-정수" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> 숫자 데이터 - 실수와 정수</h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="프로그래밍.html#cb27-1"></a><span class="dv">100000</span>    <span class="co"># 1e+05 형태로 표시됨 </span></span>
-<span id="cb27-2"><a href="프로그래밍.html#cb27-2"></a><span class="co">#&gt; [1] 1e+05</span></span>
-<span id="cb27-3"><a href="프로그래밍.html#cb27-3"></a><span class="dv">150000000</span> <span class="co"># 1.5e+08 형태로 표시됨 </span></span>
-<span id="cb27-4"><a href="프로그래밍.html#cb27-4"></a><span class="co">#&gt; [1] 1.5e+08</span></span>
-<span id="cb27-5"><a href="프로그래밍.html#cb27-5"></a><span class="fl">5e+3</span>     <span class="co">#  5000  </span></span>
-<span id="cb27-6"><a href="프로그래밍.html#cb27-6"></a><span class="co">#&gt; [1] 5000</span></span>
-<span id="cb27-7"><a href="프로그래밍.html#cb27-7"></a><span class="fl">5e-3</span>     <span class="co">#  0.005</span></span>
-<span id="cb27-8"><a href="프로그래밍.html#cb27-8"></a><span class="co">#&gt; [1] 0.005</span></span></code></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="프로그래밍.html#cb28-1"></a><span class="co"># numeric 실수</span></span>
-<span id="cb28-2"><a href="프로그래밍.html#cb28-2"></a>x &lt;-<span class="st"> </span><span class="dv">21</span>  </span>
-<span id="cb28-3"><a href="프로그래밍.html#cb28-3"></a><span class="kw">is.numeric</span>(x) </span>
-<span id="cb28-4"><a href="프로그래밍.html#cb28-4"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb28-5"><a href="프로그래밍.html#cb28-5"></a></span>
-<span id="cb28-6"><a href="프로그래밍.html#cb28-6"></a><span class="co"># 정수  </span></span>
-<span id="cb28-7"><a href="프로그래밍.html#cb28-7"></a>y &lt;-<span class="st"> </span>5L    </span>
-<span id="cb28-8"><a href="프로그래밍.html#cb28-8"></a><span class="kw">is.integer</span>(y)</span>
-<span id="cb28-9"><a href="프로그래밍.html#cb28-9"></a><span class="co">#&gt; [1] TRUE</span></span>
-<span id="cb28-10"><a href="프로그래밍.html#cb28-10"></a>  </span>
-<span id="cb28-11"><a href="프로그래밍.html#cb28-11"></a><span class="kw">typeof</span>(<span class="dv">5</span>)   <span class="co"># 부동소수점 실수 double</span></span>
-<span id="cb28-12"><a href="프로그래밍.html#cb28-12"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span>
-<span id="cb28-13"><a href="프로그래밍.html#cb28-13"></a><span class="kw">typeof</span>(5L)  <span class="co"># 정수 integer</span></span>
-<span id="cb28-14"><a href="프로그래밍.html#cb28-14"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span>
-<span id="cb28-15"><a href="프로그래밍.html#cb28-15"></a><span class="kw">typeof</span>(5i)  <span class="co"># 복소수 complex</span></span>
-<span id="cb28-16"><a href="프로그래밍.html#cb28-16"></a><span class="co">#&gt; [1] &quot;complex&quot;</span></span>
-<span id="cb28-17"><a href="프로그래밍.html#cb28-17"></a></span>
-<span id="cb28-18"><a href="프로그래밍.html#cb28-18"></a><span class="co"># 정수와 실수가 같이 연산되면 결과값은 실수</span></span>
-<span id="cb28-19"><a href="프로그래밍.html#cb28-19"></a>4L <span class="op">*</span><span class="st"> </span><span class="fl">2.8</span></span>
-<span id="cb28-20"><a href="프로그래밍.html#cb28-20"></a><span class="co">#&gt; [1] 11.2</span></span></code></pre></div>
-</div>
-<div id="논리-데이터---true-1-false-0" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> 논리 데이터 - TRUE == 1, FALSE == 0</h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="프로그래밍.html#cb29-1"></a><span class="ot">TRUE</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span>
-<span id="cb29-2"><a href="프로그래밍.html#cb29-2"></a><span class="co">#&gt; [1] 3</span></span>
-<span id="cb29-3"><a href="프로그래밍.html#cb29-3"></a><span class="ot">FALSE</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span>
-<span id="cb29-4"><a href="프로그래밍.html#cb29-4"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div>
-</div>
-<div id="null-객체" class="section level3">
-<h3><span class="header-section-number">2.5.3</span> NULL 객체</h3>
-<p>객체에 NULL 값을 부여함으로써 객체를 삭제하는 데 사용되기도 합니다.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="프로그래밍.html#cb30-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>, <span class="ot">NA</span>, <span class="dv">23</span>, <span class="ot">NA</span>, <span class="dv">25</span>)</span>
-<span id="cb30-2"><a href="프로그래밍.html#cb30-2"></a><span class="kw">str</span>(x)</span>
-<span id="cb30-3"><a href="프로그래밍.html#cb30-3"></a><span class="co">#&gt;  num [1:5] 21 NA 23 NA 25</span></span>
-<span id="cb30-4"><a href="프로그래밍.html#cb30-4"></a></span>
-<span id="cb30-5"><a href="프로그래밍.html#cb30-5"></a><span class="co"># x에 NULL 부여</span></span>
-<span id="cb30-6"><a href="프로그래밍.html#cb30-6"></a>x &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb30-7"><a href="프로그래밍.html#cb30-7"></a><span class="kw">str</span>(x)</span>
-<span id="cb30-8"><a href="프로그래밍.html#cb30-8"></a><span class="co">#&gt;  NULL</span></span></code></pre></div>
-</div>
-</div>
-<div id="내장형-상수-built-in-constants" class="section level2">
-<h2><span class="header-section-number">2.6</span> 내장형 상수 Built-in Constants</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="프로그래밍.html#cb31-1"></a><span class="co"># 영어 알파벳 대문자 26개</span></span>
-<span id="cb31-2"><a href="프로그래밍.html#cb31-2"></a>LETTERS</span>
-<span id="cb31-3"><a href="프로그래밍.html#cb31-3"></a><span class="co">#&gt;  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;</span></span>
-<span id="cb31-4"><a href="프로그래밍.html#cb31-4"></a><span class="co">#&gt; [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</span></span>
-<span id="cb31-5"><a href="프로그래밍.html#cb31-5"></a></span>
-<span id="cb31-6"><a href="프로그래밍.html#cb31-6"></a><span class="co"># 영어 알파벳 소문자 26개</span></span>
-<span id="cb31-7"><a href="프로그래밍.html#cb31-7"></a>letters</span>
-<span id="cb31-8"><a href="프로그래밍.html#cb31-8"></a><span class="co">#&gt;  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;</span></span>
-<span id="cb31-9"><a href="프로그래밍.html#cb31-9"></a><span class="co">#&gt; [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></span>
-<span id="cb31-10"><a href="프로그래밍.html#cb31-10"></a></span>
-<span id="cb31-11"><a href="프로그래밍.html#cb31-11"></a><span class="co"># 영어 월 이름 약어</span></span>
-<span id="cb31-12"><a href="프로그래밍.html#cb31-12"></a>month.abb</span>
-<span id="cb31-13"><a href="프로그래밍.html#cb31-13"></a><span class="co">#&gt;  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;</span></span>
-<span id="cb31-14"><a href="프로그래밍.html#cb31-14"></a></span>
-<span id="cb31-15"><a href="프로그래밍.html#cb31-15"></a><span class="co"># 영어 월 이름</span></span>
-<span id="cb31-16"><a href="프로그래밍.html#cb31-16"></a>month.name</span>
-<span id="cb31-17"><a href="프로그래밍.html#cb31-17"></a><span class="co">#&gt;  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;       &quot;June&quot;     </span></span>
-<span id="cb31-18"><a href="프로그래밍.html#cb31-18"></a><span class="co">#&gt;  [7] &quot;July&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot;</span></span>
-<span id="cb31-19"><a href="프로그래밍.html#cb31-19"></a></span>
-<span id="cb31-20"><a href="프로그래밍.html#cb31-20"></a><span class="co"># 원주율 : 원의 지름에 대한 둘레의 비율</span></span>
-<span id="cb31-21"><a href="프로그래밍.html#cb31-21"></a>pi</span>
-<span id="cb31-22"><a href="프로그래밍.html#cb31-22"></a><span class="co">#&gt; [1] 3.14</span></span></code></pre></div>
-</div>
-<div id="예약어-reserved-words" class="section level2">
-<h2><span class="header-section-number">2.7</span> 예약어 Reserved Words</h2>
-<p>R 예약어는 R에서 특별한 의미를 가지고 있는 단어입니다. 따라서 변수명이나 사용자가 만드는 함수 이름으로 사용하지 않는 것이 좋습니다.</p>
-<p>예약어 : if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA_integer_, NA_real_, NA_complex_, NA_character_, …, ..1, ..2 등</p>
-<p>R의 예약어를 알고 싶으면 다음과 같이 하면 됩니다.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="프로그래밍.html#cb32-1"></a>?reserved</span></code></pre></div>
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="설치.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-데이터-구조.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-package-관리.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="기초-산술-연산자.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -584,7 +380,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["rbasic.pdf", "rbasic.epub"],
+"download": null,
 "toc": {
 "collapse": "section"
 }
@@ -592,6 +388,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

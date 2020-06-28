@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 R 설치 | A R Basic Manual</title>
+  <title>1 R 설치 | R Basic Manual</title>
   <meta name="description" content="This is a R Basic Manual." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 R 설치 | A R Basic Manual" />
+  <meta property="og:title" content="1 R 설치 | R Basic Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="manboha/rbasic" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 R 설치 | A R Basic Manual" />
+  <meta name="twitter:title" content="1 R 설치 | R Basic Manual" />
   
   <meta name="twitter:description" content="This is a R Basic Manual." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Manboha" />
 
 
-<meta name="date" content="2020-06-14" />
+<meta name="date" content="2020-06-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="프로그래밍.html"/>
+<link rel="next" href="r이란.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,95 +135,180 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
 <li class="chapter" data-level="1" data-path="설치.html"><a href="설치.html"><i class="fa fa-check"></i><b>1</b> R 설치</a><ul>
-<li class="chapter" data-level="1.1" data-path="설치.html"><a href="설치.html#r이란"><i class="fa fa-check"></i><b>1.1</b> R이란?</a></li>
-<li class="chapter" data-level="1.2" data-path="설치.html"><a href="설치.html#r-설치"><i class="fa fa-check"></i><b>1.2</b> R 설치</a></li>
-<li class="chapter" data-level="1.3" data-path="설치.html"><a href="설치.html#r의-특징"><i class="fa fa-check"></i><b>1.3</b> R의 특징</a></li>
-<li class="chapter" data-level="1.4" data-path="설치.html"><a href="설치.html#rstudio-설치"><i class="fa fa-check"></i><b>1.4</b> RStudio 설치</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="설치.html"><a href="설치.html#rstudio에서-프로젝트-만들기"><i class="fa fa-check"></i><b>1.4.1</b> RStudio에서 프로젝트 만들기</a></li>
+<li class="chapter" data-level="1.1" data-path="r이란.html"><a href="r이란.html"><i class="fa fa-check"></i><b>1.1</b> R이란?</a></li>
+<li class="chapter" data-level="1.2" data-path="r-설치.html"><a href="r-설치.html"><i class="fa fa-check"></i><b>1.2</b> R 설치</a></li>
+<li class="chapter" data-level="1.3" data-path="r의-특징.html"><a href="r의-특징.html"><i class="fa fa-check"></i><b>1.3</b> R의 특징</a></li>
+<li class="chapter" data-level="1.4" data-path="rstudio-설치.html"><a href="rstudio-설치.html"><i class="fa fa-check"></i><b>1.4</b> RStudio 설치</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="rstudio-설치.html"><a href="rstudio-설치.html#rstudio에서-프로젝트-만들기"><i class="fa fa-check"></i><b>1.4.1</b> RStudio에서 프로젝트 만들기</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="설치.html"><a href="설치.html#r-package-설치-및-사용"><i class="fa fa-check"></i><b>1.5</b> R package 설치 및 사용</a></li>
-<li class="chapter" data-level="1.6" data-path="설치.html"><a href="설치.html#r-package-관리"><i class="fa fa-check"></i><b>1.6</b> R package 관리</a><ul>
-<li class="chapter" data-level="1.6.1" data-path="설치.html"><a href="설치.html#설치된-패키지-보기"><i class="fa fa-check"></i><b>1.6.1</b> 설치된 패키지 보기</a></li>
-<li class="chapter" data-level="1.6.2" data-path="설치.html"><a href="설치.html#패키지가-설치된-폴더-보기"><i class="fa fa-check"></i><b>1.6.2</b> 패키지가 설치된 폴더 보기</a></li>
-<li class="chapter" data-level="1.6.3" data-path="설치.html"><a href="설치.html#로드된-패키지-보기"><i class="fa fa-check"></i><b>1.6.3</b> 로드된 패키지 보기</a></li>
-<li class="chapter" data-level="1.6.4" data-path="설치.html"><a href="설치.html#패키지-언로드-하기-메모리에서-내리기"><i class="fa fa-check"></i><b>1.6.4</b> 패키지 언로드 하기 (메모리에서 내리기)</a></li>
-<li class="chapter" data-level="1.6.5" data-path="설치.html"><a href="설치.html#설치된-패키지-제거하기"><i class="fa fa-check"></i><b>1.6.5</b> 설치된 패키지 제거하기</a></li>
-<li class="chapter" data-level="1.6.6" data-path="설치.html"><a href="설치.html#패키지-업데이트하기"><i class="fa fa-check"></i><b>1.6.6</b> 패키지 업데이트하기</a></li>
+<li class="chapter" data-level="1.5" data-path="r-package-설치-및-사용.html"><a href="r-package-설치-및-사용.html"><i class="fa fa-check"></i><b>1.5</b> R package 설치 및 사용</a></li>
+<li class="chapter" data-level="1.6" data-path="r-package-관리.html"><a href="r-package-관리.html"><i class="fa fa-check"></i><b>1.6</b> R package 관리</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="r-package-관리.html"><a href="r-package-관리.html#설치된-패키지-보기"><i class="fa fa-check"></i><b>1.6.1</b> 설치된 패키지 보기</a></li>
+<li class="chapter" data-level="1.6.2" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지가-설치된-폴더-보기"><i class="fa fa-check"></i><b>1.6.2</b> 패키지가 설치된 폴더 보기</a></li>
+<li class="chapter" data-level="1.6.3" data-path="r-package-관리.html"><a href="r-package-관리.html#로드된-패키지-보기"><i class="fa fa-check"></i><b>1.6.3</b> 로드된 패키지 보기</a></li>
+<li class="chapter" data-level="1.6.4" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지-언로드-하기-메모리에서-내리기"><i class="fa fa-check"></i><b>1.6.4</b> 패키지 언로드 하기 (메모리에서 내리기)</a></li>
+<li class="chapter" data-level="1.6.5" data-path="r-package-관리.html"><a href="r-package-관리.html#설치된-패키지-제거하기"><i class="fa fa-check"></i><b>1.6.5</b> 설치된 패키지 제거하기</a></li>
+<li class="chapter" data-level="1.6.6" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지-업데이트하기"><i class="fa fa-check"></i><b>1.6.6</b> 패키지 업데이트하기</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="프로그래밍.html"><a href="프로그래밍.html"><i class="fa fa-check"></i><b>2</b> R 프로그래밍 기초</a><ul>
-<li class="chapter" data-level="2.1" data-path="프로그래밍.html"><a href="프로그래밍.html#기초-산술-연산자"><i class="fa fa-check"></i><b>2.1</b> 기초 산술 연산자</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="프로그래밍.html"><a href="프로그래밍.html#계산용-연산자"><i class="fa fa-check"></i><b>2.1.1</b> 계산용 연산자</a></li>
-<li class="chapter" data-level="2.1.2" data-path="프로그래밍.html"><a href="프로그래밍.html#화씨온도가-100도라면-섭씨온도는"><i class="fa fa-check"></i><b>2.1.2</b> 화씨온도가 100도라면 섭씨온도는?</a></li>
+<li class="chapter" data-level="2.1" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html"><i class="fa fa-check"></i><b>2.1</b> 기초 산술 연산자</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html#계산용-연산자"><i class="fa fa-check"></i><b>2.1.1</b> 계산용 연산자</a></li>
+<li class="chapter" data-level="2.1.2" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html#화씨온도가-100도라면-섭씨온도는"><i class="fa fa-check"></i><b>2.1.2</b> 화씨온도가 100도라면 섭씨온도는?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="프로그래밍.html"><a href="프로그래밍.html#논리-연산자"><i class="fa fa-check"></i><b>2.2</b> 논리 연산자</a></li>
-<li class="chapter" data-level="2.3" data-path="프로그래밍.html"><a href="프로그래밍.html#기초-산술-함수"><i class="fa fa-check"></i><b>2.3</b> 기초 산술 함수</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="프로그래밍.html"><a href="프로그래밍.html#통계-함수"><i class="fa fa-check"></i><b>2.3.1</b> 통계 함수</a></li>
-<li class="chapter" data-level="2.3.2" data-path="프로그래밍.html"><a href="프로그래밍.html#로그-및-지수-함수-logarithms-and-exponentials"><i class="fa fa-check"></i><b>2.3.2</b> 로그 및 지수 함수 (Logarithms and Exponentials)</a></li>
-<li class="chapter" data-level="2.3.3" data-path="프로그래밍.html"><a href="프로그래밍.html#삼각-함수"><i class="fa fa-check"></i><b>2.3.3</b> 삼각 함수</a></li>
-<li class="chapter" data-level="2.3.4" data-path="프로그래밍.html"><a href="프로그래밍.html#기타-수학-함수"><i class="fa fa-check"></i><b>2.3.4</b> 기타 수학 함수</a></li>
+<li class="chapter" data-level="2.2" data-path="논리-연산자.html"><a href="논리-연산자.html"><i class="fa fa-check"></i><b>2.2</b> 논리 연산자</a></li>
+<li class="chapter" data-level="2.3" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html"><i class="fa fa-check"></i><b>2.3</b> 기초 산술 함수</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#통계-함수"><i class="fa fa-check"></i><b>2.3.1</b> 통계 함수</a></li>
+<li class="chapter" data-level="2.3.2" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#로그-및-지수-함수-logarithms-and-exponentials"><i class="fa fa-check"></i><b>2.3.2</b> 로그 및 지수 함수 (Logarithms and Exponentials)</a></li>
+<li class="chapter" data-level="2.3.3" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#삼각-함수"><i class="fa fa-check"></i><b>2.3.3</b> 삼각 함수</a></li>
+<li class="chapter" data-level="2.3.4" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#기타-수학-함수"><i class="fa fa-check"></i><b>2.3.4</b> 기타 수학 함수</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="프로그래밍.html"><a href="프로그래밍.html#객체변수의-할당과-삭제"><i class="fa fa-check"></i><b>2.4</b> 객체(변수)의 할당과 삭제</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="프로그래밍.html"><a href="프로그래밍.html#객체변수-만들기"><i class="fa fa-check"></i><b>2.4.1</b> 객체(변수) 만들기</a></li>
-<li class="chapter" data-level="2.4.2" data-path="프로그래밍.html"><a href="프로그래밍.html#객체변수-리스트-보기"><i class="fa fa-check"></i><b>2.4.2</b> 객체(변수) 리스트 보기</a></li>
-<li class="chapter" data-level="2.4.3" data-path="프로그래밍.html"><a href="프로그래밍.html#객체변수-지우기"><i class="fa fa-check"></i><b>2.4.3</b> 객체(변수) 지우기</a></li>
+<li class="chapter" data-level="2.4" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html"><i class="fa fa-check"></i><b>2.4</b> 객체(변수)의 할당과 삭제</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-만들기"><i class="fa fa-check"></i><b>2.4.1</b> 객체(변수) 만들기</a></li>
+<li class="chapter" data-level="2.4.2" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-리스트-보기"><i class="fa fa-check"></i><b>2.4.2</b> 객체(변수) 리스트 보기</a></li>
+<li class="chapter" data-level="2.4.3" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-지우기"><i class="fa fa-check"></i><b>2.4.3</b> 객체(변수) 지우기</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="프로그래밍.html"><a href="프로그래밍.html#기본-데이터-타입-basic-data-types"><i class="fa fa-check"></i><b>2.5</b> 기본 데이터 타입 (Basic data types)</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="프로그래밍.html"><a href="프로그래밍.html#숫자-데이터---실수와-정수"><i class="fa fa-check"></i><b>2.5.1</b> 숫자 데이터 - 실수와 정수</a></li>
-<li class="chapter" data-level="2.5.2" data-path="프로그래밍.html"><a href="프로그래밍.html#논리-데이터---true-1-false-0"><i class="fa fa-check"></i><b>2.5.2</b> 논리 데이터 - TRUE == 1, FALSE == 0</a></li>
-<li class="chapter" data-level="2.5.3" data-path="프로그래밍.html"><a href="프로그래밍.html#null-객체"><i class="fa fa-check"></i><b>2.5.3</b> NULL 객체</a></li>
+<li class="chapter" data-level="2.5" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html"><i class="fa fa-check"></i><b>2.5</b> 기본 데이터 타입 (Basic data types)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#숫자-데이터---실수와-정수"><i class="fa fa-check"></i><b>2.5.1</b> 숫자 데이터 - 실수와 정수</a></li>
+<li class="chapter" data-level="2.5.2" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#논리-데이터---true-1-false-0"><i class="fa fa-check"></i><b>2.5.2</b> 논리 데이터 - TRUE == 1, FALSE == 0</a></li>
+<li class="chapter" data-level="2.5.3" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#null-객체"><i class="fa fa-check"></i><b>2.5.3</b> NULL 객체</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="프로그래밍.html"><a href="프로그래밍.html#내장형-상수-built-in-constants"><i class="fa fa-check"></i><b>2.6</b> 내장형 상수 Built-in Constants</a></li>
-<li class="chapter" data-level="2.7" data-path="프로그래밍.html"><a href="프로그래밍.html#예약어-reserved-words"><i class="fa fa-check"></i><b>2.7</b> 예약어 Reserved Words</a></li>
+<li class="chapter" data-level="2.6" data-path="내장형-상수-built-in-constants.html"><a href="내장형-상수-built-in-constants.html"><i class="fa fa-check"></i><b>2.6</b> 내장형 상수 Built-in Constants</a></li>
+<li class="chapter" data-level="2.7" data-path="예약어-reserved-words.html"><a href="예약어-reserved-words.html"><i class="fa fa-check"></i><b>2.7</b> 예약어 Reserved Words</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html"><i class="fa fa-check"></i><b>3</b> R 데이터 구조</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-벡터-vector"><i class="fa fa-check"></i><b>3.1</b> R 벡터 Vector</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> 벡터 만들기</a></li>
-<li class="chapter" data-level="3.1.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#벡터-요소-추출"><i class="fa fa-check"></i><b>3.1.2</b> 벡터 요소 추출</a></li>
-<li class="chapter" data-level="3.1.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#벡터-연산"><i class="fa fa-check"></i><b>3.1.3</b> 벡터 연산</a></li>
-<li class="chapter" data-level="3.1.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#기타"><i class="fa fa-check"></i><b>3.1.4</b> 기타</a></li>
+<li class="chapter" data-level="3.1" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>3.1</b> R 벡터 Vector</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="vector.html"><a href="vector.html#벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="vector.html"><a href="vector.html#벡터-요소-추출"><i class="fa fa-check"></i><b>3.1.2</b> 벡터 요소 추출</a></li>
+<li class="chapter" data-level="3.1.3" data-path="vector.html"><a href="vector.html#벡터-연산"><i class="fa fa-check"></i><b>3.1.3</b> 벡터 연산</a></li>
+<li class="chapter" data-level="3.1.4" data-path="vector.html"><a href="vector.html#기타"><i class="fa fa-check"></i><b>3.1.4</b> 기타</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-행렬-matrix"><i class="fa fa-check"></i><b>3.2</b> R 행렬 Matrix</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬-생성"><i class="fa fa-check"></i><b>3.2.1</b> 행렬 생성</a></li>
-<li class="chapter" data-level="3.2.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬-이름-붙이기"><i class="fa fa-check"></i><b>3.2.2</b> 행렬 이름 붙이기</a></li>
-<li class="chapter" data-level="3.2.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행열-바꾸기"><i class="fa fa-check"></i><b>3.2.3</b> 행열 바꾸기</a></li>
-<li class="chapter" data-level="3.2.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬의-차원"><i class="fa fa-check"></i><b>3.2.4</b> 행렬의 차원</a></li>
-<li class="chapter" data-level="3.2.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬의-요소-추출"><i class="fa fa-check"></i><b>3.2.5</b> 행렬의 요소 추출</a></li>
-<li class="chapter" data-level="3.2.6" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬-요소-수정"><i class="fa fa-check"></i><b>3.2.6</b> 행렬 요소 수정</a></li>
-<li class="chapter" data-level="3.2.7" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#행렬-연산"><i class="fa fa-check"></i><b>3.2.7</b> 행렬 연산</a></li>
+<li class="chapter" data-level="3.2" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>3.2</b> R 행렬 Matrix</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="matrix.html"><a href="matrix.html#행렬-생성"><i class="fa fa-check"></i><b>3.2.1</b> 행렬 생성</a></li>
+<li class="chapter" data-level="3.2.2" data-path="matrix.html"><a href="matrix.html#행렬-이름-붙이기"><i class="fa fa-check"></i><b>3.2.2</b> 행렬 이름 붙이기</a></li>
+<li class="chapter" data-level="3.2.3" data-path="matrix.html"><a href="matrix.html#행열-바꾸기"><i class="fa fa-check"></i><b>3.2.3</b> 행열 바꾸기</a></li>
+<li class="chapter" data-level="3.2.4" data-path="matrix.html"><a href="matrix.html#행렬의-차원"><i class="fa fa-check"></i><b>3.2.4</b> 행렬의 차원</a></li>
+<li class="chapter" data-level="3.2.5" data-path="matrix.html"><a href="matrix.html#행렬의-요소-추출"><i class="fa fa-check"></i><b>3.2.5</b> 행렬의 요소 추출</a></li>
+<li class="chapter" data-level="3.2.6" data-path="matrix.html"><a href="matrix.html#행렬-요소-수정"><i class="fa fa-check"></i><b>3.2.6</b> 행렬 요소 수정</a></li>
+<li class="chapter" data-level="3.2.7" data-path="matrix.html"><a href="matrix.html#행렬-연산"><i class="fa fa-check"></i><b>3.2.7</b> 행렬 연산</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-팩터-factor"><i class="fa fa-check"></i><b>3.3</b> R 팩터 Factor</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#팩터-변수-만들기"><i class="fa fa-check"></i><b>3.3.1</b> 팩터 변수 만들기</a></li>
-<li class="chapter" data-level="3.3.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#팩터-요소-추출"><i class="fa fa-check"></i><b>3.3.2</b> 팩터 요소 추출</a></li>
-<li class="chapter" data-level="3.3.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#팩터-요소-수정"><i class="fa fa-check"></i><b>3.3.3</b> 팩터 요소 수정</a></li>
-<li class="chapter" data-level="3.3.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#기타-1"><i class="fa fa-check"></i><b>3.3.4</b> 기타</a></li>
+<li class="chapter" data-level="3.3" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>3.3</b> R 팩터 Factor</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="factor.html"><a href="factor.html#팩터-변수-만들기"><i class="fa fa-check"></i><b>3.3.1</b> 팩터 변수 만들기</a></li>
+<li class="chapter" data-level="3.3.2" data-path="factor.html"><a href="factor.html#팩터-요소-추출"><i class="fa fa-check"></i><b>3.3.2</b> 팩터 요소 추출</a></li>
+<li class="chapter" data-level="3.3.3" data-path="factor.html"><a href="factor.html#팩터-요소-수정"><i class="fa fa-check"></i><b>3.3.3</b> 팩터 요소 수정</a></li>
+<li class="chapter" data-level="3.3.4" data-path="factor.html"><a href="factor.html#기타-1"><i class="fa fa-check"></i><b>3.3.4</b> 기타</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-배열-array"><i class="fa fa-check"></i><b>3.4</b> R 배열 Array</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열-생성"><i class="fa fa-check"></i><b>3.4.1</b> 배열 생성</a></li>
-<li class="chapter" data-level="3.4.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열-이름-붙이기"><i class="fa fa-check"></i><b>3.4.2</b> 배열 이름 붙이기</a></li>
-<li class="chapter" data-level="3.4.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열의-요소-추출"><i class="fa fa-check"></i><b>3.4.3</b> 배열의 요소 추출</a></li>
-<li class="chapter" data-level="3.4.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열-요소-수정"><i class="fa fa-check"></i><b>3.4.4</b> 배열 요소 수정</a></li>
-<li class="chapter" data-level="3.4.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#배열-연산"><i class="fa fa-check"></i><b>3.4.5</b> 배열 연산</a></li>
+<li class="chapter" data-level="3.4" data-path="array.html"><a href="array.html"><i class="fa fa-check"></i><b>3.4</b> R 배열 Array</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="array.html"><a href="array.html#배열-생성"><i class="fa fa-check"></i><b>3.4.1</b> 배열 생성</a></li>
+<li class="chapter" data-level="3.4.2" data-path="array.html"><a href="array.html#배열-이름-붙이기"><i class="fa fa-check"></i><b>3.4.2</b> 배열 이름 붙이기</a></li>
+<li class="chapter" data-level="3.4.3" data-path="array.html"><a href="array.html#배열의-요소-추출"><i class="fa fa-check"></i><b>3.4.3</b> 배열의 요소 추출</a></li>
+<li class="chapter" data-level="3.4.4" data-path="array.html"><a href="array.html#배열-요소-수정"><i class="fa fa-check"></i><b>3.4.4</b> 배열 요소 수정</a></li>
+<li class="chapter" data-level="3.4.5" data-path="array.html"><a href="array.html#배열-연산"><i class="fa fa-check"></i><b>3.4.5</b> 배열 연산</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-데이터-프레임-data-frame"><i class="fa fa-check"></i><b>3.5</b> R 데이터 프레임 Data frame</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>3.5.1</b> 데이터 프레임 만들기</a></li>
-<li class="chapter" data-level="3.5.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임-구조-보기"><i class="fa fa-check"></i><b>3.5.2</b> 데이터 프레임 구조 보기</a></li>
-<li class="chapter" data-level="3.5.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임-요약-보기"><i class="fa fa-check"></i><b>3.5.3</b> 데이터 프레임 요약 보기</a></li>
-<li class="chapter" data-level="3.5.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임에서-데이터-추출"><i class="fa fa-check"></i><b>3.5.4</b> 데이터 프레임에서 데이터 추출</a></li>
-<li class="chapter" data-level="3.5.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임의-데이터-수정"><i class="fa fa-check"></i><b>3.5.5</b> 데이터 프레임의 데이터 수정</a></li>
-<li class="chapter" data-level="3.5.6" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#데이터-프레임-구조-수정"><i class="fa fa-check"></i><b>3.5.6</b> 데이터 프레임 구조 수정</a></li>
-<li class="chapter" data-level="3.5.7" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#기타-2"><i class="fa fa-check"></i><b>3.5.7</b> 기타</a></li>
+<li class="chapter" data-level="3.5" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>3.5</b> R 데이터 프레임 Data frame</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>3.5.1</b> 데이터 프레임 만들기</a></li>
+<li class="chapter" data-level="3.5.2" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-구조-보기"><i class="fa fa-check"></i><b>3.5.2</b> 데이터 프레임 구조 보기</a></li>
+<li class="chapter" data-level="3.5.3" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-요약-보기"><i class="fa fa-check"></i><b>3.5.3</b> 데이터 프레임 요약 보기</a></li>
+<li class="chapter" data-level="3.5.4" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임에서-데이터-추출"><i class="fa fa-check"></i><b>3.5.4</b> 데이터 프레임에서 데이터 추출</a></li>
+<li class="chapter" data-level="3.5.5" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임의-데이터-수정"><i class="fa fa-check"></i><b>3.5.5</b> 데이터 프레임의 데이터 수정</a></li>
+<li class="chapter" data-level="3.5.6" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-구조-수정"><i class="fa fa-check"></i><b>3.5.6</b> 데이터 프레임 구조 수정</a></li>
+<li class="chapter" data-level="3.5.7" data-path="dataframe.html"><a href="dataframe.html#기타-2"><i class="fa fa-check"></i><b>3.5.7</b> 기타</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#r-리스트-list"><i class="fa fa-check"></i><b>3.6</b> R 리스트 List</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트-만들기"><i class="fa fa-check"></i><b>3.6.1</b> 리스트 만들기</a></li>
-<li class="chapter" data-level="3.6.2" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트-구조-보기"><i class="fa fa-check"></i><b>3.6.2</b> 리스트 구조 보기</a></li>
-<li class="chapter" data-level="3.6.3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트에서-데이터-추출"><i class="fa fa-check"></i><b>3.6.3</b> 리스트에서 데이터 추출</a></li>
-<li class="chapter" data-level="3.6.4" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트의-데이터-수정"><i class="fa fa-check"></i><b>3.6.4</b> 리스트의 데이터 수정</a></li>
-<li class="chapter" data-level="3.6.5" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트-구조-수정"><i class="fa fa-check"></i><b>3.6.5</b> 리스트 구조 수정</a></li>
-<li class="chapter" data-level="3.6.6" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html#리스트를-벡터로-변환"><i class="fa fa-check"></i><b>3.6.6</b> 리스트를 벡터로 변환</a></li>
+<li class="chapter" data-level="3.6" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>3.6</b> R 리스트 List</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="list.html"><a href="list.html#리스트-만들기"><i class="fa fa-check"></i><b>3.6.1</b> 리스트 만들기</a></li>
+<li class="chapter" data-level="3.6.2" data-path="list.html"><a href="list.html#리스트-구조-보기"><i class="fa fa-check"></i><b>3.6.2</b> 리스트 구조 보기</a></li>
+<li class="chapter" data-level="3.6.3" data-path="list.html"><a href="list.html#리스트에서-데이터-추출"><i class="fa fa-check"></i><b>3.6.3</b> 리스트에서 데이터 추출</a></li>
+<li class="chapter" data-level="3.6.4" data-path="list.html"><a href="list.html#리스트의-데이터-수정"><i class="fa fa-check"></i><b>3.6.4</b> 리스트의 데이터 수정</a></li>
+<li class="chapter" data-level="3.6.5" data-path="list.html"><a href="list.html#리스트-구조-수정"><i class="fa fa-check"></i><b>3.6.5</b> 리스트 구조 수정</a></li>
+<li class="chapter" data-level="3.6.6" data-path="list.html"><a href="list.html#리스트를-벡터로-변환"><i class="fa fa-check"></i><b>3.6.6</b> 리스트를 벡터로 변환</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4" data-path="r-제어문.html"><a href="r-제어문.html"><i class="fa fa-check"></i><b>4</b> R 제어문</a><ul>
+<li class="chapter" data-level="4.1" data-path="if.html"><a href="if.html"><i class="fa fa-check"></i><b>4.1</b> if()</a></li>
+<li class="chapter" data-level="4.2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>4.2</b> ifelse()</a></li>
+<li class="chapter" data-level="4.3" data-path="switch.html"><a href="switch.html"><i class="fa fa-check"></i><b>4.3</b> switch()</a></li>
+<li class="chapter" data-level="4.4" data-path="for.html"><a href="for.html"><i class="fa fa-check"></i><b>4.4</b> for()</a></li>
+<li class="chapter" data-level="4.5" data-path="while.html"><a href="while.html"><i class="fa fa-check"></i><b>4.5</b> while()</a></li>
+<li class="chapter" data-level="4.6" data-path="repeat.html"><a href="repeat.html"><i class="fa fa-check"></i><b>4.6</b> repeat()</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-기본-함수.html"><a href="r-기본-함수.html"><i class="fa fa-check"></i><b>5</b> R 기본 함수</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html#abs"><i class="fa fa-check"></i><b>5.1.1</b> abs()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-수학-함수.html"><a href="r-수학-함수.html#ceiling"><i class="fa fa-check"></i><b>5.1.2</b> ceiling()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-수학-함수.html"><a href="r-수학-함수.html#floor"><i class="fa fa-check"></i><b>5.1.3</b> floor()</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-수학-함수.html"><a href="r-수학-함수.html#trunc"><i class="fa fa-check"></i><b>5.1.4</b> trunc()</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-수학-함수.html"><a href="r-수학-함수.html#round"><i class="fa fa-check"></i><b>5.1.5</b> round()</a></li>
+<li class="chapter" data-level="5.1.6" data-path="r-수학-함수.html"><a href="r-수학-함수.html#signif"><i class="fa fa-check"></i><b>5.1.6</b> signif()</a></li>
+<li class="chapter" data-level="5.1.7" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sqrt"><i class="fa fa-check"></i><b>5.1.7</b> sqrt()</a></li>
+<li class="chapter" data-level="5.1.8" data-path="r-수학-함수.html"><a href="r-수학-함수.html#로그함수"><i class="fa fa-check"></i><b>5.1.8</b> 로그함수</a></li>
+<li class="chapter" data-level="5.1.9" data-path="r-수학-함수.html"><a href="r-수학-함수.html#exp"><i class="fa fa-check"></i><b>5.1.9</b> exp()</a></li>
+<li class="chapter" data-level="5.1.10" data-path="r-수학-함수.html"><a href="r-수학-함수.html#삼각함수"><i class="fa fa-check"></i><b>5.1.10</b> 삼각함수</a></li>
+<li class="chapter" data-level="5.1.11" data-path="r-수학-함수.html"><a href="r-수학-함수.html#누적함수"><i class="fa fa-check"></i><b>5.1.11</b> 누적함수</a></li>
+<li class="chapter" data-level="5.1.12" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sum"><i class="fa fa-check"></i><b>5.1.12</b> sum()</a></li>
+<li class="chapter" data-level="5.1.13" data-path="r-수학-함수.html"><a href="r-수학-함수.html#diff"><i class="fa fa-check"></i><b>5.1.13</b> diff()</a></li>
+<li class="chapter" data-level="5.1.14" data-path="r-수학-함수.html"><a href="r-수학-함수.html#prod"><i class="fa fa-check"></i><b>5.1.14</b> prod()</a></li>
+<li class="chapter" data-level="5.1.15" data-path="r-수학-함수.html"><a href="r-수학-함수.html#gamma-factorial"><i class="fa fa-check"></i><b>5.1.15</b> gamma(), factorial()</a></li>
+<li class="chapter" data-level="5.1.16" data-path="r-수학-함수.html"><a href="r-수학-함수.html#beta"><i class="fa fa-check"></i><b>5.1.16</b> beta()</a></li>
+<li class="chapter" data-level="5.1.17" data-path="r-수학-함수.html"><a href="r-수학-함수.html#choose"><i class="fa fa-check"></i><b>5.1.17</b> choose()</a></li>
+<li class="chapter" data-level="5.1.18" data-path="r-수학-함수.html"><a href="r-수학-함수.html#복소수-함수"><i class="fa fa-check"></i><b>5.1.18</b> 복소수 함수</a></li>
+<li class="chapter" data-level="5.1.19" data-path="r-수학-함수.html"><a href="r-수학-함수.html#집합-함수"><i class="fa fa-check"></i><b>5.1.19</b> 집합 함수</a></li>
+<li class="chapter" data-level="5.1.20" data-path="r-수학-함수.html"><a href="r-수학-함수.html#푸리에-함수"><i class="fa fa-check"></i><b>5.1.20</b> 푸리에 함수</a></li>
+<li class="chapter" data-level="5.1.21" data-path="r-수학-함수.html"><a href="r-수학-함수.html#수치해석-함수"><i class="fa fa-check"></i><b>5.1.21</b> 수치해석 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#t"><i class="fa fa-check"></i><b>5.2.1</b> t()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#diag"><i class="fa fa-check"></i><b>5.2.2</b> diag()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#section"><i class="fa fa-check"></i><b>5.2.3</b> %*%</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#outer"><i class="fa fa-check"></i><b>5.2.4</b> outer()</a></li>
+<li class="chapter" data-level="5.2.5" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#solve"><i class="fa fa-check"></i><b>5.2.5</b> solve()</a></li>
+<li class="chapter" data-level="5.2.6" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowsums"><i class="fa fa-check"></i><b>5.2.6</b> rowSums()</a></li>
+<li class="chapter" data-level="5.2.7" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colsums"><i class="fa fa-check"></i><b>5.2.7</b> colSums()</a></li>
+<li class="chapter" data-level="5.2.8" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowmeans"><i class="fa fa-check"></i><b>5.2.8</b> rowMeans()</a></li>
+<li class="chapter" data-level="5.2.9" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colmeans"><i class="fa fa-check"></i><b>5.2.9</b> colMeans()</a></li>
+<li class="chapter" data-level="5.2.10" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#nrow-ncol"><i class="fa fa-check"></i><b>5.2.10</b> nrow(), ncol()</a></li>
+<li class="chapter" data-level="5.2.11" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#det"><i class="fa fa-check"></i><b>5.2.11</b> det()</a></li>
+<li class="chapter" data-level="5.2.12" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#eigen"><i class="fa fa-check"></i><b>5.2.12</b> eigen()</a></li>
+<li class="chapter" data-level="5.2.13" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#svd"><i class="fa fa-check"></i><b>5.2.13</b> svd()</a></li>
+<li class="chapter" data-level="5.2.14" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#qr"><i class="fa fa-check"></i><b>5.2.14</b> qr()</a></li>
+<li class="chapter" data-level="5.2.15" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#scale"><i class="fa fa-check"></i><b>5.2.15</b> scale()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-논리-함수.html"><a href="r-논리-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 논리 함수</a></li>
+<li class="chapter" data-level="5.4" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 반복 함수</a></li>
+<li class="chapter" data-level="5.5" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 통계 함수</a></li>
+<li class="chapter" data-level="5.6" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 날짜와 시간 함수</a></li>
+<li class="chapter" data-level="5.7" data-path="r-객체-함수.html"><a href="r-객체-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 객체 함수</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체-클라스와-타입-조사"><i class="fa fa-check"></i><b>5.7.1</b> 객체 클라스와 타입 조사</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-객체-함수.html"><a href="r-객체-함수.html#데이터-차원-조사"><i class="fa fa-check"></i><b>5.7.2</b> 데이터 차원 조사</a></li>
+<li class="chapter" data-level="5.7.3" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체정보-함수"><i class="fa fa-check"></i><b>5.7.3</b> 객체정보 함수</a></li>
+<li class="chapter" data-level="5.7.4" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체변환-함수"><i class="fa fa-check"></i><b>5.7.4</b> 객체변환 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 문자열 함수</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.8.1</b> 정규표현식</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 데이터 관리 함수</a></li>
+<li class="chapter" data-level="5.10" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 입출력 함수</a></li>
+<li class="chapter" data-level="5.11" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.11</b> R 시스템 함수</a></li>
+<li class="chapter" data-level="5.12" data-path="r-사용자-정의-함수.html"><a href="r-사용자-정의-함수.html"><i class="fa fa-check"></i><b>5.12</b> R 사용자 정의 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-입출력-read-write.html"><a href="r-입출력-read-write.html"><i class="fa fa-check"></i><b>6</b> R 입출력 Read &amp; Write</a><ul>
+<li class="chapter" data-level="6.1" data-path="데이터-불러오기.html"><a href="데이터-불러오기.html"><i class="fa fa-check"></i><b>6.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="6.2" data-path="데이터-저장하기.html"><a href="데이터-저장하기.html"><i class="fa fa-check"></i><b>6.2</b> 데이터 저장하기</a></li>
+<li class="chapter" data-level="6.3" data-path="백업-및-복원.html"><a href="백업-및-복원.html"><i class="fa fa-check"></i><b>6.3</b> 백업 및 복원</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-그래프-graphs-charts.html"><a href="r-그래프-graphs-charts.html"><i class="fa fa-check"></i><b>7</b> R 그래프 Graphs &amp; Charts</a><ul>
+<li class="chapter" data-level="7.1" data-path="bar-plot.html"><a href="bar-plot.html"><i class="fa fa-check"></i><b>7.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="7.2" data-path="histogram.html"><a href="histogram.html"><i class="fa fa-check"></i><b>7.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.3" data-path="pie-chart.html"><a href="pie-chart.html"><i class="fa fa-check"></i><b>7.3</b> Pie Chart</a></li>
+<li class="chapter" data-level="7.4" data-path="box-plot.html"><a href="box-plot.html"><i class="fa fa-check"></i><b>7.4</b> Box Plot</a></li>
+<li class="chapter" data-level="7.5" data-path="strip-chart.html"><a href="strip-chart.html"><i class="fa fa-check"></i><b>7.5</b> Strip Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-객체와-클래스-objects-class.html"><a href="r-객체와-클래스-objects-class.html"><i class="fa fa-check"></i><b>8</b> R 객체와 클래스 Objects &amp; Class</a><ul>
+<li class="chapter" data-level="8.1" data-path="object-and-class.html"><a href="object-and-class.html"><i class="fa fa-check"></i><b>8.1</b> Object and Class</a></li>
+<li class="chapter" data-level="8.2" data-path="r-s3-class.html"><a href="r-s3-class.html"><i class="fa fa-check"></i><b>8.2</b> R S3 Class</a></li>
+<li class="chapter" data-level="8.3" data-path="r-s4-class.html"><a href="r-s4-class.html"><i class="fa fa-check"></i><b>8.3</b> R S4 Class</a></li>
+<li class="chapter" data-level="8.4" data-path="r-reference-class.html"><a href="r-reference-class.html"><i class="fa fa-check"></i><b>8.4</b> R Reference Class</a></li>
+<li class="chapter" data-level="8.5" data-path="r-inheritance.html"><a href="r-inheritance.html"><i class="fa fa-check"></i><b>8.5</b> R Inheritance</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/manboha">Eidted by Manboha </a></li>
 
@@ -236,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A R Basic Manual</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Basic Manual</a>
           </h1>
         </div>
 
@@ -246,134 +331,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="설치" class="section level1">
 <h1><span class="header-section-number">1</span> R 설치</h1>
-<div id="r이란" class="section level2">
-<h2><span class="header-section-number">1.1</span> R이란?</h2>
-<p>R은 오픈소스 프로그램으로 다양한 통계분석, 데이터 마이닝, 그래프 작성 등을 위한 프로그래밍 언어입니다. 기존의 통계분석용 프로그램 중 대표적인 것으로 SAS, SPSS 등이 있고, 보조적인 프로그램으로 Excel 등을 들 수 있습니다. 비용이나 다양성 등을 고려하였을 때 R이 가장 우수하다고 볼 수 있습니다. 현재 많은 대학들이 R을 기반으로 데이터 분석 및 통계분석 수업을 진행하고 있습니다.</p>
-<p>R의 장점은 다음과 같습니다.</p>
-<ul>
-<li>R은 오픈소스로서 무료입니다.</li>
-<li>프로그래밍 언어로서 사용자의 실력에 따라 매우 복잡한 분석도 쉽게 자동화하여 수행할 수 있습니다.</li>
-<li>다양한 최신 통계분석 기법, 데이터 마이닝 기법, 그래프 작성 기법 등이 사용자들에 의해 제공됩니다.</li>
-<li>전 세계적으로 사용자들이 다양한 예제를 공유합니다.(영문 예제 다수)</li>
-</ul>
-</div>
-<div id="r-설치" class="section level2">
-<h2><span class="header-section-number">1.2</span> R 설치</h2>
-<ol style="list-style-type: decimal">
-<li>R을 다운받기 위해 웹브라우저로 www.r-project.org 에 접속합니다.(또는 구글에서 R로 검색)</li>
-<li>화면에서 [download R]을 클릭합니다.</li>
-<li>서버 목록 중 Korea를 찾으시고 그 중에서 하나를 클릭합니다.</li>
-<li>윈도우 버전을 설치할 경우 [Download R for Windows]를 클릭합니다.</li>
-<li>[base]를 클릭합니다.</li>
-<li>[Download R 3.x.x for Windows]를 클릭하여 PC에 다운로드 받습니다.</li>
-<li>다운받은 파일을 실행시켜 프로그램을 설치합니다. (계속 [다음]을 눌러 설치 진행)</li>
-<li>R 설치가 끝난 후 바탕화면에 생성된 아이콘을 더블 클릭하면 R이 실행됩니다.</li>
-<li>R이 시작되면 R Console이라는 창이 열리고, 그 창에 &gt; 가 나타나는 데 R의 프롬프트입니다.</li>
-<li>“&gt;” 기호 다음에 필요한 명령문을 입력하고 Enter 키를 치면 입력된 명령문이 실행됩니다.</li>
-<li>명령문이 실행되면 그 실행결과가 바로 다음 줄에 출력됩니다.</li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="설치.html#cb1-1"></a><span class="dv">32</span><span class="op">*</span><span class="dv">27</span></span>
-<span id="cb1-2"><a href="설치.html#cb1-2"></a><span class="co">#&gt; [1] 864</span></span></code></pre></div>
-</div>
-<div id="r의-특징" class="section level2">
-<h2><span class="header-section-number">1.3</span> R의 특징</h2>
-<ul>
-<li>R은 명령어를 1줄씩 처리하고 그 결과를 바로 보여주는 인터프리터 언어입니다.</li>
-<li>R의 콘솔창에 &gt; 기호(greater than sign, 부등호 기호)는 명령 프롬프트입니다. &gt; 뒤에 원하는 명령어를 입력하고 Enter를 치면 명령어가 실행됩니다.</li>
-<li>R은 대소문자를 구별합니다. 명령어를 입력할 때 대소문자를 명확히 파악하고 입력하여야 합니다.</li>
-<li>R 콘솔창에서 키보드의 상향(↑)를 누르면 이전에 실행했던 명령어를 순서대로 다시 불러올 수 있습니다.</li>
-<li>#은 주석 기호(메모 유사)입니다. 즉 맨 앞에 #이 있으면 그 줄은 실행하지 않습니다.</li>
-<li>명령어를 입력할 때 오타가 많이 나고, 긴 명령어를 입력하거나 명령어를 재사용할 때는 R 콘솔창이 불편합니다. 따라서 주로 R스튜디오의 스크립트 창에서 명령어를 입력하고 [Ctrl + Enter]를 눌러 콘솔 창에 보내 명령어를 실행합니다.</li>
-</ul>
-</div>
-<div id="rstudio-설치" class="section level2">
-<h2><span class="header-section-number">1.4</span> RStudio 설치</h2>
-<ol style="list-style-type: decimal">
-<li><p>R스튜디오을 다운받기 위해 웹브라우저로 www.rstudio.com 에 접속합니다.</p></li>
-<li><p>상단 메뉴 [Product] → [RStudio]를 클릭합니다.</p></li>
-<li><p>[DOWNLOAD RSTUDIO DESKTOP]을 클릭한 후 [RStudio x.x.x - Windows Vista/7/8/10]를 클릭하여 PC에 다운로드 받습니다.</p></li>
-<li><p>다운받은 파일을 실행시켜 프로그램을 설치합니다. 계속해서 [다음]을 눌러 설치를 진행하면 됩니다.</p></li>
-<li><p>R스튜디오 아이콘이 바탕화면에 없으면 다음과 같이 하여 아이콘을 바탕하면 만듭니다. [시작] → [모든 프로그램] → [Rstudio] → [Rstudio]를 마우스 오른쪽 단추로 클릭한 후 [보내기] → [바탕화면에 바로가기 만들기]를 클릭하여 바탕화면에 R스튜디오 아이콘을 만듭니다.</p></li>
-<li><p>바탕화면의 R스튜디오 아이콘을 더블클릭하여 실행시킵니다.</p></li>
-<li><p>R스튜디오를 실행한 후 [File] → [New File] → [RScript]를 클릭하면 스크립트 창이 생성되면서, 총 4개의 창이 화면에 보입니다. 스크립트 창, 콘솔 창, 워크스페이스 창, 파일 등을 볼 수 있는 창입니다.</p>
-<ul>
-<li>스크립트 창 : R 명령어를 입력하는 창입니다. 명령어에 커서를 두거나 명령어들을 선택하고 [Ctrl + Enter]를 누르면 콘솔 창에서 명령어가 실행됩니다. 스크립트 창의 장점은 명령어를 저장하고 불러올 수 있다는 점입니다.</li>
-<li>콘솔 창 : 명령어가 실행되고 그 결과를 보여주는 창입니다. R의 콘솔 창과 거의 동일합니다.</li>
-<li>워크스페이스 창 : 작업 중에 할당된 변수와 데이터를 보여주는 창입니다.</li>
-<li>마지막 창은 파일, 그래프, 패키지, 도움말 등을 볼 수 있는 창입니다.</li>
-</ul></li>
-<li><p>스크립트 창에서 32*79 라고 입력하고 [Ctrl + Enter]를 누르면 아래 콘솔 창에서 명령어가 실행되고, 그 결과 값인 2528이 출력되는 것을 볼 수 있습니다.</p></li>
-</ol>
-<div id="rstudio에서-프로젝트-만들기" class="section level3">
-<h3><span class="header-section-number">1.4.1</span> RStudio에서 프로젝트 만들기</h3>
-<p>RStudio에서 프로젝트를 만들면 하나의 폴더에서 코드와 데이터들을 체계적으로 관리할 수 있어 편리합니다. 새 프로젝트를 만드는 절차는 다음과 같습니다.</p>
-<ol style="list-style-type: decimal">
-<li>(프로젝트 만들기) 메뉴 [File] → [New Project] 클릭 → [New Directory] → [New Project] → [Directory name]에 프로젝트이름 입력(예, rbasic) → 그 아래에 폴더 위치 지정(예, 바탕화면) → [Create Project] 클릭</li>
-<li>(스크립트 파일 만들기) 메뉴 [File] → [New File] → [R Script]클릭</li>
-<li>(스크립트에서 명령어 실행) 스크립트 창에서 32*27 을 입력하고 [Ctrl + Enter] 입력</li>
-<li>(스크립트 저장) 메뉴 [File] → [save] → rbasic1.R 로 저장</li>
-<li>프로젝트 이름으로 만들어진 폴더에 스크립트 파일들이 저장됩니다. 이 폴더에 데이터를 넣어두면 R에서 데이터를 불러올 때 편리합니다. 일종의 작업 디렉터리입니다.</li>
-</ol>
-</div>
-</div>
-<div id="r-package-설치-및-사용" class="section level2">
-<h2><span class="header-section-number">1.5</span> R package 설치 및 사용</h2>
-<p>R 패키지는 목적에 맞게 R 함수, 데이터 등을 모아 놓은 것입니다. 현재 수천 개의 패키지가 존재합니다. 이 중에서 유용하고 중요한 패키지들을 골라내어 사용법을 익히는 것이 필요합니다.</p>
-<p>패키지는 기본적으로 CRAN에 등록되어 있는 것을 다운 받아 설치합니다. 패키지를 설치하고 사용하는 방법은 다음 절차를 따릅니다.</p>
-<ol style="list-style-type: decimal">
-<li>패키지 설치하기 install.packages(“패키지명”)</li>
-<li>패키지 로드하기 library(패키지명)</li>
-<li>함수 사용하기</li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="설치.html#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)  <span class="co"># ggplot2 패키지 설치</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="설치.html#cb3-1"></a><span class="kw">library</span>(ggplot2)  <span class="co"># ggplot2 패키지 로드</span></span>
-<span id="cb3-2"><a href="설치.html#cb3-2"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</span>
-<span id="cb3-3"><a href="설치.html#cb3-3"></a><span class="kw">qplot</span>(x)  <span class="co"># ggplot2에 있는 함수 qplot 사용하기 (빈도 막대그래프 출력)</span></span></code></pre></div>
-<p><img src="rbasic_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>2개 이상의 패키지를 한번의 명령으로 설치할 수도 있습니다.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="설치.html#cb4-1"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;rpart&quot;</span>, <span class="st">&quot;survival&quot;</span>))</span></code></pre></div>
-<p>CRAN이 아닌 Github로 부터 패키지를 다운 받아 설치하고자 한다면 <strong>devtools</strong> 패키지가 먼저 설치되어 있어야 합니다.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="설치.html#cb5-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb5-2"><a href="설치.html#cb5-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;kassambara/survminer&quot;</span>)</span></code></pre></div>
-<p>RStudio에서는 패키지 창에서 Install 버튼을 눌러 패키지를 설치 할 수 있습니다.</p>
-</div>
-<div id="r-package-관리" class="section level2">
-<h2><span class="header-section-number">1.6</span> R package 관리</h2>
-<div id="설치된-패키지-보기" class="section level3">
-<h3><span class="header-section-number">1.6.1</span> 설치된 패키지 보기</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="설치.html#cb6-1"></a><span class="kw">installed.packages</span>()</span></code></pre></div>
-<p>RStudio에서는 패키지 창에서 설치된 패키지들을 확인할 수 있습니다.</p>
-</div>
-<div id="패키지가-설치된-폴더-보기" class="section level3">
-<h3><span class="header-section-number">1.6.2</span> 패키지가 설치된 폴더 보기</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="설치.html#cb7-1"></a><span class="kw">.libPaths</span>()</span></code></pre></div>
-</div>
-<div id="로드된-패키지-보기" class="section level3">
-<h3><span class="header-section-number">1.6.3</span> 로드된 패키지 보기</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="설치.html#cb8-1"></a><span class="kw">search</span>()</span>
-<span id="cb8-2"><a href="설치.html#cb8-2"></a><span class="co">#&gt;  [1] &quot;.GlobalEnv&quot;        &quot;package:ggplot2&quot;   &quot;package:stats&quot;    </span></span>
-<span id="cb8-3"><a href="설치.html#cb8-3"></a><span class="co">#&gt;  [4] &quot;package:graphics&quot;  &quot;package:grDevices&quot; &quot;package:utils&quot;    </span></span>
-<span id="cb8-4"><a href="설치.html#cb8-4"></a><span class="co">#&gt;  [7] &quot;package:datasets&quot;  &quot;package:methods&quot;   &quot;Autoloads&quot;        </span></span>
-<span id="cb8-5"><a href="설치.html#cb8-5"></a><span class="co">#&gt; [10] &quot;package:base&quot;</span></span></code></pre></div>
-</div>
-<div id="패키지-언로드-하기-메모리에서-내리기" class="section level3">
-<h3><span class="header-section-number">1.6.4</span> 패키지 언로드 하기 (메모리에서 내리기)</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="설치.html#cb9-1"></a><span class="kw">detach</span>(package<span class="op">:</span>ggplot2, <span class="dt">unload =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-</div>
-<div id="설치된-패키지-제거하기" class="section level3">
-<h3><span class="header-section-number">1.6.5</span> 설치된 패키지 제거하기</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="설치.html#cb10-1"></a><span class="kw">remove.packages</span>(<span class="st">&quot;rpart&quot;</span>)</span></code></pre></div>
-</div>
-<div id="패키지-업데이트하기" class="section level3">
-<h3><span class="header-section-number">1.6.6</span> 패키지 업데이트하기</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="설치.html#cb11-1"></a><span class="co"># 모든 패키지 업데이트</span></span>
-<span id="cb11-2"><a href="설치.html#cb11-2"></a><span class="kw">update.packages</span>()</span>
-<span id="cb11-3"><a href="설치.html#cb11-3"></a></span>
-<span id="cb11-4"><a href="설치.html#cb11-4"></a><span class="co"># 특정 패키지 업데이트</span></span>
-<span id="cb11-5"><a href="설치.html#cb11-5"></a><span class="kw">update.packages</span>(<span class="dt">oldPkgs =</span> <span class="kw">c</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>))</span></code></pre></div>
-
-</div>
-</div>
 </div>
             </section>
 
@@ -381,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="프로그래밍.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r이란.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -423,7 +380,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["rbasic.pdf", "rbasic.epub"],
+"download": null,
 "toc": {
 "collapse": "section"
 }
@@ -431,6 +388,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

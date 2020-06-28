@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | R Basic Manual</title>
+  <title>5 R 함수 Fuctions | R Basic Manual</title>
   <meta name="description" content="This is a R Basic Manual." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | R Basic Manual" />
+  <meta property="og:title" content="5 R 함수 Fuctions | R Basic Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="manboha/rbasic" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | R Basic Manual" />
+  <meta name="twitter:title" content="5 R 함수 Fuctions | R Basic Manual" />
   
   <meta name="twitter:description" content="This is a R Basic Manual." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Manboha" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-06-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="r-inheritance.html"/>
-
+<link rel="prev" href="repeat.html"/>
+<link rel="next" href="r-수학-함수.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -232,7 +232,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="repeat.html"><a href="repeat.html"><i class="fa fa-check"></i><b>4.6</b> repeat()</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="r-함수-fuctions.html"><a href="r-함수-fuctions.html"><i class="fa fa-check"></i><b>5</b> R 함수 Fuctions</a><ul>
-<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a></li>
+<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html#abs"><i class="fa fa-check"></i><b>5.1.1</b> abs()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-수학-함수.html"><a href="r-수학-함수.html#ceiling"><i class="fa fa-check"></i><b>5.1.2</b> ceiling()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-수학-함수.html"><a href="r-수학-함수.html#floor"><i class="fa fa-check"></i><b>5.1.3</b> floor()</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-수학-함수.html"><a href="r-수학-함수.html#trunc"><i class="fa fa-check"></i><b>5.1.4</b> trunc()</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-수학-함수.html"><a href="r-수학-함수.html#round"><i class="fa fa-check"></i><b>5.1.5</b> round()</a></li>
+<li class="chapter" data-level="5.1.6" data-path="r-수학-함수.html"><a href="r-수학-함수.html#signif"><i class="fa fa-check"></i><b>5.1.6</b> signif()</a></li>
+<li class="chapter" data-level="5.1.7" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sqrt"><i class="fa fa-check"></i><b>5.1.7</b> sqrt()</a></li>
+<li class="chapter" data-level="5.1.8" data-path="r-수학-함수.html"><a href="r-수학-함수.html#log-log10"><i class="fa fa-check"></i><b>5.1.8</b> log(), log10()</a></li>
+<li class="chapter" data-level="5.1.9" data-path="r-수학-함수.html"><a href="r-수학-함수.html#exp"><i class="fa fa-check"></i><b>5.1.9</b> exp()</a></li>
+<li class="chapter" data-level="5.1.10" data-path="r-수학-함수.html"><a href="r-수학-함수.html#cos-sin-tan"><i class="fa fa-check"></i><b>5.1.10</b> cos(), sin(), tan()</a></li>
+<li class="chapter" data-level="5.1.11" data-path="r-수학-함수.html"><a href="r-수학-함수.html#cumsum-cumpro-cummax"><i class="fa fa-check"></i><b>5.1.11</b> cumsum(), cumpro(), cummax()</a></li>
+<li class="chapter" data-level="5.1.12" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sum"><i class="fa fa-check"></i><b>5.1.12</b> sum()</a></li>
+<li class="chapter" data-level="5.1.13" data-path="r-수학-함수.html"><a href="r-수학-함수.html#diff"><i class="fa fa-check"></i><b>5.1.13</b> diff()</a></li>
+<li class="chapter" data-level="5.1.14" data-path="r-수학-함수.html"><a href="r-수학-함수.html#prod"><i class="fa fa-check"></i><b>5.1.14</b> prod()</a></li>
+<li class="chapter" data-level="5.1.15" data-path="r-수학-함수.html"><a href="r-수학-함수.html#gamma-factorial"><i class="fa fa-check"></i><b>5.1.15</b> gamma(), factorial()</a></li>
+<li class="chapter" data-level="5.1.16" data-path="r-수학-함수.html"><a href="r-수학-함수.html#beta"><i class="fa fa-check"></i><b>5.1.16</b> beta()</a></li>
+<li class="chapter" data-level="5.1.17" data-path="r-수학-함수.html"><a href="r-수학-함수.html#choose"><i class="fa fa-check"></i><b>5.1.17</b> choose()</a></li>
+<li class="chapter" data-level="5.1.18" data-path="r-수학-함수.html"><a href="r-수학-함수.html#복소수-함수"><i class="fa fa-check"></i><b>5.1.18</b> 복소수 함수</a></li>
+<li class="chapter" data-level="5.1.19" data-path="r-수학-함수.html"><a href="r-수학-함수.html#집합-함수"><i class="fa fa-check"></i><b>5.1.19</b> 집합 함수</a></li>
+<li class="chapter" data-level="5.1.20" data-path="r-수학-함수.html"><a href="r-수학-함수.html#푸리에-함수"><i class="fa fa-check"></i><b>5.1.20</b> 푸리에 함수</a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a></li>
 <li class="chapter" data-level="5.3" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 통계 함수</a></li>
 <li class="chapter" data-level="5.4" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 날짜와 시간 함수</a></li>
@@ -266,7 +287,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="r-reference-class.html"><a href="r-reference-class.html"><i class="fa fa-check"></i><b>8.4</b> R Reference Class</a></li>
 <li class="chapter" data-level="8.5" data-path="r-inheritance.html"><a href="r-inheritance.html"><i class="fa fa-check"></i><b>8.5</b> R Inheritance</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/manboha">Eidted by Manboha </a></li>
 
@@ -287,17 +307,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-
+<div id="r-함수-fuctions" class="section level1">
+<h1><span class="header-section-number">5</span> R 함수 Fuctions</h1>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="r-inheritance.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="repeat.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-수학-함수.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -328,7 +347,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/manboha/rbasic/edit/master/15-references.Rmd",
+"link": "https://github.com/manboha/rbasic/edit/master/05-R함수.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -347,6 +366,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

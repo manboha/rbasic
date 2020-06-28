@@ -1,0 +1,805 @@
+# R 기본 함수
+
+## R 수학 함수
+
+### abs() 
+
+`abs(x)`는 x의 절대값을 반환합니다.
+
+```{r}
+abs(-123)
+```
+
+### ceiling()
+
+`ceiling(x)`는 x보다 큰 수 중 가장 작은 정수를 반환합니다.
+
+```{r}
+ceiling(2.5)
+ceiling(-2.5)
+```
+
+### floor()
+
+`floor(x)`는 x보다 작은 수 중 가장 큰 정수를 반환합니다.
+
+```{r}
+floor(2.5)
+floor(-2.5)
+```
+
+### trunc()
+
+`trunc(x)`는 0과 x사이의 가장 큰 정수를 반환합니다.
+
+```{r}
+trunc(2.5)
+trunc(-2.5)
+```
+### round()
+
+'round(x, digits = n)'는 x를 소수점 n+1 자리에서 반올림하여 소수점 n번째 자리까지 반환합니다. 만일 digits의 값이 음수이면 10^n-1^ 자리에서 반올림하여 0을 10^n^ 자리까지 만들어 반환합니다. digits 인자의 기본값은 0입니다.    
+R의 반올림 함수는 국제표준(IEEE 754:2008, ISO/IEC/IEEE 60559:2011)을 따르고 있습니다. 따라서 Excel의 반올림 함수와는 다른 결과 값을 보여줍니다. 예를 들면 Excel에서 `=round(2.5, 0)`을 하면 3이 나오지만, R에서는 `round(2.5, digits = 0)`을 하게 되면 2가 나오게 됩니다.    
+이는 위 부동소숫점 실수와 관련된 국제표준에서 반올림의 모드로 제시된 5가지 방법 중 **짝수로 반올림(round to nearest, ties to even)**를 기본모드로 선택하였기 때문입니다. '짝수로 반올림' 모드는 '은행원의 반올림', '오사오입'이라고도 불리우는 방법으로 반올림으로 인한 오류의 기대값을 0으로 하는 효과가 있습니다. 이 방법은 가장 가까운 표현 가능한 숫자로 반올림하되, 원래 값이 가능한 숫자 두 개의 중간에 걸쳐 있으면 둘 중 가수부의 마지막 자리가 짝수인 값으로 반올림합니다. 예를 들면 52.5는 52, 51.5는 52로 반올림합니다.
+
+```{r}
+round(.5 + -3:4)
+round(2.2579, digits = 2)
+round(2578.23, digits = -2)
+```
+
+### signif()
+
+`signif(x, digits = n)`는 지정한 유효숫자(significant digits)인 n만큼 자리수를 만들어 반올림 합니다. digits 인자의 기본값은 6입니다. 숫자들의 열을 깔끔하게 맞추고자 할 때 많이 사용합니다.
+
+```{r}
+signif(3.141593, digits = 3)
+signif(23.593, digits = 3)
+```
+
+### sqrt()
+
+`sqrt(x)`는 x의 제곱근을 반환합니다.
+
+```{r}
+sqrt(9)
+```
+
+### 로그함수
+
+* `log(x)`는 밑이 e인 x의 자연로그값을 반환합니다.
+* `log10(x)`은 밑이 10인 x의 상용로그값을 반환합니다.
+* `log2(x)`는 밑이 2인 x의 이진로그값을 반환합니다.
+* `log(x, base)` 밑이 base인 x의 로그값을 반환합니다.
+* `log1p(x)`는 밑이 e인 x+1의 자연로그값을 반환합니다.
+
+```{r}
+log(3)
+log10(3)
+log2(3)
+log(3, 5)
+log(0)
+log1p(0)
+```
+
+### exp()
+
+* `exp(x)`는 상수 e를 x만큼 제곱한 값을 반환합니다.
+* `expm1(x)`는 상수 e를 x만큼 제곱한 값에서 1을 뺀 값을 반환합니다.
+
+```{r}
+exp(3)
+exp(log(3))
+expm1(3)
+```
+
+### 삼각함수
+
+* `cos(x)`는 x 라디안 각도의 코사인 값을 반환한다.
+* `sin(x)`는 x 라디안 각도의 사인 값을 반환한다.
+* `tan(x)`는 x 라디안 각도의 탄젠트 값을 반환한다.
+* `acos(x)`, `asin(x)`, `atan(x)`, `atan2(x)`는 역삼각함수입니다.
+* `cospi(x)`, `sinpi(x)`, `tanpi(x)` 는 `pi*x`의 삼각함수입니다. 입력이 pi의 배수일 때 정밀한 계산을 위해 사용합니다.
+
+```{r}
+sin(pi)
+sin(1)
+sinpi(3)
+asin(1)
+```
+```{r}
+# 사인 곡선 (Sign Curve)
+x <- seq(-10, 10, 0.1)
+plot(x, sin(x), type = "l", col = "blue", 
+     ylab = "", xlab = "", main = "삼각함수 그래프")
+lines(x, cos(x), type = "l", col = "red")
+legend("topleft", c("sin(x)", "cos(x)"), fill=c("blue", "red"))
+```
+```{r}
+# 삼각함수 그래프
+x <- seq(0, 2*pi, 0.1)
+plot(x, sin(x), type = "l", col = "blue", 
+     ylab = "", xlab = "", main = "사인 곡선")
+```
+
+### 누적함수
+
+* `cumsum(x)` x 벡터의 누적 합 벡터를 반환합니다.
+* `cumprod(x)` x 벡터의 누적 곱 벡터를 반환합니다.
+* `cummax(x)` x 벡터의 누적 최대값 벡터를 반환합니다.
+* `cummin(x)` x 벡터의 누적 최소값 벡터를 반환합니다.
+
+```{r}
+cumsum(1:10)
+cumprod(1:9)
+
+# 오른쪽으로 숫자를 이동하면서 과거 지나온 숫자를 비교하여 최대 또는 최소값을 반환
+(x <- c(3:1, 2:0, 4:2))
+cummax(x)
+cummin(x)
+```
+
+### sum()
+
+`sum(x, na.rm = FALSE)`는 x벡터의 합계를 반환합니다.
+
+```{r}
+sum(1:5)
+sum(1:5, NA)
+sum(1:5, NA, na.rm = TRUE)
+```
+
+### diff()
+
+`diff(x, lag = 1, differences = 1)`는 두 수의 차이값을 반환합니다. lag 인수는 두 수의 간격을 나타냅니다. `lag = 2`이면 두 칸 간격의 두 수 차이입니다. differences 인수는 차분의 차수입니다. `differences = 2`이면 차분을 두번한 값을 반환합니다.
+
+```{r}
+x <- c(1, 5, 10, 16, 23)
+diff(x)   # 5-1, 10-5, ...
+diff(x, lag = 2)   # 10-1, 16-5, ...
+diff(x, differences = 2)   # diff(diff(x)), (10-5)-(5-1), ...
+```
+
+### prod()
+
+`prod(x, na.rm = FALSE)`는 x 벡터의 곱을 반환합니다.
+
+```{r}
+prod(2, 3, 5)   # 2*3*5
+prod(c(2, 3, 5, NA), na.rm = TRUE)
+prod(1:5)     # 1*2*3*4*5
+gamma(6)      # 1*2*3*4*5
+factorial(5)  # 1*2*3*4*5
+```
+
+### gamma(), factorial()
+
+감마함수(gamma function)는 오일러(Leonhard Euler)가 정수만 적용되는 **n!**을  실수로 확장하기 위해 제안한 함수입니다. 
+
+* `gamma(x)`는 x-1의 계승값을 반환합니다. 즉 gamma(x)는 factorial(x-1)과 동일합니다.
+* `factorial(x)`는 x의 계승값을 반환합니다.
+
+```{r}
+gamma(6)
+factorial(5)
+gamma(5.32)
+factorial(4.32)
+```
+
+```{r}
+# lgamma()는 gamma()의 결과값에 자연로그를 적용하는 함수
+lgamma(6)
+log(gamma(6))
+```
+```{r}
+# lfactorial()은 factorial()의 결과값에 자연로그를 적용하는 함수
+lfactorial(5)
+log(factorial(5))
+lgamma(5+1)
+```
+`gamma()` 함수와 연관된 함수는 `lgamma()` 외에도 `psigamma(x, deriv = 0)`, `digamma(x)`, `trigamma(x)`가 있습니다.
+
+### beta()
+
+베타함수는 감마함수를 만든 오일러가 만든 함수입니다. 감마보다 먼저 만들어진 함수라서 알파, 베타, 감마의 순서에 따라 베타함수로 이름이 지어졌습니다. 베타함수는 이항계수의 일반화라고 할 수 있습니다. 
+
+```{r}
+beta(2, 5)
+```
+
+### choose()
+
+`choose(n, k)`는 n개에서 순서에 상관없이 k개를 뽑는 경우의 수를 반환합니다.
+수식은 $n!/(n-k)!k!$ 입니다.
+
+```{r}
+choose(5, 2)
+
+# 로또 확률 (45개 중 순서에 상관없이 6개 뽑기)
+choose(45, 6)
+```
+### 복소수 함수
+
+R에서는 복소수 관련 연산이나 함수를 지원합니다. 
+
+* `Re(x)`는 복소수 x의 실수(Real) 부분을 반환합니다.
+* `Im(x)`는 복소수 x의 허수(Imaginary) 부분을 반환합니다.
+* `Mod(x)`는 복소수 x의 절대값(modulus)을 반환합니다.
+* `Arg(x)`는 복소수 x의 편각(argument)을 반환합니다.
+* `Conj(x)`는 복소수 x의 공액 복소수(허수부의 부호만 바뀐 복소수)를 반환합니다.
+
+```{r}
+x <- 2 + 3i
+Re(x)
+Im(x)
+Mod(x)
+Arg(x)
+Conj(x)
+```
+
+### 집합 함수
+
+* `union(x, y)`는 x와 y의 합집합을 반환합니다.
+* `intersect(x, y)`는 x와 y의 교집합을 반환합니다.
+* `setdiff(x, y)`는 x에 있고 y에는 없는 (x-y)차집합을 반환합니다.
+* `setequal(x, y)`는 x와 y가 같은지 비교검사 결과를 반환합니다.
+* `is.element(el, set)`는 el에 있는 각 원소들이 set집합에 포함되는지를 검사합니다. `x %in% y`와 동일합니다.
+
+```{r}
+set.seed(123)
+(x <- c(sort(sample(1:20, 9)), NA))
+(y <- c(sort(sample(3:23, 7)), NA))
+
+union(x, y)         # 합집합
+intersect(x, y)     # 교집합
+setdiff(x, y)       # 차집합(x-y)
+setdiff(y, x)       # 차집합(y-x)
+setequal(x, y)      # 비교
+
+is.element(x, y)    
+x %in% y            # is.element(x, y)와 동일
+
+all(is.element(x, y))  # x가 y에 모두 포함되어 있으면 TRUE
+```
+
+### 푸리에 함수
+
+* `fft(x, inverse = FALSE)`는 x의 고속 푸리에 변환 값을 반환합니다.
+* `mvfft(x, inverse = FALSE)`는 행렬 x의 각 열의 고속 푸리에 변환 값을 반환합니다.
+* `filter(x, filter)`는 시계열에 선형 필터를 적용합니다.
+* `convolve(x, y)` 
+
+```{r}
+(x <- matrix(c(1, 2, 3, 2, 20, 26, 3, 26, 38), nrow = 3))
+fft(x)
+mvfft(x)
+```
+```{r}
+x <- 1:5
+filter(x, rep(1, 3), method="recursive")
+
+```
+
+### 수치해석 함수
+
+* polyroot 근구하기
+* uniroot
+* D 미분
+* integrate 적분
+
+
+
+## R 행렬 함수
+
+### t()
+
+`t(x)`는 행렬 x의 전치행렬(행과 열이 서로 바뀜)을 반환합니다.
+
+```{r}
+(x <- matrix(1:12, 3, 4))
+t(x)
+```
+
+### diag()
+
+`diag(x = 1, nrow, ncol, names = TRUE)`는 대각행렬을 반환합니다.
+
+```{r}
+# 주대각선의 원소가 모두 1인(단위행렬) 3x3 대각행렬
+diag(3)  
+
+# 주대각선의 원소가 모두 10인 3x4 대각행렬
+diag(10, 3, 4)
+
+# 주대각선의 원소를 지정한 대각행렬
+diag(c(2, 5, 3, 1))
+
+# 행렬 x의 대각행렬
+(x = matrix(c(1,3,-2, 5, 7, -3, 1, 0, 1), 3, 3))
+diag(x)
+```
+
+### %*%   
+
+`x %*% y`는 행렬 x와 행렬 y의 곱셈 결과를 반환합니다.
+
+```{r}
+(x <- 1:4)
+(y <- diag(x))
+(z <- matrix(1:12, ncol = 3, nrow = 4))
+
+x %*% x
+y %*% z
+y %*% x
+x %*% z
+```
+
+### outer()
+
+`outer(x, y, FUN = "*", ...)`는 두 벡터 또는 배열의 외적(outer product)를 반환합니다. 외적이란 x에 y의 전치행렬을 곱한 결과입니다.    
+`outer(x, y)`는 `x %*% t(y)`와 동일하며, `x%o%y`와 동일합니다.
+
+```{r}
+(x <- 1:4)
+(y <- 5:8)
+outer(x, y)
+x %*% t(y)
+x%o%y
+```
+
+`outer(x, y, FUN = "*", ...)`에서 `FUN = "*"`로 인해 곱셈을 합니다. 만일 기본값인 *을 +로 변경하면 덧셈을 하게 됩니다.
+
+```{r}
+outer(x, y, FUN = "+")
+```
+
+### solve()
+
+`solve(a, b, ...)`는 수식 a %*% x = b에서 x를 구하여 반환합니다. 
+만일 b를 지정하지 않으면 a의 역행렬을 반환합니다.
+
+```{r}
+(a <- matrix(c(1, 3, -2, 5, 7, -3, 1, 0, 1), 3, 3))
+(b <- c(2, -1, 1))
+
+# ax=b에서 x를 구하여 반환
+solve(a, b)  
+
+# a의 역행렬을 반환환
+solve(a)
+```
+
+### rowSums()
+
+`rowSums(x, na.rm = FALSE, dims = 1)`는 숫자를 담고 있는 2차원 이상의 배열 또는 데이터프레임 x의 행 합계를 반환합니다.
+
+
+```{r}
+(x <- matrix(c(1, 3, -2, 5, 7, -3, 1, 0, 1), 3, 3))
+rowSums(x)
+```
+
+```{r}
+a <- 1:5
+b <- 1:5*2
+c <- 1:5*3
+df <- data.frame(a, b, c)
+df
+
+rowSums(df)
+```
+
+### colSums()
+
+`colSums (x, na.rm = FALSE, dims = 1)`은 숫자를 담고 있는 2차원 이상의 배열 또는 데이터프레임 x의 열 합계를 반환합니다.
+
+
+```{r}
+(x <- matrix(c(1, 3, -2, 5, 7, -3, 1, 0, 1), 3, 3))
+
+colSums(x)
+```
+
+```{r}
+a <- 1:5
+b <- 1:5*2
+c <- 1:5*3
+df <- data.frame(a, b, c)
+df
+
+colSums(df)
+```
+
+### rowMeans()
+
+`rowMeans(x, na.rm = FALSE, dims = 1)`는 숫자를 담고 있는 2차원 이상의 배열 또는 데이터프레임 x의 행 평균을 반환합니다.
+
+
+```{r}
+(x <- matrix(c(1, 3, -2, 5, 7, -3, 1, 0, 1), 3, 3))
+rowMeans(x)
+```
+
+```{r}
+a <- 1:5
+b <- 1:5*2
+c <- 1:5*3
+df <- data.frame(a, b, c)
+df
+
+rowMeans(df)
+```
+
+### colMeans()
+
+`colMeans (x, na.rm = FALSE, dims = 1)`은 숫자를 담고 있는 2차원 이상의 배열 또는 데이터프레임 x의 열 합계를 반환합니다.
+
+
+```{r}
+(x <- matrix(c(1, 3, -2, 5, 7, -3, 1, 0, 1), 3, 3))
+
+colMeans(x)
+```
+
+```{r}
+a <- 1:5
+b <- 1:5*2
+c <- 1:5*3
+df <- data.frame(a, b, c)
+df
+
+colMeans(df)
+```
+
+### nrow(), ncol()
+
+* `nrow(x)`는 행의 갯수를 반환합니다.
+* `ncol(x)`는 열의 갯수를 반환합니다.
+* `NROW(x)`는 행의 갯수를 반환합니다. (벡터 계산 가능)
+* `NCOL(x)`는 열의 갯수를 반환합니다. (벡터 계산 가능)
+
+```{r}
+x <- matrix(1:12, 3, 4)
+nrow(x)
+ncol(x)
+NROW(x)
+NCOL(x)
+```
+```{r}
+(x <- array(1:24, dim = c(3,4,2)))  # 3행*4열의 3차원 배열
+nrow(x)
+ncol(x)
+```
+
+NROW와 NCOL은 행렬이 아닌 벡터도 계산합니다.
+
+```{r}
+x <- 1:12
+nrow(x)
+NROW(x)
+ncol(x)
+NCOL(x)
+```
+
+### det()
+
+`det(x)`는 행렬 x의 행렬식을 구하여 반환합니다. 행렬식은 정방행렬(nxn 행렬)인 경우에만 구할 수 있습니다.
+$det \begin{pmatrix}a&b\\c&d\end{pmatrix} = ad-bc$
+
+```{r}
+(x <- matrix(1:4, nrow = 2))
+det(x)
+```
+
+### eigen()
+
+`eigen(x, symmetric, only.values = FALSE, EISPACK = FALSE)`는 행렬 x의 고유값과 고유벡터를 반환합니다.
+
+고유값과 고유벡터는 행렬 A에 대하여 $Av = \lambda v$ 등식을 만족하는 상수와 열벡터입니다. 등식에서 v는 고유벡터이고 $\lambda$는 고유값입니다.
+고유값과 고유벡터는 정방행렬(nxn 행렬)인 경우에만 구할 수 있습니다.
+
+```{r}
+(x <- matrix(1:4, nrow = 2))
+eigen(x)
+```
+
+### svd()
+
+`svd(x, nu = min(n, p), nv = min(n, p), LINPACK = FALSE)`는 행렬 x의 특이값을 분해하여 그 결과를 반환합니다.
+
+고유값 분해는 정방행렬(nxn 행렬)인 경우에만 가능합니다. 이를 직사각행렬(mxn행렬)에서도 가능하게 만든 것이 특이값 분해(SVD: Singular Value Decomposition)입니다.
+
+$M = UDV^T$
+
+```{r}
+x <- matrix(c(0, 0, 0, 1, 1, 0, 0, 0,
+              1, 0, 0, 1, 1, 0, 0, 0,
+              0, 0, 0, 1, 1, 0, 0, 0,
+              1, 1, 1, 1, 1, 1, 1, 1,
+              1, 1, 1, 1, 1, 1, 1, 1,
+              1, 1, 1, 1, 1, 1, 1, 1,
+              1, 1, 1, 1, 1, 1, 1, 1,
+              0, 0, 0, 1, 1, 0, 0, 0,
+              0, 0, 0, 1, 1, 0, 0, 0,
+              0, 0, 0, 1, 1, 0, 0, 0),
+            byrow = TRUE, nrow = 10)
+x
+x_svd <- svd(x)
+x_svd
+
+# 특이값 벡터 d의 첫번째와 두번째 값을 이용하여 원래 행렬 구하기
+round(x_svd$u[,c(1,2)] %*% diag(x_svd$d[c(1,2)]) %*% t(x_svd$v[,c(1,2)]))
+```
+
+### qr()
+
+`qr(x)`은 행렬 x의 QR 분해결과를 반환합니다. 
+QR분해는 행렬 A를 $A = QR$로 분해하는 것입니다. Q는 단위 노름 직교 벡터를 갖는 행렬이고, R은 상삼각행렬입니다.
+
+```{r}
+x <- matrix(c(1,2,3, 2,4,6, 3,3,3), nrow=3)
+x_qr <- qr(x)
+x_qr
+```
+
+### scale()
+
+`scale(x, center = TRUE, scale = TRUE)`는 행렬이나 벡터 x를 정규화(표준화)한 결과를 반환합니다. 옵션 center는 평균을 의미하며, scale은 표준편차를 의미합니다.
+x가 벡터일 경우 $z = (x-u)/\sigma$를 구해서 반환합니다. center가 FALSE이면 값에서 평균을 빼지 않으며, scale이 FALSE이면 표준편차로 나누지 않습니다.
+
+```{r}
+# 1~9 벡터를 표준화하기 (평균을 빼고 표준편차로 나눔)
+(x <- 1:9)
+scale(x)
+```
+
+x가 행렬일 경우에는 열을 기준으로 평균과 표준편차를 구한 후, 열 기준으로 표준화를 합니다.
+
+```{r}
+(x <- matrix(1:9, ncol = 3))
+scale(x)
+```
+
+## R 논리 함수
+
+any()
+all()
+which()
+
+
+## R 반복 함수
+
+lapply(): 
+sapply(): 
+
+apply()
+
+tapply(): 
+mapply(): 
+by()
+
+eapply
+
+
+
+## R 통계 함수
+
+
+sample
+runif(n, min=0, max=1) 
+rnorm
+
+mean(x) 
+median(x) 
+weighted.mean(x, w) 
+
+var(x)  
+sd(x) 
+
+max(x) 
+min(x) 
+pmin(x,y,...) 
+pmax(x,y,...) 병렬최대값
+
+range(x)
+quantile(x,probs=) 
+
+cov(x) 
+cor(x) 
+var(x, y) or cov(x, y) 
+cor(x, y) 
+
+rank(x) 
+
+
+Optimization and model fitting
+optim(par, fn, method = c("Nelder-Mead", "BFGS",
+"CG", "L-BFGS-B", "SANN") 
+nlm(f,p) 
+lm(formula)
+glm(formula,family=)
+nls(formula) 
+approx(x,y=) 
+spline(x,y=) 
+loess(formula) 
+
+predict(fit,...) 
+df.residual(fit) 
+coef(fit) 
+residuals(fit) 
+deviance(fit) 
+fitted(fit) 
+logLik(fit)
+AIC(fit) 
+aov(formula) 
+anova(fit,...) 
+density(x) 
+
+binom.test()
+prop.test()
+rnorm(n, mean=0, sd=1) 
+rexp(n, rate=1) 
+rgamma(n, shape, scale=1)
+rpois(n, lambda)
+rweibull(n, shape, scale=1)
+rcauchy(n, location=0, scale=1) 
+rbeta(n, shape1, shape2)
+rt(n, df)
+rf(n, df1, df2) 
+rchisq(n, df) 
+rbinom(n, size, prob)
+rgeom(n, prob) 
+rhyper(nn, m, n, k) 
+rlogis(n, location=0, scale=1) 
+rlnorm(n, meanlog=0, sdlog=1) 
+rnbinom(n, size, prob) 
+rwilcox(nn, m, n), rsignrank(nn, n) 
+
+lgamma, gamma, digamma, trigamma
+ 
+## R 날짜와 시간 함수
+
+seq()
+difftime()
+as.Date(s) and as.POSIXct(s)
+format(dt)
+
+%a, %A Abbreviated and full weekday name.
+%b, %B Abbreviated and full month name.
+%d Day of the month (01–31).
+%H Hours (00–23).
+%I Hours (01–12).
+%j Day of year (001–366).
+%m Month (01–12).
+%M Minute (00–59).
+%p AM/PM indicator.
+%S Second as decimal number (00–61).
+%U Week (00–53); the first Sunday as day 1 of week 1.
+%w Weekday (0–6, Sunday is 0).
+%W Week (00–53); the first Monday as day 1 of week 1.
+%y Year without century (00–99). Don’t use.
+%Y Year with century.
+%z (output only.) Offset from Greenwich; -0800 is 8 hours west of.
+%Z (output only.) Time zone as a character string (empty if not available).
+
+## R 객체 함수
+
+### 객체 클라스와 타입 조사
+typeof()
+str()
+class(x) 
+unclass(x) 
+attr(x,which) 
+attributes(obj)
+
+### 데이터 차원 조사
+dim
+nrow
+ncol
+
+### 객체정보 함수
+length(x) 
+dimnames(x) 
+
+
+is.na(x), is.null(x), is.array(x), is.data.frame(x),
+is.numeric(x), is.complex(x), is.character(x),
+
+
+### 객체변환 함수
+as.array(x), as.data.frame(x), as.numeric(x),
+as.logical(x), as.complex(x), as.character(x),
+
+
+
+
+
+## R 문자열 함수
+
+paste(...) 
+substr(x,start,stop) 
+strsplit(x,split) 
+grep(pattern,x) 
+gsub(pattern,replacement,x) 
+tolower(x) 
+toupper(x) 
+match(x,table) 
+pmatch(x,table) 
+nchar(x) 
+
+### 정규표현식
+
+
+
+
+## R 데이터 관리 함수
+
+c(...) 
+seq(from,to) 
+seq(along=x) 
+rep(x,times) 
+rep(c(1,2,3),each=2) 
+
+data.frame(...)
+list(...) 
+array(x,dim=) 
+matrix(x,nrow=,ncol=) 
+factor(x,levels=) 
+gl(n,k,length=n*k,labels=1:n) 
+expand.grid() 
+rbind(...) 
+cbind(...) 
+
+Data selection and manipulation
+which.max(x) 
+which.min(x) 
+rev(x) 
+sort(x) rev(sort(x))
+cut(x,breaks) 
+match(x, y) 
+which(x == a) 
+choose(n, k) 
+na.omit(x) 
+na.fail(x) 
+unique(x) 
+table(x) 
+subset(x, ...) 
+sample(x, size) 
+prop.table(x,margin=) 
+
+by(data,INDEX,FUN) 
+merge(a,b) 
+xtabs(a b,data=x) 
+aggregate(x,by,FUN) 
+stack(x, ...) 
+unstack(x, ...) 
+reshape(x, ...) 
+
+
+## R 입출력 함수
+
+load() 
+data(x) 
+library(x) 
+read.table(file) 
+read.csv("filename",header=TRUE) 
+read.delim("filename",header=TRUE) 
+read.fwf(file,widths,header=FALSE,sep="",as.is=FALSE) 
+save.image(file) 
+cat(..., file="", sep=" ") 
+print(a, ...) 
+format(x,...) 
+write.table(x,file="",row.names=TRUE,col.names=TRUE, sep=" ")
+sink(file) 
+
+
+## R 시스템 함수
+
+
+ 
+
+
+## R 사용자 정의 함수
+
+
+

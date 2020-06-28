@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | R Basic Manual</title>
+  <title>2.5 기본 데이터 타입 (Basic data types) | R Basic Manual</title>
   <meta name="description" content="This is a R Basic Manual." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | R Basic Manual" />
+  <meta property="og:title" content="2.5 기본 데이터 타입 (Basic data types) | R Basic Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="manboha/rbasic" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | R Basic Manual" />
+  <meta name="twitter:title" content="2.5 기본 데이터 타입 (Basic data types) | R Basic Manual" />
   
   <meta name="twitter:description" content="This is a R Basic Manual." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Manboha" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-06-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="r-inheritance.html"/>
-
+<link rel="prev" href="객체변수의-할당과-삭제.html"/>
+<link rel="next" href="내장형-상수-built-in-constants.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -223,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.6" data-path="list.html"><a href="list.html#리스트를-벡터로-변환"><i class="fa fa-check"></i><b>3.6.6</b> 리스트를 벡터로 변환</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-제어문-flow-control.html"><a href="r-제어문-flow-control.html"><i class="fa fa-check"></i><b>4</b> R 제어문 Flow Control</a><ul>
+<li class="chapter" data-level="4" data-path="r-제어문.html"><a href="r-제어문.html"><i class="fa fa-check"></i><b>4</b> R 제어문</a><ul>
 <li class="chapter" data-level="4.1" data-path="if.html"><a href="if.html"><i class="fa fa-check"></i><b>4.1</b> if()</a></li>
 <li class="chapter" data-level="4.2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>4.2</b> ifelse()</a></li>
 <li class="chapter" data-level="4.3" data-path="switch.html"><a href="switch.html"><i class="fa fa-check"></i><b>4.3</b> switch()</a></li>
@@ -231,20 +231,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="while.html"><a href="while.html"><i class="fa fa-check"></i><b>4.5</b> while()</a></li>
 <li class="chapter" data-level="4.6" data-path="repeat.html"><a href="repeat.html"><i class="fa fa-check"></i><b>4.6</b> repeat()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="r-함수-fuctions.html"><a href="r-함수-fuctions.html"><i class="fa fa-check"></i><b>5</b> R 함수 Fuctions</a><ul>
-<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a></li>
-<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a></li>
-<li class="chapter" data-level="5.3" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 통계 함수</a></li>
-<li class="chapter" data-level="5.4" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 날짜와 시간 함수</a></li>
-<li class="chapter" data-level="5.5" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 문자열 함수</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.5.1</b> 정규표현식</a></li>
+<li class="chapter" data-level="5" data-path="r-기본-함수.html"><a href="r-기본-함수.html"><i class="fa fa-check"></i><b>5</b> R 기본 함수</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html#abs"><i class="fa fa-check"></i><b>5.1.1</b> abs()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-수학-함수.html"><a href="r-수학-함수.html#ceiling"><i class="fa fa-check"></i><b>5.1.2</b> ceiling()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-수학-함수.html"><a href="r-수학-함수.html#floor"><i class="fa fa-check"></i><b>5.1.3</b> floor()</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-수학-함수.html"><a href="r-수학-함수.html#trunc"><i class="fa fa-check"></i><b>5.1.4</b> trunc()</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-수학-함수.html"><a href="r-수학-함수.html#round"><i class="fa fa-check"></i><b>5.1.5</b> round()</a></li>
+<li class="chapter" data-level="5.1.6" data-path="r-수학-함수.html"><a href="r-수학-함수.html#signif"><i class="fa fa-check"></i><b>5.1.6</b> signif()</a></li>
+<li class="chapter" data-level="5.1.7" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sqrt"><i class="fa fa-check"></i><b>5.1.7</b> sqrt()</a></li>
+<li class="chapter" data-level="5.1.8" data-path="r-수학-함수.html"><a href="r-수학-함수.html#로그함수"><i class="fa fa-check"></i><b>5.1.8</b> 로그함수</a></li>
+<li class="chapter" data-level="5.1.9" data-path="r-수학-함수.html"><a href="r-수학-함수.html#exp"><i class="fa fa-check"></i><b>5.1.9</b> exp()</a></li>
+<li class="chapter" data-level="5.1.10" data-path="r-수학-함수.html"><a href="r-수학-함수.html#삼각함수"><i class="fa fa-check"></i><b>5.1.10</b> 삼각함수</a></li>
+<li class="chapter" data-level="5.1.11" data-path="r-수학-함수.html"><a href="r-수학-함수.html#누적함수"><i class="fa fa-check"></i><b>5.1.11</b> 누적함수</a></li>
+<li class="chapter" data-level="5.1.12" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sum"><i class="fa fa-check"></i><b>5.1.12</b> sum()</a></li>
+<li class="chapter" data-level="5.1.13" data-path="r-수학-함수.html"><a href="r-수학-함수.html#diff"><i class="fa fa-check"></i><b>5.1.13</b> diff()</a></li>
+<li class="chapter" data-level="5.1.14" data-path="r-수학-함수.html"><a href="r-수학-함수.html#prod"><i class="fa fa-check"></i><b>5.1.14</b> prod()</a></li>
+<li class="chapter" data-level="5.1.15" data-path="r-수학-함수.html"><a href="r-수학-함수.html#gamma-factorial"><i class="fa fa-check"></i><b>5.1.15</b> gamma(), factorial()</a></li>
+<li class="chapter" data-level="5.1.16" data-path="r-수학-함수.html"><a href="r-수학-함수.html#beta"><i class="fa fa-check"></i><b>5.1.16</b> beta()</a></li>
+<li class="chapter" data-level="5.1.17" data-path="r-수학-함수.html"><a href="r-수학-함수.html#choose"><i class="fa fa-check"></i><b>5.1.17</b> choose()</a></li>
+<li class="chapter" data-level="5.1.18" data-path="r-수학-함수.html"><a href="r-수학-함수.html#복소수-함수"><i class="fa fa-check"></i><b>5.1.18</b> 복소수 함수</a></li>
+<li class="chapter" data-level="5.1.19" data-path="r-수학-함수.html"><a href="r-수학-함수.html#집합-함수"><i class="fa fa-check"></i><b>5.1.19</b> 집합 함수</a></li>
+<li class="chapter" data-level="5.1.20" data-path="r-수학-함수.html"><a href="r-수학-함수.html#푸리에-함수"><i class="fa fa-check"></i><b>5.1.20</b> 푸리에 함수</a></li>
+<li class="chapter" data-level="5.1.21" data-path="r-수학-함수.html"><a href="r-수학-함수.html#수치해석-함수"><i class="fa fa-check"></i><b>5.1.21</b> 수치해석 함수</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="r-벡터-연산-함수.html"><a href="r-벡터-연산-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 벡터 연산 함수</a></li>
-<li class="chapter" data-level="5.7" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 반복 함수</a></li>
-<li class="chapter" data-level="5.8" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 데이터 관리 함수</a></li>
-<li class="chapter" data-level="5.9" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 입출력 함수</a></li>
-<li class="chapter" data-level="5.10" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 시스템 함수</a></li>
-<li class="chapter" data-level="5.11" data-path="변수-관리-함수.html"><a href="변수-관리-함수.html"><i class="fa fa-check"></i><b>5.11</b> 변수 관리 함수</a></li>
+<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#t"><i class="fa fa-check"></i><b>5.2.1</b> t()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#diag"><i class="fa fa-check"></i><b>5.2.2</b> diag()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#section"><i class="fa fa-check"></i><b>5.2.3</b> %*%</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#outer"><i class="fa fa-check"></i><b>5.2.4</b> outer()</a></li>
+<li class="chapter" data-level="5.2.5" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#solve"><i class="fa fa-check"></i><b>5.2.5</b> solve()</a></li>
+<li class="chapter" data-level="5.2.6" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowsums"><i class="fa fa-check"></i><b>5.2.6</b> rowSums()</a></li>
+<li class="chapter" data-level="5.2.7" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colsums"><i class="fa fa-check"></i><b>5.2.7</b> colSums()</a></li>
+<li class="chapter" data-level="5.2.8" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowmeans"><i class="fa fa-check"></i><b>5.2.8</b> rowMeans()</a></li>
+<li class="chapter" data-level="5.2.9" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colmeans"><i class="fa fa-check"></i><b>5.2.9</b> colMeans()</a></li>
+<li class="chapter" data-level="5.2.10" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#nrow-ncol"><i class="fa fa-check"></i><b>5.2.10</b> nrow(), ncol()</a></li>
+<li class="chapter" data-level="5.2.11" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#det"><i class="fa fa-check"></i><b>5.2.11</b> det()</a></li>
+<li class="chapter" data-level="5.2.12" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#eigen"><i class="fa fa-check"></i><b>5.2.12</b> eigen()</a></li>
+<li class="chapter" data-level="5.2.13" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#svd"><i class="fa fa-check"></i><b>5.2.13</b> svd()</a></li>
+<li class="chapter" data-level="5.2.14" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#qr"><i class="fa fa-check"></i><b>5.2.14</b> qr()</a></li>
+<li class="chapter" data-level="5.2.15" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#scale"><i class="fa fa-check"></i><b>5.2.15</b> scale()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-논리-함수.html"><a href="r-논리-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 논리 함수</a></li>
+<li class="chapter" data-level="5.4" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 반복 함수</a></li>
+<li class="chapter" data-level="5.5" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 통계 함수</a></li>
+<li class="chapter" data-level="5.6" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 날짜와 시간 함수</a></li>
+<li class="chapter" data-level="5.7" data-path="r-객체-함수.html"><a href="r-객체-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 객체 함수</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체-클라스와-타입-조사"><i class="fa fa-check"></i><b>5.7.1</b> 객체 클라스와 타입 조사</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-객체-함수.html"><a href="r-객체-함수.html#데이터-차원-조사"><i class="fa fa-check"></i><b>5.7.2</b> 데이터 차원 조사</a></li>
+<li class="chapter" data-level="5.7.3" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체정보-함수"><i class="fa fa-check"></i><b>5.7.3</b> 객체정보 함수</a></li>
+<li class="chapter" data-level="5.7.4" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체변환-함수"><i class="fa fa-check"></i><b>5.7.4</b> 객체변환 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 문자열 함수</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.8.1</b> 정규표현식</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 데이터 관리 함수</a></li>
+<li class="chapter" data-level="5.10" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 입출력 함수</a></li>
+<li class="chapter" data-level="5.11" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.11</b> R 시스템 함수</a></li>
 <li class="chapter" data-level="5.12" data-path="r-사용자-정의-함수.html"><a href="r-사용자-정의-함수.html"><i class="fa fa-check"></i><b>5.12</b> R 사용자 정의 함수</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="r-입출력-read-write.html"><a href="r-입출력-read-write.html"><i class="fa fa-check"></i><b>6</b> R 입출력 Read &amp; Write</a><ul>
@@ -266,7 +309,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="r-reference-class.html"><a href="r-reference-class.html"><i class="fa fa-check"></i><b>8.4</b> R Reference Class</a></li>
 <li class="chapter" data-level="8.5" data-path="r-inheritance.html"><a href="r-inheritance.html"><i class="fa fa-check"></i><b>8.5</b> R Inheritance</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/manboha">Eidted by Manboha </a></li>
 
@@ -287,17 +329,102 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-
+<div id="기본-데이터-타입-basic-data-types" class="section level2">
+<h2><span class="header-section-number">2.5</span> 기본 데이터 타입 (Basic data types)</h2>
+<p>기본 데이터 타입으로 숫자(numeric), 문자(character), 논리(logical), 날짜(date), 결측치(missing) 등이 있습니다.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="기본-데이터-타입-basic-data-types.html#cb22-1"></a><span class="co"># 숫자 데이터</span></span>
+<span id="cb22-2"><a href="기본-데이터-타입-basic-data-types.html#cb22-2"></a>my_age &lt;-<span class="st"> </span><span class="dv">21</span></span>
+<span id="cb22-3"><a href="기본-데이터-타입-basic-data-types.html#cb22-3"></a></span>
+<span id="cb22-4"><a href="기본-데이터-타입-basic-data-types.html#cb22-4"></a><span class="co"># 문자 데이터 - 문자는 따옴표(&quot; 또는 &#39;)로 둘러쌉니다.</span></span>
+<span id="cb22-5"><a href="기본-데이터-타입-basic-data-types.html#cb22-5"></a>my_name &lt;-<span class="st"> &quot;영희&quot;</span></span>
+<span id="cb22-6"><a href="기본-데이터-타입-basic-data-types.html#cb22-6"></a></span>
+<span id="cb22-7"><a href="기본-데이터-타입-basic-data-types.html#cb22-7"></a><span class="co"># 논리 데이터 - TRUE, FALSE</span></span>
+<span id="cb22-8"><a href="기본-데이터-타입-basic-data-types.html#cb22-8"></a>is_student &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
+<span id="cb22-9"><a href="기본-데이터-타입-basic-data-types.html#cb22-9"></a></span>
+<span id="cb22-10"><a href="기본-데이터-타입-basic-data-types.html#cb22-10"></a><span class="co"># 날짜 데이터</span></span>
+<span id="cb22-11"><a href="기본-데이터-타입-basic-data-types.html#cb22-11"></a>my_birthday &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2007-08-02&quot;</span>)</span>
+<span id="cb22-12"><a href="기본-데이터-타입-basic-data-types.html#cb22-12"></a></span>
+<span id="cb22-13"><a href="기본-데이터-타입-basic-data-types.html#cb22-13"></a><span class="co"># 결측치(missing data) - 논리 데이터의 일종</span></span>
+<span id="cb22-14"><a href="기본-데이터-타입-basic-data-types.html#cb22-14"></a>my_missing &lt;-<span class="st"> </span><span class="ot">NA</span></span></code></pre></div>
+<p>문자는 따옴표로 둘러싸는데, 만일 문자들 중에 따옴표가 있으면 ""을 추가합니다.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="기본-데이터-타입-basic-data-types.html#cb23-1"></a>my_say &lt;-<span class="st"> &quot;나의 이름은 </span><span class="ch">\&quot;</span><span class="st">영희</span><span class="ch">\&quot;</span><span class="st">입니다.&quot;</span></span>
+<span id="cb23-2"><a href="기본-데이터-타입-basic-data-types.html#cb23-2"></a>my_say</span>
+<span id="cb23-3"><a href="기본-데이터-타입-basic-data-types.html#cb23-3"></a><span class="co">#&gt; [1] &quot;나의 이름은 \&quot;영희\&quot;입니다.&quot;</span></span></code></pre></div>
+<p>데이터 타입을 확인하는 함수는 class()입니다.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="기본-데이터-타입-basic-data-types.html#cb24-1"></a><span class="kw">class</span>(my_age)</span>
+<span id="cb24-2"><a href="기본-데이터-타입-basic-data-types.html#cb24-2"></a><span class="co">#&gt; [1] &quot;numeric&quot;</span></span>
+<span id="cb24-3"><a href="기본-데이터-타입-basic-data-types.html#cb24-3"></a><span class="kw">class</span>(my_name)</span>
+<span id="cb24-4"><a href="기본-데이터-타입-basic-data-types.html#cb24-4"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span></code></pre></div>
+<p>객체의 데이터 타입이 숫자인지, 문자인지를 확인하는 함수도 있습니다. 맞으면 TRUE를 출력하고 틀리면 FALSE를 출력합니다.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="기본-데이터-타입-basic-data-types.html#cb25-1"></a><span class="kw">is.numeric</span>(my_age)</span>
+<span id="cb25-2"><a href="기본-데이터-타입-basic-data-types.html#cb25-2"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb25-3"><a href="기본-데이터-타입-basic-data-types.html#cb25-3"></a><span class="kw">is.character</span>(my_name)</span>
+<span id="cb25-4"><a href="기본-데이터-타입-basic-data-types.html#cb25-4"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb25-5"><a href="기본-데이터-타입-basic-data-types.html#cb25-5"></a><span class="kw">is.logical</span>(is_student)</span>
+<span id="cb25-6"><a href="기본-데이터-타입-basic-data-types.html#cb25-6"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb25-7"><a href="기본-데이터-타입-basic-data-types.html#cb25-7"></a><span class="kw">is.na</span>(my_missing)</span>
+<span id="cb25-8"><a href="기본-데이터-타입-basic-data-types.html#cb25-8"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>만일 숫자가 따옴표로 둘려싸여 있어 문자로 인식될 경우 변환 함수를 이용하여 숫자 형식으로 변경할 수 있습니다.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="기본-데이터-타입-basic-data-types.html#cb26-1"></a><span class="kw">as.numeric</span>(<span class="st">&quot;21&quot;</span>)</span>
+<span id="cb26-2"><a href="기본-데이터-타입-basic-data-types.html#cb26-2"></a><span class="co">#&gt; [1] 21</span></span></code></pre></div>
+<div id="숫자-데이터---실수와-정수" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> 숫자 데이터 - 실수와 정수</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="기본-데이터-타입-basic-data-types.html#cb27-1"></a><span class="dv">100000</span>    <span class="co"># 1e+05 형태로 표시됨 </span></span>
+<span id="cb27-2"><a href="기본-데이터-타입-basic-data-types.html#cb27-2"></a><span class="co">#&gt; [1] 1e+05</span></span>
+<span id="cb27-3"><a href="기본-데이터-타입-basic-data-types.html#cb27-3"></a><span class="dv">150000000</span> <span class="co"># 1.5e+08 형태로 표시됨 </span></span>
+<span id="cb27-4"><a href="기본-데이터-타입-basic-data-types.html#cb27-4"></a><span class="co">#&gt; [1] 1.5e+08</span></span>
+<span id="cb27-5"><a href="기본-데이터-타입-basic-data-types.html#cb27-5"></a><span class="fl">5e+3</span>     <span class="co">#  5000  </span></span>
+<span id="cb27-6"><a href="기본-데이터-타입-basic-data-types.html#cb27-6"></a><span class="co">#&gt; [1] 5000</span></span>
+<span id="cb27-7"><a href="기본-데이터-타입-basic-data-types.html#cb27-7"></a><span class="fl">5e-3</span>     <span class="co">#  0.005</span></span>
+<span id="cb27-8"><a href="기본-데이터-타입-basic-data-types.html#cb27-8"></a><span class="co">#&gt; [1] 0.005</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="기본-데이터-타입-basic-data-types.html#cb28-1"></a><span class="co"># numeric 실수</span></span>
+<span id="cb28-2"><a href="기본-데이터-타입-basic-data-types.html#cb28-2"></a>x &lt;-<span class="st"> </span><span class="dv">21</span>  </span>
+<span id="cb28-3"><a href="기본-데이터-타입-basic-data-types.html#cb28-3"></a><span class="kw">is.numeric</span>(x) </span>
+<span id="cb28-4"><a href="기본-데이터-타입-basic-data-types.html#cb28-4"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb28-5"><a href="기본-데이터-타입-basic-data-types.html#cb28-5"></a></span>
+<span id="cb28-6"><a href="기본-데이터-타입-basic-data-types.html#cb28-6"></a><span class="co"># 정수  </span></span>
+<span id="cb28-7"><a href="기본-데이터-타입-basic-data-types.html#cb28-7"></a>y &lt;-<span class="st"> </span>5L    </span>
+<span id="cb28-8"><a href="기본-데이터-타입-basic-data-types.html#cb28-8"></a><span class="kw">is.integer</span>(y)</span>
+<span id="cb28-9"><a href="기본-데이터-타입-basic-data-types.html#cb28-9"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb28-10"><a href="기본-데이터-타입-basic-data-types.html#cb28-10"></a>  </span>
+<span id="cb28-11"><a href="기본-데이터-타입-basic-data-types.html#cb28-11"></a><span class="kw">typeof</span>(<span class="dv">5</span>)   <span class="co"># 부동소수점 실수 double</span></span>
+<span id="cb28-12"><a href="기본-데이터-타입-basic-data-types.html#cb28-12"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span>
+<span id="cb28-13"><a href="기본-데이터-타입-basic-data-types.html#cb28-13"></a><span class="kw">typeof</span>(5L)  <span class="co"># 정수 integer</span></span>
+<span id="cb28-14"><a href="기본-데이터-타입-basic-data-types.html#cb28-14"></a><span class="co">#&gt; [1] &quot;integer&quot;</span></span>
+<span id="cb28-15"><a href="기본-데이터-타입-basic-data-types.html#cb28-15"></a><span class="kw">typeof</span>(5i)  <span class="co"># 복소수 complex</span></span>
+<span id="cb28-16"><a href="기본-데이터-타입-basic-data-types.html#cb28-16"></a><span class="co">#&gt; [1] &quot;complex&quot;</span></span>
+<span id="cb28-17"><a href="기본-데이터-타입-basic-data-types.html#cb28-17"></a></span>
+<span id="cb28-18"><a href="기본-데이터-타입-basic-data-types.html#cb28-18"></a><span class="co"># 정수와 실수가 같이 연산되면 결과값은 실수</span></span>
+<span id="cb28-19"><a href="기본-데이터-타입-basic-data-types.html#cb28-19"></a>4L <span class="op">*</span><span class="st"> </span><span class="fl">2.8</span></span>
+<span id="cb28-20"><a href="기본-데이터-타입-basic-data-types.html#cb28-20"></a><span class="co">#&gt; [1] 11.2</span></span></code></pre></div>
+</div>
+<div id="논리-데이터---true-1-false-0" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> 논리 데이터 - TRUE == 1, FALSE == 0</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="기본-데이터-타입-basic-data-types.html#cb29-1"></a><span class="ot">TRUE</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb29-2"><a href="기본-데이터-타입-basic-data-types.html#cb29-2"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb29-3"><a href="기본-데이터-타입-basic-data-types.html#cb29-3"></a><span class="ot">FALSE</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb29-4"><a href="기본-데이터-타입-basic-data-types.html#cb29-4"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+</div>
+<div id="null-객체" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> NULL 객체</h3>
+<p>객체에 NULL 값을 부여함으로써 객체를 삭제하는 데 사용되기도 합니다.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="기본-데이터-타입-basic-data-types.html#cb30-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>, <span class="ot">NA</span>, <span class="dv">23</span>, <span class="ot">NA</span>, <span class="dv">25</span>)</span>
+<span id="cb30-2"><a href="기본-데이터-타입-basic-data-types.html#cb30-2"></a><span class="kw">str</span>(x)</span>
+<span id="cb30-3"><a href="기본-데이터-타입-basic-data-types.html#cb30-3"></a><span class="co">#&gt;  num [1:5] 21 NA 23 NA 25</span></span>
+<span id="cb30-4"><a href="기본-데이터-타입-basic-data-types.html#cb30-4"></a></span>
+<span id="cb30-5"><a href="기본-데이터-타입-basic-data-types.html#cb30-5"></a><span class="co"># x에 NULL 부여</span></span>
+<span id="cb30-6"><a href="기본-데이터-타입-basic-data-types.html#cb30-6"></a>x &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb30-7"><a href="기본-데이터-타입-basic-data-types.html#cb30-7"></a><span class="kw">str</span>(x)</span>
+<span id="cb30-8"><a href="기본-데이터-타입-basic-data-types.html#cb30-8"></a><span class="co">#&gt;  NULL</span></span></code></pre></div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="r-inheritance.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="객체변수의-할당과-삭제.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="내장형-상수-built-in-constants.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -328,7 +455,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/manboha/rbasic/edit/master/15-references.Rmd",
+"link": "https://github.com/manboha/rbasic/edit/master/02-R프로그래밍기초.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -347,6 +474,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

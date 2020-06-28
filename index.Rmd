@@ -1,13 +1,11 @@
 --- 
-title: "A R Basic Manual"
+title: "R Basic Manual"
 author: "Manboha"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
+
 github-repo: manboha/rbasic
 description: "This is a R Basic Manual."
 ---
@@ -16,10 +14,3 @@ description: "This is a R Basic Manual."
 
 이 책은 R을 공부하기 위한 기초 매뉴얼입니다.
 
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```

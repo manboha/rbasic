@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | R Basic Manual</title>
+  <title>4.4 for() | R Basic Manual</title>
   <meta name="description" content="This is a R Basic Manual." />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | R Basic Manual" />
+  <meta property="og:title" content="4.4 for() | R Basic Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="manboha/rbasic" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | R Basic Manual" />
+  <meta name="twitter:title" content="4.4 for() | R Basic Manual" />
   
   <meta name="twitter:description" content="This is a R Basic Manual." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Manboha" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-06-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="r-inheritance.html"/>
-
+<link rel="prev" href="switch.html"/>
+<link rel="next" href="while.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -223,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.6" data-path="list.html"><a href="list.html#리스트를-벡터로-변환"><i class="fa fa-check"></i><b>3.6.6</b> 리스트를 벡터로 변환</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-제어문-flow-control.html"><a href="r-제어문-flow-control.html"><i class="fa fa-check"></i><b>4</b> R 제어문 Flow Control</a><ul>
+<li class="chapter" data-level="4" data-path="r-제어문.html"><a href="r-제어문.html"><i class="fa fa-check"></i><b>4</b> R 제어문</a><ul>
 <li class="chapter" data-level="4.1" data-path="if.html"><a href="if.html"><i class="fa fa-check"></i><b>4.1</b> if()</a></li>
 <li class="chapter" data-level="4.2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>4.2</b> ifelse()</a></li>
 <li class="chapter" data-level="4.3" data-path="switch.html"><a href="switch.html"><i class="fa fa-check"></i><b>4.3</b> switch()</a></li>
@@ -231,20 +231,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="while.html"><a href="while.html"><i class="fa fa-check"></i><b>4.5</b> while()</a></li>
 <li class="chapter" data-level="4.6" data-path="repeat.html"><a href="repeat.html"><i class="fa fa-check"></i><b>4.6</b> repeat()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="r-함수-fuctions.html"><a href="r-함수-fuctions.html"><i class="fa fa-check"></i><b>5</b> R 함수 Fuctions</a><ul>
-<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a></li>
-<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a></li>
-<li class="chapter" data-level="5.3" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 통계 함수</a></li>
-<li class="chapter" data-level="5.4" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 날짜와 시간 함수</a></li>
-<li class="chapter" data-level="5.5" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 문자열 함수</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.5.1</b> 정규표현식</a></li>
+<li class="chapter" data-level="5" data-path="r-기본-함수.html"><a href="r-기본-함수.html"><i class="fa fa-check"></i><b>5</b> R 기본 함수</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html#abs"><i class="fa fa-check"></i><b>5.1.1</b> abs()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-수학-함수.html"><a href="r-수학-함수.html#ceiling"><i class="fa fa-check"></i><b>5.1.2</b> ceiling()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-수학-함수.html"><a href="r-수학-함수.html#floor"><i class="fa fa-check"></i><b>5.1.3</b> floor()</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-수학-함수.html"><a href="r-수학-함수.html#trunc"><i class="fa fa-check"></i><b>5.1.4</b> trunc()</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-수학-함수.html"><a href="r-수학-함수.html#round"><i class="fa fa-check"></i><b>5.1.5</b> round()</a></li>
+<li class="chapter" data-level="5.1.6" data-path="r-수학-함수.html"><a href="r-수학-함수.html#signif"><i class="fa fa-check"></i><b>5.1.6</b> signif()</a></li>
+<li class="chapter" data-level="5.1.7" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sqrt"><i class="fa fa-check"></i><b>5.1.7</b> sqrt()</a></li>
+<li class="chapter" data-level="5.1.8" data-path="r-수학-함수.html"><a href="r-수학-함수.html#로그함수"><i class="fa fa-check"></i><b>5.1.8</b> 로그함수</a></li>
+<li class="chapter" data-level="5.1.9" data-path="r-수학-함수.html"><a href="r-수학-함수.html#exp"><i class="fa fa-check"></i><b>5.1.9</b> exp()</a></li>
+<li class="chapter" data-level="5.1.10" data-path="r-수학-함수.html"><a href="r-수학-함수.html#삼각함수"><i class="fa fa-check"></i><b>5.1.10</b> 삼각함수</a></li>
+<li class="chapter" data-level="5.1.11" data-path="r-수학-함수.html"><a href="r-수학-함수.html#누적함수"><i class="fa fa-check"></i><b>5.1.11</b> 누적함수</a></li>
+<li class="chapter" data-level="5.1.12" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sum"><i class="fa fa-check"></i><b>5.1.12</b> sum()</a></li>
+<li class="chapter" data-level="5.1.13" data-path="r-수학-함수.html"><a href="r-수학-함수.html#diff"><i class="fa fa-check"></i><b>5.1.13</b> diff()</a></li>
+<li class="chapter" data-level="5.1.14" data-path="r-수학-함수.html"><a href="r-수학-함수.html#prod"><i class="fa fa-check"></i><b>5.1.14</b> prod()</a></li>
+<li class="chapter" data-level="5.1.15" data-path="r-수학-함수.html"><a href="r-수학-함수.html#gamma-factorial"><i class="fa fa-check"></i><b>5.1.15</b> gamma(), factorial()</a></li>
+<li class="chapter" data-level="5.1.16" data-path="r-수학-함수.html"><a href="r-수학-함수.html#beta"><i class="fa fa-check"></i><b>5.1.16</b> beta()</a></li>
+<li class="chapter" data-level="5.1.17" data-path="r-수학-함수.html"><a href="r-수학-함수.html#choose"><i class="fa fa-check"></i><b>5.1.17</b> choose()</a></li>
+<li class="chapter" data-level="5.1.18" data-path="r-수학-함수.html"><a href="r-수학-함수.html#복소수-함수"><i class="fa fa-check"></i><b>5.1.18</b> 복소수 함수</a></li>
+<li class="chapter" data-level="5.1.19" data-path="r-수학-함수.html"><a href="r-수학-함수.html#집합-함수"><i class="fa fa-check"></i><b>5.1.19</b> 집합 함수</a></li>
+<li class="chapter" data-level="5.1.20" data-path="r-수학-함수.html"><a href="r-수학-함수.html#푸리에-함수"><i class="fa fa-check"></i><b>5.1.20</b> 푸리에 함수</a></li>
+<li class="chapter" data-level="5.1.21" data-path="r-수학-함수.html"><a href="r-수학-함수.html#수치해석-함수"><i class="fa fa-check"></i><b>5.1.21</b> 수치해석 함수</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="r-벡터-연산-함수.html"><a href="r-벡터-연산-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 벡터 연산 함수</a></li>
-<li class="chapter" data-level="5.7" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 반복 함수</a></li>
-<li class="chapter" data-level="5.8" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 데이터 관리 함수</a></li>
-<li class="chapter" data-level="5.9" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 입출력 함수</a></li>
-<li class="chapter" data-level="5.10" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 시스템 함수</a></li>
-<li class="chapter" data-level="5.11" data-path="변수-관리-함수.html"><a href="변수-관리-함수.html"><i class="fa fa-check"></i><b>5.11</b> 변수 관리 함수</a></li>
+<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#t"><i class="fa fa-check"></i><b>5.2.1</b> t()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#diag"><i class="fa fa-check"></i><b>5.2.2</b> diag()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#section"><i class="fa fa-check"></i><b>5.2.3</b> %*%</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#outer"><i class="fa fa-check"></i><b>5.2.4</b> outer()</a></li>
+<li class="chapter" data-level="5.2.5" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#solve"><i class="fa fa-check"></i><b>5.2.5</b> solve()</a></li>
+<li class="chapter" data-level="5.2.6" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowsums"><i class="fa fa-check"></i><b>5.2.6</b> rowSums()</a></li>
+<li class="chapter" data-level="5.2.7" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colsums"><i class="fa fa-check"></i><b>5.2.7</b> colSums()</a></li>
+<li class="chapter" data-level="5.2.8" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowmeans"><i class="fa fa-check"></i><b>5.2.8</b> rowMeans()</a></li>
+<li class="chapter" data-level="5.2.9" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colmeans"><i class="fa fa-check"></i><b>5.2.9</b> colMeans()</a></li>
+<li class="chapter" data-level="5.2.10" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#nrow-ncol"><i class="fa fa-check"></i><b>5.2.10</b> nrow(), ncol()</a></li>
+<li class="chapter" data-level="5.2.11" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#det"><i class="fa fa-check"></i><b>5.2.11</b> det()</a></li>
+<li class="chapter" data-level="5.2.12" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#eigen"><i class="fa fa-check"></i><b>5.2.12</b> eigen()</a></li>
+<li class="chapter" data-level="5.2.13" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#svd"><i class="fa fa-check"></i><b>5.2.13</b> svd()</a></li>
+<li class="chapter" data-level="5.2.14" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#qr"><i class="fa fa-check"></i><b>5.2.14</b> qr()</a></li>
+<li class="chapter" data-level="5.2.15" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#scale"><i class="fa fa-check"></i><b>5.2.15</b> scale()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-논리-함수.html"><a href="r-논리-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 논리 함수</a></li>
+<li class="chapter" data-level="5.4" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 반복 함수</a></li>
+<li class="chapter" data-level="5.5" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 통계 함수</a></li>
+<li class="chapter" data-level="5.6" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 날짜와 시간 함수</a></li>
+<li class="chapter" data-level="5.7" data-path="r-객체-함수.html"><a href="r-객체-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 객체 함수</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체-클라스와-타입-조사"><i class="fa fa-check"></i><b>5.7.1</b> 객체 클라스와 타입 조사</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-객체-함수.html"><a href="r-객체-함수.html#데이터-차원-조사"><i class="fa fa-check"></i><b>5.7.2</b> 데이터 차원 조사</a></li>
+<li class="chapter" data-level="5.7.3" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체정보-함수"><i class="fa fa-check"></i><b>5.7.3</b> 객체정보 함수</a></li>
+<li class="chapter" data-level="5.7.4" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체변환-함수"><i class="fa fa-check"></i><b>5.7.4</b> 객체변환 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 문자열 함수</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.8.1</b> 정규표현식</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 데이터 관리 함수</a></li>
+<li class="chapter" data-level="5.10" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 입출력 함수</a></li>
+<li class="chapter" data-level="5.11" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.11</b> R 시스템 함수</a></li>
 <li class="chapter" data-level="5.12" data-path="r-사용자-정의-함수.html"><a href="r-사용자-정의-함수.html"><i class="fa fa-check"></i><b>5.12</b> R 사용자 정의 함수</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="r-입출력-read-write.html"><a href="r-입출력-read-write.html"><i class="fa fa-check"></i><b>6</b> R 입출력 Read &amp; Write</a><ul>
@@ -266,7 +309,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="r-reference-class.html"><a href="r-reference-class.html"><i class="fa fa-check"></i><b>8.4</b> R Reference Class</a></li>
 <li class="chapter" data-level="8.5" data-path="r-inheritance.html"><a href="r-inheritance.html"><i class="fa fa-check"></i><b>8.5</b> R Inheritance</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/manboha">Eidted by Manboha </a></li>
 
@@ -287,17 +329,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-
+<div id="for" class="section level2">
+<h2><span class="header-section-number">4.4</span> for()</h2>
+<p>fot() 함수는 반복적인 작업에 유용합니다.
+매번 조건을 확인하면서 조건이 허락할 때까지 반복을 합니다.
+for()와 유사한 반복문 함수로 while()과 repeat()가 있습니다.</p>
+<p>일반적으로 R 전문가들은 R의 벡터 연산의 특성을 살려 처리성능을 높이려면
+가급적 반복함수보다는 map()이나 apply()를 이용한 벡터기반 반복작업을 하라고 추천합니다.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="for.html#cb139-1"></a><span class="cf">for</span> (item <span class="cf">in</span> vector) {반복 실행}</span></code></pre></div>
+<p>vector의 갯수만큼 반복됩니다. 예를 들면 1에서 5까지 있는 벡터가 있다면
+1, 2, … 이런 순으로 반복이 됩니다.</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="for.html#cb140-1"></a><span class="co"># 1부터 5까지 출력</span></span>
+<span id="cb140-2"><a href="for.html#cb140-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</span>
+<span id="cb140-3"><a href="for.html#cb140-3"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb140-4"><a href="for.html#cb140-4"></a>}</span>
+<span id="cb140-5"><a href="for.html#cb140-5"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb140-6"><a href="for.html#cb140-6"></a><span class="co">#&gt; [1] 2</span></span>
+<span id="cb140-7"><a href="for.html#cb140-7"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb140-8"><a href="for.html#cb140-8"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb140-9"><a href="for.html#cb140-9"></a><span class="co">#&gt; [1] 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="for.html#cb141-1"></a><span class="co"># 알파벳 철자 순서대로 5개 출력, x의 각 요소를 출력</span></span>
+<span id="cb141-2"><a href="for.html#cb141-2"></a>x &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
+<span id="cb141-3"><a href="for.html#cb141-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</span>
+<span id="cb141-4"><a href="for.html#cb141-4"></a>  <span class="kw">print</span>(x[i])</span>
+<span id="cb141-5"><a href="for.html#cb141-5"></a>}</span>
+<span id="cb141-6"><a href="for.html#cb141-6"></a><span class="co">#&gt; [1] &quot;A&quot;</span></span>
+<span id="cb141-7"><a href="for.html#cb141-7"></a><span class="co">#&gt; [1] &quot;B&quot;</span></span>
+<span id="cb141-8"><a href="for.html#cb141-8"></a><span class="co">#&gt; [1] &quot;C&quot;</span></span>
+<span id="cb141-9"><a href="for.html#cb141-9"></a><span class="co">#&gt; [1] &quot;D&quot;</span></span>
+<span id="cb141-10"><a href="for.html#cb141-10"></a><span class="co">#&gt; [1] &quot;E&quot;</span></span></code></pre></div>
+<p><code>seq_along()</code> 함수는 객체의 길이만큼 일련번호를 출력합니다.
+예를 들면 <code>x &lt;- LETTERS[1:5]</code>에서 객체 x의 길이는 5입니다. <code>lenth(x)</code>를 하면 5입니다.
+<code>seq_along(x)</code>를 실행하면 <code>1:lenth(x)</code> 즉 <code>1:5</code>까지의 일련번호가 나옵니다.</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="for.html#cb142-1"></a>x &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
+<span id="cb142-2"><a href="for.html#cb142-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(x)) {</span>
+<span id="cb142-3"><a href="for.html#cb142-3"></a>  <span class="kw">print</span>(x[i])</span>
+<span id="cb142-4"><a href="for.html#cb142-4"></a>}</span>
+<span id="cb142-5"><a href="for.html#cb142-5"></a><span class="co">#&gt; [1] &quot;A&quot;</span></span>
+<span id="cb142-6"><a href="for.html#cb142-6"></a><span class="co">#&gt; [1] &quot;B&quot;</span></span>
+<span id="cb142-7"><a href="for.html#cb142-7"></a><span class="co">#&gt; [1] &quot;C&quot;</span></span>
+<span id="cb142-8"><a href="for.html#cb142-8"></a><span class="co">#&gt; [1] &quot;D&quot;</span></span>
+<span id="cb142-9"><a href="for.html#cb142-9"></a><span class="co">#&gt; [1] &quot;E&quot;</span></span></code></pre></div>
+<p>주의할 점은 for 함수에서 사용된 변수 <code>i</code>는 이미 다른 곳에서 변수로 사용하는 경우
+조심하여야 합니다. 변수 <code>i</code>의 값이 for 함수를 사용하면서 변경되기 때문입니다.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="for.html#cb143-1"></a><span class="co"># for 함수에서 사용된 아이템 변수 i는 변함</span></span>
+<span id="cb143-2"><a href="for.html#cb143-2"></a>i &lt;-<span class="st"> </span><span class="dv">55</span></span>
+<span id="cb143-3"><a href="for.html#cb143-3"></a><span class="kw">print</span>(i)</span>
+<span id="cb143-4"><a href="for.html#cb143-4"></a><span class="co">#&gt; [1] 55</span></span>
+<span id="cb143-5"><a href="for.html#cb143-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) {</span>
+<span id="cb143-6"><a href="for.html#cb143-6"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(i, <span class="st">&quot;입니다~&quot;</span>))</span>
+<span id="cb143-7"><a href="for.html#cb143-7"></a>}</span>
+<span id="cb143-8"><a href="for.html#cb143-8"></a><span class="co">#&gt; [1] &quot;1입니다~&quot;</span></span>
+<span id="cb143-9"><a href="for.html#cb143-9"></a><span class="co">#&gt; [1] &quot;2입니다~&quot;</span></span>
+<span id="cb143-10"><a href="for.html#cb143-10"></a><span class="co">#&gt; [1] &quot;3입니다~&quot;</span></span>
+<span id="cb143-11"><a href="for.html#cb143-11"></a><span class="kw">print</span>(i)</span>
+<span id="cb143-12"><a href="for.html#cb143-12"></a><span class="co">#&gt; [1] 3</span></span></code></pre></div>
+<p>for 함수를 반복 작업 중에 강제로 종료시키려면 <code>next</code>나 <code>break</code>를 사용합니다.
+next는 현재 진행중인 반복에서만 나와 다음 반복으로 넘어가는 반면,
+break는 for() 함수 전체에서 빠져나옵니다.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="for.html#cb144-1"></a><span class="co"># 3미만이면 이후 명령을 실행하지 않고 다음으로 넘어가고</span></span>
+<span id="cb144-2"><a href="for.html#cb144-2"></a><span class="co"># 5초과이면 for 반복에서 빠져 나옴</span></span>
+<span id="cb144-3"><a href="for.html#cb144-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb144-4"><a href="for.html#cb144-4"></a>  <span class="cf">if</span> (i <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) {</span>
+<span id="cb144-5"><a href="for.html#cb144-5"></a>    <span class="cf">next</span></span>
+<span id="cb144-6"><a href="for.html#cb144-6"></a>  }</span>
+<span id="cb144-7"><a href="for.html#cb144-7"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb144-8"><a href="for.html#cb144-8"></a>  <span class="cf">if</span> (i <span class="op">&gt;=</span><span class="st"> </span><span class="dv">5</span>) {</span>
+<span id="cb144-9"><a href="for.html#cb144-9"></a>    <span class="cf">break</span></span>
+<span id="cb144-10"><a href="for.html#cb144-10"></a>  }</span>
+<span id="cb144-11"><a href="for.html#cb144-11"></a>}</span>
+<span id="cb144-12"><a href="for.html#cb144-12"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb144-13"><a href="for.html#cb144-13"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb144-14"><a href="for.html#cb144-14"></a><span class="co">#&gt; [1] 5</span></span></code></pre></div>
+<p>for 함수 내에서 산출된 결과를 저장할 변수(아래 예제에서는 <code>out</code>)는 사전에 정의하여야 에러가능성도 낮고 속도도 빨라집니다.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="for.html#cb145-1"></a>means &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">50</span>)</span>
+<span id="cb145-2"><a href="for.html#cb145-2"></a>sds &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb145-3"><a href="for.html#cb145-3"></a>out &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;list&quot;</span>, <span class="kw">length</span>(means))</span>
+<span id="cb145-4"><a href="for.html#cb145-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(means)) {</span>
+<span id="cb145-5"><a href="for.html#cb145-5"></a>  out[[i]] &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">5</span>, means[[i]], sds[[i]])</span>
+<span id="cb145-6"><a href="for.html#cb145-6"></a>}</span>
+<span id="cb145-7"><a href="for.html#cb145-7"></a><span class="kw">print</span>(out)</span>
+<span id="cb145-8"><a href="for.html#cb145-8"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb145-9"><a href="for.html#cb145-9"></a><span class="co">#&gt; [1]  0.883  1.183  2.281 -0.727  2.690</span></span>
+<span id="cb145-10"><a href="for.html#cb145-10"></a><span class="co">#&gt; </span></span>
+<span id="cb145-11"><a href="for.html#cb145-11"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb145-12"><a href="for.html#cb145-12"></a><span class="co">#&gt; [1] 31.0 35.1 31.1 30.5 27.9</span></span>
+<span id="cb145-13"><a href="for.html#cb145-13"></a><span class="co">#&gt; </span></span>
+<span id="cb145-14"><a href="for.html#cb145-14"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb145-15"><a href="for.html#cb145-15"></a><span class="co">#&gt; [1] 53.9 52.5 49.8 47.6 47.8</span></span></code></pre></div>
+<p>for 반복문 안에 다시 for 반복문을 사용할 수 있습니다.
+참고로 <code>seq_along(x) == seq_len(length(x))</code> 입니다.</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="for.html#cb146-1"></a>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb146-2"><a href="for.html#cb146-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">nrow</span>(x))) {</span>
+<span id="cb146-3"><a href="for.html#cb146-3"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">ncol</span>(x))) {</span>
+<span id="cb146-4"><a href="for.html#cb146-4"></a>    <span class="kw">print</span>(x[i, j])</span>
+<span id="cb146-5"><a href="for.html#cb146-5"></a>  }</span>
+<span id="cb146-6"><a href="for.html#cb146-6"></a>}</span>
+<span id="cb146-7"><a href="for.html#cb146-7"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb146-8"><a href="for.html#cb146-8"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb146-9"><a href="for.html#cb146-9"></a><span class="co">#&gt; [1] 5</span></span>
+<span id="cb146-10"><a href="for.html#cb146-10"></a><span class="co">#&gt; [1] 2</span></span>
+<span id="cb146-11"><a href="for.html#cb146-11"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb146-12"><a href="for.html#cb146-12"></a><span class="co">#&gt; [1] 6</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="r-inheritance.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="switch.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="while.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -328,7 +469,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/manboha/rbasic/edit/master/15-references.Rmd",
+"link": "https://github.com/manboha/rbasic/edit/master/04-R제어문.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -347,6 +488,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

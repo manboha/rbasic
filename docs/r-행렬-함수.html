@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.2 R 행렬 함수 | R Basic Manual</title>
+  <meta name="description" content="This is a R Basic Manual." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5.2 R 행렬 함수 | R Basic Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a R Basic Manual." />
+  <meta name="github-repo" content="manboha/rbasic" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.2 R 행렬 함수 | R Basic Manual" />
+  
+  <meta name="twitter:description" content="This is a R Basic Manual." />
+  
+
+<meta name="author" content="Manboha" />
+
+
+<meta name="date" content="2020-06-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-수학-함수.html"/>
+<link rel="next" href="r-논리-함수.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Basic Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
+<li class="chapter" data-level="1" data-path="설치.html"><a href="설치.html"><i class="fa fa-check"></i><b>1</b> R 설치</a><ul>
+<li class="chapter" data-level="1.1" data-path="r이란.html"><a href="r이란.html"><i class="fa fa-check"></i><b>1.1</b> R이란?</a></li>
+<li class="chapter" data-level="1.2" data-path="r-설치.html"><a href="r-설치.html"><i class="fa fa-check"></i><b>1.2</b> R 설치</a></li>
+<li class="chapter" data-level="1.3" data-path="r의-특징.html"><a href="r의-특징.html"><i class="fa fa-check"></i><b>1.3</b> R의 특징</a></li>
+<li class="chapter" data-level="1.4" data-path="rstudio-설치.html"><a href="rstudio-설치.html"><i class="fa fa-check"></i><b>1.4</b> RStudio 설치</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="rstudio-설치.html"><a href="rstudio-설치.html#rstudio에서-프로젝트-만들기"><i class="fa fa-check"></i><b>1.4.1</b> RStudio에서 프로젝트 만들기</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="r-package-설치-및-사용.html"><a href="r-package-설치-및-사용.html"><i class="fa fa-check"></i><b>1.5</b> R package 설치 및 사용</a></li>
+<li class="chapter" data-level="1.6" data-path="r-package-관리.html"><a href="r-package-관리.html"><i class="fa fa-check"></i><b>1.6</b> R package 관리</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="r-package-관리.html"><a href="r-package-관리.html#설치된-패키지-보기"><i class="fa fa-check"></i><b>1.6.1</b> 설치된 패키지 보기</a></li>
+<li class="chapter" data-level="1.6.2" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지가-설치된-폴더-보기"><i class="fa fa-check"></i><b>1.6.2</b> 패키지가 설치된 폴더 보기</a></li>
+<li class="chapter" data-level="1.6.3" data-path="r-package-관리.html"><a href="r-package-관리.html#로드된-패키지-보기"><i class="fa fa-check"></i><b>1.6.3</b> 로드된 패키지 보기</a></li>
+<li class="chapter" data-level="1.6.4" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지-언로드-하기-메모리에서-내리기"><i class="fa fa-check"></i><b>1.6.4</b> 패키지 언로드 하기 (메모리에서 내리기)</a></li>
+<li class="chapter" data-level="1.6.5" data-path="r-package-관리.html"><a href="r-package-관리.html#설치된-패키지-제거하기"><i class="fa fa-check"></i><b>1.6.5</b> 설치된 패키지 제거하기</a></li>
+<li class="chapter" data-level="1.6.6" data-path="r-package-관리.html"><a href="r-package-관리.html#패키지-업데이트하기"><i class="fa fa-check"></i><b>1.6.6</b> 패키지 업데이트하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="프로그래밍.html"><a href="프로그래밍.html"><i class="fa fa-check"></i><b>2</b> R 프로그래밍 기초</a><ul>
+<li class="chapter" data-level="2.1" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html"><i class="fa fa-check"></i><b>2.1</b> 기초 산술 연산자</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html#계산용-연산자"><i class="fa fa-check"></i><b>2.1.1</b> 계산용 연산자</a></li>
+<li class="chapter" data-level="2.1.2" data-path="기초-산술-연산자.html"><a href="기초-산술-연산자.html#화씨온도가-100도라면-섭씨온도는"><i class="fa fa-check"></i><b>2.1.2</b> 화씨온도가 100도라면 섭씨온도는?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="논리-연산자.html"><a href="논리-연산자.html"><i class="fa fa-check"></i><b>2.2</b> 논리 연산자</a></li>
+<li class="chapter" data-level="2.3" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html"><i class="fa fa-check"></i><b>2.3</b> 기초 산술 함수</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#통계-함수"><i class="fa fa-check"></i><b>2.3.1</b> 통계 함수</a></li>
+<li class="chapter" data-level="2.3.2" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#로그-및-지수-함수-logarithms-and-exponentials"><i class="fa fa-check"></i><b>2.3.2</b> 로그 및 지수 함수 (Logarithms and Exponentials)</a></li>
+<li class="chapter" data-level="2.3.3" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#삼각-함수"><i class="fa fa-check"></i><b>2.3.3</b> 삼각 함수</a></li>
+<li class="chapter" data-level="2.3.4" data-path="기초-산술-함수.html"><a href="기초-산술-함수.html#기타-수학-함수"><i class="fa fa-check"></i><b>2.3.4</b> 기타 수학 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html"><i class="fa fa-check"></i><b>2.4</b> 객체(변수)의 할당과 삭제</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-만들기"><i class="fa fa-check"></i><b>2.4.1</b> 객체(변수) 만들기</a></li>
+<li class="chapter" data-level="2.4.2" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-리스트-보기"><i class="fa fa-check"></i><b>2.4.2</b> 객체(변수) 리스트 보기</a></li>
+<li class="chapter" data-level="2.4.3" data-path="객체변수의-할당과-삭제.html"><a href="객체변수의-할당과-삭제.html#객체변수-지우기"><i class="fa fa-check"></i><b>2.4.3</b> 객체(변수) 지우기</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html"><i class="fa fa-check"></i><b>2.5</b> 기본 데이터 타입 (Basic data types)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#숫자-데이터---실수와-정수"><i class="fa fa-check"></i><b>2.5.1</b> 숫자 데이터 - 실수와 정수</a></li>
+<li class="chapter" data-level="2.5.2" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#논리-데이터---true-1-false-0"><i class="fa fa-check"></i><b>2.5.2</b> 논리 데이터 - TRUE == 1, FALSE == 0</a></li>
+<li class="chapter" data-level="2.5.3" data-path="기본-데이터-타입-basic-data-types.html"><a href="기본-데이터-타입-basic-data-types.html#null-객체"><i class="fa fa-check"></i><b>2.5.3</b> NULL 객체</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="내장형-상수-built-in-constants.html"><a href="내장형-상수-built-in-constants.html"><i class="fa fa-check"></i><b>2.6</b> 내장형 상수 Built-in Constants</a></li>
+<li class="chapter" data-level="2.7" data-path="예약어-reserved-words.html"><a href="예약어-reserved-words.html"><i class="fa fa-check"></i><b>2.7</b> 예약어 Reserved Words</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-데이터-구조.html"><a href="r-데이터-구조.html"><i class="fa fa-check"></i><b>3</b> R 데이터 구조</a><ul>
+<li class="chapter" data-level="3.1" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>3.1</b> R 벡터 Vector</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="vector.html"><a href="vector.html#벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="vector.html"><a href="vector.html#벡터-요소-추출"><i class="fa fa-check"></i><b>3.1.2</b> 벡터 요소 추출</a></li>
+<li class="chapter" data-level="3.1.3" data-path="vector.html"><a href="vector.html#벡터-연산"><i class="fa fa-check"></i><b>3.1.3</b> 벡터 연산</a></li>
+<li class="chapter" data-level="3.1.4" data-path="vector.html"><a href="vector.html#기타"><i class="fa fa-check"></i><b>3.1.4</b> 기타</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>3.2</b> R 행렬 Matrix</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="matrix.html"><a href="matrix.html#행렬-생성"><i class="fa fa-check"></i><b>3.2.1</b> 행렬 생성</a></li>
+<li class="chapter" data-level="3.2.2" data-path="matrix.html"><a href="matrix.html#행렬-이름-붙이기"><i class="fa fa-check"></i><b>3.2.2</b> 행렬 이름 붙이기</a></li>
+<li class="chapter" data-level="3.2.3" data-path="matrix.html"><a href="matrix.html#행열-바꾸기"><i class="fa fa-check"></i><b>3.2.3</b> 행열 바꾸기</a></li>
+<li class="chapter" data-level="3.2.4" data-path="matrix.html"><a href="matrix.html#행렬의-차원"><i class="fa fa-check"></i><b>3.2.4</b> 행렬의 차원</a></li>
+<li class="chapter" data-level="3.2.5" data-path="matrix.html"><a href="matrix.html#행렬의-요소-추출"><i class="fa fa-check"></i><b>3.2.5</b> 행렬의 요소 추출</a></li>
+<li class="chapter" data-level="3.2.6" data-path="matrix.html"><a href="matrix.html#행렬-요소-수정"><i class="fa fa-check"></i><b>3.2.6</b> 행렬 요소 수정</a></li>
+<li class="chapter" data-level="3.2.7" data-path="matrix.html"><a href="matrix.html#행렬-연산"><i class="fa fa-check"></i><b>3.2.7</b> 행렬 연산</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>3.3</b> R 팩터 Factor</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="factor.html"><a href="factor.html#팩터-변수-만들기"><i class="fa fa-check"></i><b>3.3.1</b> 팩터 변수 만들기</a></li>
+<li class="chapter" data-level="3.3.2" data-path="factor.html"><a href="factor.html#팩터-요소-추출"><i class="fa fa-check"></i><b>3.3.2</b> 팩터 요소 추출</a></li>
+<li class="chapter" data-level="3.3.3" data-path="factor.html"><a href="factor.html#팩터-요소-수정"><i class="fa fa-check"></i><b>3.3.3</b> 팩터 요소 수정</a></li>
+<li class="chapter" data-level="3.3.4" data-path="factor.html"><a href="factor.html#기타-1"><i class="fa fa-check"></i><b>3.3.4</b> 기타</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="array.html"><a href="array.html"><i class="fa fa-check"></i><b>3.4</b> R 배열 Array</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="array.html"><a href="array.html#배열-생성"><i class="fa fa-check"></i><b>3.4.1</b> 배열 생성</a></li>
+<li class="chapter" data-level="3.4.2" data-path="array.html"><a href="array.html#배열-이름-붙이기"><i class="fa fa-check"></i><b>3.4.2</b> 배열 이름 붙이기</a></li>
+<li class="chapter" data-level="3.4.3" data-path="array.html"><a href="array.html#배열의-요소-추출"><i class="fa fa-check"></i><b>3.4.3</b> 배열의 요소 추출</a></li>
+<li class="chapter" data-level="3.4.4" data-path="array.html"><a href="array.html#배열-요소-수정"><i class="fa fa-check"></i><b>3.4.4</b> 배열 요소 수정</a></li>
+<li class="chapter" data-level="3.4.5" data-path="array.html"><a href="array.html#배열-연산"><i class="fa fa-check"></i><b>3.4.5</b> 배열 연산</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>3.5</b> R 데이터 프레임 Data frame</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>3.5.1</b> 데이터 프레임 만들기</a></li>
+<li class="chapter" data-level="3.5.2" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-구조-보기"><i class="fa fa-check"></i><b>3.5.2</b> 데이터 프레임 구조 보기</a></li>
+<li class="chapter" data-level="3.5.3" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-요약-보기"><i class="fa fa-check"></i><b>3.5.3</b> 데이터 프레임 요약 보기</a></li>
+<li class="chapter" data-level="3.5.4" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임에서-데이터-추출"><i class="fa fa-check"></i><b>3.5.4</b> 데이터 프레임에서 데이터 추출</a></li>
+<li class="chapter" data-level="3.5.5" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임의-데이터-수정"><i class="fa fa-check"></i><b>3.5.5</b> 데이터 프레임의 데이터 수정</a></li>
+<li class="chapter" data-level="3.5.6" data-path="dataframe.html"><a href="dataframe.html#데이터-프레임-구조-수정"><i class="fa fa-check"></i><b>3.5.6</b> 데이터 프레임 구조 수정</a></li>
+<li class="chapter" data-level="3.5.7" data-path="dataframe.html"><a href="dataframe.html#기타-2"><i class="fa fa-check"></i><b>3.5.7</b> 기타</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>3.6</b> R 리스트 List</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="list.html"><a href="list.html#리스트-만들기"><i class="fa fa-check"></i><b>3.6.1</b> 리스트 만들기</a></li>
+<li class="chapter" data-level="3.6.2" data-path="list.html"><a href="list.html#리스트-구조-보기"><i class="fa fa-check"></i><b>3.6.2</b> 리스트 구조 보기</a></li>
+<li class="chapter" data-level="3.6.3" data-path="list.html"><a href="list.html#리스트에서-데이터-추출"><i class="fa fa-check"></i><b>3.6.3</b> 리스트에서 데이터 추출</a></li>
+<li class="chapter" data-level="3.6.4" data-path="list.html"><a href="list.html#리스트의-데이터-수정"><i class="fa fa-check"></i><b>3.6.4</b> 리스트의 데이터 수정</a></li>
+<li class="chapter" data-level="3.6.5" data-path="list.html"><a href="list.html#리스트-구조-수정"><i class="fa fa-check"></i><b>3.6.5</b> 리스트 구조 수정</a></li>
+<li class="chapter" data-level="3.6.6" data-path="list.html"><a href="list.html#리스트를-벡터로-변환"><i class="fa fa-check"></i><b>3.6.6</b> 리스트를 벡터로 변환</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-제어문.html"><a href="r-제어문.html"><i class="fa fa-check"></i><b>4</b> R 제어문</a><ul>
+<li class="chapter" data-level="4.1" data-path="if.html"><a href="if.html"><i class="fa fa-check"></i><b>4.1</b> if()</a></li>
+<li class="chapter" data-level="4.2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>4.2</b> ifelse()</a></li>
+<li class="chapter" data-level="4.3" data-path="switch.html"><a href="switch.html"><i class="fa fa-check"></i><b>4.3</b> switch()</a></li>
+<li class="chapter" data-level="4.4" data-path="for.html"><a href="for.html"><i class="fa fa-check"></i><b>4.4</b> for()</a></li>
+<li class="chapter" data-level="4.5" data-path="while.html"><a href="while.html"><i class="fa fa-check"></i><b>4.5</b> while()</a></li>
+<li class="chapter" data-level="4.6" data-path="repeat.html"><a href="repeat.html"><i class="fa fa-check"></i><b>4.6</b> repeat()</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-기본-함수.html"><a href="r-기본-함수.html"><i class="fa fa-check"></i><b>5</b> R 기본 함수</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html"><i class="fa fa-check"></i><b>5.1</b> R 수학 함수</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-수학-함수.html"><a href="r-수학-함수.html#abs"><i class="fa fa-check"></i><b>5.1.1</b> abs()</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-수학-함수.html"><a href="r-수학-함수.html#ceiling"><i class="fa fa-check"></i><b>5.1.2</b> ceiling()</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-수학-함수.html"><a href="r-수학-함수.html#floor"><i class="fa fa-check"></i><b>5.1.3</b> floor()</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-수학-함수.html"><a href="r-수학-함수.html#trunc"><i class="fa fa-check"></i><b>5.1.4</b> trunc()</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-수학-함수.html"><a href="r-수학-함수.html#round"><i class="fa fa-check"></i><b>5.1.5</b> round()</a></li>
+<li class="chapter" data-level="5.1.6" data-path="r-수학-함수.html"><a href="r-수학-함수.html#signif"><i class="fa fa-check"></i><b>5.1.6</b> signif()</a></li>
+<li class="chapter" data-level="5.1.7" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sqrt"><i class="fa fa-check"></i><b>5.1.7</b> sqrt()</a></li>
+<li class="chapter" data-level="5.1.8" data-path="r-수학-함수.html"><a href="r-수학-함수.html#로그함수"><i class="fa fa-check"></i><b>5.1.8</b> 로그함수</a></li>
+<li class="chapter" data-level="5.1.9" data-path="r-수학-함수.html"><a href="r-수학-함수.html#exp"><i class="fa fa-check"></i><b>5.1.9</b> exp()</a></li>
+<li class="chapter" data-level="5.1.10" data-path="r-수학-함수.html"><a href="r-수학-함수.html#삼각함수"><i class="fa fa-check"></i><b>5.1.10</b> 삼각함수</a></li>
+<li class="chapter" data-level="5.1.11" data-path="r-수학-함수.html"><a href="r-수학-함수.html#누적함수"><i class="fa fa-check"></i><b>5.1.11</b> 누적함수</a></li>
+<li class="chapter" data-level="5.1.12" data-path="r-수학-함수.html"><a href="r-수학-함수.html#sum"><i class="fa fa-check"></i><b>5.1.12</b> sum()</a></li>
+<li class="chapter" data-level="5.1.13" data-path="r-수학-함수.html"><a href="r-수학-함수.html#diff"><i class="fa fa-check"></i><b>5.1.13</b> diff()</a></li>
+<li class="chapter" data-level="5.1.14" data-path="r-수학-함수.html"><a href="r-수학-함수.html#prod"><i class="fa fa-check"></i><b>5.1.14</b> prod()</a></li>
+<li class="chapter" data-level="5.1.15" data-path="r-수학-함수.html"><a href="r-수학-함수.html#gamma-factorial"><i class="fa fa-check"></i><b>5.1.15</b> gamma(), factorial()</a></li>
+<li class="chapter" data-level="5.1.16" data-path="r-수학-함수.html"><a href="r-수학-함수.html#beta"><i class="fa fa-check"></i><b>5.1.16</b> beta()</a></li>
+<li class="chapter" data-level="5.1.17" data-path="r-수학-함수.html"><a href="r-수학-함수.html#choose"><i class="fa fa-check"></i><b>5.1.17</b> choose()</a></li>
+<li class="chapter" data-level="5.1.18" data-path="r-수학-함수.html"><a href="r-수학-함수.html#복소수-함수"><i class="fa fa-check"></i><b>5.1.18</b> 복소수 함수</a></li>
+<li class="chapter" data-level="5.1.19" data-path="r-수학-함수.html"><a href="r-수학-함수.html#집합-함수"><i class="fa fa-check"></i><b>5.1.19</b> 집합 함수</a></li>
+<li class="chapter" data-level="5.1.20" data-path="r-수학-함수.html"><a href="r-수학-함수.html#푸리에-함수"><i class="fa fa-check"></i><b>5.1.20</b> 푸리에 함수</a></li>
+<li class="chapter" data-level="5.1.21" data-path="r-수학-함수.html"><a href="r-수학-함수.html#수치해석-함수"><i class="fa fa-check"></i><b>5.1.21</b> 수치해석 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html"><i class="fa fa-check"></i><b>5.2</b> R 행렬 함수</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#t"><i class="fa fa-check"></i><b>5.2.1</b> t()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#diag"><i class="fa fa-check"></i><b>5.2.2</b> diag()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#section"><i class="fa fa-check"></i><b>5.2.3</b> %*%</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#outer"><i class="fa fa-check"></i><b>5.2.4</b> outer()</a></li>
+<li class="chapter" data-level="5.2.5" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#solve"><i class="fa fa-check"></i><b>5.2.5</b> solve()</a></li>
+<li class="chapter" data-level="5.2.6" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowsums"><i class="fa fa-check"></i><b>5.2.6</b> rowSums()</a></li>
+<li class="chapter" data-level="5.2.7" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colsums"><i class="fa fa-check"></i><b>5.2.7</b> colSums()</a></li>
+<li class="chapter" data-level="5.2.8" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#rowmeans"><i class="fa fa-check"></i><b>5.2.8</b> rowMeans()</a></li>
+<li class="chapter" data-level="5.2.9" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#colmeans"><i class="fa fa-check"></i><b>5.2.9</b> colMeans()</a></li>
+<li class="chapter" data-level="5.2.10" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#nrow-ncol"><i class="fa fa-check"></i><b>5.2.10</b> nrow(), ncol()</a></li>
+<li class="chapter" data-level="5.2.11" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#det"><i class="fa fa-check"></i><b>5.2.11</b> det()</a></li>
+<li class="chapter" data-level="5.2.12" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#eigen"><i class="fa fa-check"></i><b>5.2.12</b> eigen()</a></li>
+<li class="chapter" data-level="5.2.13" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#svd"><i class="fa fa-check"></i><b>5.2.13</b> svd()</a></li>
+<li class="chapter" data-level="5.2.14" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#qr"><i class="fa fa-check"></i><b>5.2.14</b> qr()</a></li>
+<li class="chapter" data-level="5.2.15" data-path="r-행렬-함수.html"><a href="r-행렬-함수.html#scale"><i class="fa fa-check"></i><b>5.2.15</b> scale()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-논리-함수.html"><a href="r-논리-함수.html"><i class="fa fa-check"></i><b>5.3</b> R 논리 함수</a></li>
+<li class="chapter" data-level="5.4" data-path="r-반복-함수.html"><a href="r-반복-함수.html"><i class="fa fa-check"></i><b>5.4</b> R 반복 함수</a></li>
+<li class="chapter" data-level="5.5" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 통계 함수</a></li>
+<li class="chapter" data-level="5.6" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 날짜와 시간 함수</a></li>
+<li class="chapter" data-level="5.7" data-path="r-객체-함수.html"><a href="r-객체-함수.html"><i class="fa fa-check"></i><b>5.7</b> R 객체 함수</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체-클라스와-타입-조사"><i class="fa fa-check"></i><b>5.7.1</b> 객체 클라스와 타입 조사</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-객체-함수.html"><a href="r-객체-함수.html#데이터-차원-조사"><i class="fa fa-check"></i><b>5.7.2</b> 데이터 차원 조사</a></li>
+<li class="chapter" data-level="5.7.3" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체정보-함수"><i class="fa fa-check"></i><b>5.7.3</b> 객체정보 함수</a></li>
+<li class="chapter" data-level="5.7.4" data-path="r-객체-함수.html"><a href="r-객체-함수.html#객체변환-함수"><i class="fa fa-check"></i><b>5.7.4</b> 객체변환 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html"><i class="fa fa-check"></i><b>5.8</b> R 문자열 함수</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="r-문자열-함수.html"><a href="r-문자열-함수.html#정규표현식"><i class="fa fa-check"></i><b>5.8.1</b> 정규표현식</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="r-데이터-관리-함수.html"><a href="r-데이터-관리-함수.html"><i class="fa fa-check"></i><b>5.9</b> R 데이터 관리 함수</a></li>
+<li class="chapter" data-level="5.10" data-path="r-입출력-함수.html"><a href="r-입출력-함수.html"><i class="fa fa-check"></i><b>5.10</b> R 입출력 함수</a></li>
+<li class="chapter" data-level="5.11" data-path="r-시스템-함수.html"><a href="r-시스템-함수.html"><i class="fa fa-check"></i><b>5.11</b> R 시스템 함수</a></li>
+<li class="chapter" data-level="5.12" data-path="r-사용자-정의-함수.html"><a href="r-사용자-정의-함수.html"><i class="fa fa-check"></i><b>5.12</b> R 사용자 정의 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-입출력-read-write.html"><a href="r-입출력-read-write.html"><i class="fa fa-check"></i><b>6</b> R 입출력 Read &amp; Write</a><ul>
+<li class="chapter" data-level="6.1" data-path="데이터-불러오기.html"><a href="데이터-불러오기.html"><i class="fa fa-check"></i><b>6.1</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="6.2" data-path="데이터-저장하기.html"><a href="데이터-저장하기.html"><i class="fa fa-check"></i><b>6.2</b> 데이터 저장하기</a></li>
+<li class="chapter" data-level="6.3" data-path="백업-및-복원.html"><a href="백업-및-복원.html"><i class="fa fa-check"></i><b>6.3</b> 백업 및 복원</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-그래프-graphs-charts.html"><a href="r-그래프-graphs-charts.html"><i class="fa fa-check"></i><b>7</b> R 그래프 Graphs &amp; Charts</a><ul>
+<li class="chapter" data-level="7.1" data-path="bar-plot.html"><a href="bar-plot.html"><i class="fa fa-check"></i><b>7.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="7.2" data-path="histogram.html"><a href="histogram.html"><i class="fa fa-check"></i><b>7.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.3" data-path="pie-chart.html"><a href="pie-chart.html"><i class="fa fa-check"></i><b>7.3</b> Pie Chart</a></li>
+<li class="chapter" data-level="7.4" data-path="box-plot.html"><a href="box-plot.html"><i class="fa fa-check"></i><b>7.4</b> Box Plot</a></li>
+<li class="chapter" data-level="7.5" data-path="strip-chart.html"><a href="strip-chart.html"><i class="fa fa-check"></i><b>7.5</b> Strip Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-객체와-클래스-objects-class.html"><a href="r-객체와-클래스-objects-class.html"><i class="fa fa-check"></i><b>8</b> R 객체와 클래스 Objects &amp; Class</a><ul>
+<li class="chapter" data-level="8.1" data-path="object-and-class.html"><a href="object-and-class.html"><i class="fa fa-check"></i><b>8.1</b> Object and Class</a></li>
+<li class="chapter" data-level="8.2" data-path="r-s3-class.html"><a href="r-s3-class.html"><i class="fa fa-check"></i><b>8.2</b> R S3 Class</a></li>
+<li class="chapter" data-level="8.3" data-path="r-s4-class.html"><a href="r-s4-class.html"><i class="fa fa-check"></i><b>8.3</b> R S4 Class</a></li>
+<li class="chapter" data-level="8.4" data-path="r-reference-class.html"><a href="r-reference-class.html"><i class="fa fa-check"></i><b>8.4</b> R Reference Class</a></li>
+<li class="chapter" data-level="8.5" data-path="r-inheritance.html"><a href="r-inheritance.html"><i class="fa fa-check"></i><b>8.5</b> R Inheritance</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/manboha">Eidted by Manboha </a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Basic Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-행렬-함수" class="section level2">
+<h2><span class="header-section-number">5.2</span> R 행렬 함수</h2>
+<div id="t" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> t()</h3>
+<p><code>t(x)</code>는 행렬 x의 전치행렬(행과 열이 서로 바뀜)을 반환합니다.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="r-행렬-함수.html#cb178-1"></a>(x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb178-2"><a href="r-행렬-함수.html#cb178-2"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb178-3"><a href="r-행렬-함수.html#cb178-3"></a><span class="co">#&gt; [1,]    1    4    7   10</span></span>
+<span id="cb178-4"><a href="r-행렬-함수.html#cb178-4"></a><span class="co">#&gt; [2,]    2    5    8   11</span></span>
+<span id="cb178-5"><a href="r-행렬-함수.html#cb178-5"></a><span class="co">#&gt; [3,]    3    6    9   12</span></span>
+<span id="cb178-6"><a href="r-행렬-함수.html#cb178-6"></a><span class="kw">t</span>(x)</span>
+<span id="cb178-7"><a href="r-행렬-함수.html#cb178-7"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb178-8"><a href="r-행렬-함수.html#cb178-8"></a><span class="co">#&gt; [1,]    1    2    3</span></span>
+<span id="cb178-9"><a href="r-행렬-함수.html#cb178-9"></a><span class="co">#&gt; [2,]    4    5    6</span></span>
+<span id="cb178-10"><a href="r-행렬-함수.html#cb178-10"></a><span class="co">#&gt; [3,]    7    8    9</span></span>
+<span id="cb178-11"><a href="r-행렬-함수.html#cb178-11"></a><span class="co">#&gt; [4,]   10   11   12</span></span></code></pre></div>
+</div>
+<div id="diag" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> diag()</h3>
+<p><code>diag(x = 1, nrow, ncol, names = TRUE)</code>는 대각행렬을 반환합니다.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="r-행렬-함수.html#cb179-1"></a><span class="co"># 주대각선의 원소가 모두 1인(단위행렬) 3x3 대각행렬</span></span>
+<span id="cb179-2"><a href="r-행렬-함수.html#cb179-2"></a><span class="kw">diag</span>(<span class="dv">3</span>)  </span>
+<span id="cb179-3"><a href="r-행렬-함수.html#cb179-3"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb179-4"><a href="r-행렬-함수.html#cb179-4"></a><span class="co">#&gt; [1,]    1    0    0</span></span>
+<span id="cb179-5"><a href="r-행렬-함수.html#cb179-5"></a><span class="co">#&gt; [2,]    0    1    0</span></span>
+<span id="cb179-6"><a href="r-행렬-함수.html#cb179-6"></a><span class="co">#&gt; [3,]    0    0    1</span></span>
+<span id="cb179-7"><a href="r-행렬-함수.html#cb179-7"></a></span>
+<span id="cb179-8"><a href="r-행렬-함수.html#cb179-8"></a><span class="co"># 주대각선의 원소가 모두 10인 3x4 대각행렬</span></span>
+<span id="cb179-9"><a href="r-행렬-함수.html#cb179-9"></a><span class="kw">diag</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb179-10"><a href="r-행렬-함수.html#cb179-10"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb179-11"><a href="r-행렬-함수.html#cb179-11"></a><span class="co">#&gt; [1,]   10    0    0    0</span></span>
+<span id="cb179-12"><a href="r-행렬-함수.html#cb179-12"></a><span class="co">#&gt; [2,]    0   10    0    0</span></span>
+<span id="cb179-13"><a href="r-행렬-함수.html#cb179-13"></a><span class="co">#&gt; [3,]    0    0   10    0</span></span>
+<span id="cb179-14"><a href="r-행렬-함수.html#cb179-14"></a></span>
+<span id="cb179-15"><a href="r-행렬-함수.html#cb179-15"></a><span class="co"># 주대각선의 원소를 지정한 대각행렬</span></span>
+<span id="cb179-16"><a href="r-행렬-함수.html#cb179-16"></a><span class="kw">diag</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb179-17"><a href="r-행렬-함수.html#cb179-17"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb179-18"><a href="r-행렬-함수.html#cb179-18"></a><span class="co">#&gt; [1,]    2    0    0    0</span></span>
+<span id="cb179-19"><a href="r-행렬-함수.html#cb179-19"></a><span class="co">#&gt; [2,]    0    5    0    0</span></span>
+<span id="cb179-20"><a href="r-행렬-함수.html#cb179-20"></a><span class="co">#&gt; [3,]    0    0    3    0</span></span>
+<span id="cb179-21"><a href="r-행렬-함수.html#cb179-21"></a><span class="co">#&gt; [4,]    0    0    0    1</span></span>
+<span id="cb179-22"><a href="r-행렬-함수.html#cb179-22"></a></span>
+<span id="cb179-23"><a href="r-행렬-함수.html#cb179-23"></a><span class="co"># 행렬 x의 대각행렬</span></span>
+<span id="cb179-24"><a href="r-행렬-함수.html#cb179-24"></a>(<span class="dt">x =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">-3</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb179-25"><a href="r-행렬-함수.html#cb179-25"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb179-26"><a href="r-행렬-함수.html#cb179-26"></a><span class="co">#&gt; [1,]    1    5    1</span></span>
+<span id="cb179-27"><a href="r-행렬-함수.html#cb179-27"></a><span class="co">#&gt; [2,]    3    7    0</span></span>
+<span id="cb179-28"><a href="r-행렬-함수.html#cb179-28"></a><span class="co">#&gt; [3,]   -2   -3    1</span></span>
+<span id="cb179-29"><a href="r-행렬-함수.html#cb179-29"></a><span class="kw">diag</span>(x)</span>
+<span id="cb179-30"><a href="r-행렬-함수.html#cb179-30"></a><span class="co">#&gt; [1] 1 7 1</span></span></code></pre></div>
+</div>
+<div id="section" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> %*%</h3>
+<p><code>x %*% y</code>는 행렬 x와 행렬 y의 곱셈 결과를 반환합니다.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="r-행렬-함수.html#cb180-1"></a>(x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span>
+<span id="cb180-2"><a href="r-행렬-함수.html#cb180-2"></a><span class="co">#&gt; [1] 1 2 3 4</span></span>
+<span id="cb180-3"><a href="r-행렬-함수.html#cb180-3"></a>(y &lt;-<span class="st"> </span><span class="kw">diag</span>(x))</span>
+<span id="cb180-4"><a href="r-행렬-함수.html#cb180-4"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb180-5"><a href="r-행렬-함수.html#cb180-5"></a><span class="co">#&gt; [1,]    1    0    0    0</span></span>
+<span id="cb180-6"><a href="r-행렬-함수.html#cb180-6"></a><span class="co">#&gt; [2,]    0    2    0    0</span></span>
+<span id="cb180-7"><a href="r-행렬-함수.html#cb180-7"></a><span class="co">#&gt; [3,]    0    0    3    0</span></span>
+<span id="cb180-8"><a href="r-행렬-함수.html#cb180-8"></a><span class="co">#&gt; [4,]    0    0    0    4</span></span>
+<span id="cb180-9"><a href="r-행렬-함수.html#cb180-9"></a>(z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">nrow =</span> <span class="dv">4</span>))</span>
+<span id="cb180-10"><a href="r-행렬-함수.html#cb180-10"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb180-11"><a href="r-행렬-함수.html#cb180-11"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb180-12"><a href="r-행렬-함수.html#cb180-12"></a><span class="co">#&gt; [2,]    2    6   10</span></span>
+<span id="cb180-13"><a href="r-행렬-함수.html#cb180-13"></a><span class="co">#&gt; [3,]    3    7   11</span></span>
+<span id="cb180-14"><a href="r-행렬-함수.html#cb180-14"></a><span class="co">#&gt; [4,]    4    8   12</span></span>
+<span id="cb180-15"><a href="r-행렬-함수.html#cb180-15"></a></span>
+<span id="cb180-16"><a href="r-행렬-함수.html#cb180-16"></a>x <span class="op">%*%</span><span class="st"> </span>x</span>
+<span id="cb180-17"><a href="r-행렬-함수.html#cb180-17"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb180-18"><a href="r-행렬-함수.html#cb180-18"></a><span class="co">#&gt; [1,]   30</span></span>
+<span id="cb180-19"><a href="r-행렬-함수.html#cb180-19"></a>y <span class="op">%*%</span><span class="st"> </span>z</span>
+<span id="cb180-20"><a href="r-행렬-함수.html#cb180-20"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb180-21"><a href="r-행렬-함수.html#cb180-21"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb180-22"><a href="r-행렬-함수.html#cb180-22"></a><span class="co">#&gt; [2,]    4   12   20</span></span>
+<span id="cb180-23"><a href="r-행렬-함수.html#cb180-23"></a><span class="co">#&gt; [3,]    9   21   33</span></span>
+<span id="cb180-24"><a href="r-행렬-함수.html#cb180-24"></a><span class="co">#&gt; [4,]   16   32   48</span></span>
+<span id="cb180-25"><a href="r-행렬-함수.html#cb180-25"></a>y <span class="op">%*%</span><span class="st"> </span>x</span>
+<span id="cb180-26"><a href="r-행렬-함수.html#cb180-26"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb180-27"><a href="r-행렬-함수.html#cb180-27"></a><span class="co">#&gt; [1,]    1</span></span>
+<span id="cb180-28"><a href="r-행렬-함수.html#cb180-28"></a><span class="co">#&gt; [2,]    4</span></span>
+<span id="cb180-29"><a href="r-행렬-함수.html#cb180-29"></a><span class="co">#&gt; [3,]    9</span></span>
+<span id="cb180-30"><a href="r-행렬-함수.html#cb180-30"></a><span class="co">#&gt; [4,]   16</span></span>
+<span id="cb180-31"><a href="r-행렬-함수.html#cb180-31"></a>x <span class="op">%*%</span><span class="st"> </span>z</span>
+<span id="cb180-32"><a href="r-행렬-함수.html#cb180-32"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb180-33"><a href="r-행렬-함수.html#cb180-33"></a><span class="co">#&gt; [1,]   30   70  110</span></span></code></pre></div>
+</div>
+<div id="outer" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> outer()</h3>
+<p><code>outer(x, y, FUN = "*", ...)</code>는 두 벡터 또는 배열의 외적(outer product)를 반환합니다. 외적이란 x에 y의 전치행렬을 곱한 결과입니다.<br />
+<code>outer(x, y)</code>는 <code>x %*% t(y)</code>와 동일하며, <code>x%o%y</code>와 동일합니다.</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="r-행렬-함수.html#cb181-1"></a>(x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span>
+<span id="cb181-2"><a href="r-행렬-함수.html#cb181-2"></a><span class="co">#&gt; [1] 1 2 3 4</span></span>
+<span id="cb181-3"><a href="r-행렬-함수.html#cb181-3"></a>(y &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">:</span><span class="dv">8</span>)</span>
+<span id="cb181-4"><a href="r-행렬-함수.html#cb181-4"></a><span class="co">#&gt; [1] 5 6 7 8</span></span>
+<span id="cb181-5"><a href="r-행렬-함수.html#cb181-5"></a><span class="kw">outer</span>(x, y)</span>
+<span id="cb181-6"><a href="r-행렬-함수.html#cb181-6"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb181-7"><a href="r-행렬-함수.html#cb181-7"></a><span class="co">#&gt; [1,]    5    6    7    8</span></span>
+<span id="cb181-8"><a href="r-행렬-함수.html#cb181-8"></a><span class="co">#&gt; [2,]   10   12   14   16</span></span>
+<span id="cb181-9"><a href="r-행렬-함수.html#cb181-9"></a><span class="co">#&gt; [3,]   15   18   21   24</span></span>
+<span id="cb181-10"><a href="r-행렬-함수.html#cb181-10"></a><span class="co">#&gt; [4,]   20   24   28   32</span></span>
+<span id="cb181-11"><a href="r-행렬-함수.html#cb181-11"></a>x <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(y)</span>
+<span id="cb181-12"><a href="r-행렬-함수.html#cb181-12"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb181-13"><a href="r-행렬-함수.html#cb181-13"></a><span class="co">#&gt; [1,]    5    6    7    8</span></span>
+<span id="cb181-14"><a href="r-행렬-함수.html#cb181-14"></a><span class="co">#&gt; [2,]   10   12   14   16</span></span>
+<span id="cb181-15"><a href="r-행렬-함수.html#cb181-15"></a><span class="co">#&gt; [3,]   15   18   21   24</span></span>
+<span id="cb181-16"><a href="r-행렬-함수.html#cb181-16"></a><span class="co">#&gt; [4,]   20   24   28   32</span></span>
+<span id="cb181-17"><a href="r-행렬-함수.html#cb181-17"></a>x<span class="op">%o%</span>y</span>
+<span id="cb181-18"><a href="r-행렬-함수.html#cb181-18"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb181-19"><a href="r-행렬-함수.html#cb181-19"></a><span class="co">#&gt; [1,]    5    6    7    8</span></span>
+<span id="cb181-20"><a href="r-행렬-함수.html#cb181-20"></a><span class="co">#&gt; [2,]   10   12   14   16</span></span>
+<span id="cb181-21"><a href="r-행렬-함수.html#cb181-21"></a><span class="co">#&gt; [3,]   15   18   21   24</span></span>
+<span id="cb181-22"><a href="r-행렬-함수.html#cb181-22"></a><span class="co">#&gt; [4,]   20   24   28   32</span></span></code></pre></div>
+<p><code>outer(x, y, FUN = "*", ...)</code>에서 <code>FUN = "*"</code>로 인해 곱셈을 합니다. 만일 기본값인 *을 +로 변경하면 덧셈을 하게 됩니다.</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="r-행렬-함수.html#cb182-1"></a><span class="kw">outer</span>(x, y, <span class="dt">FUN =</span> <span class="st">&quot;+&quot;</span>)</span>
+<span id="cb182-2"><a href="r-행렬-함수.html#cb182-2"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb182-3"><a href="r-행렬-함수.html#cb182-3"></a><span class="co">#&gt; [1,]    6    7    8    9</span></span>
+<span id="cb182-4"><a href="r-행렬-함수.html#cb182-4"></a><span class="co">#&gt; [2,]    7    8    9   10</span></span>
+<span id="cb182-5"><a href="r-행렬-함수.html#cb182-5"></a><span class="co">#&gt; [3,]    8    9   10   11</span></span>
+<span id="cb182-6"><a href="r-행렬-함수.html#cb182-6"></a><span class="co">#&gt; [4,]    9   10   11   12</span></span></code></pre></div>
+</div>
+<div id="solve" class="section level3">
+<h3><span class="header-section-number">5.2.5</span> solve()</h3>
+<p><code>solve(a, b, ...)</code>는 수식 a %*% x = b에서 x를 구하여 반환합니다.
+만일 b를 지정하지 않으면 a의 역행렬을 반환합니다.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="r-행렬-함수.html#cb183-1"></a>(a &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">-2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">-3</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb183-2"><a href="r-행렬-함수.html#cb183-2"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb183-3"><a href="r-행렬-함수.html#cb183-3"></a><span class="co">#&gt; [1,]    1    5    1</span></span>
+<span id="cb183-4"><a href="r-행렬-함수.html#cb183-4"></a><span class="co">#&gt; [2,]    3    7    0</span></span>
+<span id="cb183-5"><a href="r-행렬-함수.html#cb183-5"></a><span class="co">#&gt; [3,]   -2   -3    1</span></span>
+<span id="cb183-6"><a href="r-행렬-함수.html#cb183-6"></a>(b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">-1</span>, <span class="dv">1</span>))</span>
+<span id="cb183-7"><a href="r-행렬-함수.html#cb183-7"></a><span class="co">#&gt; [1]  2 -1  1</span></span>
+<span id="cb183-8"><a href="r-행렬-함수.html#cb183-8"></a></span>
+<span id="cb183-9"><a href="r-행렬-함수.html#cb183-9"></a><span class="co"># ax=b에서 x를 구하여 반환</span></span>
+<span id="cb183-10"><a href="r-행렬-함수.html#cb183-10"></a><span class="kw">solve</span>(a, b)  </span>
+<span id="cb183-11"><a href="r-행렬-함수.html#cb183-11"></a><span class="co">#&gt; [1] -5  2 -3</span></span>
+<span id="cb183-12"><a href="r-행렬-함수.html#cb183-12"></a></span>
+<span id="cb183-13"><a href="r-행렬-함수.html#cb183-13"></a><span class="co"># a의 역행렬을 반환환</span></span>
+<span id="cb183-14"><a href="r-행렬-함수.html#cb183-14"></a><span class="kw">solve</span>(a)</span>
+<span id="cb183-15"><a href="r-행렬-함수.html#cb183-15"></a><span class="co">#&gt;       [,1]  [,2]  [,3]</span></span>
+<span id="cb183-16"><a href="r-행렬-함수.html#cb183-16"></a><span class="co">#&gt; [1,] -2.33  2.67  2.33</span></span>
+<span id="cb183-17"><a href="r-행렬-함수.html#cb183-17"></a><span class="co">#&gt; [2,]  1.00 -1.00 -1.00</span></span>
+<span id="cb183-18"><a href="r-행렬-함수.html#cb183-18"></a><span class="co">#&gt; [3,] -1.67  2.33  2.67</span></span></code></pre></div>
+</div>
+<div id="rowsums" class="section level3">
+<h3><span class="header-section-number">5.2.6</span> rowSums()</h3>
+<p><code>rowSums(x, na.rm = FALSE, dims = 1)</code>는 숫자를 담고 있는 2차원 이상의 배열 또는 데이터프레임 x의 행 합계를 반환합니다.</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="r-행렬-함수.html#cb184-1"></a>(x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">-2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">-3</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb184-2"><a href="r-행렬-함수.html#cb184-2"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb184-3"><a href="r-행렬-함수.html#cb184-3"></a><span class="co">#&gt; [1,]    1    5    1</span></span>
+<span id="cb184-4"><a href="r-행렬-함수.html#cb184-4"></a><span class="co">#&gt; [2,]    3    7    0</span></span>
+<span id="cb184-5"><a href="r-행렬-함수.html#cb184-5"></a><span class="co">#&gt; [3,]   -2   -3    1</span></span>
+<span id="cb184-6"><a href="r-행렬-함수.html#cb184-6"></a><span class="kw">rowSums</span>(x)</span>
+<span id="cb184-7"><a href="r-행렬-함수.html#cb184-7"></a><span class="co">#&gt; [1]  7 10 -4</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="r-행렬-함수.html#cb185-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb185-2"><a href="r-행렬-함수.html#cb185-2"></a>b &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span><span class="op">*</span><span class="dv">2</span></span>
+<span id="cb185-3"><a href="r-행렬-함수.html#cb185-3"></a>c &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span><span class="op">*</span><span class="dv">3</span></span>
+<span id="cb185-4"><a href="r-행렬-함수.html#cb185-4"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(a, b, c)</span>
+<span id="cb185-5"><a href="r-행렬-함수.html#cb185-5"></a>df</span>
+<span id="cb185-6"><a href="r-행렬-함수.html#cb185-6"></a><span class="co">#&gt;   a  b  c</span></span>
+<span id="cb185-7"><a href="r-행렬-함수.html#cb185-7"></a><span class="co">#&gt; 1 1  2  3</span></span>
+<span id="cb185-8"><a href="r-행렬-함수.html#cb185-8"></a><span class="co">#&gt; 2 2  4  6</span></span>
+<span id="cb185-9"><a href="r-행렬-함수.html#cb185-9"></a><span class="co">#&gt; 3 3  6  9</span></span>
+<span id="cb185-10"><a href="r-행렬-함수.html#cb185-10"></a><span class="co">#&gt; 4 4  8 12</span></span>
+<span id="cb185-11"><a href="r-행렬-함수.html#cb185-11"></a><span class="co">#&gt; 5 5 10 15</span></span>
+<span id="cb185-12"><a href="r-행렬-함수.html#cb185-12"></a></span>
+<span id="cb185-13"><a href="r-행렬-함수.html#cb185-13"></a><span class="kw">rowSums</span>(df)</span>
+<span id="cb185-14"><a href="r-행렬-함수.html#cb185-14"></a><span class="co">#&gt; [1]  6 12 18 24 30</span></span></code></pre></div>
+</div>
+<div id="colsums" class="section level3">
+<h3><span class="header-section-number">5.2.7</span> colSums()</h3>
+<p><code>colSums (x, na.rm = FALSE, dims = 1)</code>은 숫자를 담고 있는 2차원 이상의 배열 또는 데이터프레임 x의 열 합계를 반환합니다.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="r-행렬-함수.html#cb186-1"></a>(x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">-2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">-3</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb186-2"><a href="r-행렬-함수.html#cb186-2"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb186-3"><a href="r-행렬-함수.html#cb186-3"></a><span class="co">#&gt; [1,]    1    5    1</span></span>
+<span id="cb186-4"><a href="r-행렬-함수.html#cb186-4"></a><span class="co">#&gt; [2,]    3    7    0</span></span>
+<span id="cb186-5"><a href="r-행렬-함수.html#cb186-5"></a><span class="co">#&gt; [3,]   -2   -3    1</span></span>
+<span id="cb186-6"><a href="r-행렬-함수.html#cb186-6"></a></span>
+<span id="cb186-7"><a href="r-행렬-함수.html#cb186-7"></a><span class="kw">colSums</span>(x)</span>
+<span id="cb186-8"><a href="r-행렬-함수.html#cb186-8"></a><span class="co">#&gt; [1] 2 9 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="r-행렬-함수.html#cb187-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb187-2"><a href="r-행렬-함수.html#cb187-2"></a>b &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span><span class="op">*</span><span class="dv">2</span></span>
+<span id="cb187-3"><a href="r-행렬-함수.html#cb187-3"></a>c &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span><span class="op">*</span><span class="dv">3</span></span>
+<span id="cb187-4"><a href="r-행렬-함수.html#cb187-4"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(a, b, c)</span>
+<span id="cb187-5"><a href="r-행렬-함수.html#cb187-5"></a>df</span>
+<span id="cb187-6"><a href="r-행렬-함수.html#cb187-6"></a><span class="co">#&gt;   a  b  c</span></span>
+<span id="cb187-7"><a href="r-행렬-함수.html#cb187-7"></a><span class="co">#&gt; 1 1  2  3</span></span>
+<span id="cb187-8"><a href="r-행렬-함수.html#cb187-8"></a><span class="co">#&gt; 2 2  4  6</span></span>
+<span id="cb187-9"><a href="r-행렬-함수.html#cb187-9"></a><span class="co">#&gt; 3 3  6  9</span></span>
+<span id="cb187-10"><a href="r-행렬-함수.html#cb187-10"></a><span class="co">#&gt; 4 4  8 12</span></span>
+<span id="cb187-11"><a href="r-행렬-함수.html#cb187-11"></a><span class="co">#&gt; 5 5 10 15</span></span>
+<span id="cb187-12"><a href="r-행렬-함수.html#cb187-12"></a></span>
+<span id="cb187-13"><a href="r-행렬-함수.html#cb187-13"></a><span class="kw">colSums</span>(df)</span>
+<span id="cb187-14"><a href="r-행렬-함수.html#cb187-14"></a><span class="co">#&gt;  a  b  c </span></span>
+<span id="cb187-15"><a href="r-행렬-함수.html#cb187-15"></a><span class="co">#&gt; 15 30 45</span></span></code></pre></div>
+</div>
+<div id="rowmeans" class="section level3">
+<h3><span class="header-section-number">5.2.8</span> rowMeans()</h3>
+<p><code>rowMeans(x, na.rm = FALSE, dims = 1)</code>는 숫자를 담고 있는 2차원 이상의 배열 또는 데이터프레임 x의 행 평균을 반환합니다.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="r-행렬-함수.html#cb188-1"></a>(x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">-2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">-3</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb188-2"><a href="r-행렬-함수.html#cb188-2"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb188-3"><a href="r-행렬-함수.html#cb188-3"></a><span class="co">#&gt; [1,]    1    5    1</span></span>
+<span id="cb188-4"><a href="r-행렬-함수.html#cb188-4"></a><span class="co">#&gt; [2,]    3    7    0</span></span>
+<span id="cb188-5"><a href="r-행렬-함수.html#cb188-5"></a><span class="co">#&gt; [3,]   -2   -3    1</span></span>
+<span id="cb188-6"><a href="r-행렬-함수.html#cb188-6"></a><span class="kw">rowMeans</span>(x)</span>
+<span id="cb188-7"><a href="r-행렬-함수.html#cb188-7"></a><span class="co">#&gt; [1]  2.33  3.33 -1.33</span></span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="r-행렬-함수.html#cb189-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb189-2"><a href="r-행렬-함수.html#cb189-2"></a>b &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span><span class="op">*</span><span class="dv">2</span></span>
+<span id="cb189-3"><a href="r-행렬-함수.html#cb189-3"></a>c &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span><span class="op">*</span><span class="dv">3</span></span>
+<span id="cb189-4"><a href="r-행렬-함수.html#cb189-4"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(a, b, c)</span>
+<span id="cb189-5"><a href="r-행렬-함수.html#cb189-5"></a>df</span>
+<span id="cb189-6"><a href="r-행렬-함수.html#cb189-6"></a><span class="co">#&gt;   a  b  c</span></span>
+<span id="cb189-7"><a href="r-행렬-함수.html#cb189-7"></a><span class="co">#&gt; 1 1  2  3</span></span>
+<span id="cb189-8"><a href="r-행렬-함수.html#cb189-8"></a><span class="co">#&gt; 2 2  4  6</span></span>
+<span id="cb189-9"><a href="r-행렬-함수.html#cb189-9"></a><span class="co">#&gt; 3 3  6  9</span></span>
+<span id="cb189-10"><a href="r-행렬-함수.html#cb189-10"></a><span class="co">#&gt; 4 4  8 12</span></span>
+<span id="cb189-11"><a href="r-행렬-함수.html#cb189-11"></a><span class="co">#&gt; 5 5 10 15</span></span>
+<span id="cb189-12"><a href="r-행렬-함수.html#cb189-12"></a></span>
+<span id="cb189-13"><a href="r-행렬-함수.html#cb189-13"></a><span class="kw">rowMeans</span>(df)</span>
+<span id="cb189-14"><a href="r-행렬-함수.html#cb189-14"></a><span class="co">#&gt; [1]  2  4  6  8 10</span></span></code></pre></div>
+</div>
+<div id="colmeans" class="section level3">
+<h3><span class="header-section-number">5.2.9</span> colMeans()</h3>
+<p><code>colMeans (x, na.rm = FALSE, dims = 1)</code>은 숫자를 담고 있는 2차원 이상의 배열 또는 데이터프레임 x의 열 합계를 반환합니다.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="r-행렬-함수.html#cb190-1"></a>(x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">-2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">-3</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb190-2"><a href="r-행렬-함수.html#cb190-2"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb190-3"><a href="r-행렬-함수.html#cb190-3"></a><span class="co">#&gt; [1,]    1    5    1</span></span>
+<span id="cb190-4"><a href="r-행렬-함수.html#cb190-4"></a><span class="co">#&gt; [2,]    3    7    0</span></span>
+<span id="cb190-5"><a href="r-행렬-함수.html#cb190-5"></a><span class="co">#&gt; [3,]   -2   -3    1</span></span>
+<span id="cb190-6"><a href="r-행렬-함수.html#cb190-6"></a></span>
+<span id="cb190-7"><a href="r-행렬-함수.html#cb190-7"></a><span class="kw">colMeans</span>(x)</span>
+<span id="cb190-8"><a href="r-행렬-함수.html#cb190-8"></a><span class="co">#&gt; [1] 0.667 3.000 0.667</span></span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="r-행렬-함수.html#cb191-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb191-2"><a href="r-행렬-함수.html#cb191-2"></a>b &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span><span class="op">*</span><span class="dv">2</span></span>
+<span id="cb191-3"><a href="r-행렬-함수.html#cb191-3"></a>c &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span><span class="op">*</span><span class="dv">3</span></span>
+<span id="cb191-4"><a href="r-행렬-함수.html#cb191-4"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(a, b, c)</span>
+<span id="cb191-5"><a href="r-행렬-함수.html#cb191-5"></a>df</span>
+<span id="cb191-6"><a href="r-행렬-함수.html#cb191-6"></a><span class="co">#&gt;   a  b  c</span></span>
+<span id="cb191-7"><a href="r-행렬-함수.html#cb191-7"></a><span class="co">#&gt; 1 1  2  3</span></span>
+<span id="cb191-8"><a href="r-행렬-함수.html#cb191-8"></a><span class="co">#&gt; 2 2  4  6</span></span>
+<span id="cb191-9"><a href="r-행렬-함수.html#cb191-9"></a><span class="co">#&gt; 3 3  6  9</span></span>
+<span id="cb191-10"><a href="r-행렬-함수.html#cb191-10"></a><span class="co">#&gt; 4 4  8 12</span></span>
+<span id="cb191-11"><a href="r-행렬-함수.html#cb191-11"></a><span class="co">#&gt; 5 5 10 15</span></span>
+<span id="cb191-12"><a href="r-행렬-함수.html#cb191-12"></a></span>
+<span id="cb191-13"><a href="r-행렬-함수.html#cb191-13"></a><span class="kw">colMeans</span>(df)</span>
+<span id="cb191-14"><a href="r-행렬-함수.html#cb191-14"></a><span class="co">#&gt; a b c </span></span>
+<span id="cb191-15"><a href="r-행렬-함수.html#cb191-15"></a><span class="co">#&gt; 3 6 9</span></span></code></pre></div>
+</div>
+<div id="nrow-ncol" class="section level3">
+<h3><span class="header-section-number">5.2.10</span> nrow(), ncol()</h3>
+<ul>
+<li><code>nrow(x)</code>는 행의 갯수를 반환합니다.</li>
+<li><code>ncol(x)</code>는 열의 갯수를 반환합니다.</li>
+<li><code>NROW(x)</code>는 행의 갯수를 반환합니다. (벡터 계산 가능)</li>
+<li><code>NCOL(x)</code>는 열의 갯수를 반환합니다. (벡터 계산 가능)</li>
+</ul>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="r-행렬-함수.html#cb192-1"></a>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb192-2"><a href="r-행렬-함수.html#cb192-2"></a><span class="kw">nrow</span>(x)</span>
+<span id="cb192-3"><a href="r-행렬-함수.html#cb192-3"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb192-4"><a href="r-행렬-함수.html#cb192-4"></a><span class="kw">ncol</span>(x)</span>
+<span id="cb192-5"><a href="r-행렬-함수.html#cb192-5"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb192-6"><a href="r-행렬-함수.html#cb192-6"></a><span class="kw">NROW</span>(x)</span>
+<span id="cb192-7"><a href="r-행렬-함수.html#cb192-7"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb192-8"><a href="r-행렬-함수.html#cb192-8"></a><span class="kw">NCOL</span>(x)</span>
+<span id="cb192-9"><a href="r-행렬-함수.html#cb192-9"></a><span class="co">#&gt; [1] 4</span></span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="r-행렬-함수.html#cb193-1"></a>(x &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>)))  <span class="co"># 3행*4열의 3차원 배열</span></span>
+<span id="cb193-2"><a href="r-행렬-함수.html#cb193-2"></a><span class="co">#&gt; , , 1</span></span>
+<span id="cb193-3"><a href="r-행렬-함수.html#cb193-3"></a><span class="co">#&gt; </span></span>
+<span id="cb193-4"><a href="r-행렬-함수.html#cb193-4"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb193-5"><a href="r-행렬-함수.html#cb193-5"></a><span class="co">#&gt; [1,]    1    4    7   10</span></span>
+<span id="cb193-6"><a href="r-행렬-함수.html#cb193-6"></a><span class="co">#&gt; [2,]    2    5    8   11</span></span>
+<span id="cb193-7"><a href="r-행렬-함수.html#cb193-7"></a><span class="co">#&gt; [3,]    3    6    9   12</span></span>
+<span id="cb193-8"><a href="r-행렬-함수.html#cb193-8"></a><span class="co">#&gt; </span></span>
+<span id="cb193-9"><a href="r-행렬-함수.html#cb193-9"></a><span class="co">#&gt; , , 2</span></span>
+<span id="cb193-10"><a href="r-행렬-함수.html#cb193-10"></a><span class="co">#&gt; </span></span>
+<span id="cb193-11"><a href="r-행렬-함수.html#cb193-11"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb193-12"><a href="r-행렬-함수.html#cb193-12"></a><span class="co">#&gt; [1,]   13   16   19   22</span></span>
+<span id="cb193-13"><a href="r-행렬-함수.html#cb193-13"></a><span class="co">#&gt; [2,]   14   17   20   23</span></span>
+<span id="cb193-14"><a href="r-행렬-함수.html#cb193-14"></a><span class="co">#&gt; [3,]   15   18   21   24</span></span>
+<span id="cb193-15"><a href="r-행렬-함수.html#cb193-15"></a><span class="kw">nrow</span>(x)</span>
+<span id="cb193-16"><a href="r-행렬-함수.html#cb193-16"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb193-17"><a href="r-행렬-함수.html#cb193-17"></a><span class="kw">ncol</span>(x)</span>
+<span id="cb193-18"><a href="r-행렬-함수.html#cb193-18"></a><span class="co">#&gt; [1] 4</span></span></code></pre></div>
+<p>NROW와 NCOL은 행렬이 아닌 벡터도 계산합니다.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="r-행렬-함수.html#cb194-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span></span>
+<span id="cb194-2"><a href="r-행렬-함수.html#cb194-2"></a><span class="kw">nrow</span>(x)</span>
+<span id="cb194-3"><a href="r-행렬-함수.html#cb194-3"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb194-4"><a href="r-행렬-함수.html#cb194-4"></a><span class="kw">NROW</span>(x)</span>
+<span id="cb194-5"><a href="r-행렬-함수.html#cb194-5"></a><span class="co">#&gt; [1] 12</span></span>
+<span id="cb194-6"><a href="r-행렬-함수.html#cb194-6"></a><span class="kw">ncol</span>(x)</span>
+<span id="cb194-7"><a href="r-행렬-함수.html#cb194-7"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb194-8"><a href="r-행렬-함수.html#cb194-8"></a><span class="kw">NCOL</span>(x)</span>
+<span id="cb194-9"><a href="r-행렬-함수.html#cb194-9"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div>
+</div>
+<div id="det" class="section level3">
+<h3><span class="header-section-number">5.2.11</span> det()</h3>
+<p><code>det(x)</code>는 행렬 x의 행렬식을 구하여 반환합니다. 행렬식은 정방행렬(nxn 행렬)인 경우에만 구할 수 있습니다.
+<span class="math inline">\(det \begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix} = ad-bc\)</span></p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="r-행렬-함수.html#cb195-1"></a>(x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow =</span> <span class="dv">2</span>))</span>
+<span id="cb195-2"><a href="r-행렬-함수.html#cb195-2"></a><span class="co">#&gt;      [,1] [,2]</span></span>
+<span id="cb195-3"><a href="r-행렬-함수.html#cb195-3"></a><span class="co">#&gt; [1,]    1    3</span></span>
+<span id="cb195-4"><a href="r-행렬-함수.html#cb195-4"></a><span class="co">#&gt; [2,]    2    4</span></span>
+<span id="cb195-5"><a href="r-행렬-함수.html#cb195-5"></a><span class="kw">det</span>(x)</span>
+<span id="cb195-6"><a href="r-행렬-함수.html#cb195-6"></a><span class="co">#&gt; [1] -2</span></span></code></pre></div>
+</div>
+<div id="eigen" class="section level3">
+<h3><span class="header-section-number">5.2.12</span> eigen()</h3>
+<p><code>eigen(x, symmetric, only.values = FALSE, EISPACK = FALSE)</code>는 행렬 x의 고유값과 고유벡터를 반환합니다.</p>
+<p>고유값과 고유벡터는 행렬 A에 대하여 <span class="math inline">\(Av = \lambda v\)</span> 등식을 만족하는 상수와 열벡터입니다. 등식에서 v는 고유벡터이고 <span class="math inline">\(\lambda\)</span>는 고유값입니다.
+고유값과 고유벡터는 정방행렬(nxn 행렬)인 경우에만 구할 수 있습니다.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="r-행렬-함수.html#cb196-1"></a>(x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow =</span> <span class="dv">2</span>))</span>
+<span id="cb196-2"><a href="r-행렬-함수.html#cb196-2"></a><span class="co">#&gt;      [,1] [,2]</span></span>
+<span id="cb196-3"><a href="r-행렬-함수.html#cb196-3"></a><span class="co">#&gt; [1,]    1    3</span></span>
+<span id="cb196-4"><a href="r-행렬-함수.html#cb196-4"></a><span class="co">#&gt; [2,]    2    4</span></span>
+<span id="cb196-5"><a href="r-행렬-함수.html#cb196-5"></a><span class="kw">eigen</span>(x)</span>
+<span id="cb196-6"><a href="r-행렬-함수.html#cb196-6"></a><span class="co">#&gt; eigen() decomposition</span></span>
+<span id="cb196-7"><a href="r-행렬-함수.html#cb196-7"></a><span class="co">#&gt; $values</span></span>
+<span id="cb196-8"><a href="r-행렬-함수.html#cb196-8"></a><span class="co">#&gt; [1]  5.372 -0.372</span></span>
+<span id="cb196-9"><a href="r-행렬-함수.html#cb196-9"></a><span class="co">#&gt; </span></span>
+<span id="cb196-10"><a href="r-행렬-함수.html#cb196-10"></a><span class="co">#&gt; $vectors</span></span>
+<span id="cb196-11"><a href="r-행렬-함수.html#cb196-11"></a><span class="co">#&gt;        [,1]   [,2]</span></span>
+<span id="cb196-12"><a href="r-행렬-함수.html#cb196-12"></a><span class="co">#&gt; [1,] -0.566 -0.909</span></span>
+<span id="cb196-13"><a href="r-행렬-함수.html#cb196-13"></a><span class="co">#&gt; [2,] -0.825  0.416</span></span></code></pre></div>
+</div>
+<div id="svd" class="section level3">
+<h3><span class="header-section-number">5.2.13</span> svd()</h3>
+<p><code>svd(x, nu = min(n, p), nv = min(n, p), LINPACK = FALSE)</code>는 행렬 x의 특이값을 분해하여 그 결과를 반환합니다.</p>
+<p>고유값 분해는 정방행렬(nxn 행렬)인 경우에만 가능합니다. 이를 직사각행렬(mxn행렬)에서도 가능하게 만든 것이 특이값 분해(SVD: Singular Value Decomposition)입니다.</p>
+<p><span class="math inline">\(M = UDV^T\)</span></p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="r-행렬-함수.html#cb197-1"></a>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb197-2"><a href="r-행렬-함수.html#cb197-2"></a>              <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb197-3"><a href="r-행렬-함수.html#cb197-3"></a>              <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb197-4"><a href="r-행렬-함수.html#cb197-4"></a>              <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb197-5"><a href="r-행렬-함수.html#cb197-5"></a>              <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb197-6"><a href="r-행렬-함수.html#cb197-6"></a>              <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb197-7"><a href="r-행렬-함수.html#cb197-7"></a>              <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb197-8"><a href="r-행렬-함수.html#cb197-8"></a>              <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb197-9"><a href="r-행렬-함수.html#cb197-9"></a>              <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb197-10"><a href="r-행렬-함수.html#cb197-10"></a>              <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb197-11"><a href="r-행렬-함수.html#cb197-11"></a>            <span class="dt">byrow =</span> <span class="ot">TRUE</span>, <span class="dt">nrow =</span> <span class="dv">10</span>)</span>
+<span id="cb197-12"><a href="r-행렬-함수.html#cb197-12"></a>x</span>
+<span id="cb197-13"><a href="r-행렬-함수.html#cb197-13"></a><span class="co">#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]</span></span>
+<span id="cb197-14"><a href="r-행렬-함수.html#cb197-14"></a><span class="co">#&gt;  [1,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-15"><a href="r-행렬-함수.html#cb197-15"></a><span class="co">#&gt;  [2,]    1    0    0    1    1    0    0    0</span></span>
+<span id="cb197-16"><a href="r-행렬-함수.html#cb197-16"></a><span class="co">#&gt;  [3,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-17"><a href="r-행렬-함수.html#cb197-17"></a><span class="co">#&gt;  [4,]    1    1    1    1    1    1    1    1</span></span>
+<span id="cb197-18"><a href="r-행렬-함수.html#cb197-18"></a><span class="co">#&gt;  [5,]    1    1    1    1    1    1    1    1</span></span>
+<span id="cb197-19"><a href="r-행렬-함수.html#cb197-19"></a><span class="co">#&gt;  [6,]    1    1    1    1    1    1    1    1</span></span>
+<span id="cb197-20"><a href="r-행렬-함수.html#cb197-20"></a><span class="co">#&gt;  [7,]    1    1    1    1    1    1    1    1</span></span>
+<span id="cb197-21"><a href="r-행렬-함수.html#cb197-21"></a><span class="co">#&gt;  [8,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-22"><a href="r-행렬-함수.html#cb197-22"></a><span class="co">#&gt;  [9,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-23"><a href="r-행렬-함수.html#cb197-23"></a><span class="co">#&gt; [10,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-24"><a href="r-행렬-함수.html#cb197-24"></a>x_svd &lt;-<span class="st"> </span><span class="kw">svd</span>(x)</span>
+<span id="cb197-25"><a href="r-행렬-함수.html#cb197-25"></a>x_svd</span>
+<span id="cb197-26"><a href="r-행렬-함수.html#cb197-26"></a><span class="co">#&gt; $d</span></span>
+<span id="cb197-27"><a href="r-행렬-함수.html#cb197-27"></a><span class="co">#&gt; [1] 6.06e+00 2.75e+00 8.48e-01 2.84e-16 2.47e-31 4.47e-33 1.64e-49 5.91e-67</span></span>
+<span id="cb197-28"><a href="r-행렬-함수.html#cb197-28"></a><span class="co">#&gt; </span></span>
+<span id="cb197-29"><a href="r-행렬-함수.html#cb197-29"></a><span class="co">#&gt; $u</span></span>
+<span id="cb197-30"><a href="r-행렬-함수.html#cb197-30"></a><span class="co">#&gt;         [,1]   [,2]    [,3]      [,4]      [,5]      [,6]      [,7]      [,8]</span></span>
+<span id="cb197-31"><a href="r-행렬-함수.html#cb197-31"></a><span class="co">#&gt;  [1,] -0.153  0.385  0.1692  8.94e-01 -7.18e-16 -1.67e-16  2.78e-17 -5.55e-17</span></span>
+<span id="cb197-32"><a href="r-행렬-함수.html#cb197-32"></a><span class="co">#&gt;  [2,] -0.208  0.323 -0.9231 -2.78e-16 -1.18e-17 -9.03e-18 -1.42e-17 -1.61e-18</span></span>
+<span id="cb197-33"><a href="r-행렬-함수.html#cb197-33"></a><span class="co">#&gt;  [3,] -0.153  0.385  0.1692 -2.24e-01 -8.64e-01 -6.47e-02 -3.13e-16  3.69e-17</span></span>
+<span id="cb197-34"><a href="r-행렬-함수.html#cb197-34"></a><span class="co">#&gt;  [4,] -0.458 -0.197  0.0344  5.55e-17 -6.47e-02  8.64e-01 -2.67e-16 -1.67e-16</span></span>
+<span id="cb197-35"><a href="r-행렬-함수.html#cb197-35"></a><span class="co">#&gt;  [5,] -0.458 -0.197  0.0344  0.00e+00  2.16e-02 -2.88e-01  8.16e-01 -3.43e-18</span></span>
+<span id="cb197-36"><a href="r-행렬-함수.html#cb197-36"></a><span class="co">#&gt;  [6,] -0.458 -0.197  0.0344  0.00e+00  2.16e-02 -2.88e-01 -4.08e-01  7.07e-01</span></span>
+<span id="cb197-37"><a href="r-행렬-함수.html#cb197-37"></a><span class="co">#&gt;  [7,] -0.458 -0.197  0.0344  0.00e+00  2.16e-02 -2.88e-01 -4.08e-01 -7.07e-01</span></span>
+<span id="cb197-38"><a href="r-행렬-함수.html#cb197-38"></a><span class="co">#&gt;  [8,] -0.153  0.385  0.1692 -2.24e-01  2.88e-01  2.16e-02  8.51e-17  4.65e-18</span></span>
+<span id="cb197-39"><a href="r-행렬-함수.html#cb197-39"></a><span class="co">#&gt;  [9,] -0.153  0.385  0.1692 -2.24e-01  2.88e-01  2.16e-02  8.51e-17  4.65e-18</span></span>
+<span id="cb197-40"><a href="r-행렬-함수.html#cb197-40"></a><span class="co">#&gt; [10,] -0.153  0.385  0.1692 -2.24e-01  2.88e-01  2.16e-02  8.51e-17  4.65e-18</span></span>
+<span id="cb197-41"><a href="r-행렬-함수.html#cb197-41"></a><span class="co">#&gt; </span></span>
+<span id="cb197-42"><a href="r-행렬-함수.html#cb197-42"></a><span class="co">#&gt; $v</span></span>
+<span id="cb197-43"><a href="r-행렬-함수.html#cb197-43"></a><span class="co">#&gt;        [,1]   [,2]    [,3]      [,4]    [,5]     [,6]      [,7]      [,8]</span></span>
+<span id="cb197-44"><a href="r-행렬-함수.html#cb197-44"></a><span class="co">#&gt; [1,] -0.337 -0.169 -0.9262  0.00e+00  0.0000  0.00000  0.00e+00  0.00e+00</span></span>
+<span id="cb197-45"><a href="r-행렬-함수.html#cb197-45"></a><span class="co">#&gt; [2,] -0.303 -0.287  0.1624  7.74e-01 -0.4483  0.01146  0.00e+00  0.00e+00</span></span>
+<span id="cb197-46"><a href="r-행렬-함수.html#cb197-46"></a><span class="co">#&gt; [3,] -0.303 -0.287  0.1624 -6.28e-01 -0.6370  0.01628  0.00e+00  0.00e+00</span></span>
+<span id="cb197-47"><a href="r-행렬-함수.html#cb197-47"></a><span class="co">#&gt; [4,] -0.463  0.530  0.0718 -3.89e-16  0.0181  0.70688 -1.35e-16  0.00e+00</span></span>
+<span id="cb197-48"><a href="r-행렬-함수.html#cb197-48"></a><span class="co">#&gt; [5,] -0.463  0.530  0.0718 -5.00e-16 -0.0181 -0.70688  1.49e-16  0.00e+00</span></span>
+<span id="cb197-49"><a href="r-행렬-함수.html#cb197-49"></a><span class="co">#&gt; [6,] -0.303 -0.287  0.1624 -4.87e-02  0.3618 -0.00925  8.16e-01  8.76e-17</span></span>
+<span id="cb197-50"><a href="r-행렬-함수.html#cb197-50"></a><span class="co">#&gt; [7,] -0.303 -0.287  0.1624 -4.87e-02  0.3618 -0.00925 -4.08e-01 -7.07e-01</span></span>
+<span id="cb197-51"><a href="r-행렬-함수.html#cb197-51"></a><span class="co">#&gt; [8,] -0.303 -0.287  0.1624 -4.87e-02  0.3618 -0.00925 -4.08e-01  7.07e-01</span></span>
+<span id="cb197-52"><a href="r-행렬-함수.html#cb197-52"></a></span>
+<span id="cb197-53"><a href="r-행렬-함수.html#cb197-53"></a><span class="co"># 특이값 벡터 d의 첫번째와 두번째 값을 이용하여 원래 행렬 구하기</span></span>
+<span id="cb197-54"><a href="r-행렬-함수.html#cb197-54"></a><span class="kw">round</span>(x_svd<span class="op">$</span>u[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)] <span class="op">%*%</span><span class="st"> </span><span class="kw">diag</span>(x_svd<span class="op">$</span>d[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(x_svd<span class="op">$</span>v[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))</span>
+<span id="cb197-55"><a href="r-행렬-함수.html#cb197-55"></a><span class="co">#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]</span></span>
+<span id="cb197-56"><a href="r-행렬-함수.html#cb197-56"></a><span class="co">#&gt;  [1,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-57"><a href="r-행렬-함수.html#cb197-57"></a><span class="co">#&gt;  [2,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-58"><a href="r-행렬-함수.html#cb197-58"></a><span class="co">#&gt;  [3,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-59"><a href="r-행렬-함수.html#cb197-59"></a><span class="co">#&gt;  [4,]    1    1    1    1    1    1    1    1</span></span>
+<span id="cb197-60"><a href="r-행렬-함수.html#cb197-60"></a><span class="co">#&gt;  [5,]    1    1    1    1    1    1    1    1</span></span>
+<span id="cb197-61"><a href="r-행렬-함수.html#cb197-61"></a><span class="co">#&gt;  [6,]    1    1    1    1    1    1    1    1</span></span>
+<span id="cb197-62"><a href="r-행렬-함수.html#cb197-62"></a><span class="co">#&gt;  [7,]    1    1    1    1    1    1    1    1</span></span>
+<span id="cb197-63"><a href="r-행렬-함수.html#cb197-63"></a><span class="co">#&gt;  [8,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-64"><a href="r-행렬-함수.html#cb197-64"></a><span class="co">#&gt;  [9,]    0    0    0    1    1    0    0    0</span></span>
+<span id="cb197-65"><a href="r-행렬-함수.html#cb197-65"></a><span class="co">#&gt; [10,]    0    0    0    1    1    0    0    0</span></span></code></pre></div>
+</div>
+<div id="qr" class="section level3">
+<h3><span class="header-section-number">5.2.14</span> qr()</h3>
+<p><code>qr(x)</code>은 행렬 x의 QR 분해결과를 반환합니다.
+QR분해는 행렬 A를 <span class="math inline">\(A = QR\)</span>로 분해하는 것입니다. Q는 단위 노름 직교 벡터를 갖는 행렬이고, R은 상삼각행렬입니다.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="r-행렬-함수.html#cb198-1"></a>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>, <span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>), <span class="dt">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb198-2"><a href="r-행렬-함수.html#cb198-2"></a>x_qr &lt;-<span class="st"> </span><span class="kw">qr</span>(x)</span>
+<span id="cb198-3"><a href="r-행렬-함수.html#cb198-3"></a>x_qr</span>
+<span id="cb198-4"><a href="r-행렬-함수.html#cb198-4"></a><span class="co">#&gt; $qr</span></span>
+<span id="cb198-5"><a href="r-행렬-함수.html#cb198-5"></a><span class="co">#&gt;        [,1]   [,2]  [,3]</span></span>
+<span id="cb198-6"><a href="r-행렬-함수.html#cb198-6"></a><span class="co">#&gt; [1,] -3.742 -4.811 -7.48</span></span>
+<span id="cb198-7"><a href="r-행렬-함수.html#cb198-7"></a><span class="co">#&gt; [2,]  0.535  1.964  0.00</span></span>
+<span id="cb198-8"><a href="r-행렬-함수.html#cb198-8"></a><span class="co">#&gt; [3,]  0.802  0.989  0.00</span></span>
+<span id="cb198-9"><a href="r-행렬-함수.html#cb198-9"></a><span class="co">#&gt; </span></span>
+<span id="cb198-10"><a href="r-행렬-함수.html#cb198-10"></a><span class="co">#&gt; $rank</span></span>
+<span id="cb198-11"><a href="r-행렬-함수.html#cb198-11"></a><span class="co">#&gt; [1] 2</span></span>
+<span id="cb198-12"><a href="r-행렬-함수.html#cb198-12"></a><span class="co">#&gt; </span></span>
+<span id="cb198-13"><a href="r-행렬-함수.html#cb198-13"></a><span class="co">#&gt; $qraux</span></span>
+<span id="cb198-14"><a href="r-행렬-함수.html#cb198-14"></a><span class="co">#&gt; [1] 1.27 1.15 0.00</span></span>
+<span id="cb198-15"><a href="r-행렬-함수.html#cb198-15"></a><span class="co">#&gt; </span></span>
+<span id="cb198-16"><a href="r-행렬-함수.html#cb198-16"></a><span class="co">#&gt; $pivot</span></span>
+<span id="cb198-17"><a href="r-행렬-함수.html#cb198-17"></a><span class="co">#&gt; [1] 1 3 2</span></span>
+<span id="cb198-18"><a href="r-행렬-함수.html#cb198-18"></a><span class="co">#&gt; </span></span>
+<span id="cb198-19"><a href="r-행렬-함수.html#cb198-19"></a><span class="co">#&gt; attr(,&quot;class&quot;)</span></span>
+<span id="cb198-20"><a href="r-행렬-함수.html#cb198-20"></a><span class="co">#&gt; [1] &quot;qr&quot;</span></span></code></pre></div>
+</div>
+<div id="scale" class="section level3">
+<h3><span class="header-section-number">5.2.15</span> scale()</h3>
+<p><code>scale(x, center = TRUE, scale = TRUE)</code>는 행렬이나 벡터 x를 정규화(표준화)한 결과를 반환합니다. 옵션 center는 평균을 의미하며, scale은 표준편차를 의미합니다.
+x가 벡터일 경우 <span class="math inline">\(z = (x-u)/\sigma\)</span>를 구해서 반환합니다. center가 FALSE이면 값에서 평균을 빼지 않으며, scale이 FALSE이면 표준편차로 나누지 않습니다.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="r-행렬-함수.html#cb199-1"></a><span class="co"># 1~9 벡터를 표준화하기 (평균을 빼고 표준편차로 나눔)</span></span>
+<span id="cb199-2"><a href="r-행렬-함수.html#cb199-2"></a>(x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)</span>
+<span id="cb199-3"><a href="r-행렬-함수.html#cb199-3"></a><span class="co">#&gt; [1] 1 2 3 4 5 6 7 8 9</span></span>
+<span id="cb199-4"><a href="r-행렬-함수.html#cb199-4"></a><span class="kw">scale</span>(x)</span>
+<span id="cb199-5"><a href="r-행렬-함수.html#cb199-5"></a><span class="co">#&gt;         [,1]</span></span>
+<span id="cb199-6"><a href="r-행렬-함수.html#cb199-6"></a><span class="co">#&gt;  [1,] -1.461</span></span>
+<span id="cb199-7"><a href="r-행렬-함수.html#cb199-7"></a><span class="co">#&gt;  [2,] -1.095</span></span>
+<span id="cb199-8"><a href="r-행렬-함수.html#cb199-8"></a><span class="co">#&gt;  [3,] -0.730</span></span>
+<span id="cb199-9"><a href="r-행렬-함수.html#cb199-9"></a><span class="co">#&gt;  [4,] -0.365</span></span>
+<span id="cb199-10"><a href="r-행렬-함수.html#cb199-10"></a><span class="co">#&gt;  [5,]  0.000</span></span>
+<span id="cb199-11"><a href="r-행렬-함수.html#cb199-11"></a><span class="co">#&gt;  [6,]  0.365</span></span>
+<span id="cb199-12"><a href="r-행렬-함수.html#cb199-12"></a><span class="co">#&gt;  [7,]  0.730</span></span>
+<span id="cb199-13"><a href="r-행렬-함수.html#cb199-13"></a><span class="co">#&gt;  [8,]  1.095</span></span>
+<span id="cb199-14"><a href="r-행렬-함수.html#cb199-14"></a><span class="co">#&gt;  [9,]  1.461</span></span>
+<span id="cb199-15"><a href="r-행렬-함수.html#cb199-15"></a><span class="co">#&gt; attr(,&quot;scaled:center&quot;)</span></span>
+<span id="cb199-16"><a href="r-행렬-함수.html#cb199-16"></a><span class="co">#&gt; [1] 5</span></span>
+<span id="cb199-17"><a href="r-행렬-함수.html#cb199-17"></a><span class="co">#&gt; attr(,&quot;scaled:scale&quot;)</span></span>
+<span id="cb199-18"><a href="r-행렬-함수.html#cb199-18"></a><span class="co">#&gt; [1] 2.74</span></span></code></pre></div>
+<p>x가 행렬일 경우에는 열을 기준으로 평균과 표준편차를 구한 후, 열 기준으로 표준화를 합니다.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="r-행렬-함수.html#cb200-1"></a>(x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">ncol =</span> <span class="dv">3</span>))</span>
+<span id="cb200-2"><a href="r-행렬-함수.html#cb200-2"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb200-3"><a href="r-행렬-함수.html#cb200-3"></a><span class="co">#&gt; [1,]    1    4    7</span></span>
+<span id="cb200-4"><a href="r-행렬-함수.html#cb200-4"></a><span class="co">#&gt; [2,]    2    5    8</span></span>
+<span id="cb200-5"><a href="r-행렬-함수.html#cb200-5"></a><span class="co">#&gt; [3,]    3    6    9</span></span>
+<span id="cb200-6"><a href="r-행렬-함수.html#cb200-6"></a><span class="kw">scale</span>(x)</span>
+<span id="cb200-7"><a href="r-행렬-함수.html#cb200-7"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb200-8"><a href="r-행렬-함수.html#cb200-8"></a><span class="co">#&gt; [1,]   -1   -1   -1</span></span>
+<span id="cb200-9"><a href="r-행렬-함수.html#cb200-9"></a><span class="co">#&gt; [2,]    0    0    0</span></span>
+<span id="cb200-10"><a href="r-행렬-함수.html#cb200-10"></a><span class="co">#&gt; [3,]    1    1    1</span></span>
+<span id="cb200-11"><a href="r-행렬-함수.html#cb200-11"></a><span class="co">#&gt; attr(,&quot;scaled:center&quot;)</span></span>
+<span id="cb200-12"><a href="r-행렬-함수.html#cb200-12"></a><span class="co">#&gt; [1] 2 5 8</span></span>
+<span id="cb200-13"><a href="r-행렬-함수.html#cb200-13"></a><span class="co">#&gt; attr(,&quot;scaled:scale&quot;)</span></span>
+<span id="cb200-14"><a href="r-행렬-함수.html#cb200-14"></a><span class="co">#&gt; [1] 1 1 1</span></span></code></pre></div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-수학-함수.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-논리-함수.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/manboha/rbasic/edit/master/05-R함수.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

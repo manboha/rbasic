@@ -1,0 +1,11 @@
+# R 그래프 Graphs & Charts
+
+## Bar Plot
+
+## Histogram
+
+## Pie Chart
+
+## Box Plot
+
+## Strip Chart

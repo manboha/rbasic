@@ -562,24 +562,383 @@ scale(x)
 
 ## R 논리 함수
 
-any()
-all()
-which()
+### any()
+
+`any(..., na.rm = FALSE)`는 주어진 논리 벡터 중에 어느 하나라도 TRUE이면 TRUE를 반환합니다.
+
+```{r}
+# 어느 하나라도 0미만 이면 TRUE 반환
+(x <- seq(-3, 3, by = 1))
+any(x < 0)
+if (any(x < 0)) cat("x는 음수를 포함하고 있습니다\n")
+```
+
+### all()
+
+`all(..., na.rm = FALSE)`는 주어진 논리 벡터 모두가 TRUE이면 TRUE를 반환합니다. 어느 하나라도 FALSE가 있으면 FALSE를 반환합니다.
+
+```{r}
+(x <- seq(-3, 3, by = 1))
+all(x < 0)
+
+if (all(x >= -3 )) cat("x에 포함된 수는 모두 -3 이상입니다\n")
+```
+
+### which()
+
+`which(x, arr.ind = FALSE, useNames = TRUE)`는 벡터(또는 배열) x에서 TRUE인 것의 위치를 반환합니다. x가 배열인 경우 arr.ind = TRUE이면 배열형태의 위치를 반환합니다.
+
+```{r}
+# 벡터 위치 반환
+(x <- 5:10)
+which(x == 7)
+x[which(x == 7)]
+```
+
+```{r}
+# 배열 위치 반환
+x <- 5:16
+dim(x) <- c(2, 2, 3); x  # x를 2x2 행렬의 3층 배열로 만들기
+which(x == 15)                    # 벡터형태의 위치 반환
+which(x == 15, arr.ind = TRUE)    # 배열형태의 위치 반환
+```
+
+
+```{r}
+# 행렬 위치 반환 (배열과 유사)
+x <- matrix(5:16, 3, 4); x
+which(x %% 3 == 0)                   # 벡터형태의 위치 반환
+which(x %% 3 == 0, arr.ind = TRUE)   # 행렬형태의 위치 반환
+```
+
+```{r}
+# 데이터 프레임 위치 반환
+str(women)   # R 내장 데이터셋 women - 미국 여성 키(인치)와 몸무게(파운드)
+which(women$height < 60)
+women[which(women$height < 60),]
+```
+
+### which.min()
+
+`which.min(x)`는 벡터 x의 최소값 위치를 반환합니다.
+
+```{r}
+# 벡터
+x <- c(1:4, 0:5, 11); x
+which.min(x)
+```
+```{r}
+# 데이터프레임
+str(women)   # R 내장 데이터셋 women - 미국 여성 키(인치)와 몸무게(파운드)
+which.min(women$weight)
+women[which.min(women$weight)]
+```
+
+### which.max()
+
+`which.max(x)`는 벡터 x의 최대값 위치를 반환합니다.
+
+```{r}
+# 벡터
+x <- c(1:4, NA, 11, 0:5); x
+which.max(x)
+```
+```{r}
+# 데이터프레임
+str(women)   # R 내장 데이터셋 women - 미국 여성 키(인치)와 몸무게(파운드)
+which.max(women$weight)
+women[which.max(women$weight),]
+```
+
+### isTRUE()
+
+`isTRUE(x)`는 x가 TRUE이면 TRUE를 반환합니다. 유사한 것으로 `isFALSE(x)`가 있습니다.
+
+```{r}
+x <- TRUE
+isTRUE(x)
+isFALSE(x)
+```
 
 
 ## R 반복 함수
 
-lapply(): 
-sapply(): 
+### apply()
 
-apply()
+`apply(X, MARGIN, FUN, …)`는 X를 입력받아 행 또는 열 방향으로 함수를 적용하여 결과값을 반환합니다. MARGIN 인수가 1이면 행 방향으로, 2이면 열 방향으로 연산이 됩니다.
+apply 함수에 입력하는 데이터(X)는 배열, 매트릭스만 가능하고, 만일 데이터프레임이 모두 같은 데이터 타입이면 가능합니다. 반환되는 값은 벡터나 행렬입니다.
 
-tapply(): 
-mapply(): 
-by()
+```{r}
+(x <- matrix(1:12, c(3,4)))
+apply(x, 1, mean)   # 행 방향으로 평균
+apply(x, 2, mean, na.rm = TRUE)   # 열 방향으로 평균, mean함수 옵션 추가
+```
+벡터는 apply에 입력데이터로 사용할 수 없습니다(에러 발생). 만일 벡터를 사용하고자 한다면 배열로 변환하여 사용하여야 합니다.
 
-eapply
+```{r}
+x <- 1:12
+dim(x) <- c(1, length(x)); x     # 벡터를 배열로 변환
+apply(x, 1, mean)
+```
+함수는 사용자 정의 함수를 만들어서 사용할 수 있습니다.
+```{r}
+(x <- matrix(1:12, c(3,4)))
+apply(x, 2, function(x) {x*2})
 
+# 행방향으로 하면 행과 열이 바뀝니다.
+apply(x, 1, function(x) {x})
+apply(x, 1, function(x) {x*2})
+```
+
+데이터프레임도 데이터가 모두 같은 타입이라면 apply를 적용할 수 있습니다. R의 기본 데이터셋인 iris에서 Factor 타입인 Species를 제거한 후 apply에 사용하도록 하겠습니다.
+
+```{r}
+str(iris)
+x <- iris[, -5]; str(x)
+apply(x, 2, mean, na.rm = TRUE)
+apply(x, 2, function(x) {median(x*2-1, na.rm = TRUE)})
+```
+
+### lapply()
+
+`lapply(X, FUN, …)`는 X를 입력받아 함수를 적용하여 결과값을 반환합니다. 
+lapply 함수에 입력하는 데이터(X)는 벡터, 리스트 등도 가능하고, 반환되는 값은 리스트입니다. 
+
+apply는  X의 행이나 열 방향의 데이터가 한꺼번에 함수로 전달되는 반면에, lapply는 X의 데이터 요소가 하나 하나 함수로 전달됩니다. 행렬이나 배열의 요소는 기본적으로 벡터의 요소와 같은 방식이기 때문에 값이 하나 하나 전달됩니다. 
+
+```{r}
+# 아래와 같이 코드를 실행하면 x의 평균이 반환되지 않습니다.
+# x값이 하나 하나 mean 함수에 전달되어 각각 계산되기 때문입니다.
+x <- matrix(1:6, c(2,3))
+lapply(x, mean, na.rm = TRUE)
+```
+
+lapply는 리스트로 반환이 됩니다. 이를 벡터로 변환하고자 한다면 unlist 함수를 적용합니다.
+
+```{r}
+x <- 1:3
+lapply(x, function(x) {x*2+1})          # 리스트 형태로 반환
+unlist(lapply(x, function(x) {x*2+1}))  # 리스트를 벡터로 변환하여 반환
+```
+데이터프레임도 lapply 함수에 입력데이터로 사용 가능합니다. 데이터프레임의 각 요소 즉 각 변수별로 한꺼번에 함수에 전달됩니다.
+
+```{r}
+str(iris)
+lapply(iris, mean, na.rm = TRUE)
+```
+
+리스트가 입력되면 리스트의 각 요소가 한꺼번에 함수에 전달됩니다. 예를 들어 mean함수를 사용하면 리스트 각 요소별 평균값을 반환합니다.
+
+```{r}
+x <- list(a = 1:10, 
+          beta = exp(-3:3), 
+          logic = c(TRUE,FALSE,FALSE,TRUE))
+x
+lapply(x, mean)
+lapply(x, quantile, probs = (1:3)/4)
+```
+
+### sapply() 
+
+`sapply(X, FUN, …, simplify = TRUE, USE.NAMES = TRUE)`는 단순화된(simplify) lapply 함수라 할 수 있습니다. lapply는 리스트 형태로 반환되기 때문에 사용하기 불편한 점이 있는데 sapply는 기본적으로 벡터나 행렬 형태로 반환합니다. 만일 옵션 simplify = FALSE이면 lapply와 동일하게 리스트 형태로 반환됩니다. 
+
+```{r}
+x <- 1:3
+sapply(x, function(x) {x*2+1})    
+```
+```{r}
+str(iris)
+sapply(iris, mean, na.rm = TRUE)
+```
+```{r}
+x <- list(a = 1:10, 
+          beta = exp(-3:3), 
+          logic = c(TRUE,FALSE,FALSE,TRUE))
+x
+sapply(x, mean)
+sapply(x, quantile, probs = (1:3)/4)
+```
+
+### vapply()
+
+`vapply(X, FUN, FUN.VALUE, …, USE.NAMES = TRUE)`는 sapply와 유사합니다. 차이점은 반환되는 결과의 양식을 지정할 수 있습니다.
+
+```{r}
+str(iris)
+# sapply로 fivenum 출력
+sapply(iris[, 1:4], fivenum, na.rm = TRUE)
+
+# vapply로 fivenum 출력, 출력양식 지정
+vapply(iris[, 1:4], fivenum, 
+       c("최소값" = 0, "1사분위수" = 0, "중위수" = 0, 
+         "3사분위수" = 0, "최대값" = 0),
+       na.rm = TRUE)
+
+```
+
+### tapply()
+
+`tapply(X, INDEX, FUN = NULL, ..., default = NA, simplify = TRUE)`는 요인(factor) 변수를 기준으로 그룹별로 나누어서 함수를 적용합니다. X는 벡터입니다. INDEX는 요인 또는 요인 리스트가 들어가는 인수입니다. 만일 X에 데이터프레임을 넣고 싶으면 `by()`함수를 쓰면 됩니다.
+
+```{r}
+# iris 데이터의 요인변수 Species 별로 평균 구하기
+str(iris)
+tapply(iris$Sepal.Length, iris$Species, mean, na.rm = TRUE)
+```
+
+```{r}
+# 팩터변수가 2개가 되면 교차표가 만들어짐
+# x[, -1]은 wool과 tension으로 구성된 데이터프레임
+str(x <- warpbreaks)
+tapply(x$breaks, x[, -1], sum)
+```
+
+```{r}
+# 데이터 무작위 30개 만들어 x에 할당
+set.seed(234)
+x <- c(rnorm(10), runif(10), rnorm(10, 1))
+str(x)
+
+# 팩터 변수 생성(값 30개)
+# gl(n, k)는 1부터 n까지 정수로된 팩터 레벨을 k만큼 반복해서 만듬 
+fac <- gl(3, 10)   # factor(rep(1:3, each = 10), levels = 1:3)와 동일
+fac
+  
+tapply(x, fac, mean)
+tapply(x, fac, range)
+```
+
+### mapply() 
+
+`mapply(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE, USE.NAMES = TRUE)`는 
+sapply의 다변량 버전이라 할 수 있습니다. 여러 개의 인자를 입력할 수 있고, 
+반환하는 값은 리스트, 벡터, 배열 등이 가능합니다.
+MoreArgs는 함수에 들어갈 또다른 인수 리스트입니다.
+
+```{r}
+# rep(1, 4), rep(2, 3), ..., rep(x = 4, times = 1)  => 리스트 반환
+mapply(rep, 1:4, 4:1) 
+
+# rep(1, 3), rep(2, 3), ..., rep(x = 4, times = 3)  => 행렬 반환
+mapply(rep, 1:4, 3)
+
+# rep(times = 1, x = 4), rep(times = 2, x = 3), ... 
+mapply(rep, times = 1:4, x = 4:1)
+
+# rep(x = 23, times = 1), rep(x = 23, times = 2), ...  
+mapply(rep, 1:4, MoreArgs = list(x = 23))
+```
+
+```{r}
+# sprintf(" %d%s ", 1, "a"), ....
+mapply(function(i, s) { 
+  sprintf(" %d%s ", i, s) 
+  }, 
+  i = 1:3, s = c("a", "b", "c"))
+```
+
+MoreArgs 인수는 여러 개의 데이터를 한꺼번에 함수에 넣어줍니다. 
+이 것을 사용하지 않으면 데이터가 하나씩 함수에 들어갑니다.
+
+```{r}
+sumsq <- function(x, mean = 0, sd = 1) {
+  sum(((x - mean) / sd)^2)
+}
+
+set.seed(123)
+x <- rnorm(10000)
+
+# sumsq(x, mean = 1, sd = 1), sumsq(x, mean = 2, sd = 2), ...
+mapply(sumsq, mean = 1:100, sd = 1:100, MoreArgs = list(x = x))
+
+# 만일 이렇게 mapply(sumsq, mean = 1:100, sd = 1:100, x = x) 하면
+# sumsq(x = x[1], mean = 1, sd = 1), ... 이런식으로 계산되어
+# 원하는 결과가 나오지 않음. 여기서 x[1]은 -0.560475647임
+```
+
+
+### eapply()
+
+`eapply(env, FUN, ..., all.names = FALSE, USE.NAMES = TRUE)`는 환경(Environment)에 있는 변수나 함수들을 반복 계산해 줍니다.
+
+```{r}
+# 새로운 환경 만들기; R에서 전역환경은 .GlobalEnv 임
+env <- new.env()
+env$a <- 10
+env$b <- 20:23
+env$c <- 30:35
+
+# 전역변수 자료형 확인하기
+eapply(env, typeof)
+
+# env 환경변수의 각 요소에 2를 곱하기
+eapply(env, function(x) {x * 2})
+```
+
+### by()
+
+`by(data, INDICES, FUN, …, simplify = TRUE)`는 데이터프레임을 위한 tapply라 할 수 있다. 요인(factor) 변수를 기준으로 그룹별로 나누어서 함수를 적용합니다. data는 데이터프레임이나 행렬입니다. INDEX는 요인 또는 요인 리스트가 들어가는 인수입니다.
+
+```{r}
+str(iris)
+by(iris, iris$Species, summary)
+```
+
+```{r}
+# 팩터변수가 2개가 되면 그만큼 그룹으로 더 나뉘어짐
+# x[, -1]은 wool과 tension으로 구성된 데이터프레임
+str(warpbreaks)
+by(warpbreaks[, 1], warpbreaks[, -1], summary)
+```
+
+### split()
+
+* `split(x, f, drop = FALSE, ...)`은 f에 정의된 그룹(보통 팩터 또는 리스트)에 따라 벡터 x를 분리합니다. 반환되는 값은 리스트입니다.
+* `unsplit(value, f, drop = FALSE)`은 분리된 벡터 리스트 또는 데이터프레임인 value를 f에 정의된 그룹기준으로 원상태로 되돌립니다. 반환되는 값은 벡터나 데이터프레임입니다.
+
+```{r}
+str(iris)
+
+# iris 데이터프레임을 Species 기준으로 분리합니다. (결과 리스트 형태) 
+x <- split(iris, iris$Species)
+str(x)
+
+# 분리된 것을 다시 원상태로 돌립니다. (결과 데이터프레임)
+y <- unsplit(x, iris$Species)
+str(y)
+```
+
+두 개 칼럼을 기준으로 분리할 수 있습니다. 2개 이상의 칼럼을 기준으로 할 때에는 리스트 구조로 묶어줍니다.
+
+```{r}
+str(infert)  # R 내장 데이터 infert
+
+x <- split(infert, list(infert$spontaneous, infert$education))
+str(x, max.level = 1)
+```
+
+
+### Vectorize
+
+### replicate()
+
+### rep
+
+seq(from=시작, to=끝, by=간격) / seq(from=시작, to=끝, length.out=길이)
+ㆍ rep(반복할 내용, times=반복할 수) / rep(반복할 내용, each=각각 반복할 수)
+
+seq(from=1, to=5, by=2) # => 1 3 5
+seq(from=1.0, to=2.0, length.out=5) 
+# => 1.00 1.25 ~ 2.00
+rep(1, times=5) # => 1 1 1 1 1
+rep(1:2, each=2) # => 1 1 2 2
+### 
+
+```{r}
+```
+
+vsumsq <- Vectorize(sumsq, c("mean", "sd"))
+vsumsq(x, 1:100, 1:100)
 
 
 ## R 통계 함수
@@ -739,6 +1098,9 @@ seq(from,to)
 seq(along=x) 
 rep(x,times) 
 rep(c(1,2,3),each=2) 
+
+all.equal
+identical
 
 data.frame(...)
 list(...) 

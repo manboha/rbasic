@@ -24,7 +24,7 @@
 <meta name="author" content="Manboha" />
 
 
-<meta name="date" content="2020-07-02" />
+<meta name="date" content="2020-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -292,7 +292,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.9" data-path="r-반복-함수.html"><a href="r-반복-함수.html#split"><i class="fa fa-check"></i><b>5.4.9</b> split()</a></li>
 <li class="chapter" data-level="5.4.10" data-path="r-반복-함수.html"><a href="r-반복-함수.html#vectorize"><i class="fa fa-check"></i><b>5.4.10</b> Vectorize</a></li>
 <li class="chapter" data-level="5.4.11" data-path="r-반복-함수.html"><a href="r-반복-함수.html#replicate"><i class="fa fa-check"></i><b>5.4.11</b> replicate()</a></li>
-<li class="chapter" data-level="5.4.12" data-path="r-반복-함수.html"><a href="r-반복-함수.html#rep"><i class="fa fa-check"></i><b>5.4.12</b> rep</a></li>
+<li class="chapter" data-level="5.4.12" data-path="r-반복-함수.html"><a href="r-반복-함수.html#rep"><i class="fa fa-check"></i><b>5.4.12</b> rep()</a></li>
+<li class="chapter" data-level="5.4.13" data-path="r-반복-함수.html"><a href="r-반복-함수.html#seq"><i class="fa fa-check"></i><b>5.4.13</b> seq()</a></li>
+<li class="chapter" data-level="5.4.14" data-path="r-반복-함수.html"><a href="r-반복-함수.html#sequence"><i class="fa fa-check"></i><b>5.4.14</b> sequence</a></li>
+<li class="chapter" data-level="5.4.15" data-path="r-반복-함수.html"><a href="r-반복-함수.html#gl"><i class="fa fa-check"></i><b>5.4.15</b> gl</a></li>
+<li class="chapter" data-level="5.4.16" data-path="r-반복-함수.html"><a href="r-반복-함수.html#sweep"><i class="fa fa-check"></i><b>5.4.16</b> sweep</a></li>
+<li class="chapter" data-level="5.4.17" data-path="r-반복-함수.html"><a href="r-반복-함수.html#aggregate"><i class="fa fa-check"></i><b>5.4.17</b> aggregate</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="r-통계-함수.html"><a href="r-통계-함수.html"><i class="fa fa-check"></i><b>5.5</b> R 통계 함수</a></li>
 <li class="chapter" data-level="5.6" data-path="r-날짜와-시간-함수.html"><a href="r-날짜와-시간-함수.html"><i class="fa fa-check"></i><b>5.6</b> R 날짜와 시간 함수</a></li>
@@ -899,25 +904,473 @@ MoreArgs는 함수에 들어갈 또다른 인수 리스트입니다.</p>
 <span id="cb234-21"><a href="r-반복-함수.html#cb234-21"></a><span class="co">#&gt;  $ 0.12+ yrs:&#39;data.frame&#39;:   61 obs. of  8 variables:</span></span>
 <span id="cb234-22"><a href="r-반복-함수.html#cb234-22"></a><span class="co">#&gt;  $ 1.12+ yrs:&#39;data.frame&#39;:   37 obs. of  8 variables:</span></span>
 <span id="cb234-23"><a href="r-반복-함수.html#cb234-23"></a><span class="co">#&gt;  $ 2.12+ yrs:&#39;data.frame&#39;:   18 obs. of  8 variables:</span></span></code></pre></div>
+<p>행의 갯수를 지정해서 데이터를 분리할 수 있습니다. 인수 f에 데이터를 나눌 기준이 될 벡터을 만들면 됩니다. 그러면 같은 수를 가진 행끼리 하나의 그룹으로 만들어집니다. 단, 이 기준 벡터의 수와 데이터의 갯수가 같아야 오류가 나지 않습니다.</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="r-반복-함수.html#cb235-1"></a><span class="co"># infert 데이터의 전체 행을 10개씩 구분하는 기준 벡터를 만듭니다. </span></span>
+<span id="cb235-2"><a href="r-반복-함수.html#cb235-2"></a>df &lt;-<span class="st"> </span>iris     <span class="co"># 데이터</span></span>
+<span id="cb235-3"><a href="r-반복-함수.html#cb235-3"></a>gnum &lt;-<span class="st"> </span><span class="dv">10</span>     <span class="co"># 그룹의 갯수</span></span>
+<span id="cb235-4"><a href="r-반복-함수.html#cb235-4"></a>f &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">floor</span>((<span class="kw">nrow</span>(df)<span class="op">/</span>gnum)), <span class="dt">each =</span> gnum),</span>
+<span id="cb235-5"><a href="r-반복-함수.html#cb235-5"></a>       <span class="kw">rep</span>(<span class="kw">ceiling</span>(<span class="kw">nrow</span>(df)<span class="op">/</span>gnum), <span class="dt">each =</span> <span class="kw">nrow</span>(df)<span class="op">%%</span>gnum))</span>
+<span id="cb235-6"><a href="r-반복-함수.html#cb235-6"></a></span>
+<span id="cb235-7"><a href="r-반복-함수.html#cb235-7"></a>x &lt;-<span class="st"> </span><span class="kw">split</span>(df, f)</span>
+<span id="cb235-8"><a href="r-반복-함수.html#cb235-8"></a><span class="kw">print</span>(x[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]); <span class="kw">cat</span>(<span class="st">&quot;... 이하 생략 ...&quot;</span>)</span>
+<span id="cb235-9"><a href="r-반복-함수.html#cb235-9"></a><span class="co">#&gt; $`1`</span></span>
+<span id="cb235-10"><a href="r-반복-함수.html#cb235-10"></a><span class="co">#&gt;    Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb235-11"><a href="r-반복-함수.html#cb235-11"></a><span class="co">#&gt; 1           5.1         3.5          1.4         0.2  setosa</span></span>
+<span id="cb235-12"><a href="r-반복-함수.html#cb235-12"></a><span class="co">#&gt; 2           4.9         3.0          1.4         0.2  setosa</span></span>
+<span id="cb235-13"><a href="r-반복-함수.html#cb235-13"></a><span class="co">#&gt; 3           4.7         3.2          1.3         0.2  setosa</span></span>
+<span id="cb235-14"><a href="r-반복-함수.html#cb235-14"></a><span class="co">#&gt; 4           4.6         3.1          1.5         0.2  setosa</span></span>
+<span id="cb235-15"><a href="r-반복-함수.html#cb235-15"></a><span class="co">#&gt; 5           5.0         3.6          1.4         0.2  setosa</span></span>
+<span id="cb235-16"><a href="r-반복-함수.html#cb235-16"></a><span class="co">#&gt; 6           5.4         3.9          1.7         0.4  setosa</span></span>
+<span id="cb235-17"><a href="r-반복-함수.html#cb235-17"></a><span class="co">#&gt; 7           4.6         3.4          1.4         0.3  setosa</span></span>
+<span id="cb235-18"><a href="r-반복-함수.html#cb235-18"></a><span class="co">#&gt; 8           5.0         3.4          1.5         0.2  setosa</span></span>
+<span id="cb235-19"><a href="r-반복-함수.html#cb235-19"></a><span class="co">#&gt; 9           4.4         2.9          1.4         0.2  setosa</span></span>
+<span id="cb235-20"><a href="r-반복-함수.html#cb235-20"></a><span class="co">#&gt; 10          4.9         3.1          1.5         0.1  setosa</span></span>
+<span id="cb235-21"><a href="r-반복-함수.html#cb235-21"></a><span class="co">#&gt; </span></span>
+<span id="cb235-22"><a href="r-반복-함수.html#cb235-22"></a><span class="co">#&gt; $`2`</span></span>
+<span id="cb235-23"><a href="r-반복-함수.html#cb235-23"></a><span class="co">#&gt;    Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb235-24"><a href="r-반복-함수.html#cb235-24"></a><span class="co">#&gt; 11          5.4         3.7          1.5         0.2  setosa</span></span>
+<span id="cb235-25"><a href="r-반복-함수.html#cb235-25"></a><span class="co">#&gt; 12          4.8         3.4          1.6         0.2  setosa</span></span>
+<span id="cb235-26"><a href="r-반복-함수.html#cb235-26"></a><span class="co">#&gt; 13          4.8         3.0          1.4         0.1  setosa</span></span>
+<span id="cb235-27"><a href="r-반복-함수.html#cb235-27"></a><span class="co">#&gt; 14          4.3         3.0          1.1         0.1  setosa</span></span>
+<span id="cb235-28"><a href="r-반복-함수.html#cb235-28"></a><span class="co">#&gt; 15          5.8         4.0          1.2         0.2  setosa</span></span>
+<span id="cb235-29"><a href="r-반복-함수.html#cb235-29"></a><span class="co">#&gt; 16          5.7         4.4          1.5         0.4  setosa</span></span>
+<span id="cb235-30"><a href="r-반복-함수.html#cb235-30"></a><span class="co">#&gt; 17          5.4         3.9          1.3         0.4  setosa</span></span>
+<span id="cb235-31"><a href="r-반복-함수.html#cb235-31"></a><span class="co">#&gt; 18          5.1         3.5          1.4         0.3  setosa</span></span>
+<span id="cb235-32"><a href="r-반복-함수.html#cb235-32"></a><span class="co">#&gt; 19          5.7         3.8          1.7         0.3  setosa</span></span>
+<span id="cb235-33"><a href="r-반복-함수.html#cb235-33"></a><span class="co">#&gt; 20          5.1         3.8          1.5         0.3  setosa</span></span>
+<span id="cb235-34"><a href="r-반복-함수.html#cb235-34"></a><span class="co">#&gt; ... 이하 생략 ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="r-반복-함수.html#cb236-1"></a><span class="co"># 위 예제에서 분리된 것을 같은 기준으로 하나로 묶습니다.</span></span>
+<span id="cb236-2"><a href="r-반복-함수.html#cb236-2"></a>y &lt;-<span class="st"> </span><span class="kw">unsplit</span>(x, f)</span>
+<span id="cb236-3"><a href="r-반복-함수.html#cb236-3"></a><span class="kw">str</span>(y)</span>
+<span id="cb236-4"><a href="r-반복-함수.html#cb236-4"></a><span class="co">#&gt; &#39;data.frame&#39;:    150 obs. of  5 variables:</span></span>
+<span id="cb236-5"><a href="r-반복-함수.html#cb236-5"></a><span class="co">#&gt;  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...</span></span>
+<span id="cb236-6"><a href="r-반복-함수.html#cb236-6"></a><span class="co">#&gt;  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...</span></span>
+<span id="cb236-7"><a href="r-반복-함수.html#cb236-7"></a><span class="co">#&gt;  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...</span></span>
+<span id="cb236-8"><a href="r-반복-함수.html#cb236-8"></a><span class="co">#&gt;  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...</span></span>
+<span id="cb236-9"><a href="r-반복-함수.html#cb236-9"></a><span class="co">#&gt;  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span></span></code></pre></div>
 </div>
 <div id="vectorize" class="section level3">
 <h3><span class="header-section-number">5.4.10</span> Vectorize</h3>
+<p><code>Vectorize(FUN, vectorize.args = arg.names, SIMPLIFY = TRUE, USE.NAMES = TRUE)</code>
+함수는 인자 FUN에 들어간 함수가 벡터 방식으로 작동하도록 만드는 함수입니다. 함수 중에는 함수의 인자가 단 하나의 값만 들어가야 하는 경우가 있어 인자에 여러 개의 값 즉 벡터형식으로 넣을 수 없는 함수들이 있습니다. Vectorize() 함수는 이 문제를 해결하여 줍니다. 이때 벡터형식으로 들어갈 인자를 vectorize.args에 지정합니다. 반환되는 결과는 벡터로 들어간 인자들이 각각 투입된 만큼의 결과들이 행렬이나 배열로 묶여서 나옵니다.</p>
+<p>아래 예제는 iris$Species에서 vi나 se로 시작하는 행을 추출하고자 하는 것입니다.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="r-반복-함수.html#cb237-1"></a><span class="co"># grepl함수는 pattern 인수에 단 하나의 값만 넣을 수 있습니다. </span></span>
+<span id="cb237-2"><a href="r-반복-함수.html#cb237-2"></a><span class="co"># 만일 아래 같이 벡터형식으로 값을 여러 개 넣으면 첫번째 요소만 사용되어</span></span>
+<span id="cb237-3"><a href="r-반복-함수.html#cb237-3"></a><span class="co"># 원하는 결과를 얻을 수없습니다.</span></span>
+<span id="cb237-4"><a href="r-반복-함수.html#cb237-4"></a>x &lt;-<span class="st"> </span><span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="kw">c</span>(<span class="st">&quot;^vi&quot;</span>, <span class="st">&quot;^se&quot;</span>), <span class="dt">x =</span> iris<span class="op">$</span>Species)</span>
+<span id="cb237-5"><a href="r-반복-함수.html#cb237-5"></a><span class="co">#&gt; Warning in grepl(pattern = c(&quot;^vi&quot;, &quot;^se&quot;), x = iris$Species): 인자 &#39;pattern&#39;는</span></span>
+<span id="cb237-6"><a href="r-반복-함수.html#cb237-6"></a><span class="co">#&gt; 반드시 길이가 1 보다 커야 하고, 오로지 첫번째 요소만이 사용될 것입니다</span></span>
+<span id="cb237-7"><a href="r-반복-함수.html#cb237-7"></a><span class="kw">head</span>(x)</span>
+<span id="cb237-8"><a href="r-반복-함수.html#cb237-8"></a><span class="co">#&gt; [1] FALSE FALSE FALSE FALSE FALSE FALSE</span></span>
+<span id="cb237-9"><a href="r-반복-함수.html#cb237-9"></a></span>
+<span id="cb237-10"><a href="r-반복-함수.html#cb237-10"></a><span class="co"># grepl 함수를 벡터작업이 가능한 함수 vgrepl로 만듭니다. </span></span>
+<span id="cb237-11"><a href="r-반복-함수.html#cb237-11"></a><span class="co"># 벡터로 들어갈 인수는 pattern으로 지정합니다.</span></span>
+<span id="cb237-12"><a href="r-반복-함수.html#cb237-12"></a>vgrepl &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(grepl, <span class="dt">vectorize.args =</span> <span class="st">&quot;pattern&quot;</span>)</span>
+<span id="cb237-13"><a href="r-반복-함수.html#cb237-13"></a>x &lt;-<span class="st"> </span><span class="kw">vgrepl</span>(<span class="dt">pattern =</span> <span class="kw">c</span>(<span class="st">&quot;^vi&quot;</span>, <span class="st">&quot;^se&quot;</span>), <span class="dt">x =</span> iris<span class="op">$</span>Species)</span>
+<span id="cb237-14"><a href="r-반복-함수.html#cb237-14"></a><span class="kw">head</span>(x)</span>
+<span id="cb237-15"><a href="r-반복-함수.html#cb237-15"></a><span class="co">#&gt;        ^vi  ^se</span></span>
+<span id="cb237-16"><a href="r-반복-함수.html#cb237-16"></a><span class="co">#&gt; [1,] FALSE TRUE</span></span>
+<span id="cb237-17"><a href="r-반복-함수.html#cb237-17"></a><span class="co">#&gt; [2,] FALSE TRUE</span></span>
+<span id="cb237-18"><a href="r-반복-함수.html#cb237-18"></a><span class="co">#&gt; [3,] FALSE TRUE</span></span>
+<span id="cb237-19"><a href="r-반복-함수.html#cb237-19"></a><span class="co">#&gt; [4,] FALSE TRUE</span></span>
+<span id="cb237-20"><a href="r-반복-함수.html#cb237-20"></a><span class="co">#&gt; [5,] FALSE TRUE</span></span>
+<span id="cb237-21"><a href="r-반복-함수.html#cb237-21"></a><span class="co">#&gt; [6,] FALSE TRUE</span></span>
+<span id="cb237-22"><a href="r-반복-함수.html#cb237-22"></a></span>
+<span id="cb237-23"><a href="r-반복-함수.html#cb237-23"></a><span class="co"># 조건에 맞는 행들을 추출합니다.</span></span>
+<span id="cb237-24"><a href="r-반복-함수.html#cb237-24"></a><span class="kw">str</span>(iris[<span class="kw">rowSums</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, ])</span>
+<span id="cb237-25"><a href="r-반복-함수.html#cb237-25"></a><span class="co">#&gt; &#39;data.frame&#39;:    100 obs. of  5 variables:</span></span>
+<span id="cb237-26"><a href="r-반복-함수.html#cb237-26"></a><span class="co">#&gt;  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...</span></span>
+<span id="cb237-27"><a href="r-반복-함수.html#cb237-27"></a><span class="co">#&gt;  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...</span></span>
+<span id="cb237-28"><a href="r-반복-함수.html#cb237-28"></a><span class="co">#&gt;  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...</span></span>
+<span id="cb237-29"><a href="r-반복-함수.html#cb237-29"></a><span class="co">#&gt;  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...</span></span>
+<span id="cb237-30"><a href="r-반복-함수.html#cb237-30"></a><span class="co">#&gt;  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span></span></code></pre></div>
+<p>물론 Vectorize() 함수를 사용하지 않고 sapply() 함수를 사용하여 같은 결과를 얻을 수 있습니다.</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="r-반복-함수.html#cb238-1"></a>x &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">c</span>(<span class="st">&quot;^vi&quot;</span>, <span class="st">&quot;^se&quot;</span>),</span>
+<span id="cb238-2"><a href="r-반복-함수.html#cb238-2"></a>            <span class="cf">function</span>(pattern) {<span class="kw">grepl</span>(<span class="dt">pattern =</span> pattern, <span class="dt">x =</span> iris<span class="op">$</span>Species)})</span>
+<span id="cb238-3"><a href="r-반복-함수.html#cb238-3"></a><span class="kw">head</span>(x)</span>
+<span id="cb238-4"><a href="r-반복-함수.html#cb238-4"></a><span class="co">#&gt;        ^vi  ^se</span></span>
+<span id="cb238-5"><a href="r-반복-함수.html#cb238-5"></a><span class="co">#&gt; [1,] FALSE TRUE</span></span>
+<span id="cb238-6"><a href="r-반복-함수.html#cb238-6"></a><span class="co">#&gt; [2,] FALSE TRUE</span></span>
+<span id="cb238-7"><a href="r-반복-함수.html#cb238-7"></a><span class="co">#&gt; [3,] FALSE TRUE</span></span>
+<span id="cb238-8"><a href="r-반복-함수.html#cb238-8"></a><span class="co">#&gt; [4,] FALSE TRUE</span></span>
+<span id="cb238-9"><a href="r-반복-함수.html#cb238-9"></a><span class="co">#&gt; [5,] FALSE TRUE</span></span>
+<span id="cb238-10"><a href="r-반복-함수.html#cb238-10"></a><span class="co">#&gt; [6,] FALSE TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="r-반복-함수.html#cb239-1"></a>sumsq &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>) {</span>
+<span id="cb239-2"><a href="r-반복-함수.html#cb239-2"></a>  <span class="kw">sum</span>(((x <span class="op">-</span><span class="st"> </span>mean) <span class="op">/</span><span class="st"> </span>sd)<span class="op">^</span><span class="dv">2</span>)}</span>
+<span id="cb239-3"><a href="r-반복-함수.html#cb239-3"></a></span>
+<span id="cb239-4"><a href="r-반복-함수.html#cb239-4"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb239-5"><a href="r-반복-함수.html#cb239-5"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>)</span>
+<span id="cb239-6"><a href="r-반복-함수.html#cb239-6"></a></span>
+<span id="cb239-7"><a href="r-반복-함수.html#cb239-7"></a><span class="co"># mapply(sumsq, mean = 1:100, sd = 1:100, MoreArgs = list(x = x))와 같은 결과</span></span>
+<span id="cb239-8"><a href="r-반복-함수.html#cb239-8"></a>vsumsq &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(sumsq, <span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>))</span>
+<span id="cb239-9"><a href="r-반복-함수.html#cb239-9"></a><span class="kw">vsumsq</span>(x, <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)</span>
+<span id="cb239-10"><a href="r-반복-함수.html#cb239-10"></a><span class="co">#&gt;   [1] 20019 12517 11124 10635 10408 10285 10210 10162 10128 10104 10087 10073</span></span>
+<span id="cb239-11"><a href="r-반복-함수.html#cb239-11"></a><span class="co">#&gt;  [13] 10063 10054 10047 10042 10037 10033 10030 10027 10025 10023 10021 10019</span></span>
+<span id="cb239-12"><a href="r-반복-함수.html#cb239-12"></a><span class="co">#&gt;  [25] 10018 10017 10015 10014 10013 10013 10012 10011 10011 10010 10009 10009</span></span>
+<span id="cb239-13"><a href="r-반복-함수.html#cb239-13"></a><span class="co">#&gt;  [37] 10009 10008 10008 10007 10007 10007 10006 10006 10006 10006 10006 10005</span></span>
+<span id="cb239-14"><a href="r-반복-함수.html#cb239-14"></a><span class="co">#&gt;  [49] 10005 10005 10005 10005 10004 10004 10004 10004 10004 10004 10004 10004</span></span>
+<span id="cb239-15"><a href="r-반복-함수.html#cb239-15"></a><span class="co">#&gt;  [61] 10003 10003 10003 10003 10003 10003 10003 10003 10003 10003 10003 10003</span></span>
+<span id="cb239-16"><a href="r-반복-함수.html#cb239-16"></a><span class="co">#&gt;  [73] 10003 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002</span></span>
+<span id="cb239-17"><a href="r-반복-함수.html#cb239-17"></a><span class="co">#&gt;  [85] 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002</span></span>
+<span id="cb239-18"><a href="r-반복-함수.html#cb239-18"></a><span class="co">#&gt;  [97] 10002 10002 10001 10001</span></span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="r-반복-함수.html#cb240-1"></a>sumsq &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>) {</span>
+<span id="cb240-2"><a href="r-반복-함수.html#cb240-2"></a>  <span class="kw">sum</span>(((x <span class="op">-</span><span class="st"> </span>mean) <span class="op">/</span><span class="st"> </span>sd)<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb240-3"><a href="r-반복-함수.html#cb240-3"></a>}</span>
+<span id="cb240-4"><a href="r-반복-함수.html#cb240-4"></a></span>
+<span id="cb240-5"><a href="r-반복-함수.html#cb240-5"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb240-6"><a href="r-반복-함수.html#cb240-6"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>)</span>
+<span id="cb240-7"><a href="r-반복-함수.html#cb240-7"></a></span>
+<span id="cb240-8"><a href="r-반복-함수.html#cb240-8"></a><span class="co"># sumsq(x, mean = 1, sd = 1), sumsq(x, mean = 2, sd = 2), ...</span></span>
+<span id="cb240-9"><a href="r-반복-함수.html#cb240-9"></a><span class="kw">mapply</span>(sumsq, <span class="dt">mean =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">MoreArgs =</span> <span class="kw">list</span>(<span class="dt">x =</span> x))</span>
+<span id="cb240-10"><a href="r-반복-함수.html#cb240-10"></a><span class="co">#&gt;   [1] 20019 12517 11124 10635 10408 10285 10210 10162 10128 10104 10087 10073</span></span>
+<span id="cb240-11"><a href="r-반복-함수.html#cb240-11"></a><span class="co">#&gt;  [13] 10063 10054 10047 10042 10037 10033 10030 10027 10025 10023 10021 10019</span></span>
+<span id="cb240-12"><a href="r-반복-함수.html#cb240-12"></a><span class="co">#&gt;  [25] 10018 10017 10015 10014 10013 10013 10012 10011 10011 10010 10009 10009</span></span>
+<span id="cb240-13"><a href="r-반복-함수.html#cb240-13"></a><span class="co">#&gt;  [37] 10009 10008 10008 10007 10007 10007 10006 10006 10006 10006 10006 10005</span></span>
+<span id="cb240-14"><a href="r-반복-함수.html#cb240-14"></a><span class="co">#&gt;  [49] 10005 10005 10005 10005 10004 10004 10004 10004 10004 10004 10004 10004</span></span>
+<span id="cb240-15"><a href="r-반복-함수.html#cb240-15"></a><span class="co">#&gt;  [61] 10003 10003 10003 10003 10003 10003 10003 10003 10003 10003 10003 10003</span></span>
+<span id="cb240-16"><a href="r-반복-함수.html#cb240-16"></a><span class="co">#&gt;  [73] 10003 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002</span></span>
+<span id="cb240-17"><a href="r-반복-함수.html#cb240-17"></a><span class="co">#&gt;  [85] 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002 10002</span></span>
+<span id="cb240-18"><a href="r-반복-함수.html#cb240-18"></a><span class="co">#&gt;  [97] 10002 10002 10001 10001</span></span>
+<span id="cb240-19"><a href="r-반복-함수.html#cb240-19"></a></span>
+<span id="cb240-20"><a href="r-반복-함수.html#cb240-20"></a><span class="co"># 만일 이렇게 mapply(sumsq, mean = 1:100, sd = 1:100, x = x) 하면</span></span>
+<span id="cb240-21"><a href="r-반복-함수.html#cb240-21"></a><span class="co"># sumsq(x = x[1], mean = 1, sd = 1), ... 이런식으로 계산되어</span></span>
+<span id="cb240-22"><a href="r-반복-함수.html#cb240-22"></a><span class="co"># 원하는 결과가 나오지 않음. 여기서 x[1]은 -0.560475647임</span></span></code></pre></div>
 </div>
 <div id="replicate" class="section level3">
 <h3><span class="header-section-number">5.4.11</span> replicate()</h3>
+<p><code>replicate(n, expr, simplify = "array")</code> 함수는 <code>sapply()</code> 함수의 간소화 버전이라 할 수 있습니다. expr 인자를 n번 만큼 반복수행합니다. expr 인자에는 주로 함수들이 많이 들어갑니다. 반환되는 결과는 기본적으로 배열입니다. 만일 반환되는 값을 리스트 형태로 받고자 한다면 <code>simplify = FALSE</code>로 지정합니다.</p>
+<p>아래 예제는 <code>rnorm(5, mean = 0, sd = 1)</code>을 3번 반복하여 그 결과를 행렬형태로 얻는 것입니다.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="r-반복-함수.html#cb241-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb241-2"><a href="r-반복-함수.html#cb241-2"></a><span class="kw">replicate</span>(<span class="dt">n =</span> <span class="dv">3</span>, <span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>))</span>
+<span id="cb241-3"><a href="r-반복-함수.html#cb241-3"></a><span class="co">#&gt;         [,1]   [,2]   [,3]</span></span>
+<span id="cb241-4"><a href="r-반복-함수.html#cb241-4"></a><span class="co">#&gt; [1,] -0.5605  1.715  1.224</span></span>
+<span id="cb241-5"><a href="r-반복-함수.html#cb241-5"></a><span class="co">#&gt; [2,] -0.2302  0.461  0.360</span></span>
+<span id="cb241-6"><a href="r-반복-함수.html#cb241-6"></a><span class="co">#&gt; [3,]  1.5587 -1.265  0.401</span></span>
+<span id="cb241-7"><a href="r-반복-함수.html#cb241-7"></a><span class="co">#&gt; [4,]  0.0705 -0.687  0.111</span></span>
+<span id="cb241-8"><a href="r-반복-함수.html#cb241-8"></a><span class="co">#&gt; [5,]  0.1293 -0.446 -0.556</span></span></code></pre></div>
 </div>
 <div id="rep" class="section level3">
-<h3><span class="header-section-number">5.4.12</span> rep</h3>
-<p>seq(from=시작, to=끝, by=간격) / seq(from=시작, to=끝, length.out=길이)
-ㆍ rep(반복할 내용, times=반복할 수) / rep(반복할 내용, each=각각 반복할 수)</p>
-<p>seq(from=1, to=5, by=2) # =&gt; 1 3 5
-seq(from=1.0, to=2.0, length.out=5)
-# =&gt; 1.00 1.25 ~ 2.00
-rep(1, times=5) # =&gt; 1 1 1 1 1
-rep(1:2, each=2) # =&gt; 1 1 2 2
-###</p>
-<p>vsumsq &lt;- Vectorize(sumsq, c(“mean”, “sd”))
-vsumsq(x, 1:100, 1:100)</p>
+<h3><span class="header-section-number">5.4.12</span> rep()</h3>
+<p><code>rep(x, ...)</code> 함수는 특정값을 반복해서 만들어 반환해주는 함수입니다. <code>...</code>에는 인자로 times, length.out, each가 들어갈 수 있습니다. times는 x를 몇 번 반복할지를 정해주는 인수입니다. length.out은 최종 반환되는 값들의 길이를 정해주는 인수입니다. each는 x가 여러개의 값으로 구성된 벡터일 경우 각각 몇 번 반복할지를 정해주는 인수 입니다.</p>
+<p><code>rep.int(x, times)</code>와 <code>rep_len(x, length.out)</code>는 <code>rep()</code> 함수와 기능이 거의 같으나 인수가 제한됩니다. 이 함수들은 <code>rep()</code> 함수보다 더 빠릅니다.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="r-반복-함수.html#cb242-1"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">2</span>)   <span class="co"># rep(x = 1:4, times = 2)와 동일</span></span>
+<span id="cb242-2"><a href="r-반복-함수.html#cb242-2"></a><span class="co">#&gt;  [1] 1 2 3 4 5 1 2 3 4 5</span></span>
+<span id="cb242-3"><a href="r-반복-함수.html#cb242-3"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">each =</span> <span class="dv">2</span>)    </span>
+<span id="cb242-4"><a href="r-반복-함수.html#cb242-4"></a><span class="co">#&gt;  [1] 1 1 2 2 3 3 4 4 5 5</span></span>
+<span id="cb242-5"><a href="r-반복-함수.html#cb242-5"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># rep(1:5, times = c(2, 3, 2, 1, 2)) 동일</span></span>
+<span id="cb242-6"><a href="r-반복-함수.html#cb242-6"></a><span class="co">#&gt;  [1] 1 1 2 2 2 3 3 4 5 5</span></span>
+<span id="cb242-7"><a href="r-반복-함수.html#cb242-7"></a></span>
+<span id="cb242-8"><a href="r-반복-함수.html#cb242-8"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">each =</span> <span class="dv">2</span>, <span class="dt">len =</span> <span class="dv">5</span>)</span>
+<span id="cb242-9"><a href="r-반복-함수.html#cb242-9"></a><span class="co">#&gt; [1] 1 1 2 2 3</span></span>
+<span id="cb242-10"><a href="r-반복-함수.html#cb242-10"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">each =</span> <span class="dv">2</span>, <span class="dt">len =</span> <span class="dv">7</span>)  <span class="co"># 길이를 채우기 위해 다시 반복</span></span>
+<span id="cb242-11"><a href="r-반복-함수.html#cb242-11"></a><span class="co">#&gt; [1] 1 1 2 2 1 1 2</span></span>
+<span id="cb242-12"><a href="r-반복-함수.html#cb242-12"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">2</span>, <span class="dt">times =</span><span class="dv">3</span>)</span>
+<span id="cb242-13"><a href="r-반복-함수.html#cb242-13"></a><span class="co">#&gt;  [1] 1 1 2 2 3 3 1 1 2 2 3 3 1 1 2 2 3 3</span></span>
+<span id="cb242-14"><a href="r-반복-함수.html#cb242-14"></a></span>
+<span id="cb242-15"><a href="r-반복-함수.html#cb242-15"></a><span class="kw">rep</span>(<span class="dv">2</span>, <span class="fl">5.9</span>)  <span class="co"># 소수점 이하는 버리고 반복</span></span>
+<span id="cb242-16"><a href="r-반복-함수.html#cb242-16"></a><span class="co">#&gt; [1] 2 2 2 2 2</span></span>
+<span id="cb242-17"><a href="r-반복-함수.html#cb242-17"></a></span>
+<span id="cb242-18"><a href="r-반복-함수.html#cb242-18"></a><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;123&quot;</span>), <span class="dt">times =</span> <span class="dv">3</span>)</span>
+<span id="cb242-19"><a href="r-반복-함수.html#cb242-19"></a><span class="co">#&gt; [1] &quot;abc&quot; &quot;123&quot; &quot;abc&quot; &quot;123&quot; &quot;abc&quot; &quot;123&quot;</span></span>
+<span id="cb242-20"><a href="r-반복-함수.html#cb242-20"></a><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;123&quot;</span>), <span class="dt">each =</span> <span class="dv">3</span>)</span>
+<span id="cb242-21"><a href="r-반복-함수.html#cb242-21"></a><span class="co">#&gt; [1] &quot;abc&quot; &quot;abc&quot; &quot;abc&quot; &quot;123&quot; &quot;123&quot; &quot;123&quot;</span></span>
+<span id="cb242-22"><a href="r-반복-함수.html#cb242-22"></a></span>
+<span id="cb242-23"><a href="r-반복-함수.html#cb242-23"></a><span class="kw">rep.int</span>(<span class="kw">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;123&quot;</span>), <span class="dv">3</span>)  <span class="co"># 기본인자는 times임. each 인자는 사용할 수 없음</span></span>
+<span id="cb242-24"><a href="r-반복-함수.html#cb242-24"></a><span class="co">#&gt; [1] &quot;abc&quot; &quot;123&quot; &quot;abc&quot; &quot;123&quot; &quot;abc&quot; &quot;123&quot;</span></span>
+<span id="cb242-25"><a href="r-반복-함수.html#cb242-25"></a><span class="kw">rep_len</span>(<span class="kw">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;123&quot;</span>), <span class="dv">5</span>)  <span class="co"># 기본인자는 length.out임</span></span>
+<span id="cb242-26"><a href="r-반복-함수.html#cb242-26"></a><span class="co">#&gt; [1] &quot;abc&quot; &quot;123&quot; &quot;abc&quot; &quot;123&quot; &quot;abc&quot;</span></span></code></pre></div>
+</div>
+<div id="seq" class="section level3">
+<h3><span class="header-section-number">5.4.13</span> seq()</h3>
+<p><code>seq(...)</code> 함수는 일련번호 숫자를 생성하여 반환합니다. <code>...</code>에는 인자로 from, to, by, length.out, along.with가 들어갈 수 있습니다.</p>
+<ul>
+<li>from : 시작 숫자</li>
+<li>to : 끝 숫자</li>
+<li>by : 증가 간격</li>
+<li>length.out : 생성되는 일련번호의 길이</li>
+<li>along.with : 인자에 들어가는 값들의 길이만큼 일련번호 생성</li>
+</ul>
+<p><code>seq.int()</code>는 seq() 함수와 거의 동일하고, <code>seq_along(along.with)</code>와 <code>seq_len(length.out)</code>는 무조건 시작이 1이고, 각각 하나의 인자를 받아 일련번호를 생성합니다. 이 함수들은 1부터 시작하는 일련번호를 <code>seq()</code> 함수보다 약간 더 빠르게 만들어 줍니다.</p>
+<p>가장 많이 사용하는 형태는 다음과 같습니다.</p>
+<ul>
+<li>seq(from, to)</li>
+<li>seq(from, to, by = )</li>
+<li>seq(from, to, length.out = )</li>
+<li>seq(along.with = )</li>
+<li>seq(from)</li>
+<li>seq(length.out = )</li>
+</ul>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="r-반복-함수.html#cb243-1"></a><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">7</span>)  <span class="co"># seq(from = 2, to = 7과 동일)</span></span>
+<span id="cb243-2"><a href="r-반복-함수.html#cb243-2"></a><span class="co">#&gt; [1] 2 3 4 5 6 7</span></span>
+<span id="cb243-3"><a href="r-반복-함수.html#cb243-3"></a><span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">2</span>)</span>
+<span id="cb243-4"><a href="r-반복-함수.html#cb243-4"></a><span class="co">#&gt; [1] 7 6 5 4 3 2</span></span>
+<span id="cb243-5"><a href="r-반복-함수.html#cb243-5"></a><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
+<span id="cb243-6"><a href="r-반복-함수.html#cb243-6"></a><span class="co">#&gt; [1]  2  4  6  8 10</span></span>
+<span id="cb243-7"><a href="r-반복-함수.html#cb243-7"></a><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dt">by =</span> pi)</span>
+<span id="cb243-8"><a href="r-반복-함수.html#cb243-8"></a><span class="co">#&gt; [1] 2.00 5.14 8.28</span></span>
+<span id="cb243-9"><a href="r-반복-함수.html#cb243-9"></a><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">3</span>)</span>
+<span id="cb243-10"><a href="r-반복-함수.html#cb243-10"></a><span class="co">#&gt; [1]  2  6 10</span></span>
+<span id="cb243-11"><a href="r-반복-함수.html#cb243-11"></a><span class="kw">seq</span>(<span class="dt">along.with =</span> <span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>))   <span class="co"># c(2:7)의 길이는 6이므로 6개 생성</span></span>
+<span id="cb243-12"><a href="r-반복-함수.html#cb243-12"></a><span class="co">#&gt; [1] 1 2 3 4 5 6</span></span>
+<span id="cb243-13"><a href="r-반복-함수.html#cb243-13"></a><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dt">along.with =</span> <span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>))</span>
+<span id="cb243-14"><a href="r-반복-함수.html#cb243-14"></a><span class="co">#&gt; [1]  2.0  3.6  5.2  6.8  8.4 10.0</span></span>
+<span id="cb243-15"><a href="r-반복-함수.html#cb243-15"></a><span class="kw">seq</span>(<span class="dv">7</span>)   <span class="co"># 1부터 7까지 생성</span></span>
+<span id="cb243-16"><a href="r-반복-함수.html#cb243-16"></a><span class="co">#&gt; [1] 1 2 3 4 5 6 7</span></span>
+<span id="cb243-17"><a href="r-반복-함수.html#cb243-17"></a><span class="kw">seq</span>(<span class="dt">length.out =</span> <span class="dv">12</span>)</span>
+<span id="cb243-18"><a href="r-반복-함수.html#cb243-18"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="r-반복-함수.html#cb244-1"></a><span class="kw">seq.int</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dt">by =</span> pi)</span>
+<span id="cb244-2"><a href="r-반복-함수.html#cb244-2"></a><span class="co">#&gt; [1] 2.00 5.14 8.28</span></span>
+<span id="cb244-3"><a href="r-반복-함수.html#cb244-3"></a><span class="kw">seq_len</span>(<span class="dv">12</span>)    <span class="co"># seq(length.out = 12)와 동일하나 약간 더 빠름</span></span>
+<span id="cb244-4"><a href="r-반복-함수.html#cb244-4"></a><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12</span></span>
+<span id="cb244-5"><a href="r-반복-함수.html#cb244-5"></a><span class="kw">seq_along</span>(<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">7</span>))</span>
+<span id="cb244-6"><a href="r-반복-함수.html#cb244-6"></a><span class="co">#&gt; [1] 1 2 3 4 5 6</span></span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="r-반복-함수.html#cb245-1"></a>n &lt;-<span class="st"> </span><span class="dv">999999999999999</span></span>
+<span id="cb245-2"><a href="r-반복-함수.html#cb245-2"></a></span>
+<span id="cb245-3"><a href="r-반복-함수.html#cb245-3"></a>start &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</span>
+<span id="cb245-4"><a href="r-반복-함수.html#cb245-4"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">length.out =</span> n)</span>
+<span id="cb245-5"><a href="r-반복-함수.html#cb245-5"></a>end &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</span>
+<span id="cb245-6"><a href="r-반복-함수.html#cb245-6"></a>end <span class="op">-</span><span class="st"> </span>start</span>
+<span id="cb245-7"><a href="r-반복-함수.html#cb245-7"></a><span class="co">#&gt;    user  system elapsed </span></span>
+<span id="cb245-8"><a href="r-반복-함수.html#cb245-8"></a><span class="co">#&gt;       0       0       0</span></span>
+<span id="cb245-9"><a href="r-반복-함수.html#cb245-9"></a></span>
+<span id="cb245-10"><a href="r-반복-함수.html#cb245-10"></a>start &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</span>
+<span id="cb245-11"><a href="r-반복-함수.html#cb245-11"></a>x &lt;-<span class="st"> </span><span class="kw">seq_len</span>(n)</span>
+<span id="cb245-12"><a href="r-반복-함수.html#cb245-12"></a>end &lt;-<span class="st"> </span><span class="kw">proc.time</span>()</span>
+<span id="cb245-13"><a href="r-반복-함수.html#cb245-13"></a>end <span class="op">-</span><span class="st"> </span>start</span>
+<span id="cb245-14"><a href="r-반복-함수.html#cb245-14"></a><span class="co">#&gt;    user  system elapsed </span></span>
+<span id="cb245-15"><a href="r-반복-함수.html#cb245-15"></a><span class="co">#&gt;       0       0       0</span></span></code></pre></div>
+<p>일련 날짜를 생성할 수 있습니다.</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="r-반복-함수.html#cb246-1"></a><span class="co"># 1년 간격</span></span>
+<span id="cb246-2"><a href="r-반복-함수.html#cb246-2"></a><span class="kw">seq</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2001/1/1&quot;</span>), <span class="kw">as.Date</span>(<span class="st">&quot;2020/1/1&quot;</span>), <span class="st">&quot;years&quot;</span>)</span>
+<span id="cb246-3"><a href="r-반복-함수.html#cb246-3"></a><span class="co">#&gt;  [1] &quot;2001-01-01&quot; &quot;2002-01-01&quot; &quot;2003-01-01&quot; &quot;2004-01-01&quot; &quot;2005-01-01&quot;</span></span>
+<span id="cb246-4"><a href="r-반복-함수.html#cb246-4"></a><span class="co">#&gt;  [6] &quot;2006-01-01&quot; &quot;2007-01-01&quot; &quot;2008-01-01&quot; &quot;2009-01-01&quot; &quot;2010-01-01&quot;</span></span>
+<span id="cb246-5"><a href="r-반복-함수.html#cb246-5"></a><span class="co">#&gt; [11] &quot;2011-01-01&quot; &quot;2012-01-01&quot; &quot;2013-01-01&quot; &quot;2014-01-01&quot; &quot;2015-01-01&quot;</span></span>
+<span id="cb246-6"><a href="r-반복-함수.html#cb246-6"></a><span class="co">#&gt; [16] &quot;2016-01-01&quot; &quot;2017-01-01&quot; &quot;2018-01-01&quot; &quot;2019-01-01&quot; &quot;2020-01-01&quot;</span></span>
+<span id="cb246-7"><a href="r-반복-함수.html#cb246-7"></a></span>
+<span id="cb246-8"><a href="r-반복-함수.html#cb246-8"></a><span class="co"># 월 간격</span></span>
+<span id="cb246-9"><a href="r-반복-함수.html#cb246-9"></a><span class="kw">seq</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2001/1/1&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;month&quot;</span>, <span class="dt">length.out =</span> <span class="dv">12</span>)</span>
+<span id="cb246-10"><a href="r-반복-함수.html#cb246-10"></a><span class="co">#&gt;  [1] &quot;2001-01-01&quot; &quot;2001-02-01&quot; &quot;2001-03-01&quot; &quot;2001-04-01&quot; &quot;2001-05-01&quot;</span></span>
+<span id="cb246-11"><a href="r-반복-함수.html#cb246-11"></a><span class="co">#&gt;  [6] &quot;2001-06-01&quot; &quot;2001-07-01&quot; &quot;2001-08-01&quot; &quot;2001-09-01&quot; &quot;2001-10-01&quot;</span></span>
+<span id="cb246-12"><a href="r-반복-함수.html#cb246-12"></a><span class="co">#&gt; [11] &quot;2001-11-01&quot; &quot;2001-12-01&quot;</span></span>
+<span id="cb246-13"><a href="r-반복-함수.html#cb246-13"></a></span>
+<span id="cb246-14"><a href="r-반복-함수.html#cb246-14"></a><span class="co"># 분기 간격</span></span>
+<span id="cb246-15"><a href="r-반복-함수.html#cb246-15"></a><span class="kw">seq</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2015/1/1&quot;</span>), <span class="kw">as.Date</span>(<span class="st">&quot;2020/1/1&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;quarter&quot;</span>)</span>
+<span id="cb246-16"><a href="r-반복-함수.html#cb246-16"></a><span class="co">#&gt;  [1] &quot;2015-01-01&quot; &quot;2015-04-01&quot; &quot;2015-07-01&quot; &quot;2015-10-01&quot; &quot;2016-01-01&quot;</span></span>
+<span id="cb246-17"><a href="r-반복-함수.html#cb246-17"></a><span class="co">#&gt;  [6] &quot;2016-04-01&quot; &quot;2016-07-01&quot; &quot;2016-10-01&quot; &quot;2017-01-01&quot; &quot;2017-04-01&quot;</span></span>
+<span id="cb246-18"><a href="r-반복-함수.html#cb246-18"></a><span class="co">#&gt; [11] &quot;2017-07-01&quot; &quot;2017-10-01&quot; &quot;2018-01-01&quot; &quot;2018-04-01&quot; &quot;2018-07-01&quot;</span></span>
+<span id="cb246-19"><a href="r-반복-함수.html#cb246-19"></a><span class="co">#&gt; [16] &quot;2018-10-01&quot; &quot;2019-01-01&quot; &quot;2019-04-01&quot; &quot;2019-07-01&quot; &quot;2019-10-01&quot;</span></span>
+<span id="cb246-20"><a href="r-반복-함수.html#cb246-20"></a><span class="co">#&gt; [21] &quot;2020-01-01&quot;</span></span>
+<span id="cb246-21"><a href="r-반복-함수.html#cb246-21"></a></span>
+<span id="cb246-22"><a href="r-반복-함수.html#cb246-22"></a><span class="co"># 월 간격 반대로</span></span>
+<span id="cb246-23"><a href="r-반복-함수.html#cb246-23"></a><span class="kw">seq</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020-1-7&quot;</span>), <span class="kw">as.Date</span>(<span class="st">&quot;2019-1-17&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;-1 month&quot;</span>)</span>
+<span id="cb246-24"><a href="r-반복-함수.html#cb246-24"></a><span class="co">#&gt;  [1] &quot;2020-01-07&quot; &quot;2019-12-07&quot; &quot;2019-11-07&quot; &quot;2019-10-07&quot; &quot;2019-09-07&quot;</span></span>
+<span id="cb246-25"><a href="r-반복-함수.html#cb246-25"></a><span class="co">#&gt;  [6] &quot;2019-08-07&quot; &quot;2019-07-07&quot; &quot;2019-06-07&quot; &quot;2019-05-07&quot; &quot;2019-04-07&quot;</span></span>
+<span id="cb246-26"><a href="r-반복-함수.html#cb246-26"></a><span class="co">#&gt; [11] &quot;2019-03-07&quot; &quot;2019-02-07&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="r-반복-함수.html#cb247-1"></a><span class="kw">seq</span>(<span class="kw">ISOdate</span>(<span class="dv">2015</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="kw">ISOdate</span>(<span class="dv">2020</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="st">&quot;years&quot;</span>)</span>
+<span id="cb247-2"><a href="r-반복-함수.html#cb247-2"></a><span class="co">#&gt; [1] &quot;2015-01-01 12:00:00 GMT&quot; &quot;2016-01-01 12:00:00 GMT&quot;</span></span>
+<span id="cb247-3"><a href="r-반복-함수.html#cb247-3"></a><span class="co">#&gt; [3] &quot;2017-01-01 12:00:00 GMT&quot; &quot;2018-01-01 12:00:00 GMT&quot;</span></span>
+<span id="cb247-4"><a href="r-반복-함수.html#cb247-4"></a><span class="co">#&gt; [5] &quot;2019-01-01 12:00:00 GMT&quot; &quot;2020-01-01 12:00:00 GMT&quot;</span></span>
+<span id="cb247-5"><a href="r-반복-함수.html#cb247-5"></a></span>
+<span id="cb247-6"><a href="r-반복-함수.html#cb247-6"></a><span class="kw">seq</span>(<span class="kw">c</span>(<span class="kw">ISOdate</span>(<span class="dv">2020</span>,<span class="dv">3</span>,<span class="dv">20</span>)), <span class="dt">by =</span> <span class="st">&quot;DSTday&quot;</span>, <span class="dt">length.out =</span> <span class="dv">10</span>)</span>
+<span id="cb247-7"><a href="r-반복-함수.html#cb247-7"></a><span class="co">#&gt;  [1] &quot;2020-03-20 21:00:00 KST&quot; &quot;2020-03-21 21:00:00 KST&quot;</span></span>
+<span id="cb247-8"><a href="r-반복-함수.html#cb247-8"></a><span class="co">#&gt;  [3] &quot;2020-03-22 21:00:00 KST&quot; &quot;2020-03-23 21:00:00 KST&quot;</span></span>
+<span id="cb247-9"><a href="r-반복-함수.html#cb247-9"></a><span class="co">#&gt;  [5] &quot;2020-03-24 21:00:00 KST&quot; &quot;2020-03-25 21:00:00 KST&quot;</span></span>
+<span id="cb247-10"><a href="r-반복-함수.html#cb247-10"></a><span class="co">#&gt;  [7] &quot;2020-03-26 21:00:00 KST&quot; &quot;2020-03-27 21:00:00 KST&quot;</span></span>
+<span id="cb247-11"><a href="r-반복-함수.html#cb247-11"></a><span class="co">#&gt;  [9] &quot;2020-03-28 21:00:00 KST&quot; &quot;2020-03-29 21:00:00 KST&quot;</span></span>
+<span id="cb247-12"><a href="r-반복-함수.html#cb247-12"></a></span>
+<span id="cb247-13"><a href="r-반복-함수.html#cb247-13"></a><span class="kw">seq</span>(<span class="kw">c</span>(<span class="kw">ISOdate</span>(<span class="dv">2020</span>,<span class="dv">3</span>,<span class="dv">20</span>)), <span class="dt">by =</span> <span class="st">&quot;7 DSTdays&quot;</span>, <span class="dt">length.out =</span> <span class="dv">5</span>)</span>
+<span id="cb247-14"><a href="r-반복-함수.html#cb247-14"></a><span class="co">#&gt; [1] &quot;2020-03-20 21:00:00 KST&quot; &quot;2020-03-27 21:00:00 KST&quot;</span></span>
+<span id="cb247-15"><a href="r-반복-함수.html#cb247-15"></a><span class="co">#&gt; [3] &quot;2020-04-03 21:00:00 KST&quot; &quot;2020-04-10 21:00:00 KST&quot;</span></span>
+<span id="cb247-16"><a href="r-반복-함수.html#cb247-16"></a><span class="co">#&gt; [5] &quot;2020-04-17 21:00:00 KST&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="r-반복-함수.html#cb248-1"></a><span class="kw">seq</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2015-3-14 17:22:15&quot;</span>), <span class="kw">as.POSIXct</span>(<span class="st">&quot;2015-3-15 9:12:25&quot;</span>),</span>
+<span id="cb248-2"><a href="r-반복-함수.html#cb248-2"></a>    <span class="dt">by =</span> <span class="st">&quot;hours&quot;</span>)</span>
+<span id="cb248-3"><a href="r-반복-함수.html#cb248-3"></a><span class="co">#&gt;  [1] &quot;2015-03-14 17:22:15 KST&quot; &quot;2015-03-14 18:22:15 KST&quot;</span></span>
+<span id="cb248-4"><a href="r-반복-함수.html#cb248-4"></a><span class="co">#&gt;  [3] &quot;2015-03-14 19:22:15 KST&quot; &quot;2015-03-14 20:22:15 KST&quot;</span></span>
+<span id="cb248-5"><a href="r-반복-함수.html#cb248-5"></a><span class="co">#&gt;  [5] &quot;2015-03-14 21:22:15 KST&quot; &quot;2015-03-14 22:22:15 KST&quot;</span></span>
+<span id="cb248-6"><a href="r-반복-함수.html#cb248-6"></a><span class="co">#&gt;  [7] &quot;2015-03-14 23:22:15 KST&quot; &quot;2015-03-15 00:22:15 KST&quot;</span></span>
+<span id="cb248-7"><a href="r-반복-함수.html#cb248-7"></a><span class="co">#&gt;  [9] &quot;2015-03-15 01:22:15 KST&quot; &quot;2015-03-15 02:22:15 KST&quot;</span></span>
+<span id="cb248-8"><a href="r-반복-함수.html#cb248-8"></a><span class="co">#&gt; [11] &quot;2015-03-15 03:22:15 KST&quot; &quot;2015-03-15 04:22:15 KST&quot;</span></span>
+<span id="cb248-9"><a href="r-반복-함수.html#cb248-9"></a><span class="co">#&gt; [13] &quot;2015-03-15 05:22:15 KST&quot; &quot;2015-03-15 06:22:15 KST&quot;</span></span>
+<span id="cb248-10"><a href="r-반복-함수.html#cb248-10"></a><span class="co">#&gt; [15] &quot;2015-03-15 07:22:15 KST&quot; &quot;2015-03-15 08:22:15 KST&quot;</span></span></code></pre></div>
+</div>
+<div id="sequence" class="section level3">
+<h3><span class="header-section-number">5.4.14</span> sequence</h3>
+<p><code>sequence(nvec, ...)</code> 함수는 연속적인 숫자를 만들어 내는 함수입니다.
+인자 nvec에 들어간 숫자 벡터들 만큼 <code>seq()</code> 함수가 수행되어 연속적인 숫자가 만들어집니다. 예를 들면 <code>nvec = c(3, 2)</code>이면 <code>seq(3)</code>, <code>seq(2)</code>가 수행됩니다.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="r-반복-함수.html#cb249-1"></a><span class="kw">sequence</span>(<span class="dt">nvec =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))   <span class="co"># c(seq(3), seq(2)) 또는 c(1:3, 1:2)와 동일</span></span>
+<span id="cb249-2"><a href="r-반복-함수.html#cb249-2"></a><span class="co">#&gt; [1] 1 2 3 1 2</span></span>
+<span id="cb249-3"><a href="r-반복-함수.html#cb249-3"></a><span class="kw">sequence</span>(<span class="dt">nvec =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>))</span>
+<span id="cb249-4"><a href="r-반복-함수.html#cb249-4"></a><span class="co">#&gt;  [1] 1 2 3 1 2 1 2 3 4 5</span></span>
+<span id="cb249-5"><a href="r-반복-함수.html#cb249-5"></a><span class="kw">sequence</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>), <span class="dt">from =</span> <span class="dv">2</span>)  <span class="co"># 시작숫자 지정</span></span>
+<span id="cb249-6"><a href="r-반복-함수.html#cb249-6"></a><span class="co">#&gt; [1] 2 3 4 2 3</span></span>
+<span id="cb249-7"><a href="r-반복-함수.html#cb249-7"></a><span class="kw">sequence</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>), <span class="dt">from =</span> <span class="dv">2</span>, <span class="dt">by =</span> <span class="dv">-2</span>)  <span class="co"># 시작숫자, 간격 지정</span></span>
+<span id="cb249-8"><a href="r-반복-함수.html#cb249-8"></a><span class="co">#&gt; [1]  2  0 -2  2  0</span></span>
+<span id="cb249-9"><a href="r-반복-함수.html#cb249-9"></a><span class="kw">sequence</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>), <span class="dt">by =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">-2</span>))</span>
+<span id="cb249-10"><a href="r-반복-함수.html#cb249-10"></a><span class="co">#&gt; [1]  1  3  5  1 -1</span></span></code></pre></div>
+</div>
+<div id="gl" class="section level3">
+<h3><span class="header-section-number">5.4.15</span> gl</h3>
+<p><code>gl(n, k, length = n*k, labels = seq_len(n), ordered = FALSE)</code> 함수는
+요인 수준을 반복적으로 생성하여 반환합니다. gl은 generate levels의 약자로 생각됩니다.</p>
+<ul>
+<li>n : 수준을 나태내는 숫자. n = 2이면 label을 따로 지정하지 않은 경우 수준이 1, 2로 표현됩니다.</li>
+<li>k : 수준을 반복할 숫자. k = 8이면 8번 반복합니다.</li>
+<li>length : 생성되는 총 데이터의 갯수</li>
+<li>labels : 수준에 대한 이름</li>
+<li>ordered : TRUE이면 요인의 순서가 정해집니다. (순서형 데이터)</li>
+</ul>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="r-반복-함수.html#cb250-1"></a><span class="kw">gl</span>(<span class="dt">n =</span> <span class="dv">2</span>, <span class="dt">k =</span> <span class="dv">8</span>)  <span class="co"># 수준 1, 2를 각각 8번 반복</span></span>
+<span id="cb250-2"><a href="r-반복-함수.html#cb250-2"></a><span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2</span></span>
+<span id="cb250-3"><a href="r-반복-함수.html#cb250-3"></a><span class="co">#&gt; Levels: 1 2</span></span>
+<span id="cb250-4"><a href="r-반복-함수.html#cb250-4"></a><span class="kw">gl</span>(<span class="dt">n =</span> <span class="dv">2</span>, <span class="dt">k =</span> <span class="dv">8</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Contol&quot;</span>, <span class="st">&quot;Treat&quot;</span>))  <span class="co"># 수준 이름 지정</span></span>
+<span id="cb250-5"><a href="r-반복-함수.html#cb250-5"></a><span class="co">#&gt;  [1] Contol Contol Contol Contol Contol Contol Contol Contol Treat  Treat </span></span>
+<span id="cb250-6"><a href="r-반복-함수.html#cb250-6"></a><span class="co">#&gt; [11] Treat  Treat  Treat  Treat  Treat  Treat </span></span>
+<span id="cb250-7"><a href="r-반복-함수.html#cb250-7"></a><span class="co">#&gt; Levels: Contol Treat</span></span>
+<span id="cb250-8"><a href="r-반복-함수.html#cb250-8"></a><span class="kw">gl</span>(<span class="dt">n =</span> <span class="dv">2</span>, <span class="dt">k =</span> <span class="dv">1</span>, <span class="dt">length =</span> <span class="dv">10</span>)  <span class="co"># 수준 1, 2가 각각 1번씩 반복되며 10개 생성</span></span>
+<span id="cb250-9"><a href="r-반복-함수.html#cb250-9"></a><span class="co">#&gt;  [1] 1 2 1 2 1 2 1 2 1 2</span></span>
+<span id="cb250-10"><a href="r-반복-함수.html#cb250-10"></a><span class="co">#&gt; Levels: 1 2</span></span>
+<span id="cb250-11"><a href="r-반복-함수.html#cb250-11"></a><span class="kw">gl</span>(<span class="dt">n =</span> <span class="dv">2</span>, <span class="dt">k =</span> <span class="dv">2</span>, <span class="dt">length =</span> <span class="dv">10</span>)  <span class="co"># 수준 1, 2가 각각 2번씩 반복되며 10개 생성</span></span>
+<span id="cb250-12"><a href="r-반복-함수.html#cb250-12"></a><span class="co">#&gt;  [1] 1 1 2 2 1 1 2 2 1 1</span></span>
+<span id="cb250-13"><a href="r-반복-함수.html#cb250-13"></a><span class="co">#&gt; Levels: 1 2</span></span>
+<span id="cb250-14"><a href="r-반복-함수.html#cb250-14"></a></span>
+<span id="cb250-15"><a href="r-반복-함수.html#cb250-15"></a><span class="co"># 수준 1, 2가 M과 F로 순서있게 네이밍 되고, 각각 3번씩 반복되며 10개 생성</span></span>
+<span id="cb250-16"><a href="r-반복-함수.html#cb250-16"></a><span class="kw">gl</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb250-17"><a href="r-반복-함수.html#cb250-17"></a><span class="co">#&gt;  [1] M M M F F F M M M F</span></span>
+<span id="cb250-18"><a href="r-반복-함수.html#cb250-18"></a><span class="co">#&gt; Levels: M &lt; F</span></span></code></pre></div>
+</div>
+<div id="sweep" class="section level3">
+<h3><span class="header-section-number">5.4.16</span> sweep</h3>
+<p><code>sweep(x, MARGIN, STATS, FUN = "-", check.margin = TRUE, ...)</code> 함수는
+행렬, 데이터프레임 등에 통계량과 함수를 적용하여 그 결과를 반환하는 함수입니다.
+주로 데이터 x에 일률적으로 특정 숫자만큼 더하거나 빼기를 할 때</p>
+<ul>
+<li>x : 입력 데이터로서 배열, 행렬, 데이터프레임</li>
+<li>MARGIN : 행과 열 방향 지정. 1이면 열방향, 2이면 행방향</li>
+<li>STATS : 적용할 요약 통계량 또는 수치</li>
+<li>FUN : 적용할 함수 (기본값은 “-” 임)</li>
+<li>check.margin :</li>
+</ul>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="r-반복-함수.html#cb251-1"></a>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">ncol =</span> <span class="dv">3</span>); x</span>
+<span id="cb251-2"><a href="r-반복-함수.html#cb251-2"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb251-3"><a href="r-반복-함수.html#cb251-3"></a><span class="co">#&gt; [1,]    1    5    9</span></span>
+<span id="cb251-4"><a href="r-반복-함수.html#cb251-4"></a><span class="co">#&gt; [2,]    2    6   10</span></span>
+<span id="cb251-5"><a href="r-반복-함수.html#cb251-5"></a><span class="co">#&gt; [3,]    3    7   11</span></span>
+<span id="cb251-6"><a href="r-반복-함수.html#cb251-6"></a><span class="co">#&gt; [4,]    4    8   12</span></span>
+<span id="cb251-7"><a href="r-반복-함수.html#cb251-7"></a></span>
+<span id="cb251-8"><a href="r-반복-함수.html#cb251-8"></a><span class="co"># 행렬 x를 행방향(2)으로 1씩 빼줌</span></span>
+<span id="cb251-9"><a href="r-반복-함수.html#cb251-9"></a><span class="kw">sweep</span>(x, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">STATS =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> <span class="st">&quot;-&quot;</span>)  </span>
+<span id="cb251-10"><a href="r-반복-함수.html#cb251-10"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb251-11"><a href="r-반복-함수.html#cb251-11"></a><span class="co">#&gt; [1,]    0    4    8</span></span>
+<span id="cb251-12"><a href="r-반복-함수.html#cb251-12"></a><span class="co">#&gt; [2,]    1    5    9</span></span>
+<span id="cb251-13"><a href="r-반복-함수.html#cb251-13"></a><span class="co">#&gt; [3,]    2    6   10</span></span>
+<span id="cb251-14"><a href="r-반복-함수.html#cb251-14"></a><span class="co">#&gt; [4,]    3    7   11</span></span>
+<span id="cb251-15"><a href="r-반복-함수.html#cb251-15"></a></span>
+<span id="cb251-16"><a href="r-반복-함수.html#cb251-16"></a><span class="co"># 행렬 x를 열방향(1)으로 각각 1, 2, 3, 4를 더해줌</span></span>
+<span id="cb251-17"><a href="r-반복-함수.html#cb251-17"></a><span class="kw">sweep</span>(x, <span class="dv">1</span>, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dt">FUN =</span> <span class="st">&quot;+&quot;</span>)  </span>
+<span id="cb251-18"><a href="r-반복-함수.html#cb251-18"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb251-19"><a href="r-반복-함수.html#cb251-19"></a><span class="co">#&gt; [1,]    2    6   10</span></span>
+<span id="cb251-20"><a href="r-반복-함수.html#cb251-20"></a><span class="co">#&gt; [2,]    4    8   12</span></span>
+<span id="cb251-21"><a href="r-반복-함수.html#cb251-21"></a><span class="co">#&gt; [3,]    6   10   14</span></span>
+<span id="cb251-22"><a href="r-반복-함수.html#cb251-22"></a><span class="co">#&gt; [4,]    8   12   16</span></span>
+<span id="cb251-23"><a href="r-반복-함수.html#cb251-23"></a></span>
+<span id="cb251-24"><a href="r-반복-함수.html#cb251-24"></a><span class="co"># 행 기준 비율 계산</span></span>
+<span id="cb251-25"><a href="r-반복-함수.html#cb251-25"></a><span class="kw">round</span>(<span class="kw">sweep</span>(x, <span class="dv">1</span>, <span class="kw">apply</span>(x, <span class="dv">1</span>, sum), <span class="dt">FUN =</span> <span class="st">&quot;/&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb251-26"><a href="r-반복-함수.html#cb251-26"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb251-27"><a href="r-반복-함수.html#cb251-27"></a><span class="co">#&gt; [1,]  6.7 33.3 60.0</span></span>
+<span id="cb251-28"><a href="r-반복-함수.html#cb251-28"></a><span class="co">#&gt; [2,] 11.1 33.3 55.6</span></span>
+<span id="cb251-29"><a href="r-반복-함수.html#cb251-29"></a><span class="co">#&gt; [3,] 14.3 33.3 52.4</span></span>
+<span id="cb251-30"><a href="r-반복-함수.html#cb251-30"></a><span class="co">#&gt; [4,] 16.7 33.3 50.0</span></span>
+<span id="cb251-31"><a href="r-반복-함수.html#cb251-31"></a></span>
+<span id="cb251-32"><a href="r-반복-함수.html#cb251-32"></a><span class="co"># 열 기준 비율 계산</span></span>
+<span id="cb251-33"><a href="r-반복-함수.html#cb251-33"></a><span class="kw">round</span>(<span class="kw">sweep</span>(x, <span class="dv">2</span>, <span class="kw">apply</span>(x, <span class="dv">2</span>, sum), <span class="dt">FUN =</span> <span class="st">&quot;/&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb251-34"><a href="r-반복-함수.html#cb251-34"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb251-35"><a href="r-반복-함수.html#cb251-35"></a><span class="co">#&gt; [1,]   10 19.2 21.4</span></span>
+<span id="cb251-36"><a href="r-반복-함수.html#cb251-36"></a><span class="co">#&gt; [2,]   20 23.1 23.8</span></span>
+<span id="cb251-37"><a href="r-반복-함수.html#cb251-37"></a><span class="co">#&gt; [3,]   30 26.9 26.2</span></span>
+<span id="cb251-38"><a href="r-반복-함수.html#cb251-38"></a><span class="co">#&gt; [4,]   40 30.8 28.6</span></span>
+<span id="cb251-39"><a href="r-반복-함수.html#cb251-39"></a></span>
+<span id="cb251-40"><a href="r-반복-함수.html#cb251-40"></a><span class="co"># 전체 기준 비율 계산</span></span>
+<span id="cb251-41"><a href="r-반복-함수.html#cb251-41"></a><span class="kw">round</span>(<span class="kw">sweep</span>(x, <span class="dv">2</span>, <span class="kw">sum</span>(x), <span class="dt">FUN =</span> <span class="st">&quot;/&quot;</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb251-42"><a href="r-반복-함수.html#cb251-42"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb251-43"><a href="r-반복-함수.html#cb251-43"></a><span class="co">#&gt; [1,]  1.3  6.4 11.5</span></span>
+<span id="cb251-44"><a href="r-반복-함수.html#cb251-44"></a><span class="co">#&gt; [2,]  2.6  7.7 12.8</span></span>
+<span id="cb251-45"><a href="r-반복-함수.html#cb251-45"></a><span class="co">#&gt; [3,]  3.8  9.0 14.1</span></span>
+<span id="cb251-46"><a href="r-반복-함수.html#cb251-46"></a><span class="co">#&gt; [4,]  5.1 10.3 15.4</span></span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="r-반복-함수.html#cb252-1"></a><span class="co"># 데이터프레임의 숫자 열에 각각 1씩 빼기</span></span>
+<span id="cb252-2"><a href="r-반복-함수.html#cb252-2"></a><span class="kw">str</span>(iris)</span>
+<span id="cb252-3"><a href="r-반복-함수.html#cb252-3"></a><span class="co">#&gt; &#39;data.frame&#39;:    150 obs. of  5 variables:</span></span>
+<span id="cb252-4"><a href="r-반복-함수.html#cb252-4"></a><span class="co">#&gt;  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...</span></span>
+<span id="cb252-5"><a href="r-반복-함수.html#cb252-5"></a><span class="co">#&gt;  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...</span></span>
+<span id="cb252-6"><a href="r-반복-함수.html#cb252-6"></a><span class="co">#&gt;  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...</span></span>
+<span id="cb252-7"><a href="r-반복-함수.html#cb252-7"></a><span class="co">#&gt;  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...</span></span>
+<span id="cb252-8"><a href="r-반복-함수.html#cb252-8"></a><span class="co">#&gt;  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb252-9"><a href="r-반복-함수.html#cb252-9"></a>y &lt;-<span class="st"> </span><span class="kw">sweep</span>(iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">STATS =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> <span class="st">&quot;-&quot;</span>) </span>
+<span id="cb252-10"><a href="r-반복-함수.html#cb252-10"></a><span class="kw">str</span>(y)</span>
+<span id="cb252-11"><a href="r-반복-함수.html#cb252-11"></a><span class="co">#&gt; &#39;data.frame&#39;:    150 obs. of  4 variables:</span></span>
+<span id="cb252-12"><a href="r-반복-함수.html#cb252-12"></a><span class="co">#&gt;  $ Sepal.Length: num  4.1 3.9 3.7 3.6 4 4.4 3.6 4 3.4 3.9 ...</span></span>
+<span id="cb252-13"><a href="r-반복-함수.html#cb252-13"></a><span class="co">#&gt;  $ Sepal.Width : num  2.5 2 2.2 2.1 2.6 2.9 2.4 2.4 1.9 2.1 ...</span></span>
+<span id="cb252-14"><a href="r-반복-함수.html#cb252-14"></a><span class="co">#&gt;  $ Petal.Length: num  0.4 0.4 0.3 0.5 0.4 0.7 0.4 0.5 0.4 0.5 ...</span></span>
+<span id="cb252-15"><a href="r-반복-함수.html#cb252-15"></a><span class="co">#&gt;  $ Petal.Width : num  -0.8 -0.8 -0.8 -0.8 -0.8 -0.6 -0.7 -0.8 -0.8 -0.9 ...</span></span></code></pre></div>
+</div>
+<div id="aggregate" class="section level3">
+<h3><span class="header-section-number">5.4.17</span> aggregate</h3>
+<p><code>aggregate(x, ...)</code> 함수는 데이터 x의 그룹별로 함수를 적용하여 그 결과를 반환합니다.</p>
+<ul>
+<li>x : 입력 데이터</li>
+<li>by : 그룹핑 변수(열)로서 리스트 형식이어야 함</li>
+<li>FUN : 적용할 함수</li>
+</ul>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="r-반복-함수.html#cb253-1"></a><span class="kw">str</span>(iris)</span>
+<span id="cb253-2"><a href="r-반복-함수.html#cb253-2"></a><span class="co">#&gt; &#39;data.frame&#39;:    150 obs. of  5 variables:</span></span>
+<span id="cb253-3"><a href="r-반복-함수.html#cb253-3"></a><span class="co">#&gt;  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...</span></span>
+<span id="cb253-4"><a href="r-반복-함수.html#cb253-4"></a><span class="co">#&gt;  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...</span></span>
+<span id="cb253-5"><a href="r-반복-함수.html#cb253-5"></a><span class="co">#&gt;  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...</span></span>
+<span id="cb253-6"><a href="r-반복-함수.html#cb253-6"></a><span class="co">#&gt;  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...</span></span>
+<span id="cb253-7"><a href="r-반복-함수.html#cb253-7"></a><span class="co">#&gt;  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb253-8"><a href="r-반복-함수.html#cb253-8"></a><span class="co"># 종류별로 평균을 구함</span></span>
+<span id="cb253-9"><a href="r-반복-함수.html#cb253-9"></a><span class="kw">aggregate</span>(iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">by =</span> <span class="kw">list</span>(iris<span class="op">$</span>Species), mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb253-10"><a href="r-반복-함수.html#cb253-10"></a><span class="co">#&gt;      Group.1 Sepal.Length Sepal.Width Petal.Length Petal.Width</span></span>
+<span id="cb253-11"><a href="r-반복-함수.html#cb253-11"></a><span class="co">#&gt; 1     setosa         5.01        3.43         1.46       0.246</span></span>
+<span id="cb253-12"><a href="r-반복-함수.html#cb253-12"></a><span class="co">#&gt; 2 versicolor         5.94        2.77         4.26       1.326</span></span>
+<span id="cb253-13"><a href="r-반복-함수.html#cb253-13"></a><span class="co">#&gt; 3  virginica         6.59        2.97         5.55       2.026</span></span>
+<span id="cb253-14"><a href="r-반복-함수.html#cb253-14"></a></span>
+<span id="cb253-15"><a href="r-반복-함수.html#cb253-15"></a><span class="co"># 그룹핑 그룹에 이름을 지정할 수 있음(종류)</span></span>
+<span id="cb253-16"><a href="r-반복-함수.html#cb253-16"></a><span class="kw">aggregate</span>(iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">by =</span> <span class="kw">list</span>(종류 =<span class="st"> </span>iris<span class="op">$</span>Species), mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb253-17"><a href="r-반복-함수.html#cb253-17"></a><span class="co">#&gt;         종류 Sepal.Length Sepal.Width Petal.Length Petal.Width</span></span>
+<span id="cb253-18"><a href="r-반복-함수.html#cb253-18"></a><span class="co">#&gt; 1     setosa         5.01        3.43         1.46       0.246</span></span>
+<span id="cb253-19"><a href="r-반복-함수.html#cb253-19"></a><span class="co">#&gt; 2 versicolor         5.94        2.77         4.26       1.326</span></span>
+<span id="cb253-20"><a href="r-반복-함수.html#cb253-20"></a><span class="co">#&gt; 3  virginica         6.59        2.97         5.55       2.026</span></span>
+<span id="cb253-21"><a href="r-반복-함수.html#cb253-21"></a></span>
+<span id="cb253-22"><a href="r-반복-함수.html#cb253-22"></a><span class="co"># 적용할 함수에 인자들을 지정할 수 있음</span></span>
+<span id="cb253-23"><a href="r-반복-함수.html#cb253-23"></a><span class="kw">aggregate</span>(iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">by =</span> <span class="kw">list</span>(종류 =<span class="st"> </span>iris<span class="op">$</span>Species), mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, <span class="dt">trim =</span> <span class="fl">0.1</span>)</span>
+<span id="cb253-24"><a href="r-반복-함수.html#cb253-24"></a><span class="co">#&gt;         종류 Sepal.Length Sepal.Width Petal.Length Petal.Width</span></span>
+<span id="cb253-25"><a href="r-반복-함수.html#cb253-25"></a><span class="co">#&gt; 1     setosa         5.00        3.42         1.46       0.238</span></span>
+<span id="cb253-26"><a href="r-반복-함수.html#cb253-26"></a><span class="co">#&gt; 2 versicolor         5.94        2.78         4.29       1.325</span></span>
+<span id="cb253-27"><a href="r-반복-함수.html#cb253-27"></a><span class="co">#&gt; 3  virginica         6.57        2.96         5.51       2.033</span></span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="r-반복-함수.html#cb254-1"></a><span class="kw">str</span>(infert)  <span class="co"># R 내장 데이터 infert</span></span>
+<span id="cb254-2"><a href="r-반복-함수.html#cb254-2"></a><span class="co">#&gt; &#39;data.frame&#39;:    248 obs. of  8 variables:</span></span>
+<span id="cb254-3"><a href="r-반복-함수.html#cb254-3"></a><span class="co">#&gt;  $ education     : Factor w/ 3 levels &quot;0-5yrs&quot;,&quot;6-11yrs&quot;,..: 1 1 1 1 2 2 2 2 2 2 ...</span></span>
+<span id="cb254-4"><a href="r-반복-함수.html#cb254-4"></a><span class="co">#&gt;  $ age           : num  26 42 39 34 35 36 23 32 21 28 ...</span></span>
+<span id="cb254-5"><a href="r-반복-함수.html#cb254-5"></a><span class="co">#&gt;  $ parity        : num  6 1 6 4 3 4 1 2 1 2 ...</span></span>
+<span id="cb254-6"><a href="r-반복-함수.html#cb254-6"></a><span class="co">#&gt;  $ induced       : num  1 1 2 2 1 2 0 0 0 0 ...</span></span>
+<span id="cb254-7"><a href="r-반복-함수.html#cb254-7"></a><span class="co">#&gt;  $ case          : num  1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb254-8"><a href="r-반복-함수.html#cb254-8"></a><span class="co">#&gt;  $ spontaneous   : num  2 0 0 0 1 1 0 0 1 0 ...</span></span>
+<span id="cb254-9"><a href="r-반복-함수.html#cb254-9"></a><span class="co">#&gt;  $ stratum       : int  1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb254-10"><a href="r-반복-함수.html#cb254-10"></a><span class="co">#&gt;  $ pooled.stratum: num  3 1 4 2 32 36 6 22 5 19 ...</span></span>
+<span id="cb254-11"><a href="r-반복-함수.html#cb254-11"></a></span>
+<span id="cb254-12"><a href="r-반복-함수.html#cb254-12"></a><span class="co"># 2개 변수로 그룹핑</span></span>
+<span id="cb254-13"><a href="r-반복-함수.html#cb254-13"></a><span class="kw">aggregate</span>(infert[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">by =</span> <span class="kw">list</span>(infert<span class="op">$</span>education, infert<span class="op">$</span>spontaneous), </span>
+<span id="cb254-14"><a href="r-반복-함수.html#cb254-14"></a>          mean, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb254-15"><a href="r-반복-함수.html#cb254-15"></a><span class="co">#&gt;   Group.1 Group.2  age parity</span></span>
+<span id="cb254-16"><a href="r-반복-함수.html#cb254-16"></a><span class="co">#&gt; 1  0-5yrs       0 36.6   4.11</span></span>
+<span id="cb254-17"><a href="r-반복-함수.html#cb254-17"></a><span class="co">#&gt; 2 6-11yrs       0 33.7   1.72</span></span>
+<span id="cb254-18"><a href="r-반복-함수.html#cb254-18"></a><span class="co">#&gt; 3 12+ yrs       0 29.7   1.66</span></span>
+<span id="cb254-19"><a href="r-반복-함수.html#cb254-19"></a><span class="co">#&gt; 4  0-5yrs       1 34.0   4.00</span></span>
+<span id="cb254-20"><a href="r-반복-함수.html#cb254-20"></a><span class="co">#&gt; 5 6-11yrs       1 31.2   2.45</span></span>
+<span id="cb254-21"><a href="r-반복-함수.html#cb254-21"></a><span class="co">#&gt; 6 12+ yrs       1 28.9   1.70</span></span>
+<span id="cb254-22"><a href="r-반복-함수.html#cb254-22"></a><span class="co">#&gt; 7  0-5yrs       2 30.0   5.00</span></span>
+<span id="cb254-23"><a href="r-반복-함수.html#cb254-23"></a><span class="co">#&gt; 8 6-11yrs       2 32.4   3.06</span></span>
+<span id="cb254-24"><a href="r-반복-함수.html#cb254-24"></a><span class="co">#&gt; 9 12+ yrs       2 31.6   2.89</span></span></code></pre></div>
 </div>
 </div>
             </section>

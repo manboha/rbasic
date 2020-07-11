@@ -1744,13 +1744,13 @@ lines(x, dt(x, df = 15, ncp = 3), type = "l", col = "purple")
 ```
 
 ```{r}
-# 0에서 0.5까지의 면적(핑크색)은? pt(0.5, df = 10)
+# 0.5이하의 면적(핑크색)은? pt(0.5, df = 10)
 x <- seq(-5, 5, by = 0.01)
 plot(x, dt(x, df = 10), type = "l", lwd = 2, col = "red")
 
-u <- seq(0, 0.5, by = 0.01)
+u <- seq(-5, 0.5, by = 0.01)
 v <- dt(u, df = 10)
-polygon(c(0, u, 0.5), c(0, v, 0), col = "pink")
+polygon(c(-5, u, 0.5), c(0, v, 0), col = "pink")
 ```
 
 `pt(q, df, ncp, lower.tail = TRUE, log.p = FALSE)` 함수는 t분포의 누적분포함수입니다. 자유도 df의 t분포에서 인자 q의 누적분포함수값 즉 확률을 구해 반환합니다. 

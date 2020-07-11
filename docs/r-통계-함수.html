@@ -309,7 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.7" data-path="r-통계-함수.html"><a href="r-통계-함수.html#t분포t"><i class="fa fa-check"></i><b>5.5.7</b> t분포(t)</a></li>
 <li class="chapter" data-level="5.5.8" data-path="r-통계-함수.html"><a href="r-통계-함수.html#카이제곱분포chisq"><i class="fa fa-check"></i><b>5.5.8</b> 카이제곱분포(chisq)</a></li>
 <li class="chapter" data-level="5.5.9" data-path="r-통계-함수.html"><a href="r-통계-함수.html#f분포f"><i class="fa fa-check"></i><b>5.5.9</b> F분포(f)</a></li>
-<li class="chapter" data-level="5.5.10" data-path="r-통계-함수.html"><a href="r-통계-함수.html#웨이블분포weibull"><i class="fa fa-check"></i><b>5.5.10</b> 웨이블분포(weibull)</a></li>
+<li class="chapter" data-level="5.5.10" data-path="r-통계-함수.html"><a href="r-통계-함수.html#와이블분포weibull"><i class="fa fa-check"></i><b>5.5.10</b> 와이블분포(weibull)</a></li>
 <li class="chapter" data-level="5.5.11" data-path="r-통계-함수.html"><a href="r-통계-함수.html#로그정규분포lnorm"><i class="fa fa-check"></i><b>5.5.11</b> 로그정규분포(lnorm)</a></li>
 <li class="chapter" data-level="5.5.12" data-path="r-통계-함수.html"><a href="r-통계-함수.html#베르누이분포"><i class="fa fa-check"></i><b>5.5.12</b> 베르누이분포</a></li>
 <li class="chapter" data-level="5.5.13" data-path="r-통계-함수.html"><a href="r-통계-함수.html#이항분포binom"><i class="fa fa-check"></i><b>5.5.13</b> 이항분포(binom)</a></li>
@@ -1056,11 +1056,145 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb331-3"><a href="r-통계-함수.html#cb331-3"></a><span class="kw">pf</span>(<span class="fl">1.9398</span>, <span class="dt">df1 =</span> <span class="dv">3</span>, <span class="dt">df2 =</span><span class="dv">3</span>)</span>
 <span id="cb331-4"><a href="r-통계-함수.html#cb331-4"></a><span class="co">#&gt; [1] 0.7</span></span></code></pre></div>
 </div>
-<div id="웨이블분포weibull" class="section level3">
-<h3><span class="header-section-number">5.5.10</span> 웨이블분포(weibull)</h3>
+<div id="와이블분포weibull" class="section level3">
+<h3><span class="header-section-number">5.5.10</span> 와이블분포(weibull)</h3>
+<p>Weibull분포는 국내 번역용어로는 와이블분포, 베이블분포 등이 있습니다. Weibull분포는 지수분포를 보다 일반화시켜 여러 다양한 확률분포 형태를 나타낼 수 있도록 고안된 확률분포입니다. 스웨덴의 물리학자 와이블(W. Weibull)이 1939년 재료의 파괴강도에 대한 분포를 표시하기 위해 이 분포를 발표하였습니다. 주로 산업현장에서 부품의 수명을 추정하는 데 많이 사용되는 분포입니다. 또한 날씨예보, 신뢰성 공학에서의 실패분석 등에 사용되기도 합니다.</p>
+<p>Weibull분포의 모양을 결정하는 것은 형상 모수(shape parameter)와 척도 모수(scale parameter)입니다. 형상모수의 값이 낮으면 오른쪽으로 치우친 곡선을, 높으면 왼쪽으로 치우친 곡선을 나타내며, 값이 3이면 정규분포에 가까운 곡선을 나타냅니다. 척도모수의 값이 크면 분포가 좁아지고, 반대로 값이 크면 분포가 넓어집니다.</p>
+<p>Weibull분포와 관련된 함수는 4가지가 있습니다.</p>
+<ul>
+<li>rweibull(n, shape, scale = 1)</li>
+<li>dweibull(x, shape, scale = 1, log = FALSE)</li>
+<li>pweibull(q, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</li>
+<li>qweibull(p, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</li>
+</ul>
+<p>위 함수에서 인자 shape는 형상모수, scale은 척도모수를 의미합니다.</p>
+<p><code>rweibull(n, shape, scale = 1)</code> 함수는 형상모수 shape와 척도모수 scale의 Weibull분포에서 n개의 난수를 생성하여 반환합니다. rweibull 함수명은 난수를 의미하는 r과 Weibull분포를 의미하는 weibull이 결합되어진 것입니다.</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="r-통계-함수.html#cb332-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb332-2"><a href="r-통계-함수.html#cb332-2"></a><span class="co"># 난수 10개 생성</span></span>
+<span id="cb332-3"><a href="r-통계-함수.html#cb332-3"></a><span class="kw">rweibull</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>)</span>
+<span id="cb332-4"><a href="r-통계-함수.html#cb332-4"></a><span class="co">#&gt;  [1] 2.233 0.975 1.891 0.705 0.495 3.515 1.598 0.675 1.543 1.771</span></span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="r-통계-함수.html#cb333-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb333-2"><a href="r-통계-함수.html#cb333-2"></a>x &lt;-<span class="st"> </span><span class="kw">rweibull</span>(<span class="dt">n =</span> <span class="dv">5000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>)</span>
+<span id="cb333-3"><a href="r-통계-함수.html#cb333-3"></a><span class="kw">hist</span>(x, <span class="dt">breaks =</span> <span class="dv">100</span>,  <span class="dt">main =</span> <span class="st">&quot;&quot;</span>) </span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-324-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><code>dweibull(x, shape, scale = 1, log = FALSE)</code> 함수는 Weibull분포의 확률밀도함수입니다. 형상모수 shape와 척도모수 scale의 Weibull분포에서 인자 x의 함수값을 구해 반환합니다.</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="r-통계-함수.html#cb334-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb334-2"><a href="r-통계-함수.html#cb334-2"></a></span>
+<span id="cb334-3"><a href="r-통계-함수.html#cb334-3"></a><span class="co"># 확률밀도함수 시각화</span></span>
+<span id="cb334-4"><a href="r-통계-함수.html#cb334-4"></a><span class="kw">plot</span>(x, <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-325-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="r-통계-함수.html#cb335-1"></a></span>
+<span id="cb335-2"><a href="r-통계-함수.html#cb335-2"></a><span class="co"># x가 0.5일때의 함수값?</span></span>
+<span id="cb335-3"><a href="r-통계-함수.html#cb335-3"></a><span class="kw">dweibull</span>(<span class="fl">0.5</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>)</span>
+<span id="cb335-4"><a href="r-통계-함수.html#cb335-4"></a><span class="co">#&gt; [1] 0.235</span></span></code></pre></div>
+<p>형상모수 shape와 척도모수 scale의 값에 따라 다양한 형태의 분포가 나옵니다.
+형상모수의 값이 낮으면 오른쪽으로 치우친 곡선을, 높으면 왼쪽으로 치우친 곡선을 나타내며, 값이 3이면 정규분포에 가까운 곡선을 나타냅니다. 척도모수의 값이 크면 분포가 좁아지고, 반대로 값이 크면 분포가 넓어집니다.</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="r-통계-함수.html#cb336-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb336-2"><a href="r-통계-함수.html#cb336-2"></a></span>
+<span id="cb336-3"><a href="r-통계-함수.html#cb336-3"></a><span class="kw">plot</span>(x,  <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">5</span>, <span class="dt">scale =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb336-4"><a href="r-통계-함수.html#cb336-4"></a><span class="kw">lines</span>(x, <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">scale =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb336-5"><a href="r-통계-함수.html#cb336-5"></a><span class="kw">lines</span>(x, <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb336-6"><a href="r-통계-함수.html#cb336-6"></a><span class="kw">lines</span>(x, <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">scale =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-326-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="r-통계-함수.html#cb337-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb337-2"><a href="r-통계-함수.html#cb337-2"></a></span>
+<span id="cb337-3"><a href="r-통계-함수.html#cb337-3"></a><span class="kw">plot</span>(x,  <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">scale =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb337-4"><a href="r-통계-함수.html#cb337-4"></a><span class="kw">lines</span>(x, <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">scale =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb337-5"><a href="r-통계-함수.html#cb337-5"></a><span class="kw">lines</span>(x, <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">scale =</span> <span class="dv">3</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb337-6"><a href="r-통계-함수.html#cb337-6"></a><span class="kw">lines</span>(x, <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">3</span>, <span class="dt">scale =</span> <span class="dv">4</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-327-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="r-통계-함수.html#cb338-1"></a><span class="co"># 0에서 2까지의 면적(핑크색)은? pweibull(2, shape = 2, scale = 2)</span></span>
+<span id="cb338-2"><a href="r-통계-함수.html#cb338-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb338-3"><a href="r-통계-함수.html#cb338-3"></a><span class="kw">plot</span>(x, <span class="kw">dweibull</span>(x, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb338-4"><a href="r-통계-함수.html#cb338-4"></a></span>
+<span id="cb338-5"><a href="r-통계-함수.html#cb338-5"></a>u &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb338-6"><a href="r-통계-함수.html#cb338-6"></a>v &lt;-<span class="st"> </span><span class="kw">dweibull</span>(u, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>)</span>
+<span id="cb338-7"><a href="r-통계-함수.html#cb338-7"></a><span class="kw">polygon</span>(<span class="kw">c</span>(<span class="dv">0</span>, u, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">0</span>, v, <span class="dv">0</span>), <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-328-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><code>pweibull(q, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</code> 함수는 Weibull분포의 누적분포함수입니다. 형상모수 shape와 척도모수 scale의 Weibull분포에서 인자 q의 누적분포함수값 즉 확률을 구해 반환합니다.</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="r-통계-함수.html#cb339-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb339-2"><a href="r-통계-함수.html#cb339-2"></a></span>
+<span id="cb339-3"><a href="r-통계-함수.html#cb339-3"></a><span class="co"># 누적분포함수 시각화</span></span>
+<span id="cb339-4"><a href="r-통계-함수.html#cb339-4"></a><span class="kw">plot</span>(x, <span class="kw">pweibull</span>(x, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-329-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="r-통계-함수.html#cb340-1"></a></span>
+<span id="cb340-2"><a href="r-통계-함수.html#cb340-2"></a><span class="co"># q가 2일때의 누적분포함수값은? 즉 확률은?</span></span>
+<span id="cb340-3"><a href="r-통계-함수.html#cb340-3"></a><span class="kw">pweibull</span>(<span class="dv">2</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>)</span>
+<span id="cb340-4"><a href="r-통계-함수.html#cb340-4"></a><span class="co">#&gt; [1] 0.632</span></span></code></pre></div>
+<p><code>qweibull(p, shape, scale = 1, lower.tail = TRUE, log.p = FALSE)</code> 함수는 Weibull분포의 분위수를 구하는 함수입니다. 형상모수 shape와 척도모수 scale의 Weibull분포에서 확률이 인자 p일 때의 분위수 값을 구해 반환합니다.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="r-통계-함수.html#cb341-1"></a><span class="kw">qweibull</span>(<span class="fl">0.7</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>)</span>
+<span id="cb341-2"><a href="r-통계-함수.html#cb341-2"></a><span class="co">#&gt; [1] 2.19</span></span>
+<span id="cb341-3"><a href="r-통계-함수.html#cb341-3"></a><span class="kw">pweibull</span>(<span class="fl">2.1945</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">2</span>)</span>
+<span id="cb341-4"><a href="r-통계-함수.html#cb341-4"></a><span class="co">#&gt; [1] 0.7</span></span></code></pre></div>
 </div>
 <div id="로그정규분포lnorm" class="section level3">
 <h3><span class="header-section-number">5.5.11</span> 로그정규분포(lnorm)</h3>
+<p>로그정규뷴포는 확률변수에 로그를 취하게 되면 그 값이 정규분포를 따르는 확률분포입니다. 모양은 Weibull분포와 유사하게 왼쪽이 볼록한 형태입니다. 우리나라의 소득분포는 로그정규분포에 가깝습니다. 즉 왼쪽 소득이 낮은 층의 비율이 높다고 볼 수 있습니다. 로그 정규 분포는 신뢰도 분석, 주식 변동의 모형화 등에 사용됩니다.
+로그정규분포의 모양을 결정하는 것은 평균과 표준편차입니다.</p>
+<p>로그정규분포와 관련된 함수는 4가지가 있습니다.</p>
+<ul>
+<li>rlnorm(n, meanlog = 0, sdlog = 1)</li>
+<li>dlnorm(x, meanlog = 0, sdlog = 1, log = FALSE)</li>
+<li>plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</li>
+<li>qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</li>
+</ul>
+<p>위 함수에서 인자 meanlog는 평균, sdlog는 표준편차를 의미합니다.</p>
+<p><code>rlnorm(n, meanlog = 0, sdlog = 1)</code> 함수는 주어진 평균 meanlog(기본값 0)과 표준편차 sdlog(기본값 1)의 로그정규분포에서 n개의 난수를 생성하여 반환합니다. rlnorm 함수명은 난수를 의미하는 r과 로그정규분포를 의미하는 lnorm이 결합되어진 것입니다.</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="r-통계-함수.html#cb342-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb342-2"><a href="r-통계-함수.html#cb342-2"></a><span class="co"># 난수 10개 생성</span></span>
+<span id="cb342-3"><a href="r-통계-함수.html#cb342-3"></a><span class="kw">rlnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb342-4"><a href="r-통계-함수.html#cb342-4"></a><span class="co">#&gt;  [1] 0.571 0.794 4.753 1.073 1.138 5.557 1.586 0.282 0.503 0.640</span></span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="r-통계-함수.html#cb343-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb343-2"><a href="r-통계-함수.html#cb343-2"></a>x &lt;-<span class="st"> </span><span class="kw">rlnorm</span>(<span class="dt">n =</span> <span class="dv">5000</span>, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb343-3"><a href="r-통계-함수.html#cb343-3"></a><span class="kw">hist</span>(x, <span class="dt">breaks =</span> <span class="dv">100</span>,  <span class="dt">main =</span> <span class="st">&quot;&quot;</span>) </span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-332-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><code>dlnorm(x, meanlog = 0, sdlog = 1, log = FALSE)</code> 함수는 로그정규분포의 확률밀도함수입니다. 평균 meanlog(기본값 0)과 표준편차 sdlog(기본값 1)의 로그정규분포에서 인자 x의 함수값을 구해 반환합니다.</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="r-통계-함수.html#cb344-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb344-2"><a href="r-통계-함수.html#cb344-2"></a></span>
+<span id="cb344-3"><a href="r-통계-함수.html#cb344-3"></a><span class="co"># 확률밀도함수 시각화</span></span>
+<span id="cb344-4"><a href="r-통계-함수.html#cb344-4"></a><span class="kw">plot</span>(x, <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-333-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="r-통계-함수.html#cb345-1"></a></span>
+<span id="cb345-2"><a href="r-통계-함수.html#cb345-2"></a><span class="co"># x가 0.5일때의 함수값?</span></span>
+<span id="cb345-3"><a href="r-통계-함수.html#cb345-3"></a><span class="kw">dlnorm</span>(<span class="fl">0.5</span>, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb345-4"><a href="r-통계-함수.html#cb345-4"></a><span class="co">#&gt; [1] 0.627</span></span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="r-통계-함수.html#cb346-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb346-2"><a href="r-통계-함수.html#cb346-2"></a></span>
+<span id="cb346-3"><a href="r-통계-함수.html#cb346-3"></a><span class="kw">plot</span>(x,  <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb346-4"><a href="r-통계-함수.html#cb346-4"></a><span class="kw">lines</span>(x, <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="fl">0.3</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb346-5"><a href="r-통계-함수.html#cb346-5"></a><span class="kw">lines</span>(x, <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="fl">0.6</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb346-6"><a href="r-통계-함수.html#cb346-6"></a><span class="kw">lines</span>(x, <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">1</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-334-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="r-통계-함수.html#cb347-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb347-2"><a href="r-통계-함수.html#cb347-2"></a></span>
+<span id="cb347-3"><a href="r-통계-함수.html#cb347-3"></a><span class="kw">plot</span>(x,  <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">2</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb347-4"><a href="r-통계-함수.html#cb347-4"></a><span class="kw">lines</span>(x, <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="fl">1.7</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb347-5"><a href="r-통계-함수.html#cb347-5"></a><span class="kw">lines</span>(x, <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="fl">1.4</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb347-6"><a href="r-통계-함수.html#cb347-6"></a><span class="kw">lines</span>(x, <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-335-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="r-통계-함수.html#cb348-1"></a><span class="co"># 0에서 2까지의 면적(핑크색)은? plnorm(2, meanlog = 0, sdlog = 1)</span></span>
+<span id="cb348-2"><a href="r-통계-함수.html#cb348-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb348-3"><a href="r-통계-함수.html#cb348-3"></a><span class="kw">plot</span>(x, <span class="kw">dlnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb348-4"><a href="r-통계-함수.html#cb348-4"></a></span>
+<span id="cb348-5"><a href="r-통계-함수.html#cb348-5"></a>u &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb348-6"><a href="r-통계-함수.html#cb348-6"></a>v &lt;-<span class="st"> </span><span class="kw">dlnorm</span>(u, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb348-7"><a href="r-통계-함수.html#cb348-7"></a><span class="kw">polygon</span>(<span class="kw">c</span>(<span class="dv">0</span>, u, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">0</span>, v, <span class="dv">0</span>), <span class="dt">col =</span> <span class="st">&quot;pink&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-336-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><code>plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</code> 함수는 로그정규분포의 누적분포함수입니다. 평균 meanlog(기본값 0)과 표준편차 sdlog(기본값 1)의 로그정규분포에서 인자 q의 누적분포함수값 즉 확률을 구해 반환합니다.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="r-통계-함수.html#cb349-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb349-2"><a href="r-통계-함수.html#cb349-2"></a></span>
+<span id="cb349-3"><a href="r-통계-함수.html#cb349-3"></a><span class="co"># 누적분포함수 시각화</span></span>
+<span id="cb349-4"><a href="r-통계-함수.html#cb349-4"></a><span class="kw">plot</span>(x, <span class="kw">plnorm</span>(x, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="rbasic_files/figure-html/unnamed-chunk-337-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="r-통계-함수.html#cb350-1"></a></span>
+<span id="cb350-2"><a href="r-통계-함수.html#cb350-2"></a><span class="co"># q가 2일때의 누적분포함수값은? 즉 확률은?</span></span>
+<span id="cb350-3"><a href="r-통계-함수.html#cb350-3"></a><span class="kw">plnorm</span>(<span class="dv">2</span>, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb350-4"><a href="r-통계-함수.html#cb350-4"></a><span class="co">#&gt; [1] 0.756</span></span></code></pre></div>
+<p><code>qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)</code> 함수는 로그정규분포의 분위수를 구하는 함수입니다. 평균 meanlog(기본값 0)과 표준편차 sdlog(기본값 1)의 로그정규분포에서 확률이 인자 p일 때의 분위수 값을 구해 반환합니다.</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="r-통계-함수.html#cb351-1"></a><span class="kw">qlnorm</span>(<span class="fl">0.7</span>, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb351-2"><a href="r-통계-함수.html#cb351-2"></a><span class="co">#&gt; [1] 1.69</span></span>
+<span id="cb351-3"><a href="r-통계-함수.html#cb351-3"></a><span class="kw">plnorm</span>(<span class="fl">1.6894</span>, <span class="dt">meanlog =</span> <span class="dv">0</span>, <span class="dt">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb351-4"><a href="r-통계-함수.html#cb351-4"></a><span class="co">#&gt; [1] 0.7</span></span></code></pre></div>
 </div>
 <div id="베르누이분포" class="section level3">
 <h3><span class="header-section-number">5.5.12</span> 베르누이분포</h3>
